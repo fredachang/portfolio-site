@@ -1,0 +1,13 @@
+export interface Project {
+  id: string;
+  year: string;
+  title: string;
+  type: string;
+  description: string;
+  images: Image[];
+}
+
+interface Image {
+  imageId: string;
+  imagePath: string;
+}
