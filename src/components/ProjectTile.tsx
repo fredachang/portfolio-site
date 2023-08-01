@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { fadeXY } from "../motion";
 import { Project } from "../types";
 
 interface Props {
@@ -13,7 +15,9 @@ export const ProjectTile = (props: Props) => {
         <h2>{project.year}</h2>
         <h2>{project.type}</h2>
         <p>{project.description}</p>
-        <img className="w-20 h-20" src={project.images[0].imagePath} />
+        <motion.div initial="hidden" animate="visible" variants={fadeXY}>
+          <img className="w-20 h-20" src={project.images[0].imagePath} />
+        </motion.div>
       </div>
     </>
   );
