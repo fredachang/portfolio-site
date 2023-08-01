@@ -15,6 +15,6 @@ export const projects: Project[] = [
     title: "Project Two",
     type: "personal",
     description: "this is the project description",
-    images: [{ imageId: "1", imagePath: "/images/assets/sink.jpeg" }],
+    images: [{ imageId: "1", imagePath: "/images/sink.jpeg" }],
   },
 ];
