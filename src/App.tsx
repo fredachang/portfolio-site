@@ -6,8 +6,8 @@ import { projects } from "./data";
 function App() {
   return (
     <>
-      <div className="flex flex-col w-screen h-screen">
-        <div className="bg-yellow-100 h-7">
+      <div className="bg-stone-50 flex flex-col w-screen h-screen">
+        <div className="bg-stone-50 h-7">
           <h1>Portfolio Site</h1>
         </div>
 
@@ -20,7 +20,7 @@ function App() {
         </LayoutGroup>
 
         <div>
-          <h1 className="bg-yellow-100 h-7">Footer</h1>
+          <h1 className="bg-stone-50 h-7">Footer</h1>
         </div>
       </div>
     </>
