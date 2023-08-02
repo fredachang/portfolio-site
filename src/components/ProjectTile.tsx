@@ -16,7 +16,7 @@ export const ProjectTile = (props: Props) => {
   const sharedStyles =
     "bg-stone-50 py-5 px-2 border-l border-black h-full overflow-x-hidden";
   const staticStyle = `${sharedStyles} flex-1`;
-  const expandedStyle = `${sharedStyles} w-4/6`;
+  const expandedStyle = `${sharedStyles} w-3/5`;
 
   //barheaderstyle
 
