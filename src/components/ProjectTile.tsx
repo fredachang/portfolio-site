@@ -15,8 +15,9 @@ export const ProjectTile = (props: Props) => {
     setExpand(!expand);
   };
 
-  const staticStyle = "bg-stone-50 border-x border-black flex-1";
-  const expandedStyle = "bg-stone-50 border-x border-black w-4/5";
+  const commonStyle = "bg-stone-50 border-l border-black";
+  const staticStyle = `${commonStyle} flex-1`;
+  const expandedStyle = `${commonStyle} w-4/5`;
 
   return (
     <>

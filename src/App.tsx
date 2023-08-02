@@ -2,6 +2,7 @@ import { LayoutGroup, motion } from "framer-motion";
 import "./App.css";
 import { ProjectTile } from "./components/ProjectTile";
 import { projects } from "./data";
+import { useState } from "react";
 
 function App() {
   return (
