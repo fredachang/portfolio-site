@@ -7,7 +7,7 @@ export interface Project {
   images: Image[];
 }
 
-interface Image {
+export interface Image {
   imageId: string;
   imagePath: string;
 }

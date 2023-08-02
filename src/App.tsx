@@ -21,7 +21,7 @@ function App() {
         </div>
 
         <LayoutGroup>
-          <motion.div className="bars">
+          <motion.div layout layoutRoot className="bars">
             {projects.map((project) => {
               return (
                 <ProjectTile

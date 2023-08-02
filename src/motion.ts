@@ -24,3 +24,27 @@ export const fadeXY = {
     },
   },
 };
+
+export const fade = {
+  hidden: {
+    x: -2,
+    opacity: 0.8,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: "linear",
+    },
+  },
+};
+
+export const transitionSettings = {
+  duration: 1,
+  ease: "easeIn",
+  type: "linear",
+  bounce: 0.05,
+  damping: 20,
+  stiffness: 30,
+};
