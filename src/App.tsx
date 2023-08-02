@@ -1,3 +1,4 @@
+import { LayoutGroup, motion } from "framer-motion";
 import "./App.css";
 import { ProjectTile } from "./components/ProjectTile";
 import { projects } from "./data";
@@ -10,11 +11,13 @@ function App() {
           <h1>Portfolio Site</h1>
         </div>
 
-        <div className="flex justify-between w-screen flex-1">
-          {projects.map((project) => {
-            return <ProjectTile project={project} />;
-          })}
-        </div>
+        <LayoutGroup>
+          <motion.div className="flex justify-between w-screen flex-1">
+            {projects.map((project) => {
+              return <ProjectTile key={project.id} project={project} />;
+            })}
+          </motion.div>
+        </LayoutGroup>
 
         <div>
           <h1 className="bg-yellow-100 h-7">Footer</h1>
