@@ -1,0 +1,30 @@
+.header {
+  height: 5vh;
+  width: 100vw;
+  top: 0;
+  z-index: 10;
+}
+
+.bars {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.footer {
+  height: 5vh;
+  width: 100vw;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.barText {
+  display: flex;
+  justify-content: flex-end;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}

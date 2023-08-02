@@ -5,7 +5,7 @@ import { projects } from "./data";
 import { useState } from "react";
 
 function App() {
-  const [expandedProjectId, setExpandedProjectId] = useState("");
+  const [expandedProjectId, setExpandedProjectId] = useState("1");
 
   const handleExpand = (projectId: string) => {
     if (projectId === expandedProjectId) {
@@ -15,13 +15,13 @@ function App() {
 
   return (
     <>
-      <div className="bg-stone-50 flex flex-col w-screen h-screen overflow-y-hidden">
-        <div className="bg-stone-50 h-5% fixed w-screen top-0 z-10">
+      <div className="bg-stone-50 flex flex-col w-screen h-screen">
+        <div className="header">
           <h1>Portfolio Site</h1>
         </div>
 
         <LayoutGroup>
-          <motion.div className="flex justify-between w-screen h-90% flex-1">
+          <motion.div className="bars">
             {projects.map((project) => {
               return (
                 <ProjectTile
@@ -35,11 +35,14 @@ function App() {
           </motion.div>
         </LayoutGroup>
 
-        <div>
-          <h1 className="bg-stone-50 fixed w-screen bottom-0 h-5% z-10">
-            Footer
+        <footer>
+          <h1 className="footer">
+            <p>Email</p>
+            <p>LinkedIn</p>
+            <p>GitHub</p>
+            <p>Instagram</p>
           </h1>
-        </div>
+        </footer>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "1",
     year: "2002",
-    title: "Project One",
+    title: "Project One long description",
     type: "commercial",
     description: "this is the project description",
     images: [{ imageId: "1", imagePath: "/images/toothpaste.jpeg" }],
