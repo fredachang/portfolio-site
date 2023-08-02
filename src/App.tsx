@@ -7,6 +7,7 @@ import { useState } from "react";
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
 
+  const projectCount = projects.length;
   const handleExpand = (projectId: string) => {
     if (projectId === expandedProjectId) {
       setExpandedProjectId("");
@@ -20,20 +21,21 @@ function App() {
           <h1>Portfolio Site</h1>
         </div>
 
-        <LayoutGroup>
-          <motion.div layout layoutRoot className="bars">
-            {projects.map((project) => {
-              return (
-                <ProjectTile
-                  key={project.id}
-                  project={project}
-                  isExpanded={expandedProjectId === project.id}
-                  handleExpand={handleExpand}
-                />
-              );
-            })}
-          </motion.div>
-        </LayoutGroup>
+        {/* <LayoutGroup> */}
+        <motion.div className="bars">
+          {projects.map((project) => {
+            return (
+              <ProjectTile
+                key={project.id}
+                project={project}
+                isExpanded={expandedProjectId === project.id}
+                handleExpand={handleExpand}
+                projectCount={projectCount}
+              />
+            );
+          })}
+        </motion.div>
+        {/* </LayoutGroup> */}
 
         <footer>
           <h1 className="footer">

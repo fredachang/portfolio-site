@@ -7,16 +7,16 @@ interface Props {
   project: Project;
   isExpanded: boolean;
   handleExpand: (projectId: string) => void;
+  projectCount: number;
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project, isExpanded, handleExpand } = props;
+  const { project, isExpanded, handleExpand, projectCount } = props;
 
   //overall bar style
-  const sharedStyles =
-    "bg-stone-50 py-5 px-2 border-l border-black h-full overflow-x-hidden";
-  const staticStyle = `${sharedStyles} flex-1`;
-  const expandedStyle = `${sharedStyles} w-3/5`;
+  const sharedStyles = "bg-stone-50 py-5 px-2 border-l border-black h-full";
+  const staticStyle = `${sharedStyles} w-[150px]`;
+  const expandedStyle = `${sharedStyles} w-[800px]`;
 
   //barheaderstyle
 
@@ -28,7 +28,7 @@ export const ProjectTile = (props: Props) => {
   //containers
 
   const flexBox1 = "flex flex-row h-full";
-  const flexBox2 = "flex flex-row items-start w-full h-full px-5";
+  const flexBox2 = "flex flex-row items-start w-[800px] h-full px-5";
   const imageContainer = "w-[700px] h-full overflow-hidden";
   const textContainer = "flex items-end h-full pl-2";
 
@@ -36,9 +36,8 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
-        layout="position"
-        transition={transitionSettings}
-        className={isExpanded ? expandedStyle : staticStyle}
+        // transition={transitionSettings}
+        className={staticStyle}
       >
         <div className={flexBox1}>
           <div className={isExpanded ? expandedHeader : collapsedHeader}>
