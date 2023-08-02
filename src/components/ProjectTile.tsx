@@ -1,30 +1,37 @@
 import { motion } from "framer-motion";
 import { fadeXY } from "../motion";
 import { Project } from "../types";
-import { useState } from "react";
 
 interface Props {
   project: Project;
+  isExpanded: boolean;
+  handleExpand: (projectId: string) => void;
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project } = props;
-  const [expand, setExpand] = useState(false);
+  const { project, isExpanded, handleExpand } = props;
 
-  const handleExpand = () => {
-    setExpand(!expand);
+  const sharedStyles =
+    "bg-stone-50 py-10 px-2 border-l border-black h-full overflow-x-hidden";
+  const staticStyle = `${sharedStyles} flex-1`;
+  const expandedStyle = `${sharedStyles} w-3/5`;
+
+  const transitionSettings = {
+    duration: 3,
+    ease: "easeIn",
+    type: "spring",
+    bounce: 0.05,
+    damping: 20,
+    stiffness: 30,
   };
-
-  const staticStyle = "bg-stone-50 border-x border-black flex-1";
-  const expandedStyle = "bg-stone-50 border-x border-black w-4/5";
 
   return (
     <>
       <motion.div
-        onClick={handleExpand}
+        onClick={() => handleExpand(project.id)}
         layout="position"
-        transition={{ duration: 0.5 }}
-        className={expand ? expandedStyle : staticStyle}
+        transition={transitionSettings}
+        className={isExpanded ? expandedStyle : staticStyle}
       >
         <h1>{project.title}</h1>
         <h2>{project.year}</h2>
