@@ -5,27 +5,32 @@ import { Project } from "../types";
 interface Props {
   project: Project;
   isExpanded: boolean;
-  onExpand: (projectId: string) => void;
+  handleExpand: (projectId: string) => void;
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project, isExpanded, onExpand } = props;
-
-  const handleExpand = () => {
-    onExpand(project.id);
-  };
+  const { project, isExpanded, handleExpand } = props;
 
   const sharedStyles =
-    "bg-red-50 py-10 px-2 border-l border-black h-full overflow-x-hidden";
+    "bg-stone-50 py-10 px-2 border-l border-black h-full overflow-x-hidden";
   const staticStyle = `${sharedStyles} flex-1`;
   const expandedStyle = `${sharedStyles} w-3/5`;
+
+  const transitionSettings = {
+    duration: 3,
+    ease: "easeIn",
+    type: "spring",
+    bounce: 0.05,
+    damping: 20,
+    stiffness: 30,
+  };
 
   return (
     <>
       <motion.div
-        onClick={handleExpand}
+        onClick={() => handleExpand(project.id)}
         layout="position"
-        transition={{ duration: 0.5 }}
+        transition={transitionSettings}
         className={isExpanded ? expandedStyle : staticStyle}
       >
         <h1>{project.title}</h1>

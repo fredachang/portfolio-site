@@ -8,12 +8,14 @@ function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("");
 
   const handleExpand = (projectId: string) => {
-    setExpandedProjectId(projectId);
+    if (projectId === expandedProjectId) {
+      setExpandedProjectId("");
+    } else setExpandedProjectId(projectId);
   };
 
   return (
     <>
-      <div className="bg-stone-50 flex flex-col w-screen h-screen">
+      <div className="bg-stone-50 flex flex-col w-screen h-screen overflow-y-hidden">
         <div className="bg-stone-50 h-5% fixed w-screen top-0 z-10">
           <h1>Portfolio Site</h1>
         </div>
@@ -26,7 +28,7 @@ function App() {
                   key={project.id}
                   project={project}
                   isExpanded={expandedProjectId === project.id}
-                  onExpand={handleExpand}
+                  handleExpand={handleExpand}
                 />
               );
             })}
