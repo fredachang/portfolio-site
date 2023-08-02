@@ -7,7 +7,10 @@ export const projects: Project[] = [
     title: "Project One long description",
     type: "commercial",
     description: "this is the project description",
-    images: [{ imageId: "1", imagePath: "/images/toothpaste.jpeg" }],
+    images: [
+      { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
+      { imageId: "2", imagePath: "/images/sink.jpeg" },
+    ],
   },
   {
     id: "2",
@@ -44,7 +47,7 @@ export const projects: Project[] = [
   {
     id: "6",
     year: "2003",
-    title: "Project Five",
+    title: "Project Six",
     type: "personal",
     description: "this is the project description",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
@@ -52,7 +55,7 @@ export const projects: Project[] = [
   {
     id: "7",
     year: "2003",
-    title: "Project Five",
+    title: "Project Seven",
     type: "personal",
     description: "this is the project description",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
@@ -60,7 +63,7 @@ export const projects: Project[] = [
   {
     id: "8",
     year: "2003",
-    title: "Project Five",
+    title: "Project Eight",
     type: "personal",
     description: "this is the project description",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
@@ -68,15 +71,15 @@ export const projects: Project[] = [
   {
     id: "9",
     year: "2003",
-    title: "Project Five",
+    title: "Project Nine",
     type: "personal",
     description: "this is the project description",
-    images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
+    images: [{ imageId: "2", imagePath: "/images/toothpaste.jpeg" }],
   },
   {
     id: "10",
     year: "2003",
-    title: "Project Five",
+    title: "Project Ten",
     type: "personal",
     description: "this is the project description",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],

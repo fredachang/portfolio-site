@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { fadeXY } from "../motion";
+import { fadeXY, transitionSettings } from "../motion";
 import { Project } from "../types";
+import { Carousel } from "./Carousel";
 
 interface Props {
   project: Project;
@@ -20,23 +21,16 @@ export const ProjectTile = (props: Props) => {
   //barheaderstyle
 
   const sharedHeaderStyles =
-    "flex flex-col justify-between items-center h-full";
+    "flex bg-stone-50 flex-col justify-between items-center h-full";
   const expandedHeader = `${sharedHeaderStyles} w-14`;
   const collapsedHeader = `${sharedHeaderStyles} w-full`;
 
   //containers
 
   const flexBox1 = "flex flex-row h-full";
-  const imageContainer = "w-[600px] h-[600px] overflow-hidden";
-
-  const transitionSettings = {
-    duration: 3,
-    ease: "easeIn",
-    type: "spring",
-    bounce: 0.05,
-    damping: 20,
-    stiffness: 30,
-  };
+  const flexBox2 = "flex flex-row items-start w-full h-full px-5";
+  const imageContainer = "w-[700px] h-full overflow-hidden";
+  const textContainer = "flex items-end h-full pl-2";
 
   return (
     <>
@@ -62,16 +56,19 @@ export const ProjectTile = (props: Props) => {
           </div>
 
           {isExpanded && (
-            <div className="px-5">
+            <div className={flexBox2}>
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={fadeXY}
                 className={imageContainer}
               >
-                <img className="max-w-fit" src={project.images[0].imagePath} />
+                <Carousel images={project.images} />
               </motion.div>
-              <p>{project.description}</p>
+
+              <div className={textContainer}>
+                <p className="text-xs">{project.description}</p>
+              </div>
             </div>
           )}
         </div>
