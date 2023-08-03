@@ -1,13 +1,20 @@
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import "./App.css";
 import { ProjectTile } from "./components/ProjectTile";
 import { projects } from "./data";
 import { useState } from "react";
-import { fadeX, staggerParentContainer } from "./motion";
+import { Project } from "./types";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { commonStyles } from "./tailwind-utils";
+
+const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
   const [expandFilter, setExpandFilter] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [removeFilter, setRemoveFilter] = useState(false);
 
   const handleExpand = (projectId: string) => {
     if (projectId === expandedProjectId) {
@@ -16,50 +23,43 @@ function App() {
   };
 
   const handleShowHome = () => {
+    setFilteredProjects(projects);
     setExpandedProjectId("1");
+    setRemoveFilter(false);
+    setExpandFilter(false);
   };
 
   const handleExpandFilter = () => {
     setExpandFilter(!expandFilter);
+    setRemoveFilter(!removeFilter);
+    setFilteredProjects(projects);
+    setExpandedProjectId("1");
   };
 
-  const overallBodyContainer = "bg-stone-50 flex flex-col w-screen h-screen";
-  const filterNavContainer = `bg-yellow-100 flex justify-end w-1/3`;
-  const categoryButtonContainer =
-    "bg-purple-100 w-4/5 flex justify-between mr-10";
+  const filterProjectsByType = (projects: Project[], projectType: string) => {
+    const filteredProjects = projects.filter(
+      (project) => project.type === projectType
+    );
+    setFilteredProjects(filteredProjects);
+  };
 
   return (
     <>
-      <div className={overallBodyContainer}>
-        <div className="header">
-          <button onClick={handleShowHome}>Freda Chang</button>
-
-          <div className={filterNavContainer}>
-            <AnimatePresence>
-              {expandFilter && (
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={staggerParentContainer}
-                  className={categoryButtonContainer}
-                >
-                  <motion.button variants={fadeX}>Graphic Design</motion.button>
-                  <motion.button variants={fadeX}>3D Design</motion.button>
-                  <motion.button variants={fadeX}>
-                    Web Development
-                  </motion.button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <button onClick={handleExpandFilter}>Filter By</button>
-          </div>
-        </div>
+      <main className={overallBodyContainer}>
+        <nav>
+          <Header
+            handleShowHome={handleShowHome}
+            expandFilter={expandFilter}
+            projects={projects}
+            filterProjectsByType={filterProjectsByType}
+            handleExpandFilter={handleExpandFilter}
+            removeFilter={removeFilter}
+          />
+        </nav>
 
         <LayoutGroup>
-          <motion.div className="bars">
-            {projects.map((project) => {
+          <motion.section className="bars">
+            {filteredProjects.map((project) => {
               return (
                 <ProjectTile
                   key={project.id}
@@ -69,18 +69,13 @@ function App() {
                 />
               );
             })}
-          </motion.div>
+          </motion.section>
         </LayoutGroup>
 
         <footer>
-          <h1 className="footer">
-            <p>Email</p>
-            <p>LinkedIn</p>
-            <p>GitHub</p>
-            <p>Instagram</p>
-          </h1>
+          <Footer />
         </footer>
-      </div>
+      </main>
     </>
   );
 }

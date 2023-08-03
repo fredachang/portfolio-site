@@ -1,6 +1,8 @@
-.header {
+nav {
   height: 5vh;
   width: 100vw;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   top: 0;
   z-index: 10;
   display: flex;
@@ -14,9 +16,13 @@
   width: 100vw;
   height: 90vh;
   overflow: hidden;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 }
 
-.footer {
+footer {
   height: 5vh;
   width: 100vw;
   bottom: 0;
@@ -24,11 +30,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .barText {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }

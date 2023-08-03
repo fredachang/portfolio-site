@@ -83,3 +83,8 @@ export const moveUpWhileHover = {
   y: -20,
   transition: { type: "spring", duration: 0.5 },
 };
+
+export const moveLeftWhileHover = {
+  x: -8,
+  transition: { type: "spring", duration: 0.5 },
+};

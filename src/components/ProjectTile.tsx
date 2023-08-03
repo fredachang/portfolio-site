@@ -6,6 +6,8 @@ import {
 } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
+import { commonStyles } from "../tailwind-utils";
+import { ProjectIndex } from "./ProjectIndex";
 
 interface Props {
   project: Project;
@@ -16,17 +18,10 @@ interface Props {
 export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
 
-  //overall bar style
-  const sharedStyles = "bg-stone-50 py-5 px-2 border-l border-black h-full";
+  //overall index style
+  const sharedStyles = `${commonStyles.sitePrimaryColour} px-2 border-l border-black h-full`;
   const staticStyle = `${sharedStyles} w-[150px]`;
   const expandedStyle = `${sharedStyles} w-[800px]`;
-
-  //barheaderstyle
-
-  const sharedHeaderStyles =
-    "flex bg-stone-50 flex-col justify-between items-center h-full";
-  const expandedHeader = `${sharedHeaderStyles} w-14`;
-  const collapsedHeader = `${sharedHeaderStyles} text-stone-600 w-full`;
 
   //containers
 
@@ -39,25 +34,13 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
-        whileHover={moveUpWhileHover}
+        whileHover={isExpanded ? { opacity: 1 } : moveUpWhileHover}
         layout="position"
         transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
       >
-        <div className={flexBox1}>
-          <div className={isExpanded ? expandedHeader : collapsedHeader}>
-            <span className="barText">
-              <h1>{project.title}</h1>
-            </span>
-
-            <span className="barText">
-              <h2>{project.year}</h2>
-            </span>
-
-            <span className="barText">
-              <h2>{project.type}</h2>
-            </span>
-          </div>
+        <section className={flexBox1}>
+          <ProjectIndex isExpanded={isExpanded} project={project} />
 
           <AnimatePresence>
             {isExpanded && (
@@ -77,7 +60,7 @@ export const ProjectTile = (props: Props) => {
               </div>
             )}
           </AnimatePresence>
-        </div>
+        </section>
       </motion.div>
     </>
   );
