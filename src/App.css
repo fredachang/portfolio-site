@@ -28,3 +28,24 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
+
+.grid {
+  display: grid;
+  transition: 300ms;
+  grid-template-columns: 300px auto;
+}
+
+.grid.grow .box1,
+.grid.grow .box2 {
+  transition: 300ms;
+}
+
+.box1 {
+  background-color: red;
+  height: 90vh;
+}
+
+.box2 {
+  background-color: blue;
+  height: 90vh;
+}
