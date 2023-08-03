@@ -14,7 +14,7 @@ export const NavButton = (props: Props) => {
       <motion.button
         variants={motionVariant}
         onClick={onClickFunction}
-        className={commonStyles.link}
+        className={`${commonStyles.link} ${commonStyles.textColorLight}`}
       >
         {buttonText}
       </motion.button>
