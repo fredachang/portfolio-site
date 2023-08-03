@@ -3,6 +3,8 @@
   width: 100vw;
   top: 0;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
 }
 
 .bars {

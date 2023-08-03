@@ -20,31 +20,35 @@ export const fadeXY = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 2.5,
+      duration: 0.8,
+      delay: 0.4,
     },
   },
 };
 
 export const fade = {
   hidden: {
-    x: -2,
     opacity: 0.8,
   },
   visible: {
-    x: 0,
     opacity: 1,
     transition: {
-      duration: 0.4,
+      duration: 0.2,
       ease: "linear",
     },
   },
 };
 
-export const transitionSettings = {
-  duration: 1,
-  ease: "easeIn",
-  type: "linear",
+export const primaryTransition = {
+  // duration: 0.2,
+  ease: "easeInOut",
+  type: "spring",
   bounce: 0.05,
   damping: 20,
-  stiffness: 30,
+  stiffness: 60,
+};
+
+export const moveUpWhileHover = {
+  y: -20,
+  transition: { type: "spring", duration: 0.5 },
 };

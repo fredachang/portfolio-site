@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { fadeXY, transitionSettings } from "../motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { fadeXY, moveUpWhileHover, primaryTransition } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 
@@ -13,17 +13,16 @@ export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
 
   //overall bar style
-  const sharedStyles =
-    "bg-stone-50 py-5 px-2 border-l border-black h-full overflow-x-hidden";
-  const staticStyle = `${sharedStyles} flex-1`;
-  const expandedStyle = `${sharedStyles} w-3/5`;
+  const sharedStyles = "bg-stone-50 py-5 px-2 border-l border-black h-full";
+  const staticStyle = `${sharedStyles} w-[150px]`;
+  const expandedStyle = `${sharedStyles} w-[800px]`;
 
   //barheaderstyle
 
   const sharedHeaderStyles =
     "flex bg-stone-50 flex-col justify-between items-center h-full";
   const expandedHeader = `${sharedHeaderStyles} w-14`;
-  const collapsedHeader = `${sharedHeaderStyles} w-full`;
+  const collapsedHeader = `${sharedHeaderStyles} text-stone-600 w-full`;
 
   //containers
 
@@ -36,14 +35,15 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
+        whileHover={moveUpWhileHover}
         layout="position"
-        transition={transitionSettings}
+        transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
       >
         <div className={flexBox1}>
           <div className={isExpanded ? expandedHeader : collapsedHeader}>
             <span className="barText">
-              <h1 className="text-2xl">{project.title}</h1>
+              <h1>{project.title}</h1>
             </span>
 
             <span className="barText">
@@ -55,22 +55,24 @@ export const ProjectTile = (props: Props) => {
             </span>
           </div>
 
-          {isExpanded && (
-            <div className={flexBox2}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={fadeXY}
-                className={imageContainer}
-              >
-                <Carousel images={project.images} />
-              </motion.div>
+          <AnimatePresence>
+            {isExpanded && (
+              <div className={flexBox2}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={fadeXY}
+                  className={imageContainer}
+                >
+                  <Carousel images={project.images} />
+                </motion.div>
 
-              <div className={textContainer}>
-                <p className="text-xs">{project.description}</p>
+                <div className={textContainer}>
+                  <p className="text-xs">{project.description}</p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </AnimatePresence>
         </div>
       </motion.div>
     </>
