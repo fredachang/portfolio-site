@@ -1,5 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeXY, moveUpWhileHover, primaryTransition } from "../motion";
+import {
+  fadeXYWithDelay,
+  moveUpWhileHover,
+  primaryTransition,
+} from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 
@@ -61,7 +65,7 @@ export const ProjectTile = (props: Props) => {
                 <motion.div
                   initial="hidden"
                   animate="visible"
-                  variants={fadeXY}
+                  variants={fadeXYWithDelay}
                   className={imageContainer}
                 >
                   <Carousel images={project.images} />
