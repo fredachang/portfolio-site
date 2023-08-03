@@ -1,15 +1,46 @@
 export const staggerParentContainer = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+  },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.2,
+      staggerDirection: -1,
+      // delayChildren: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
+export const fadeX = {
+  hidden: {
+    opacity: 0,
+    x: -10,
+  },
+  visible: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "linear",
+      ease: "easeIn",
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      type: "linear",
+      ease: "easeIn",
+      duration: 0.3,
     },
   },
 };
 
-export const fadeXY = {
+export const fadeXYWithDelay = {
   hidden: {
     opacity: 0,
     x: -10,
@@ -50,5 +81,10 @@ export const primaryTransition = {
 
 export const moveUpWhileHover = {
   y: -20,
+  transition: { type: "spring", duration: 0.5 },
+};
+
+export const moveLeftWhileHover = {
+  x: -8,
   transition: { type: "spring", duration: 0.5 },
 };
