@@ -39,11 +39,16 @@ export const fade = {
   },
 };
 
-export const transitionSettings = {
+export const primaryTransition = {
   // duration: 0.2,
   ease: "easeInOut",
   type: "spring",
   bounce: 0.05,
   damping: 20,
   stiffness: 60,
+};
+
+export const moveUpWhileHover = {
+  y: -20,
+  transition: { type: "spring", duration: 0.5 },
 };

@@ -13,17 +13,17 @@ function App() {
     } else setExpandedProjectId(projectId);
   };
 
+  const handleShowHome = () => {
+    setExpandedProjectId("1");
+  };
+
   return (
     <>
       <div className="bg-stone-50 flex flex-col w-screen h-screen">
         <div className="header">
           <h1>Portfolio Site</h1>
+          <button onClick={handleShowHome}>Home</button>
         </div>
-        {/* 
-        <div className="grid">
-          <div className="box1">Some text</div>
-          <div className="box2">some text</div>
-        </div> */}
 
         <LayoutGroup>
           <motion.div className="bars">

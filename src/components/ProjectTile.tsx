@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fade, fadeXY, transitionSettings } from "../motion";
+import { fadeXY, moveUpWhileHover, primaryTransition } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 
@@ -27,7 +27,7 @@ export const ProjectTile = (props: Props) => {
   //containers
 
   const flexBox1 = "flex flex-row h-full";
-  const flexBox2 = "flex flex-row items-start w-[800px] h-full px-5";
+  const flexBox2 = "flex flex-row items-start w-full h-full px-5";
   const imageContainer = "w-[700px] h-full overflow-hidden";
   const textContainer = "flex items-end h-full pl-2";
 
@@ -35,8 +35,9 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
+        whileHover={moveUpWhileHover}
         layout="position"
-        transition={transitionSettings}
+        transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
       >
         <div className={flexBox1}>
