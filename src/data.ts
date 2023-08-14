@@ -12,7 +12,8 @@ export const projects: Project[] = [
     year: "2002",
     title: "Project One long description",
     type: projectTypes.GraphicDesign,
-    description: "this is the project description",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
     images: [
       { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
       { imageId: "2", imagePath: "/images/sink.jpeg" },
@@ -63,7 +64,8 @@ export const projects: Project[] = [
     year: "2003",
     title: "Project Seven",
     type: projectTypes.threeD,
-    description: "this is the project description",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
   },
   {

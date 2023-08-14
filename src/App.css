@@ -1,35 +1,5 @@
-nav {
-  height: 7vh;
-  width: 100vw;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-bottom: 1px solid black;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.bars {
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
-  height: 90vh;
+body {
   overflow: hidden;
-}
-
-footer {
-  height: 7vh;
-  width: 100vw;
-  bottom: 0;
-  z-index: 10;
-  display: flex;
-  border-top: 1px solid black;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .barText {

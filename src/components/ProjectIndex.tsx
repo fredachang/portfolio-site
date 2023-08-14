@@ -7,7 +7,7 @@ interface Props {
 }
 
 const sharedHeaderStyles = `flex ${commonStyles.sitePrimaryColour} flex-col justify-between items-center h-full`;
-const expandedHeader = `${sharedHeaderStyles} w-14 ${commonStyles.textColorDark}`;
+const expandedHeader = `${sharedHeaderStyles} w-32 ${commonStyles.textColorDark}`;
 const collapsedHeader = `${sharedHeaderStyles} w-full ${commonStyles.textColorLight}`;
 
 export const ProjectIndex = (props: Props) => {

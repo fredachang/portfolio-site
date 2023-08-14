@@ -4,9 +4,9 @@ import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./NavButton";
 import { commonStyles } from "../tailwind-utils";
+import { Link, useLocation } from "react-router-dom";
 
 interface Props {
-  handleShowHome: () => void;
   expandFilter: boolean;
   projects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
@@ -19,12 +19,12 @@ interface Props {
   };
 }
 
-const filterNavContainer = `flex justify-end w-1/2`;
-const categoryButtonContainer = "w-4/5 flex justify-between mr-10";
+const utilsContainer = `flex justify-end w-1/2`;
+const filterByContainer = "flex justify-end w-full";
+const categoryButtonContainer = "w-2/3 flex justify-between mr-10";
 
 export const Header = (props: Props) => {
   const {
-    handleShowHome,
     expandFilter,
     projects,
     filterProjectsByType,
@@ -33,50 +33,70 @@ export const Header = (props: Props) => {
     projectCount,
   } = props;
 
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <>
-      <button className={commonStyles.logo} onClick={handleShowHome}>
-        Freda Chang
-      </button>
+      <div
+        className={`w-full h-7% px-${commonStyles.spacingMd} border-b border-b-2 border-black z-10 t-0 flex justify-between items-center`}
+      >
+        <Link to="/">
+          <div className={commonStyles.logo}>Freda Chang</div>
+        </Link>
 
-      <div className={filterNavContainer}>
-        <AnimatePresence>
-          {expandFilter && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={staggerParentContainer}
-              className={categoryButtonContainer}
-            >
-              <NavButton
-                buttonText={`Graphic Design (${projectCount.design})`}
-                motionVariant={fadeX}
-                onClickFunction={() =>
-                  filterProjectsByType(projects, projectTypes.GraphicDesign)
-                }
-              />
-              <NavButton
-                buttonText={`3D Design (${projectCount.threeD})`}
-                motionVariant={fadeX}
-                onClickFunction={() =>
-                  filterProjectsByType(projects, projectTypes.threeD)
-                }
-              />
-              <NavButton
-                buttonText={`Web Development (${projectCount.web})`}
-                motionVariant={fadeX}
-                onClickFunction={() =>
-                  filterProjectsByType(projects, projectTypes.WebDev)
-                }
-              />
-            </motion.div>
+        <div className={utilsContainer}>
+          {currentPath === "/" && (
+            <div className={filterByContainer}>
+              <AnimatePresence>
+                {expandFilter && (
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={staggerParentContainer}
+                    className={categoryButtonContainer}
+                  >
+                    <NavButton
+                      buttonText={`Graphic Design (${projectCount.design})`}
+                      motionVariant={fadeX}
+                      onClickFunction={() =>
+                        filterProjectsByType(
+                          projects,
+                          projectTypes.GraphicDesign
+                        )
+                      }
+                    />
+                    <NavButton
+                      buttonText={`3D Design (${projectCount.threeD})`}
+                      motionVariant={fadeX}
+                      onClickFunction={() =>
+                        filterProjectsByType(projects, projectTypes.threeD)
+                      }
+                    />
+                    <NavButton
+                      buttonText={`Web Development (${projectCount.web})`}
+                      motionVariant={fadeX}
+                      onClickFunction={() =>
+                        filterProjectsByType(projects, projectTypes.WebDev)
+                      }
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <button
+                className={`${commonStyles.link} mr-10`}
+                onClick={handleExpandFilter}
+              >
+                {removeFilter ? "Show All" : "Filter By"}
+              </button>
+            </div>
           )}
-        </AnimatePresence>
 
-        <button className={commonStyles.link} onClick={handleExpandFilter}>
-          {removeFilter ? "Show All" : "Filter By"}
-        </button>
+          <Link to="/about">
+            <div>About</div>
+          </Link>
+        </div>
       </div>
     </>
   );

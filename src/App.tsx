@@ -7,7 +7,10 @@ import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { commonStyles } from "./tailwind-utils";
-import { fade } from "./motion";
+import { fade, fadeUp } from "./motion";
+import { About } from "./components/About";
+import { Route, Routes } from "react-router-dom";
+import { ProjectPage } from "./components/ProjectPage";
 
 const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
@@ -21,13 +24,6 @@ function App() {
     if (projectId === expandedProjectId) {
       setExpandedProjectId("");
     } else setExpandedProjectId(projectId);
-  };
-
-  const handleShowHome = () => {
-    setFilteredProjects(projects);
-    setExpandedProjectId("1");
-    setRemoveFilter(false);
-    setExpandFilter(false);
   };
 
   const handleExpandFilter = () => {
@@ -68,41 +64,71 @@ function App() {
   return (
     <>
       <main className={overallBodyContainer}>
-        <nav>
-          <Header
-            handleShowHome={handleShowHome}
-            expandFilter={expandFilter}
-            projects={projects}
-            filterProjectsByType={filterProjectsByType}
-            handleExpandFilter={handleExpandFilter}
-            removeFilter={removeFilter}
-            projectCount={projectCount}
+        <Header
+          expandFilter={expandFilter}
+          projects={projects}
+          filterProjectsByType={filterProjectsByType}
+          handleExpandFilter={handleExpandFilter}
+          removeFilter={removeFilter}
+          projectCount={projectCount}
+        />
+
+        <Routes>
+          <Route
+            path="/about"
+            element={
+              <motion.section
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                className="flex justify-between w-full h-90%"
+              >
+                <About />
+              </motion.section>
+            }
           />
-        </nav>
 
-        <LayoutGroup>
-          <motion.section
-            initial="hidden"
-            animate="visible"
-            variants={fade}
-            className="bars"
-          >
-            {filteredProjects.map((project) => {
-              return (
-                <ProjectTile
-                  key={project.id}
-                  project={project}
-                  isExpanded={expandedProjectId === project.id}
-                  handleExpand={handleExpand}
-                />
-              );
-            })}
-          </motion.section>
-        </LayoutGroup>
+          <Route
+            path="/project/:title"
+            element={
+              <motion.section
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                className="flex justify-between w-full h-90%"
+              >
+                <ProjectPage projects={projects} />
+              </motion.section>
+            }
+          />
 
-        <footer>
-          <Footer />
-        </footer>
+          <Route
+            path="/"
+            element={
+              <LayoutGroup>
+                <motion.section
+                  initial="hidden"
+                  animate="visible"
+                  variants={fade}
+                  className="flex justify-between w-full h-90% overflow-hidden"
+                >
+                  {filteredProjects.map((project) => {
+                    return (
+                      <ProjectTile
+                        key={project.id}
+                        project={project}
+                        isExpanded={expandedProjectId === project.id}
+                        handleExpand={handleExpand}
+                      />
+                    );
+                  })}
+                </motion.section>
+              </LayoutGroup>
+            }
+          />
+        </Routes>
+
+        <Footer />
       </main>
     </>
   );

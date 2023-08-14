@@ -28,7 +28,7 @@ export const Carousel = (props: Props) => {
   const componentContainer = "w-full h-full relative";
   const imgContainingDiv = "w-full h-full bg-center bg-cover";
   const arrowContainer =
-    "flex absolute top-0 w-full h-full justify-between z-10 text-stone-200 text-4xl";
+    "flex absolute bottom-0 pt-2 w-full h-20 justify-between z-10 text-stone-200 text-4xl";
 
   return (
     <>
