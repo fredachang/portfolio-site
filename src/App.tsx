@@ -91,12 +91,7 @@ function App() {
           <Route
             path="/project/:title"
             element={
-              <motion.section
-                initial="hidden"
-                animate="visible"
-                variants={fadeUp}
-                className="flex justify-between w-full h-90%"
-              >
+              <motion.section className="flex justify-between w-full h-90%">
                 <ProjectPage projects={projects} />
               </motion.section>
             }
