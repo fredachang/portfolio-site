@@ -19,7 +19,7 @@ export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
 
   //overall index style
-  const sharedStyles = `${commonStyles.sitePrimaryColour} px-2 border-l border-black h-full`;
+  const sharedStyles = `${commonStyles.sitePrimaryColour} py-5 px-2 border-l border-black h-full`;
   const staticStyle = `${sharedStyles} w-[150px]`;
   const expandedStyle = `${sharedStyles} w-[800px]`;
 

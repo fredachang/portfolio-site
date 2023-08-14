@@ -1,12 +1,13 @@
 import { LayoutGroup, motion } from "framer-motion";
 import "./App.css";
 import { ProjectTile } from "./components/ProjectTile";
-import { projects } from "./data";
+import { projectTypes, projects } from "./data";
 import { useState } from "react";
 import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { commonStyles } from "./tailwind-utils";
+import { fade } from "./motion";
 
 const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
@@ -43,6 +44,27 @@ function App() {
     setFilteredProjects(filteredProjects);
   };
 
+  const countProjectsByType = (
+    projects: Project[],
+    projectType: string
+  ): number => {
+    const foundProjects = projects.filter(
+      (project) => project.type === projectType
+    );
+    const lengthOfProject = foundProjects.length;
+    return lengthOfProject;
+  };
+
+  const projectCount: {
+    design: number;
+    threeD: number;
+    web: number;
+  } = {
+    design: countProjectsByType(projects, projectTypes.GraphicDesign),
+    threeD: countProjectsByType(projects, projectTypes.threeD),
+    web: countProjectsByType(projects, projectTypes.WebDev),
+  };
+
   return (
     <>
       <main className={overallBodyContainer}>
@@ -54,11 +76,17 @@ function App() {
             filterProjectsByType={filterProjectsByType}
             handleExpandFilter={handleExpandFilter}
             removeFilter={removeFilter}
+            projectCount={projectCount}
           />
         </nav>
 
         <LayoutGroup>
-          <motion.section className="bars">
+          <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={fade}
+            className="bars"
+          >
             {filteredProjects.map((project) => {
               return (
                 <ProjectTile
