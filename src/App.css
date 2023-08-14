@@ -1,8 +1,9 @@
 nav {
-  height: 5vh;
+  height: 7vh;
   width: 100vw;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  border-bottom: 1px solid black;
   top: 0;
   z-index: 10;
   display: flex;
@@ -16,18 +17,15 @@ nav {
   width: 100vw;
   height: 90vh;
   overflow: hidden;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
 }
 
 footer {
-  height: 5vh;
+  height: 7vh;
   width: 100vw;
   bottom: 0;
   z-index: 10;
   display: flex;
+  border-top: 1px solid black;
   justify-content: space-between;
   align-items: center;
   padding-left: 0.5rem;

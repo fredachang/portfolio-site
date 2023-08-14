@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Image } from "../types";
 import { motion } from "framer-motion";
-import { fade } from "../motion";
+import { carouselFade } from "../motion";
 
 interface Props {
   images: Image[];
@@ -41,15 +41,18 @@ export const Carousel = (props: Props) => {
           }}
           initial="hidden"
           animate="visible"
-          variants={fade}
+          variants={carouselFade}
         ></motion.div>
 
         {images.length > 1 && (
           <div className={arrowContainer}>
-            <div onClick={goToPrevious} className="pl-2 w-24">
+            <div onClick={goToPrevious} className="pl-2 w-24 cursor-pointer">
               &larr;
             </div>
-            <div onClick={goToNext} className="pr-2 w-24 text-4xl text-right">
+            <div
+              onClick={goToNext}
+              className="pr-2 w-24 text-4xl text-right cursor-pointer"
+            >
               &rarr;
             </div>
           </div>

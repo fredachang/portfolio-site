@@ -74,22 +74,6 @@ export const projects: Project[] = [
     description: "this is the project description",
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
   },
-  {
-    id: "9",
-    year: "2003",
-    title: "Project Nine",
-    type: projectTypes.WebDev,
-    description: "this is the project description",
-    images: [{ imageId: "2", imagePath: "/images/toothpaste.jpeg" }],
-  },
-  {
-    id: "10",
-    year: "2003",
-    title: "Project Ten",
-    type: projectTypes.WebDev,
-    description: "this is the project description",
-    images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
-  },
 ];
 
 export const links = {

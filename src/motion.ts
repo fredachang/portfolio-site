@@ -57,14 +57,27 @@ export const fadeXYWithDelay = {
   },
 };
 
-export const fade = {
+export const carouselFade = {
   hidden: {
     opacity: 0.8,
   },
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.2,
+      duration: 5,
+      ease: "linear",
+    },
+  },
+};
+
+export const fade = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
       ease: "linear",
     },
   },
@@ -80,8 +93,8 @@ export const primaryTransition = {
 };
 
 export const moveUpWhileHover = {
-  y: -20,
-  transition: { type: "spring", duration: 0.5 },
+  y: -12,
+  transition: { type: "spring", duration: 0.4 },
 };
 
 export const moveLeftWhileHover = {

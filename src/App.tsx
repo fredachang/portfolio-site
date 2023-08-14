@@ -7,6 +7,7 @@ import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { commonStyles } from "./tailwind-utils";
+import { fade } from "./motion";
 
 const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
@@ -80,7 +81,12 @@ function App() {
         </nav>
 
         <LayoutGroup>
-          <motion.section layout className="bars">
+          <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={fade}
+            className="bars"
+          >
             {filteredProjects.map((project) => {
               return (
                 <ProjectTile
