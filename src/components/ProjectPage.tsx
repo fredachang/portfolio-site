@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { Project } from "../types";
-import { fade, fadeDown, fadeRight, fadeUp, fadeXYWithDelay } from "../motion";
+import {
+  fade,
+  fadeDown,
+  fadeRight,
+  fadeRightWithDelay,
+  fadeUp,
+} from "../motion";
 import { Carousel } from "./Carousel";
 import { useNavigate, useParams } from "react-router-dom";
 import { useNavigateIndex } from "../hooks/useNavigateIndex";
@@ -80,7 +86,7 @@ export const ProjectPage = (props: Props) => {
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={fadeXYWithDelay}
+            variants={fadeRightWithDelay}
             className={imageContainer}
           >
             <Carousel
@@ -95,7 +101,7 @@ export const ProjectPage = (props: Props) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={fade(0.3, 0.5)}
+            variants={fade(2, 0.5)}
             className={textContainer}
           >
             <div>
@@ -110,9 +116,10 @@ export const ProjectPage = (props: Props) => {
             <div>
               <p className="mb-4">{selectedProject.description}</p>
               <motion.div
+                key={currentIndex}
                 initial="hidden"
                 animate="visible"
-                variants={fadeRight(-10, 0.5)}
+                variants={fadeRight(-10, 1.5)}
               >
                 <p className="font-bold text-xs">{`[${currentImageText}]`}</p>
               </motion.div>

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeXYWithDelay, primaryTransition } from "../motion";
+import { fadeRightWithDelay, primaryTransition } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 import { commonStyles } from "../tailwind-utils";
@@ -17,7 +17,6 @@ interface Props {
 export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
   const [showIndexImage, setShowIndexImage] = useState(false);
-  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const { currentIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateIndex();
@@ -29,16 +28,6 @@ export const ProjectTile = (props: Props) => {
   const hideShowIndexImage = () => {
     setShowIndexImage(false);
   };
-
-  // const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   setCurrentIndex(currentIndex - 1);
-  // };
-
-  // const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   setCurrentIndex(currentIndex + 1);
-  // };
 
   //overall index style
   const sharedStyles = `${
@@ -58,7 +47,6 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
-        // whileHover={isExpanded ? { opacity: 1 } : moveUpWhileHover}
         layout="position"
         transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
@@ -85,7 +73,7 @@ export const ProjectTile = (props: Props) => {
                 <motion.div
                   initial="hidden"
                   animate="visible"
-                  variants={fadeXYWithDelay}
+                  variants={fadeRightWithDelay}
                   className={imageContainer}
                 >
                   <Carousel
@@ -96,10 +84,15 @@ export const ProjectTile = (props: Props) => {
                   />
                 </motion.div>
 
-                <div className={textContainer}>
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={fadeRightWithDelay}
+                  className={textContainer}
+                >
                   <Link to={`/project/${project.title}`}>More</Link>
                   <p className="text-xs">{project.description}</p>
-                </div>
+                </motion.div>
               </div>
             )}
           </AnimatePresence>

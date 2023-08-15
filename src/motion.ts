@@ -25,25 +25,23 @@ export const fadeRight = (distance: number, duration: number) => ({
     opacity: 1,
     transition: {
       type: "spring",
-      ease: "easeIn",
+      ease: "easeInOut",
       duration: duration,
     },
   },
 });
 
-export const fadeXYWithDelay = {
+export const fadeRightWithDelay = {
   hidden: {
     opacity: 0,
     x: -10,
-    y: -10,
   },
   visible: {
     x: 0,
-    y: 0,
     opacity: 1,
     transition: {
-      duration: 0.8,
-      delay: 0.4,
+      duration: 0.6,
+      delay: 0.2,
     },
   },
 };

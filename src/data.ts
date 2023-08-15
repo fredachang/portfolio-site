@@ -39,7 +39,7 @@ export const projects: Project[] = [
       {
         imageId: "2",
         imagePath: "/images/sink.jpeg",
-        imageText: "this is image text",
+        imageText: "this is image text for PROJECT TWO",
       },
     ],
   },
