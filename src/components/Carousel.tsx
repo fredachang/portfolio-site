@@ -1,25 +1,16 @@
-import { useState } from "react";
 import { Image } from "../types";
 import { AnimatePresence, motion } from "framer-motion";
 import { fade } from "../motion";
 
 interface Props {
   images: Image[];
+  currentIndex: number;
+  handleGoToPrevious: (e: React.MouseEvent<HTMLDivElement>) => void;
+  handleGoToNext: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const Carousel = (props: Props) => {
-  const { images } = props;
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    setCurrentIndex(currentIndex - 1);
-  };
-
-  const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    setCurrentIndex(currentIndex + 1);
-  };
+  const { images, currentIndex, handleGoToPrevious, handleGoToNext } = props;
 
   const arrowContainer =
     "flex absolute bottom-0 pt-2 w-full h-20 z-10 text-stone-400 text-4xl";
