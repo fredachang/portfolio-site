@@ -4,12 +4,17 @@ export interface Project {
   title: string;
   type: string;
   description: string;
-  indexImage: Image;
+  indexImage: IndexImage;
   images: Image[];
-  imageTexts: string[];
+}
+
+export interface IndexImage {
+  imageId: string;
+  imagePath: string;
 }
 
 export interface Image {
   imageId: string;
   imagePath: string;
+  imageText: string;
 }

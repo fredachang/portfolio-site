@@ -6,6 +6,7 @@ import { commonStyles } from "../tailwind-utils";
 import { ProjectIndex } from "./ProjectIndex";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigateIndex } from "../hooks/useNavigateIndex";
 
 interface Props {
   project: Project;
@@ -16,6 +17,10 @@ interface Props {
 export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
   const [showIndexImage, setShowIndexImage] = useState(false);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { currentIndex, handleGoToNext, handleGoToPrevious } =
+    useNavigateIndex();
 
   const handleShowIndexImage = () => {
     setShowIndexImage(true);
@@ -24,6 +29,16 @@ export const ProjectTile = (props: Props) => {
   const hideShowIndexImage = () => {
     setShowIndexImage(false);
   };
+
+  // const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   e.stopPropagation();
+  //   setCurrentIndex(currentIndex - 1);
+  // };
+
+  // const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   e.stopPropagation();
+  //   setCurrentIndex(currentIndex + 1);
+  // };
 
   //overall index style
   const sharedStyles = `${
@@ -73,7 +88,12 @@ export const ProjectTile = (props: Props) => {
                   variants={fadeXYWithDelay}
                   className={imageContainer}
                 >
-                  <Carousel images={project.images} />
+                  <Carousel
+                    images={project.images}
+                    currentIndex={currentIndex}
+                    handleGoToNext={handleGoToNext}
+                    handleGoToPrevious={handleGoToPrevious}
+                  />
                 </motion.div>
 
                 <div className={textContainer}>

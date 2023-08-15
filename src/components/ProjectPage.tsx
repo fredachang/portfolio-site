@@ -3,6 +3,7 @@ import { Project } from "../types";
 import { fade, fadeDown, fadeUp, fadeXYWithDelay } from "../motion";
 import { Carousel } from "./Carousel";
 import { useNavigate, useParams } from "react-router-dom";
+import { useNavigateIndex } from "../hooks/useNavigateIndex";
 
 interface Props {
   projects: Project[];
@@ -12,10 +13,25 @@ const imageContainer = "w-2/3 h-full overflow-hidden";
 const textContainer = "flex flex-col justify-between px-4 w-1/3";
 
 export const ProjectPage = (props: Props) => {
+  // const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { currentIndex, handleGoToNext, handleGoToPrevious } =
+    useNavigateIndex();
+
   const { title } = useParams();
   const { projects } = props;
 
   const navigate = useNavigate();
+
+  // const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   e.stopPropagation();
+  //   setCurrentIndex(currentIndex - 1);
+  // };
+
+  // const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   e.stopPropagation();
+  //   setCurrentIndex(currentIndex + 1);
+  // };
 
   const selectedProject = projects.find((project) => project.title === title);
 
@@ -76,7 +92,12 @@ export const ProjectPage = (props: Props) => {
             variants={fadeXYWithDelay}
             className={imageContainer}
           >
-            <Carousel images={selectedProject.images} />
+            <Carousel
+              images={selectedProject.images}
+              currentIndex={currentIndex}
+              handleGoToNext={handleGoToNext}
+              handleGoToPrevious={handleGoToPrevious}
+            />
           </motion.div>
 
           <motion.div
