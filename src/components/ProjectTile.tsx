@@ -24,15 +24,11 @@ export const ProjectTile = (props: Props) => {
   const { screenWidth } = useDetectScreenWidth();
 
   const handleShowIndexImage = () => {
-    if (screenWidth > 1000) {
-      setShowIndexImage(true);
-    }
+    setShowIndexImage(true);
   };
 
   const hideShowIndexImage = () => {
-    if (screenWidth > 1000) {
-      setShowIndexImage(false);
-    }
+    setShowIndexImage(false);
   };
 
   //overall index style
@@ -68,12 +64,12 @@ export const ProjectTile = (props: Props) => {
 
           <AnimatePresence>
             {isExpanded && (
-              <div className="w-full flex flex-col h-86% py-5 px-5 items-start md:flex-row md:h-full">
+              <div className="w-full flex flex-col h-86% py-5 px-3 md:px-5 items-start md:flex-row md:h-full">
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className="w-full h-2/3 md:w-[700px] md:h-full overflow-hidden"
+                  className="w-full h-4/5 md:h-full md:w-[600px] md:h-full overflow-hidden"
                 >
                   <Carousel
                     images={project.images}
@@ -87,9 +83,11 @@ export const ProjectTile = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className="flex w-full h-1/3 md:w-1/3 px-6 flex-col justify-between md:h-full pl-2"
+                  className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-between md:h-full md:pl-2"
                 >
-                  <Link to={`/project/${project.title}`}>More</Link>
+                  {screenWidth > 1000 && (
+                    <Link to={`/project/${project.title}`}>More</Link>
+                  )}
                   <p className="text-xs">{project.description}</p>
                 </motion.div>
               </div>

@@ -38,6 +38,7 @@ function App() {
       (project) => project.type === projectType
     );
     setFilteredProjects(filteredProjects);
+    setExpandFilter(false);
   };
 
   const countProjectsByType = (
@@ -91,7 +92,7 @@ function App() {
           <Route
             path="/project/:title"
             element={
-              <motion.section className="flex justify-between w-full h-90%">
+              <motion.section className="flex justify-between w-full h-86%">
                 <ProjectPage projects={projects} />
               </motion.section>
             }
