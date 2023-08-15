@@ -12,6 +12,7 @@ interface Props {
   projects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
   handleExpandFilter: () => void;
+  handleShowHome: () => void;
   removeFilter: boolean;
   projectCount: {
     design: number;
@@ -26,6 +27,7 @@ export const Header = (props: Props) => {
     projects,
     filterProjectsByType,
     handleExpandFilter,
+    handleShowHome,
     removeFilter,
     projectCount,
   } = props;
@@ -43,9 +45,9 @@ export const Header = (props: Props) => {
       <div
         className={`w-full h-7% px-${commonStyles.spacingMd} border-b z-30 border-b-2 border-black z-10 t-0 flex justify-between items-center`}
       >
-        <Link to="/">
+        <button onClick={handleShowHome}>
           <div className={commonStyles.logo}>Freda Chang</div>
-        </Link>
+        </button>
 
         <div className={`flex justify-end w-2/3`}>
           {currentPath === "/" && (

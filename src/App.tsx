@@ -33,6 +33,12 @@ function App() {
     setExpandedProjectId("");
   };
 
+  const handleShowHome = () => {
+    setExpandedProjectId("1");
+    setExpandFilter(false);
+    setRemoveFilter(true);
+  };
+
   const filterProjectsByType = (projects: Project[], projectType: string) => {
     const filteredProjects = projects.filter(
       (project) => project.type === projectType
@@ -72,6 +78,7 @@ function App() {
           handleExpandFilter={handleExpandFilter}
           removeFilter={removeFilter}
           projectCount={projectCount}
+          handleShowHome={handleShowHome}
         />
 
         <Routes>
