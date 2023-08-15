@@ -108,7 +108,7 @@ function App() {
                     animate="visible"
                     exit="exit"
                     variants={fade(0.8, 0.5)}
-                    className="flex md:justify-between h-90% overflow-x-scroll md:overflow-hidden"
+                    className="flex md:justify-between h-90% overflow-x-scroll md:overflow-x-hidden"
                   >
                     {filteredProjects.map((project) => {
                       return (

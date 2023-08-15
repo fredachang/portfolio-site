@@ -35,7 +35,7 @@ export const ProjectTile = (props: Props) => {
   const sharedStyles = `border-l border-l-2 border-black md-${
     !isExpanded && `w-full`
   } h-full`;
-  const staticStyle = `${sharedStyles} min-w-[150px] md:w-full`;
+  const staticStyle = `${sharedStyles} min-w-[150px] md:min-w-none md:w-full md:overflow-y-hidden`;
   const expandedStyle = `${sharedStyles} ${commonStyles.sitePrimaryColour} absolute w-full z-20 md:z-0 md:relative md:w-[800px]`;
 
   return (
