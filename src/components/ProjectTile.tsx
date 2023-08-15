@@ -1,14 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  fadeXYWithDelay,
-  moveUpWhileHover,
-  primaryTransition,
-} from "../motion";
+import { fadeXYWithDelay, primaryTransition } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 import { commonStyles } from "../tailwind-utils";
 import { ProjectIndex } from "./ProjectIndex";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface Props {
   project: Project;
@@ -18,16 +15,27 @@ interface Props {
 
 export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpand } = props;
+  const [showIndexImage, setShowIndexImage] = useState(false);
+
+  const handleShowIndexImage = () => {
+    setShowIndexImage(true);
+  };
+
+  const hideShowIndexImage = () => {
+    setShowIndexImage(false);
+  };
 
   //overall index style
-  const sharedStyles = `${commonStyles.sitePrimaryColour} py-5 px-2 border-l border-l-2 border-black h-full`;
+  const sharedStyles = `${
+    commonStyles.sitePrimaryColour
+  } border-l border-l-2 border-black ${!isExpanded && `w-full`} h-full`;
   const staticStyle = ` ${sharedStyles} w-[150px]`;
   const expandedStyle = `${sharedStyles} w-[800px]`;
 
   //containers
 
   const flexBox1 = "flex flex-row h-full";
-  const flexBox2 = "flex flex-row items-start w-full h-full px-5";
+  const flexBox2 = "flex flex-row py-5 items-start w-full h-full px-5";
   const imageContainer = "w-[700px] h-full overflow-hidden";
   const textContainer = "flex w-1/3 px-6 flex-col justify-between h-full pl-2";
 
@@ -35,12 +43,25 @@ export const ProjectTile = (props: Props) => {
     <>
       <motion.div
         onClick={() => handleExpand(project.id)}
-        whileHover={isExpanded ? { opacity: 1 } : moveUpWhileHover}
+        // whileHover={isExpanded ? { opacity: 1 } : moveUpWhileHover}
         layout="position"
         transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
       >
-        <section className={flexBox1}>
+        <section
+          className={flexBox1}
+          onMouseOver={handleShowIndexImage}
+          onMouseLeave={hideShowIndexImage}
+          style={
+            !isExpanded && showIndexImage
+              ? {
+                  backgroundImage: `url(${project.indexImage.imagePath})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }
+              : { backgroundImage: "none" }
+          }
+        >
           <ProjectIndex isExpanded={isExpanded} project={project} />
 
           <AnimatePresence>

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { moveUpWhileHover } from "../motion";
 import { commonStyles } from "../tailwind-utils";
 import { Project } from "../types";
 
@@ -6,7 +8,7 @@ interface Props {
   project: Project;
 }
 
-const sharedHeaderStyles = `flex ${commonStyles.sitePrimaryColour} flex-col justify-between items-center h-full`;
+const sharedHeaderStyles = `flex py-5 flex-col justify-between items-center h-full`;
 const expandedHeader = `${sharedHeaderStyles} w-32 ${commonStyles.textColorDark}`;
 const collapsedHeader = `${sharedHeaderStyles} w-full ${commonStyles.textColorLight}`;
 
@@ -14,7 +16,10 @@ export const ProjectIndex = (props: Props) => {
   const { isExpanded, project } = props;
   return (
     <>
-      <div className={isExpanded ? expandedHeader : collapsedHeader}>
+      <motion.div
+        className={isExpanded ? expandedHeader : collapsedHeader}
+        whileHover={isExpanded ? { opacity: 1 } : moveUpWhileHover}
+      >
         <span className="projectTitle">
           <h1 className={commonStyles.h1}>{project.title}</h1>
         </span>
@@ -31,7 +36,7 @@ export const ProjectIndex = (props: Props) => {
             <h2 className={commonStyles.p}>{project.type}</h2>
           </span>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
