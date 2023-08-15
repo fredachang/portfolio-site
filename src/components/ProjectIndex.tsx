@@ -8,8 +8,8 @@ interface Props {
   project: Project;
 }
 
-const sharedHeaderStyles = `flex py-5 flex-col justify-between items-center h-full`;
-const expandedHeader = `${sharedHeaderStyles} w-32 ${commonStyles.textColorDark}`;
+const sharedHeaderStyles = `flex py-5 flex-col justify-between items-center`;
+const expandedHeader = `${sharedHeaderStyles} w-12 h-86% md:h-full md:w-32 ${commonStyles.textColorDark}`;
 const collapsedHeader = `${sharedHeaderStyles} w-full ${commonStyles.textColorLight}`;
 
 export const ProjectIndex = (props: Props) => {
