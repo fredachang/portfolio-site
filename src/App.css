@@ -1,5 +1,19 @@
+@font-face {
+  font-family: "GT-Pressura-Light";
+  src: url("/GT-Pressura/GT-Pressura-Light-Trial.woff2") format("woff2");
+}
+
 body {
   overflow: hidden;
+}
+
+.projectTitle {
+  height: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
 
 .barText {
