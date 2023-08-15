@@ -35,8 +35,9 @@ function App() {
 
   const handleShowHome = () => {
     setExpandedProjectId("1");
+    setFilteredProjects(projects);
     setExpandFilter(false);
-    setRemoveFilter(true);
+    setRemoveFilter(false);
   };
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
