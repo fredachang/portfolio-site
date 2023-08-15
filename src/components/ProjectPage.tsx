@@ -15,9 +15,6 @@ interface Props {
   projects: Project[];
 }
 
-const imageContainer = "w-2/3 h-full overflow-hidden";
-const textContainer = "flex flex-col justify-between px-4 w-1/3";
-
 export const ProjectPage = (props: Props) => {
   const { title } = useParams();
   const { projects } = props;
@@ -82,12 +79,12 @@ export const ProjectPage = (props: Props) => {
           )}
         </div>
 
-        <div className="flex h-full">
+        <div className="flex h-full flex-col md:flex-row relative">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeRightWithDelay}
-            className={imageContainer}
+            className="w-full md:w-2/3 h-full overflow-hidden"
           >
             <Carousel
               images={selectedProject.images}
@@ -96,13 +93,12 @@ export const ProjectPage = (props: Props) => {
               handleGoToPrevious={handleGoToPrevious}
             />
           </motion.div>
-
           <motion.div
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={fade(2, 0.5)}
-            className={textContainer}
+            className="flex flex-col justify-between px-4 w-1/3"
           >
             <div>
               <div className="flex justify-between mb-6">

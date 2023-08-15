@@ -2,18 +2,24 @@ import { motion } from "framer-motion";
 import { moveUpWhileHover } from "../motion";
 import { commonStyles } from "../tailwind-utils";
 import { Project } from "../types";
+import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 
 interface Props {
   isExpanded: boolean;
   project: Project;
 }
 
-const sharedHeaderStyles = `flex py-5 flex-col justify-between items-center h-full`;
-const expandedHeader = `${sharedHeaderStyles} w-32 ${commonStyles.textColorDark}`;
-const collapsedHeader = `${sharedHeaderStyles} w-full ${commonStyles.textColorLight}`;
-
 export const ProjectIndex = (props: Props) => {
   const { isExpanded, project } = props;
+
+  const { screenWidth } = useDetectScreenWidth();
+
+  const sharedHeaderStyles = `${
+    screenWidth < 1000 && commonStyles.sitePrimaryColour
+  } flex py-5 flex-col justify-between items-center`;
+  const expandedHeader = `${sharedHeaderStyles} pl-2 w-8 md:w-12 h-86% md:pl-0 md:h-full md:w-32 ${commonStyles.textColorDark}`;
+  const collapsedHeader = `${sharedHeaderStyles} w-full ${commonStyles.textColorLight}`;
+
   return (
     <>
       <motion.div
@@ -24,7 +30,7 @@ export const ProjectIndex = (props: Props) => {
           <h1 className={commonStyles.h1}>{project.title}</h1>
         </span>
 
-        <div className="flex flex-col justify-between h-1/3">
+        <div className="flex flex-col justify-between h-40% md:h-1/3">
           <span className="barText">
             <h2 className={commonStyles.p}>{project.year}</h2>
           </span>

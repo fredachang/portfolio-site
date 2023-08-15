@@ -5,8 +5,9 @@ import { Carousel } from "./Carousel";
 import { commonStyles } from "../tailwind-utils";
 import { ProjectIndex } from "./ProjectIndex";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useNavigateIndex } from "../hooks/useNavigateIndex";
+import { useState } from "react";
+import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 
 interface Props {
   project: Project;
@@ -20,6 +21,7 @@ export const ProjectTile = (props: Props) => {
 
   const { currentIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateIndex();
+  const { screenWidth } = useDetectScreenWidth();
 
   const handleShowIndexImage = () => {
     setShowIndexImage(true);
@@ -30,18 +32,11 @@ export const ProjectTile = (props: Props) => {
   };
 
   //overall index style
-  const sharedStyles = `${
-    commonStyles.sitePrimaryColour
-  } border-l border-l-2 border-black ${!isExpanded && `w-full`} h-full`;
-  const staticStyle = ` ${sharedStyles} w-[150px]`;
-  const expandedStyle = `${sharedStyles} w-[800px]`;
-
-  //containers
-
-  const flexBox1 = "flex flex-row h-full";
-  const flexBox2 = "flex flex-row py-5 items-start w-full h-full px-5";
-  const imageContainer = "w-[700px] h-full overflow-hidden";
-  const textContainer = "flex w-1/3 px-6 flex-col justify-between h-full pl-2";
+  const sharedStyles = `border-l border-l-2 border-black md-${
+    !isExpanded && `w-full`
+  } h-full`;
+  const staticStyle = `${sharedStyles} min-w-[150px] md:min-w-none md:w-full md:overflow-y-hidden`;
+  const expandedStyle = `${sharedStyles} ${commonStyles.sitePrimaryColour} absolute w-full z-20 md:z-0 md:relative md:w-[800px]`;
 
   return (
     <>
@@ -52,7 +47,7 @@ export const ProjectTile = (props: Props) => {
         className={isExpanded ? expandedStyle : staticStyle}
       >
         <section
-          className={flexBox1}
+          className="flex flex-row h-full"
           onMouseOver={handleShowIndexImage}
           onMouseLeave={hideShowIndexImage}
           style={
@@ -69,12 +64,12 @@ export const ProjectTile = (props: Props) => {
 
           <AnimatePresence>
             {isExpanded && (
-              <div className={flexBox2}>
+              <div className="w-full flex flex-col h-86% py-5 px-3 md:px-5 items-start md:flex-row md:h-full">
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className={imageContainer}
+                  className="w-full h-4/5 md:h-full md:w-[600px] md:h-full overflow-hidden"
                 >
                   <Carousel
                     images={project.images}
@@ -88,9 +83,11 @@ export const ProjectTile = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className={textContainer}
+                  className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-between md:h-full md:pl-2"
                 >
-                  <Link to={`/project/${project.title}`}>More</Link>
+                  {screenWidth > 1000 && (
+                    <Link to={`/project/${project.title}`}>More</Link>
+                  )}
                   <p className="text-xs">{project.description}</p>
                 </motion.div>
               </div>

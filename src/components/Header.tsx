@@ -5,12 +5,14 @@ import { projectTypes } from "../data";
 import { NavButton } from "./NavButton";
 import { commonStyles } from "../tailwind-utils";
 import { Link, useLocation } from "react-router-dom";
+import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 
 interface Props {
   expandFilter: boolean;
   projects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
   handleExpandFilter: () => void;
+  handleShowHome: () => void;
   removeFilter: boolean;
   projectCount: {
     design: number;
@@ -19,35 +21,37 @@ interface Props {
   };
 }
 
-const utilsContainer = `flex justify-end w-1/2`;
-const filterByContainer = "flex justify-end w-full";
-const categoryButtonContainer = "w-2/3 flex justify-between mr-10";
-
 export const Header = (props: Props) => {
   const {
     expandFilter,
     projects,
     filterProjectsByType,
     handleExpandFilter,
+    handleShowHome,
     removeFilter,
     projectCount,
   } = props;
 
+  const { screenWidth } = useDetectScreenWidth();
+
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const mobileFilter = `${commonStyles.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 border border-black border-2 justify-between right-0`;
+  const desktopFilter = `w-2/3 flex justify-between mr-10`;
 
   return (
     <>
       <div
-        className={`w-full h-7% px-${commonStyles.spacingMd} border-b border-b-2 border-black z-10 t-0 flex justify-between items-center`}
+        className={`w-full h-7% px-${commonStyles.spacingMd} border-b z-30 border-b-2 border-black z-10 t-0 flex justify-between items-center`}
       >
-        <Link to="/">
+        <Link to="/" onClick={handleShowHome}>
           <div className={commonStyles.logo}>Freda Chang</div>
         </Link>
 
-        <div className={utilsContainer}>
+        <div className={`flex justify-end w-2/3`}>
           {currentPath === "/" && (
-            <div className={filterByContainer}>
+            <div className="flex justify-end w-full">
               <AnimatePresence>
                 {expandFilter && (
                   <motion.div
@@ -55,7 +59,9 @@ export const Header = (props: Props) => {
                     animate="visible"
                     exit="exit"
                     variants={staggerParentContainer}
-                    className={categoryButtonContainer}
+                    className={
+                      screenWidth > 1000 ? desktopFilter : mobileFilter
+                    }
                   >
                     <NavButton
                       buttonText={`Graphic Design (${projectCount.design})`}
@@ -81,6 +87,7 @@ export const Header = (props: Props) => {
                         filterProjectsByType(projects, projectTypes.WebDev)
                       }
                     />
+                    <button onClick={handleExpandFilter}>Close</button>
                   </motion.div>
                 )}
               </AnimatePresence>

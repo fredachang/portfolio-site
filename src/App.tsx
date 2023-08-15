@@ -33,11 +33,19 @@ function App() {
     setExpandedProjectId("");
   };
 
+  const handleShowHome = () => {
+    setExpandedProjectId("1");
+    setFilteredProjects(projects);
+    setExpandFilter(false);
+    setRemoveFilter(false);
+  };
+
   const filterProjectsByType = (projects: Project[], projectType: string) => {
     const filteredProjects = projects.filter(
       (project) => project.type === projectType
     );
     setFilteredProjects(filteredProjects);
+    setExpandFilter(false);
   };
 
   const countProjectsByType = (
@@ -71,6 +79,7 @@ function App() {
           handleExpandFilter={handleExpandFilter}
           removeFilter={removeFilter}
           projectCount={projectCount}
+          handleShowHome={handleShowHome}
         />
 
         <Routes>
@@ -91,7 +100,7 @@ function App() {
           <Route
             path="/project/:title"
             element={
-              <motion.section className="flex justify-between w-full h-90%">
+              <motion.section className="flex justify-between w-full h-86%">
                 <ProjectPage projects={projects} />
               </motion.section>
             }
@@ -107,7 +116,7 @@ function App() {
                     animate="visible"
                     exit="exit"
                     variants={fade(0.8, 0.5)}
-                    className="flex justify-between w-full h-90% overflow-hidden"
+                    className="flex md:justify-between h-90% overflow-x-scroll md:overflow-x-hidden"
                   >
                     {filteredProjects.map((project) => {
                       return (
