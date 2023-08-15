@@ -15,30 +15,21 @@ export const staggerParentContainer = {
   },
 };
 
-export const fadeX = {
+export const fadeRight = (distance: number, duration: number) => ({
   hidden: {
     opacity: 0,
-    x: -10,
+    x: distance,
   },
   visible: {
     x: 0,
-    y: 0,
     opacity: 1,
     transition: {
-      type: "linear",
+      type: "spring",
       ease: "easeIn",
-      duration: 0.3,
+      duration: duration,
     },
   },
-  exit: {
-    opacity: 0,
-    transition: {
-      type: "linear",
-      ease: "easeIn",
-      duration: 0.3,
-    },
-  },
-};
+});
 
 export const fadeXYWithDelay = {
   hidden: {

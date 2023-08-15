@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Project } from "../types";
-import { fade, fadeDown, fadeUp, fadeXYWithDelay } from "../motion";
+import { fade, fadeDown, fadeRight, fadeUp, fadeXYWithDelay } from "../motion";
 import { Carousel } from "./Carousel";
 import { useNavigate, useParams } from "react-router-dom";
 import { useNavigateIndex } from "../hooks/useNavigateIndex";
@@ -13,25 +13,12 @@ const imageContainer = "w-2/3 h-full overflow-hidden";
 const textContainer = "flex flex-col justify-between px-4 w-1/3";
 
 export const ProjectPage = (props: Props) => {
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  const { currentIndex, handleGoToNext, handleGoToPrevious } =
-    useNavigateIndex();
-
   const { title } = useParams();
   const { projects } = props;
 
   const navigate = useNavigate();
-
-  // const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   setCurrentIndex(currentIndex - 1);
-  // };
-
-  // const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   setCurrentIndex(currentIndex + 1);
-  // };
+  const { currentIndex, handleGoToNext, handleGoToPrevious } =
+    useNavigateIndex();
 
   const selectedProject = projects.find((project) => project.title === title);
 
@@ -45,6 +32,10 @@ export const ProjectPage = (props: Props) => {
 
   const previousIndex = selectedIndex - 1;
   const nextIndex = selectedIndex + 1;
+
+  const currentImageText = selectedProject.images[currentIndex].imageText;
+
+  console.log(currentImageText);
 
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
@@ -116,7 +107,16 @@ export const ProjectPage = (props: Props) => {
               <p className="text-5xl">{selectedProject.title}</p>
             </div>
 
-            <p>{selectedProject.description}</p>
+            <div>
+              <p className="mb-4">{selectedProject.description}</p>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeRight(-10, 0.5)}
+              >
+                <p className="font-bold text-xs">{`[${currentImageText}]`}</p>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
