@@ -1,4 +1,4 @@
-import { LayoutGroup, motion } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import "./App.css";
 import { ProjectTile } from "./components/ProjectTile";
 import { projectTypes, projects } from "./data";
@@ -80,7 +80,7 @@ function App() {
               <motion.section
                 initial="hidden"
                 animate="visible"
-                variants={fadeUp}
+                variants={fadeUp(100, 0.8)}
                 className="flex justify-between w-full h-90%"
               >
                 <About />
@@ -101,23 +101,26 @@ function App() {
             path="/"
             element={
               <LayoutGroup>
-                <motion.section
-                  initial="hidden"
-                  animate="visible"
-                  variants={fade}
-                  className="flex justify-between w-full h-90% overflow-hidden"
-                >
-                  {filteredProjects.map((project) => {
-                    return (
-                      <ProjectTile
-                        key={project.id}
-                        project={project}
-                        isExpanded={expandedProjectId === project.id}
-                        handleExpand={handleExpand}
-                      />
-                    );
-                  })}
-                </motion.section>
+                <AnimatePresence>
+                  <motion.section
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={fade(0.8, 0.5)}
+                    className="flex justify-between w-full h-90% overflow-hidden"
+                  >
+                    {filteredProjects.map((project) => {
+                      return (
+                        <ProjectTile
+                          key={project.id}
+                          project={project}
+                          isExpanded={expandedProjectId === project.id}
+                          handleExpand={handleExpand}
+                        />
+                      );
+                    })}
+                  </motion.section>
+                </AnimatePresence>
               </LayoutGroup>
             }
           />

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Project } from "../types";
-import { fadeUp, fadeXYWithDelay } from "../motion";
+import { fade, fadeDown, fadeUp, fadeXYWithDelay } from "../motion";
 import { Carousel } from "./Carousel";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -52,13 +52,21 @@ export const ProjectPage = (props: Props) => {
         className="flex flex-col w-full h-full px-5"
         initial="hidden"
         animate="visible"
-        variants={fadeUp}
+        variants={fadeUp(100, 0.8)}
       >
         <div
-          className="flex justify-center w-full cursor-pointer"
+          className="flex justify-center items-center w-full h-6 cursor-pointer"
           onClick={navigateToPreviousProject}
         >
-          <p className="-rotate-90 text-3xl">&rsaquo;</p>
+          {selectedIndex > 0 && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp(20, 1)}
+            >
+              <p className="-rotate-90 text-3xl">&rsaquo;</p>
+            </motion.div>
+          )}
         </div>
 
         <div className="flex h-full">
@@ -71,7 +79,13 @@ export const ProjectPage = (props: Props) => {
             <Carousel images={selectedProject.images} />
           </motion.div>
 
-          <div className={textContainer}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={fade(0.3, 0.5)}
+            className={textContainer}
+          >
             <div>
               <div className="flex justify-between mb-6">
                 <p>{selectedProject.id}</p>
@@ -82,14 +96,22 @@ export const ProjectPage = (props: Props) => {
             </div>
 
             <p>{selectedProject.description}</p>
-          </div>
+          </motion.div>
         </div>
 
         <div
-          className="flex justify-center w-full cursor-pointer"
+          className="flex justify-center items-center w-full h-6 cursor-pointer"
           onClick={navigateToNextProject}
         >
-          <p className="rotate-90 text-3xl">&rsaquo;</p>
+          {selectedIndex < 7 && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeDown(-20, 1)}
+            >
+              <p className="rotate-90 text-3xl">&rsaquo;</p>
+            </motion.div>
+          )}
         </div>
       </motion.div>
     </>

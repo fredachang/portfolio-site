@@ -5,6 +5,7 @@ export interface Project {
   type: string;
   description: string;
   images: Image[];
+  imageTexts: string[];
 }
 
 export interface Image {
