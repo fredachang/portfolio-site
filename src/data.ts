@@ -19,12 +19,12 @@ export const projects: Project[] = [
       {
         imageId: "1",
         imagePath: "/images/toothpaste.jpeg",
-        imageText: "this is image text",
+        imageText: "this is image text ONE",
       },
       {
         imageId: "2",
         imagePath: "/images/sink.jpeg",
-        imageText: "this is image text",
+        imageText: "this is image text TWO",
       },
     ],
   },
