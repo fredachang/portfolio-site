@@ -119,8 +119,8 @@ export const primaryTransition = {
 };
 
 export const moveUpWhileHover = {
-  y: -12,
-  transition: { type: "spring", duration: 0.4 },
+  y: -6,
+  transition: { type: "spring", duration: 0.7 },
 };
 
 export const moveLeftWhileHover = {

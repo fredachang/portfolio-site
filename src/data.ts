@@ -14,7 +14,7 @@ export const projects: Project[] = [
     type: projectTypes.GraphicDesign,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
-
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [
       { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
       { imageId: "2", imagePath: "/images/sink.jpeg" },
@@ -27,6 +27,7 @@ export const projects: Project[] = [
     title: "Project Two",
     type: projectTypes.WebDev,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     title: "Project Three",
     type: projectTypes.threeD,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "3", imagePath: "/images/cat.png" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -45,6 +47,7 @@ export const projects: Project[] = [
     title: "Project Four",
     type: projectTypes.WebDev,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -54,6 +57,7 @@ export const projects: Project[] = [
     title: "Project Five",
     type: projectTypes.GraphicDesign,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -63,6 +67,7 @@ export const projects: Project[] = [
     title: "Project Six",
     type: projectTypes.threeD,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -73,6 +78,7 @@ export const projects: Project[] = [
     type: projectTypes.threeD,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },
@@ -82,6 +88,8 @@ export const projects: Project[] = [
     title: "Project Eight",
     type: projectTypes.GraphicDesign,
     description: "this is the project description",
+    indexImage: { imageId: "1", imagePath: "/images/toothpaste.jpeg" },
+
     images: [{ imageId: "2", imagePath: "/images/sink.jpeg" }],
     imageTexts: ["this is toothpaste"],
   },

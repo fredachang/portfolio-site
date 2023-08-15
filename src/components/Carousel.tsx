@@ -28,7 +28,7 @@ export const Carousel = (props: Props) => {
     <>
       <div className="w-full h-full relative">
         <motion.div
-          className="flex bg-red-100 h-full"
+          className="flex h-full"
           animate={{ x: `-${currentIndex * 100}%` }}
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
         >

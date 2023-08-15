@@ -30,7 +30,7 @@ function App() {
     setExpandFilter(!expandFilter);
     setRemoveFilter(!removeFilter);
     setFilteredProjects(projects);
-    setExpandedProjectId("1");
+    setExpandedProjectId("");
   };
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
