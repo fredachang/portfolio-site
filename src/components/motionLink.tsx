@@ -5,17 +5,18 @@ import { space, type } from "../tailwind-utils";
 interface Props {
   linkPath: string;
   linkText: string;
+  linkStyle: string;
 }
 
 export const MotionLink = (props: Props) => {
-  const { linkPath, linkText } = props;
+  const { linkPath, linkText, linkStyle } = props;
   return (
     <>
       <motion.a
         href={linkPath}
         whileHover={moveLeftWhileHover}
         target="_blank"
-        className={`${type.link} mr-${space.spacing2Xl}`}
+        className={linkStyle}
       >
         {linkText}
       </motion.a>

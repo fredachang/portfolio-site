@@ -154,7 +154,7 @@ function App() {
           />
         </Routes>
 
-        <Footer />
+        {screenWidth > 1000 && <Footer />}
       </main>
     </>
   );
