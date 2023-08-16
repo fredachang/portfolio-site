@@ -89,7 +89,7 @@ export const ProjectTile = (props: Props) => {
                   variants={fadeRightWithDelay}
                   className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-end md:h-full md:pl-2"
                 >
-                  <p className={`${type.sm} mb-${space.spacingMd}`}>
+                  <p className={`${type.sm} mt-${space.spacingMd}`}>
                     {project.description}
                   </p>
                   {screenWidth > 1000 && (
