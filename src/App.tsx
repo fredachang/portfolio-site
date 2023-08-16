@@ -12,6 +12,7 @@ import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { LandingPage } from "./pages/LandingPage";
 import { colour } from "./tailwind-utils";
+import { useDetectScreenWidth } from "./hooks/useDetectScreenWidth";
 
 const overallBodyContainer = `${colour.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
@@ -42,6 +43,9 @@ function App() {
   };
 
   const showAll = expandedProjectId === "";
+  const { screenWidth } = useDetectScreenWidth();
+
+  const onMobile = screenWidth < 1000;
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
     const filteredProjects = projects.filter(
@@ -128,7 +132,9 @@ function App() {
                     exit="exit"
                     variants={fade(0.8, 0.5)}
                     className={`flex md:justify-between h-86%  ${
-                      showAll ? `overflow-x-hidden` : `overflow-x-scroll`
+                      showAll && !onMobile
+                        ? `overflow-x-hidden`
+                        : `overflow-x-scroll`
                     }`}
                   >
                     {filteredProjects.map((project) => {
