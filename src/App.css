@@ -23,3 +23,25 @@ body {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
+
+/* width */
+::-webkit-scrollbar {
+  height: 0.3rem;
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  border: 1px solid black;
+  background: white;
+}
