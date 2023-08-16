@@ -51,6 +51,9 @@ function App() {
       (project) => project.type === projectType
     );
     setFilteredProjects(filteredProjects);
+    if (screenWidth < 1000) {
+      setExpandFilter(false);
+    }
   };
 
   const countProjectsByType = (
