@@ -8,9 +8,10 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { commonStyles } from "./tailwind-utils";
 import { fade, fadeUp } from "./motion";
-import { About } from "./components/About";
 import { Route, Routes } from "react-router-dom";
-import { ProjectPage } from "./components/ProjectPage";
+import { ProjectPage } from "./pages/ProjectPage";
+import { About } from "./pages/About";
+import { LandingPage } from "./pages/LandingPage";
 
 const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
@@ -84,6 +85,14 @@ function App() {
 
         <Routes>
           <Route
+            path="/"
+            element={
+              <div className="bg-red-100 fixed top-0 bottom-0 w-screen h-screen z-50">
+                <LandingPage />
+              </div>
+            }
+          />
+          <Route
             path="/about"
             element={
               <motion.section
@@ -107,7 +116,7 @@ function App() {
           />
 
           <Route
-            path="/"
+            path="/home"
             element={
               <LayoutGroup>
                 <AnimatePresence>

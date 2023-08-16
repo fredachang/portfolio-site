@@ -45,7 +45,7 @@ export const Header = (props: Props) => {
       <div
         className={`w-full h-7% px-${commonStyles.spacingMd} border-b z-30 border-b-2 border-black z-10 t-0 flex justify-between items-center`}
       >
-        <Link to="/" onClick={handleShowHome}>
+        <Link to="/home" onClick={handleShowHome}>
           <div className={commonStyles.logo}>Freda Chang</div>
         </Link>
 
