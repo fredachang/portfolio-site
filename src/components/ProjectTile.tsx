@@ -12,11 +12,11 @@ import { colour, space, type } from "../tailwind-utils";
 interface Props {
   project: Project;
   isExpanded: boolean;
-  handleExpand: (projectId: string) => void;
+  handleExpandTile: (projectId: string) => void;
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project, isExpanded, handleExpand } = props;
+  const { project, isExpanded, handleExpandTile } = props;
   const [showIndexImage, setShowIndexImage] = useState(false);
 
   const { currentIndex, handleGoToNext, handleGoToPrevious } =
@@ -34,16 +34,16 @@ export const ProjectTile = (props: Props) => {
   //overall index style
   const sharedStyles = `border-l border-l-2 border-black md-${
     !isExpanded && `w-full`
-  } h-full`;
-  const staticStyle = `${sharedStyles} min-w-[150px] md:min-w-none md:w-full md:overflow-y-hidden`;
+  } `;
+  const staticStyle = `${sharedStyles} min-w-[150px] h-full md:min-w-none md:w-full md:overflow-y-hidden`;
   const expandedStyle = `${sharedStyles} ${colour.sitePrimaryColour} ${
-    screenWidth < 1000 && `absolute`
+    screenWidth < 1000 && `absolute h-86%`
   } w-full z-20 md:z-0 md:static`;
 
   return (
     <>
       <motion.div
-        onClick={() => handleExpand(project.id)}
+        onClick={() => handleExpandTile(project.id)}
         layout="position"
         transition={primaryTransition}
         className={isExpanded ? expandedStyle : staticStyle}
@@ -67,13 +67,13 @@ export const ProjectTile = (props: Props) => {
           <AnimatePresence>
             {isExpanded && (
               <div
-                className={`w-full flex flex-col h-95% py-${space.spacingXl} px-3 md:px-5 items-start md:flex-row md:h-full`}
+                className={`w-full h-full flex flex-col items-start py-${space.spacingMd} px-3 md:py-${space.spacingXl} md:px-5 md:flex-row md:h-full`}
               >
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className={`w-full h-full md:h-full md:w-[600px] md:h-full overflow-hidden`}
+                  className={`w-full h-full md:h-full md:w-[600px] md:h-full overflow-x-hidden`}
                 >
                   <Carousel
                     images={project.images}
@@ -87,7 +87,7 @@ export const ProjectTile = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-end md:h-full md:pl-2"
+                  className="flex w-full h-20 mt-4 md:mt-0 md:w-1/3 flex-col justify-end md:h-full md:pl-2"
                 >
                   <p className={`${type.sm} mt-${space.spacingMd}`}>
                     {project.description}

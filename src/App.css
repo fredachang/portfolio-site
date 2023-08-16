@@ -13,10 +13,6 @@
   src: url("/fonts/TestFoundersGroteskMono-Light.otf") format("opentype");
 }
 
-body {
-  overflow: hidden;
-}
-
 .barText {
   display: flex;
   justify-content: flex-end;

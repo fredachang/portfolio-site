@@ -13,7 +13,7 @@ interface Props {
   filterProjectsByType: (projects: Project[], projectType: string) => void;
   handleExpandFilter: () => void;
   handleShowHome: () => void;
-  removeFilter: boolean;
+  filtered: boolean;
   projectCount: {
     design: number;
     threeD: number;
@@ -23,14 +23,16 @@ interface Props {
 
 export const Header = (props: Props) => {
   const {
+    filtered,
     expandFilter,
     projects,
     filterProjectsByType,
     handleExpandFilter,
     handleShowHome,
-    removeFilter,
     projectCount,
   } = props;
+
+  console.log(filtered);
 
   const { screenWidth } = useDetectScreenWidth();
 
@@ -109,7 +111,7 @@ export const Header = (props: Props) => {
                 className={`${type.link} mr-10`}
                 onClick={handleExpandFilter}
               >
-                {removeFilter ? "Show All" : "Filter By"}
+                {filtered ? "Show All" : "Filter By"}
               </button>
             </div>
           )}

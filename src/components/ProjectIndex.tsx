@@ -17,7 +17,7 @@ export const ProjectIndex = (props: Props) => {
   const sharedHeaderStyles = `${
     screenWidth < 1000 && colour.sitePrimaryColour
   } flex py-${space.spacingXl} flex-col justify-between items-center`;
-  const expandedHeader = `${sharedHeaderStyles} pl-2 w-8 md:w-12 h-86% md:pl-0 md:h-full md:w-32 ${colour.textColorDark}`;
+  const expandedHeader = `${sharedHeaderStyles} pl-2 w-8 md:w-12 h-full md:pl-0 md:h-full md:w-32 ${colour.textColorDark}`;
   const collapsedHeader = `${sharedHeaderStyles} w-full ${colour.textColorLight}`;
 
   return (

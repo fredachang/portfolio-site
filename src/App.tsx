@@ -20,9 +20,8 @@ function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
   const [expandFilter, setExpandFilter] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [removeFilter, setRemoveFilter] = useState(false);
 
-  const handleExpand = (projectId: string) => {
+  const handleExpandTile = (projectId: string) => {
     if (projectId === expandedProjectId) {
       setExpandedProjectId("");
     } else setExpandedProjectId(projectId);
@@ -30,7 +29,6 @@ function App() {
 
   const handleExpandFilter = () => {
     setExpandFilter(!expandFilter);
-    setRemoveFilter(!removeFilter);
     setFilteredProjects(projects);
     setExpandedProjectId("");
   };
@@ -39,10 +37,11 @@ function App() {
     setExpandedProjectId("1");
     setFilteredProjects(projects);
     setExpandFilter(false);
-    setRemoveFilter(false);
   };
 
   const showAll = expandedProjectId === "";
+  const filtered = filteredProjects.length < 8;
+
   const { screenWidth } = useDetectScreenWidth();
 
   const onMobile = screenWidth < 1000;
@@ -52,7 +51,6 @@ function App() {
       (project) => project.type === projectType
     );
     setFilteredProjects(filteredProjects);
-    setExpandFilter(false);
   };
 
   const countProjectsByType = (
@@ -82,9 +80,9 @@ function App() {
         <Header
           expandFilter={expandFilter}
           projects={projects}
+          filtered={filtered}
           filterProjectsByType={filterProjectsByType}
           handleExpandFilter={handleExpandFilter}
-          removeFilter={removeFilter}
           projectCount={projectCount}
           handleShowHome={handleShowHome}
         />
@@ -143,7 +141,7 @@ function App() {
                           key={project.id}
                           project={project}
                           isExpanded={expandedProjectId === project.id}
-                          handleExpand={handleExpand}
+                          handleExpandTile={handleExpandTile}
                         />
                       );
                     })}
