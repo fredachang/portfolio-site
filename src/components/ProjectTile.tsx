@@ -67,7 +67,7 @@ export const ProjectTile = (props: Props) => {
           <AnimatePresence>
             {isExpanded && (
               <div
-                className={`w-full flex flex-col h-86% py-${space.spacingXl} px-3 md:px-5 items-start md:flex-row md:h-full`}
+                className={`w-full flex flex-col h-95% py-${space.spacingXl} px-3 md:px-5 items-start md:flex-row md:h-full`}
               >
                 <motion.div
                   initial="hidden"
