@@ -101,7 +101,7 @@ function App() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeUp(100, 0.8)}
-                className="flex justify-between w-full h-90%"
+                className="flex justify-between w-full h-86%"
               >
                 <About />
               </motion.section>
@@ -127,7 +127,7 @@ function App() {
                     animate="visible"
                     exit="exit"
                     variants={fade(0.8, 0.5)}
-                    className={`flex md:justify-between h-90%  ${
+                    className={`flex md:justify-between h-86%  ${
                       showAll ? `overflow-x-hidden` : `overflow-x-scroll`
                     }`}
                   >

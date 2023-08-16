@@ -28,7 +28,7 @@ export const ProjectIndex = (props: Props) => {
       >
         <div className="h-1/2 w-full flex justify-center items-start">
           <span className="barText">
-            <h1 className={type.h1}>{project.title}</h1>
+            <h1 className={`${type.h1}`}>{project.title}</h1>
           </span>
         </div>
 
