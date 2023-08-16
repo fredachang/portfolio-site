@@ -9,13 +9,13 @@ export const About = () => {
     <>
       <Link to="/home">
         <div
-          className={`p-${space.spacingMd} w-screen cursor-default h-full flex flex-col justify-between`}
+          className={`p-${space.spacingMd} w-screen cursor-default h-full flex flex-col`}
         >
           <div className={type.md}>Freda is a designer based in Sydney</div>
 
           {screenWidth < 1000 && (
             <div
-              className={`flex flex-col h-1/5 justify-between mt-${space.spacing2Xl}`}
+              className={`flex flex-col h-1/4 justify-between mt-${space.spacing2Xl}`}
             >
               <a href={links.email} className={type.link}>
                 EMAIL

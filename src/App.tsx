@@ -131,7 +131,7 @@ function App() {
                     animate="visible"
                     exit="exit"
                     variants={fade(0.8, 0.5)}
-                    className={`flex md:justify-between h-86%  ${
+                    className={`flex md:justify-between h-93% md:h-86%  ${
                       showAll && !onMobile
                         ? `overflow-x-hidden`
                         : `overflow-x-scroll`
