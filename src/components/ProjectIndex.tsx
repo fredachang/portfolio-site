@@ -32,7 +32,7 @@ export const ProjectIndex = (props: Props) => {
           </span>
         </div>
 
-        <div className={`w-full flex flex-col justify-between h-40% md:h-2/5`}>
+        <div className={`w-full flex flex-col justify-between h-1/2 md:h-2/5`}>
           <span className="barText">
             <h2 className={type.link}>{project.year}</h2>
           </span>

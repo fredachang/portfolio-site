@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Sohne-Regular";
-  src: url("/fonts/Sohne_Regular.otf") format("opentype");
+  src: url("/public/fonts/Sohne_Regular.otf") format("opentype");
 }
 
 @font-face {

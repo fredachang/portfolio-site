@@ -37,8 +37,8 @@ export const Header = (props: Props) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 border border-black border-2 justify-between right-0`;
-  const desktopFilter = `w-1/2 flex justify-between mr-10`;
+  const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 justify-between right-0`;
+  const desktopFilter = `w-2/3 flex justify-end mr-10`;
 
   return (
     <>
@@ -68,6 +68,7 @@ export const Header = (props: Props) => {
                     <NavButton
                       buttonText={`Graphic Design (${projectCount.design})`}
                       motionVariant={fadeRight(10, 0.5)}
+                      buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
                       onClickFunction={() =>
                         filterProjectsByType(
                           projects,
@@ -77,6 +78,7 @@ export const Header = (props: Props) => {
                     />
                     <NavButton
                       buttonText={`3D Design (${projectCount.threeD})`}
+                      buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
                       motionVariant={fadeRight(10, 0.5)}
                       onClickFunction={() =>
                         filterProjectsByType(projects, projectTypes.threeD)
@@ -84,6 +86,7 @@ export const Header = (props: Props) => {
                     />
                     <NavButton
                       buttonText={`Web Development (${projectCount.web})`}
+                      buttonStyle={`${type.link}`}
                       motionVariant={fadeRight(10, 0.5)}
                       onClickFunction={() =>
                         filterProjectsByType(projects, projectTypes.WebDev)
@@ -94,7 +97,9 @@ export const Header = (props: Props) => {
                         onClick={handleExpandFilter}
                         className={type.link}
                       >
-                        Close
+                        <p className="hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">
+                          Close
+                        </p>
                       </button>
                     )}
                   </motion.div>

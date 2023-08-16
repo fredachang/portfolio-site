@@ -11,6 +11,8 @@ export const space = {
   spacingLg: "6",
   spacingXl: "8",
   spacing2Xl: "10",
+  spacing3Xl: "12",
+  spacing4Xl: "14",
 };
 
 export const type = {
