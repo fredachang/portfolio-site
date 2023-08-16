@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { moveLeftWhileHover } from "../motion";
-import { space, type } from "../tailwind-utils";
 
 interface Props {
   linkPath: string;
