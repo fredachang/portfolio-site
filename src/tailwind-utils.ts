@@ -1,12 +1,24 @@
-export const commonStyles = {
+export const colour = {
   sitePrimaryColour: "bg-stone-50",
   highlightColour: "bg-lime-50",
-  logo: "text-xl font-medium",
-  link: "text-md",
-  h1: "text-2xl font-light",
-  h2: "text-xl font-light",
-  p: "text-sm font-light",
   textColorDark: "text-stone-700",
   textColorLight: "text-stone-500",
+};
+
+export const space = {
+  spacingSm: "2",
   spacingMd: "4",
+  spacingLg: "6",
+  spacingXl: "8",
+  spacing2Xl: "10",
+};
+
+export const type = {
+  logo: "font-bold text-2xl",
+  display: "font-light text-5xl",
+  h1: "font-light text-3xl ",
+  h2: "text-xl font-light",
+  md: "text-sm font-light",
+  sm: "text-xs font-light",
+  link: "text-sm font-mono uppercase",
 };

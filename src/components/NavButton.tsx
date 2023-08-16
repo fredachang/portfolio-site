@@ -1,5 +1,5 @@
 import { Variants, motion } from "framer-motion";
-import { commonStyles } from "../tailwind-utils";
+import { colour, type } from "../tailwind-utils";
 
 interface Props {
   buttonText: string;
@@ -14,9 +14,11 @@ export const NavButton = (props: Props) => {
       <motion.button
         variants={motionVariant}
         onClick={onClickFunction}
-        className={`${commonStyles.link} ${commonStyles.textColorLight}`}
+        className={`${type.link} ${colour.textColorLight}`}
       >
-        {buttonText}
+        <p className="hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">
+          {buttonText}
+        </p>
       </motion.button>
     </>
   );

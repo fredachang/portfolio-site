@@ -3,9 +3,9 @@ import { fadeRight, staggerParentContainer } from "../motion";
 import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./NavButton";
-import { commonStyles } from "../tailwind-utils";
 import { Link, useLocation } from "react-router-dom";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
+import { colour, space, type } from "../tailwind-utils";
 
 interface Props {
   expandFilter: boolean;
@@ -37,20 +37,22 @@ export const Header = (props: Props) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const mobileFilter = `${commonStyles.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 border border-black border-2 justify-between right-0`;
-  const desktopFilter = `w-2/3 flex justify-between mr-10`;
+  const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 border border-black border-2 justify-between right-0`;
+  const desktopFilter = `w-1/2 flex justify-between mr-10`;
 
   return (
     <>
       <div
-        className={`w-full h-7% px-${commonStyles.spacingMd} border-b z-30 border-b-2 border-black z-10 t-0 flex justify-between items-center`}
+        className={`w-full h-7% px-${space.spacingMd} border-b z-30 border-b-2 border-black z-10 t-0 flex justify-between items-center`}
       >
         <Link to="/home" onClick={handleShowHome}>
-          <div className={commonStyles.logo}>Freda Chang</div>
+          <div className={type.logo}>
+            {screenWidth > 1000 ? "Freda Chang" : "Freda C."}
+          </div>
         </Link>
 
         <div className={`flex justify-end w-2/3`}>
-          {currentPath === "/" && (
+          {currentPath === "/home" && (
             <div className="flex justify-end w-full">
               <AnimatePresence>
                 {expandFilter && (
@@ -87,12 +89,19 @@ export const Header = (props: Props) => {
                         filterProjectsByType(projects, projectTypes.WebDev)
                       }
                     />
-                    <button onClick={handleExpandFilter}>Close</button>
+                    {screenWidth < 1000 && (
+                      <button
+                        onClick={handleExpandFilter}
+                        className={type.link}
+                      >
+                        Close
+                      </button>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
               <button
-                className={`${commonStyles.link} mr-10`}
+                className={`${type.link} mr-10`}
                 onClick={handleExpandFilter}
               >
                 {removeFilter ? "Show All" : "Filter By"}
@@ -100,7 +109,7 @@ export const Header = (props: Props) => {
             </div>
           )}
 
-          <Link to="/about">
+          <Link className={type.link} to="/about">
             <div>About</div>
           </Link>
         </div>

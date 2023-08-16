@@ -6,14 +6,14 @@ import { useState } from "react";
 import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { commonStyles } from "./tailwind-utils";
 import { fade, fadeUp } from "./motion";
 import { Route, Routes } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { LandingPage } from "./pages/LandingPage";
+import { colour } from "./tailwind-utils";
 
-const overallBodyContainer = `${commonStyles.sitePrimaryColour} flex flex-col w-screen h-screen`;
+const overallBodyContainer = `${colour.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
@@ -40,6 +40,8 @@ function App() {
     setExpandFilter(false);
     setRemoveFilter(false);
   };
+
+  const showAll = expandedProjectId === "";
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
     const filteredProjects = projects.filter(
@@ -125,7 +127,9 @@ function App() {
                     animate="visible"
                     exit="exit"
                     variants={fade(0.8, 0.5)}
-                    className="flex md:justify-between h-90% overflow-x-scroll"
+                    className={`flex md:justify-between h-90%  ${
+                      showAll ? `overflow-x-hidden` : `overflow-x-scroll`
+                    }`}
                   >
                     {filteredProjects.map((project) => {
                       return (

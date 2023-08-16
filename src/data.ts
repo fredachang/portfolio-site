@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     id: "1",
     year: "2002",
-    title: "Project One long description",
+    title: "Scrapbook App",
     type: projectTypes.GraphicDesign,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",

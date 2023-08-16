@@ -10,6 +10,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { useNavigateIndex } from "../hooks/useNavigateIndex";
 import { Carousel } from "../components/Carousel";
+import { space, type } from "../tailwind-utils";
 
 interface Props {
   projects: Project[];
@@ -65,7 +66,7 @@ export const ProjectPage = (props: Props) => {
         variants={fadeUp(100, 0.8)}
       >
         <div
-          className="flex justify-center items-center w-full h-6 cursor-pointer"
+          className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
           onClick={navigateToPreviousProject}
         >
           {selectedIndex > 0 && (
@@ -84,7 +85,7 @@ export const ProjectPage = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={fadeRightWithDelay}
-            className="w-full md:w-2/3 h-full overflow-hidden"
+            className="w-full md:w-3/5 h-full overflow-hidden"
           >
             <Carousel
               images={selectedProject.images}
@@ -93,38 +94,41 @@ export const ProjectPage = (props: Props) => {
               handleGoToPrevious={handleGoToPrevious}
             />
           </motion.div>
+
           <motion.div
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={fade(2, 0.5)}
-            className="flex flex-col justify-between px-4 w-1/3"
+            className="flex flex-col justify-between px-4 w-2/5"
           >
             <div>
-              <div className="flex justify-between mb-6">
+              <div className={`${type.link} flex justify-between mb-6`}>
                 <p>{selectedProject.id}</p>
                 <p>{selectedProject.year}</p>
                 <p>{selectedProject.type}</p>
               </div>
-              <p className="text-5xl">{selectedProject.title}</p>
+              <p className={type.display}>{selectedProject.title}</p>
             </div>
 
             <div>
-              <p className="mb-4">{selectedProject.description}</p>
+              <p className={`${type.md} mb-${space.spacingMd}`}>
+                {selectedProject.description}
+              </p>
               <motion.div
                 key={currentIndex}
                 initial="hidden"
                 animate="visible"
                 variants={fadeRight(-10, 1.5)}
               >
-                <p className="font-bold text-xs">{`[${currentImageText}]`}</p>
+                <p className={type.link}>{`[${currentImageText}]`}</p>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
         <div
-          className="flex justify-center items-center w-full h-6 cursor-pointer"
+          className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
           onClick={navigateToNextProject}
         >
           {selectedIndex < 7 && (

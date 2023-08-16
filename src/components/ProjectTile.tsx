@@ -2,12 +2,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { fadeRightWithDelay, primaryTransition } from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
-import { commonStyles } from "../tailwind-utils";
 import { ProjectIndex } from "./ProjectIndex";
 import { Link } from "react-router-dom";
 import { useNavigateIndex } from "../hooks/useNavigateIndex";
 import { useState } from "react";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
+import { colour, space, type } from "../tailwind-utils";
 
 interface Props {
   project: Project;
@@ -36,7 +36,7 @@ export const ProjectTile = (props: Props) => {
     !isExpanded && `w-full`
   } h-full`;
   const staticStyle = `${sharedStyles} min-w-[150px] md:min-w-none md:w-full md:overflow-y-hidden`;
-  const expandedStyle = `${sharedStyles} ${commonStyles.sitePrimaryColour} ${
+  const expandedStyle = `${sharedStyles} ${colour.sitePrimaryColour} ${
     screenWidth < 1000 && `absolute`
   } w-full z-20 md:z-0 md:static`;
 
@@ -66,12 +66,14 @@ export const ProjectTile = (props: Props) => {
 
           <AnimatePresence>
             {isExpanded && (
-              <div className="w-full flex flex-col h-86% py-5 px-3 md:px-5 items-start md:flex-row md:h-full">
+              <div
+                className={`w-full flex flex-col h-86% py-${space.spacingXl} px-3 md:px-5 items-start md:flex-row md:h-full`}
+              >
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className="w-full h-4/5 md:h-full md:w-[600px] md:h-full overflow-hidden"
+                  className={`w-full h-full md:h-full md:w-[600px] md:h-full overflow-hidden`}
                 >
                   <Carousel
                     images={project.images}
@@ -85,12 +87,21 @@ export const ProjectTile = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   variants={fadeRightWithDelay}
-                  className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-between md:h-full md:pl-2"
+                  className="flex w-full h-1/5 mt-4 md:mt-0 md:w-1/3 flex-col justify-end md:h-full md:pl-2"
                 >
+                  <p className={`${type.sm} mb-${space.spacingMd}`}>
+                    {project.description}
+                  </p>
                   {screenWidth > 1000 && (
-                    <Link to={`/project/${project.title}`}>More</Link>
+                    <Link
+                      to={`/project/${project.title}`}
+                      className="flex w-1/3 justify-start hover:justify-between"
+                    >
+                      <span className={type.link}>{`[ `}</span>
+                      <p className={type.link}>More</p>
+                      <span className={type.link}>{` ]`}</span>
+                    </Link>
                   )}
-                  <p className="text-xs">{project.description}</p>
                 </motion.div>
               </div>
             )}

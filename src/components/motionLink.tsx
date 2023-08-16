@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { moveLeftWhileHover } from "../motion";
-import { commonStyles } from "../tailwind-utils";
+import { space, type } from "../tailwind-utils";
 
 interface Props {
   linkPath: string;
@@ -15,7 +15,7 @@ export const MotionLink = (props: Props) => {
         href={linkPath}
         whileHover={moveLeftWhileHover}
         target="_blank"
-        className={commonStyles.link}
+        className={`${type.link} mr-${space.spacing2Xl}`}
       >
         {linkText}
       </motion.a>
