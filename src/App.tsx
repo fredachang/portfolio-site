@@ -14,7 +14,7 @@ import { LandingPage } from "./pages/LandingPage";
 import { colour } from "./tailwind-utils";
 import { useDetectScreenWidth } from "./hooks/useDetectScreenWidth";
 
-const overallBodyContainer = `${colour.sitePrimaryColour} flex flex-col w-full h-full`;
+const overallBodyContainer = `${colour.sitePrimaryColour} flex flex-col w-screen h-screen`;
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
