@@ -58,7 +58,7 @@ export const ProjectPage = (props: Props) => {
   return (
     <>
       <motion.div
-        className="flex flex-col w-full h-full px-5"
+        className="flex flex-col w-full h-86% px-5"
         initial="hidden"
         animate="visible"
         variants={fadeUp(100, 0.8)}
