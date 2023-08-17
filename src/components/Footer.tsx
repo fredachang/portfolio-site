@@ -1,6 +1,6 @@
 import { links } from "../data";
 import { space, type } from "../tailwind-utils";
-import { MotionHyperlink } from "./motionHyperLink";
+import { MotionHyperlink } from "./MotionHyperLink";
 
 export const Footer = () => (
   <>
