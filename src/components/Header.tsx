@@ -32,8 +32,6 @@ export const Header = (props: Props) => {
     projectCount,
   } = props;
 
-  console.log(filtered);
-
   const { screenWidth } = useDetectScreenWidth();
 
   const location = useLocation();

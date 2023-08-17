@@ -55,7 +55,7 @@ export const ProjectTile = (props: Props) => {
           style={
             !isExpanded && showIndexImage
               ? {
-                  backgroundImage: `url(${project.indexImage.imagePath})`,
+                  backgroundImage: `url(${project.indexImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }

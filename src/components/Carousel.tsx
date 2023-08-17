@@ -23,9 +23,9 @@ export const Carousel = (props: Props) => {
           animate={{ x: `-${currentIndex * 100}%` }}
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
         >
-          {images.map((img) => (
+          {images.map((img, i) => (
             <div
-              key={img.imageId}
+              key={i}
               className="w-full h-full flex-shrink-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${img.imagePath})` }}
             />

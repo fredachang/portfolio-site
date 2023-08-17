@@ -39,8 +39,6 @@ export const ProjectPage = (props: Props) => {
 
   const currentImageText = selectedProject.images[currentIndex].imageText;
 
-  console.log(currentImageText);
-
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
       const previousProject = projects[previousIndex];
