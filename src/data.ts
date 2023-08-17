@@ -176,14 +176,27 @@ export const projects: Project[] = [
   },
   {
     id: "8",
-    year: "2003",
-    title: "Project Eight",
+    year: "2022",
+    title: "Future Perfect",
     type: projectTypes.GraphicDesign,
-    description: "this is the project description",
-    indexImage: "/images/toothpaste.jpeg",
+    description:
+      "I was asked to reimagine the brand identity of a 3D design studio ‘Future Perfect Digital’ using my choice of medium. The idea of 'Future is now' is the inspiration behind the pieces. Taking reference from the studio’s portfolio, it has a strong focus on using 3D technology and AR to stretch the experience of reality.    ",
+    indexImage: "/images/FuturePerfect/02_Detail.jpg",
     images: [
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/FuturePerfect/01_Visual.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/FuturePerfect/04_Logo.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/FuturePerfect/02_Detail.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/FuturePerfect/03_Landscape.jpg",
         imageText: "this is image text",
       },
     ],
@@ -195,4 +208,8 @@ export const links = {
   gitHub: "https://github.com/fredachang",
   instagram: "https://www.instagram.com/notcoolfreda",
   linkedIn: "https://www.linkedin.com/in/fredachang",
+};
+
+export const videoLinks = {
+  futurePerfect: "https://youtube.com/shorts/iMax35wU3oM?feature=share",
 };
