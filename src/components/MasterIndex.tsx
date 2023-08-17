@@ -32,9 +32,7 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5)}
-          className={`bg-red-100 ${
-            isMobile && `relative`
-          } flex h-80% md:h-86%  ${
+          className={`${isMobile && `relative`} flex h-80% md:h-86%  ${
             showAll && !onMobile ? `overflow-x-hidden` : `overflow-x-scroll`
           }`}
         >

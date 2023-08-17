@@ -18,7 +18,7 @@ export const ProjectOverview = (props: Props) => {
 
   return (
     <div
-      className={`bg-purple-100 w-11/12 h-full flex flex-col items-start md:flex-row md:h-full px-${space.spacingMd} md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
+      className={`w-11/12 h-full flex flex-col items-start md:flex-row md:h-full px-${space.spacingMd} md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
     >
       <motion.div
         initial="hidden"

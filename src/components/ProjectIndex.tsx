@@ -18,7 +18,7 @@ export const ProjectIndex = (props: Props) => {
 
   const bgOnMobile = isMobile && colour.sitePrimaryColour;
 
-  const expandedHeader = `bg-yellow-100 ${bgOnMobile} flex-col justify-between items-center w-8 md:w-1/12 py-${space.spacingMd} md:py-${space.spacingLg}`;
+  const expandedHeader = `${bgOnMobile} flex-col justify-between items-center w-8 md:w-1/12 py-${space.spacingMd} md:py-${space.spacingLg}`;
   const collapsedHeader = `${bgOnMobile} flex-col justify-between items-center w-full py-${space.spacingMd} md:py-${space.spacingLg}`;
 
   return (

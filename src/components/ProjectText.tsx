@@ -18,7 +18,7 @@ export const ProjectText = (props: Props) => {
       initial="hidden"
       animate="visible"
       variants={fadeRightWithDelay}
-      className={`bg-red-200 flex flex-col justify-end w-full md:w-1/2 h-1/3 md:h-full md:mx-${space.spacingMd}`}
+      className={`flex flex-col justify-end w-full md:w-1/2 h-1/3 md:h-full md:mx-${space.spacingMd}`}
     >
       <p className={`${type.sm} mb-${space.spacingMd}`}>
         {project.description}
