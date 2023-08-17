@@ -64,27 +64,27 @@ export const projects: Project[] = [
     indexImage: "/images/Podium/01_Box.jpg",
     images: [
       {
-        imagePath: "/images/Podium/06_GIF.gif?nf_resize=fit",
+        imagePath: "/images/Podium/06_GIF_2.gif",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/01_Box.jpg?nf_resize=fit",
+        imagePath: "/images/Podium/01_Box.jpg",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/02_Box.jpg?nf_resize=fit",
+        imagePath: "/images/Podium/02_Box.jpg",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/03_GroupShot.jpg?nf_resize=fit",
+        imagePath: "/images/Podium/03_GroupShot.jpg",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/04_Merch.jpg?nf_resize=fit",
+        imagePath: "/images/Podium/04_Merch.jpg",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/05_Merch.jpg?nf_resize=fit",
+        imagePath: "/images/Podium/05_Merch.jpg",
         imageText: "this is image text",
       },
     ],
@@ -94,19 +94,32 @@ export const projects: Project[] = [
     year: "2021",
     title: "Madame Wu",
     type: projectTypes.GraphicDesign,
-    description: "this is the project description",
-    indexImage: "/images/toothpaste.jpeg",
+    description:
+      "Exotic and confused, this tea would probably cause severe food poisoning if it were ever sent down the manufacturing line. The brand identity reflects a reconciliation of times past and present. Old teas for new teens, Madame Wu is ultra-materialism hidden behind an anti-capitalistic language.",
+    indexImage: "/images/MadameWu/03_Visual.jpg",
     images: [
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/MadameWu/01_Packaging.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/MadameWu/02_Mobile.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/MadameWu/04_Crest.gif",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/MadameWu/05_web.gif",
         imageText: "this is image text",
       },
     ],
   },
   {
     id: "6",
-    year: "2003",
-    title: "Project Six",
+    year: "2021",
+    title: "Brunswick St Festival",
     type: projectTypes.threeD,
     description: "this is the project description",
     indexImage: "/images/toothpaste.jpeg",
