@@ -2,6 +2,7 @@ import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { fade } from "../motion";
 import { Project } from "../types";
 import { ProjectTile } from "./ProjectTile";
+import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 
 interface Props {
   showAll: boolean;
@@ -19,6 +20,10 @@ export const MasterIndex = (props: Props) => {
     expandedProjectId,
     handleExpandTile,
   } = props;
+
+  const { screenWidth } = useDetectScreenWidth();
+  const isMobile = screenWidth < 1000;
+
   return (
     <LayoutGroup>
       <AnimatePresence>
@@ -27,7 +32,9 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5)}
-          className={`bg-red-100 flex h-80% md:h-86%  ${
+          className={`bg-red-100 ${
+            isMobile && `relative`
+          } flex h-80% md:h-86%  ${
             showAll && !onMobile ? `overflow-x-hidden` : `overflow-x-scroll`
           }`}
         >

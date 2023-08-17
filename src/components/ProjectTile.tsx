@@ -27,10 +27,10 @@ export const ProjectTile = (props: Props) => {
     setShowIndexImage(false);
   };
 
+  const mobileSettings = screenWidth < 1000 && `absolute h-full top-0`;
+
   const staticStyle = `min-w-[130px] md:w-full h-full border-l border-l-2 border-black`;
-  const expandedStyle = `${colour.sitePrimaryColour} ${
-    screenWidth < 1000 && `absolute`
-  } w-full h-80% md:h-full z-20 md:z-0 border-l border-l-2 border-black`;
+  const expandedStyle = `${colour.sitePrimaryColour} ${mobileSettings} w-full md:h-full z-20 md:z-0 border-l border-l-2 border-black`;
 
   return (
     <>
@@ -41,7 +41,7 @@ export const ProjectTile = (props: Props) => {
         className={isExpanded ? expandedStyle : staticStyle}
       >
         <section
-          className="bg-green-100 flex flex-row w-full h-full"
+          className="flex flex-row justify-between w-full h-full"
           onMouseOver={handleShowIndexImage}
           onMouseLeave={hideShowIndexImage}
           style={
