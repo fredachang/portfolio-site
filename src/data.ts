@@ -121,8 +121,9 @@ export const projects: Project[] = [
     year: "2021",
     title: "Brunswick St Festival",
     type: projectTypes.threeD,
-    description: "this is the project description",
-    indexImage: "/images/toothpaste.jpeg",
+    description:
+      "A street festival to celebrate the past and the present of Brunswick, Melbourne, and its unique heritage and diversity through art, food and music. I experimented with typographic compositions and using graphic devices to display festival program information. A bright and nostalgic colour palette appeals to families and hipsters alike.",
+    indexImage: "/images/BrunswickSt/01_OOH.jpg",
     images: [
       {
         imagePath: "/images/BrunswickSt/01_OOH.jpg",
@@ -148,15 +149,27 @@ export const projects: Project[] = [
   },
   {
     id: "7",
-    year: "2003",
-    title: "Project Seven",
+    year: "2022",
+    title: "Soma Pharmaceuticals",
     type: projectTypes.threeD,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
-    indexImage: "/images/toothpaste.jpeg",
+      "Inspired by the dystopian future of Brave New World, this project brings to life a fictional substance named Soma, which is issued by the central government to keep citizens happy. The brand identity is at once alluring and repulsive, falsifying an illusion of choice over the lack thereof. The brand identity carries the influence of 20th century Communist propaganda while making a case for 2020 and beyond.",
+    indexImage: "/images/Soma/05_TicketFlatLay.jpg",
     images: [
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/Soma/01_Packaging.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Soma/02_Bottles.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Soma/03_Render.gif",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Soma/04_Ticket_2.gif",
         imageText: "this is image text",
       },
     ],
