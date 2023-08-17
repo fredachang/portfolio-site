@@ -150,7 +150,7 @@ export const projects: Project[] = [
     id: "6",
     year: "2021",
     title: "Brunswick St Festival",
-    type: projectTypes.threeD,
+    type: projectTypes.GraphicDesign,
     description:
       "A street festival to celebrate the past and the present of Brunswick, Melbourne, and its unique heritage and diversity through art, food and music. I experimented with typographic compositions and using graphic devices to display festival program information. A bright and nostalgic colour palette appeals to families and hipsters alike.",
     indexImage: "/images/BrunswickSt/01_OOH.jpg",
@@ -187,7 +187,7 @@ export const projects: Project[] = [
     id: "7",
     year: "2022",
     title: "Soma Pharmaceuticals",
-    type: projectTypes.threeD,
+    type: projectTypes.GraphicDesign,
     description:
       "Inspired by the dystopian future of Brave New World, this project brings to life a fictional substance named Soma, which is issued by the central government to keep citizens happy. The brand identity is at once alluring and repulsive, falsifying an illusion of choice over the lack thereof. The brand identity carries the influence of 20th century Communist propaganda while making a case for 2020 and beyond.",
     indexImage: "/images/Soma/05_TicketFlatLay.jpg",
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     id: "8",
     year: "2022",
     title: "Future Perfect",
-    type: projectTypes.GraphicDesign,
+    type: projectTypes.threeD,
     description:
       "I was asked to reimagine the brand identity of a 3D design studio ‘Future Perfect Digital’ using my choice of medium. The idea of 'Future is now' is the inspiration behind the pieces. Taking reference from the studio’s portfolio, it has a strong focus on using 3D technology and AR to stretch the experience of reality.    ",
     indexImage: "/images/FuturePerfect/02_Detail.jpg",
@@ -244,10 +244,53 @@ export const projects: Project[] = [
     ],
     links: [
       {
-        text: "Visit Site",
-        path: "https://freda-arena-clone.onrender.com/login",
+        text: "Watch Reel",
+        path: "https://youtube.com/shorts/iMax35wU3oM?feature=share",
       },
     ],
+  },
+  {
+    id: "9",
+    year: "2022",
+    title: "Personal Works",
+    type: projectTypes.threeD,
+    description: "",
+    indexImage: "/images/Personal/Cat.jpg",
+    images: [
+      {
+        imagePath: "/images/Personal/Bao.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Cat.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Coffee.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Oyster.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Seoul.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Sink.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Stairs.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/Personal/Swan.jpg",
+        imageText: "this is image text",
+      },
+    ],
+    links: [],
   },
 ];
 
@@ -256,8 +299,4 @@ export const links = {
   gitHub: "https://github.com/fredachang",
   instagram: "https://www.instagram.com/notcoolfreda",
   linkedIn: "https://www.linkedin.com/in/fredachang",
-};
-
-export const videoLinks = {
-  futurePerfect: "https://youtube.com/shorts/iMax35wU3oM?feature=share",
 };
