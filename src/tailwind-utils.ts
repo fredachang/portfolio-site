@@ -23,4 +23,5 @@ export const type = {
   md: "text-sm font-light",
   sm: "text-xs font-light",
   link: "text-sm font-mono uppercase",
+  linkSm: "text-xs font-mono uppercase",
 };

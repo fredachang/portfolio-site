@@ -14,10 +14,12 @@ export const ProjectIndex = (props: Props) => {
 
   const { screenWidth } = useDetectScreenWidth();
 
-  const bgOnMobile = screenWidth < 1000 && colour.sitePrimaryColour;
+  const isMobile = screenWidth < 1000;
 
-  const expandedHeader = `bg-yellow-100 ${bgOnMobile} flex-col justify-between items-center md:w-12 py-${space.spacingLg}`;
-  const collapsedHeader = `${bgOnMobile} flex-col justify-between items-center w-full py-${space.spacingLg}`;
+  const bgOnMobile = isMobile && colour.sitePrimaryColour;
+
+  const expandedHeader = `bg-yellow-100 ${bgOnMobile} flex-col justify-between items-center w-8 md:w-1/12 py-${space.spacingMd} md:py-${space.spacingLg}`;
+  const collapsedHeader = `${bgOnMobile} flex-col justify-between items-center w-full py-${space.spacingMd} md:py-${space.spacingLg}`;
 
   return (
     <>
@@ -27,7 +29,7 @@ export const ProjectIndex = (props: Props) => {
       >
         <div className="h-1/2 w-full flex justify-center items-start">
           <span className="barText">
-            <h1 className={`font-light text-2xl md:text-3xl`}>
+            <h1 className={`font-light text-xl md:text-3xl`}>
               {project.title}
             </h1>
           </span>
@@ -35,14 +37,20 @@ export const ProjectIndex = (props: Props) => {
 
         <div className={`w-full flex flex-col justify-between h-1/2 md:h-2/5`}>
           <span className="barText">
-            <h2 className={type.link}>{project.year}</h2>
+            <h2 className={isMobile ? type.linkSm : type.link}>
+              {project.year}
+            </h2>
           </span>
 
           <span className="barText">
-            <div className="rotate-90 mb-5 flex text-stone-800 justify-center items-center w-10 h-10">
-              <h2 className={type.link}>{project.id}</h2>
+            <div className="rotate-90 mb-5 flex text-stone-800 justify-center items-center">
+              <h2 className={isMobile ? type.linkSm : type.link}>
+                {project.id}
+              </h2>
             </div>
-            <h2 className={type.link}>{project.type}</h2>
+            <h2 className={isMobile ? type.linkSm : type.link}>
+              {project.type}
+            </h2>
           </span>
         </div>
       </motion.div>
