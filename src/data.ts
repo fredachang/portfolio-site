@@ -125,7 +125,23 @@ export const projects: Project[] = [
     indexImage: "/images/toothpaste.jpeg",
     images: [
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/BrunswickSt/01_OOH.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/BrunswickSt/02_Poster.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/BrunswickSt/03_Wall.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/BrunswickSt/04_Mobile.gif",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/BrunswickSt/05_Tote.jpg",
         imageText: "this is image text",
       },
     ],
