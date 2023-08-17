@@ -56,36 +56,38 @@ const lightColours = {
 export const LandingPage = () => {
   return (
     <>
-      <Link to="/home" className="flex justify-center">
-        ENTER
-      </Link>
+      <div className="bg-red-100 fixed top-0 bottom-0 w-screen h-screen z-50">
+        <Link to="/home" className="flex justify-center">
+          ENTER
+        </Link>
 
-      <Canvas>
-        <Environment files="HDR/clear_land.hdr" blur={0.01} />
-        {/* <axesHelper args={[5]} /> */}
+        <Canvas>
+          <Environment files="HDR/clear_land.hdr" blur={0.01} />
+          {/* <axesHelper args={[5]} /> */}
 
-        <ambientLight color={lightColours.warmYellow} intensity={0.3} />
-        <hemisphereLight
-          color={lightColours.lightBlue}
-          groundColor={lightColours.warmYellow}
-          intensity={0.6}
-          position={[0, 5, 3]}
+          <ambientLight color={lightColours.warmYellow} intensity={0.3} />
+          <hemisphereLight
+            color={lightColours.lightBlue}
+            groundColor={lightColours.warmYellow}
+            intensity={0.6}
+            position={[0, 5, 3]}
+          />
+
+          <OrbitControls enableZoom={false} />
+          <Suspense fallback={null}>
+            <Rig>
+              <WeatherBalloon scale={300} position={[0, 0, 0]} />
+            </Rig>
+          </Suspense>
+        </Canvas>
+        <Loader
+          containerStyles={loaderStyles.container}
+          innerStyles={loaderStyles.inner}
+          barStyles={loaderStyles.bar}
+          dataStyles={loaderStyles.data}
+          dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
         />
-
-        <OrbitControls enableZoom={false} />
-        <Suspense fallback={null}>
-          <Rig>
-            <WeatherBalloon scale={300} position={[0, 0, 0]} />
-          </Rig>
-        </Suspense>
-      </Canvas>
-      <Loader
-        containerStyles={loaderStyles.container}
-        innerStyles={loaderStyles.inner}
-        barStyles={loaderStyles.bar}
-        dataStyles={loaderStyles.data}
-        dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
-      />
+      </div>
     </>
   );
 };
