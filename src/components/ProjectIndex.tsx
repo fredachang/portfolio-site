@@ -14,11 +14,10 @@ export const ProjectIndex = (props: Props) => {
 
   const { screenWidth } = useDetectScreenWidth();
 
-  const sharedHeaderStyles = `${
-    screenWidth < 1000 && colour.sitePrimaryColour
-  } flex py-${space.spacingXl} flex-col justify-between items-center`;
-  const expandedHeader = `${sharedHeaderStyles} pl-2 w-8 md:w-12 h-full md:pl-0 md:h-full md:w-32 ${colour.textColorDark}`;
-  const collapsedHeader = `${sharedHeaderStyles} w-full ${colour.textColorLight}`;
+  const bgOnMobile = screenWidth < 1000 && colour.sitePrimaryColour;
+
+  const expandedHeader = `bg-yellow-100 ${bgOnMobile} flex-col justify-between items-center md:w-12 py-${space.spacingLg}`;
+  const collapsedHeader = `${bgOnMobile} flex-col justify-between items-center w-full py-${space.spacingLg}`;
 
   return (
     <>
