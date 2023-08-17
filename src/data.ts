@@ -68,23 +68,23 @@ export const projects: Project[] = [
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/01_Box.jpg",
+        imagePath: "/images/Podium/01_Box.jpg?nf_resize=fit",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/02_Box.jpg",
+        imagePath: "/images/Podium/02_Box.jpg?nf_resize=fit",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/03_GroupShot.jpg",
+        imagePath: "/images/Podium/03_GroupShot.jpg?nf_resize=fit",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/04_Merch.jpg",
+        imagePath: "/images/Podium/04_Merch.jpg?nf_resize=fit",
         imageText: "this is image text",
       },
       {
-        imagePath: "/images/Podium/05_Merch.jpg",
+        imagePath: "/images/Podium/05_Merch.jpg?nf_resize=fit",
         imageText: "this is image text",
       },
     ],
