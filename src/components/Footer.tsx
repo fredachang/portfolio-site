@@ -1,34 +1,32 @@
 import { links } from "../data";
 import { space, type } from "../tailwind-utils";
-import { MotionLink } from "./motionLink";
+import { MotionHyperlink } from "./motionHyperLink";
 
-export const Footer = () => {
-  return (
-    <>
-      <div
-        className={`w-screen h-7% flex justify-between md:justify-end items-center px-${space.spacingMd} border-t border-t-2 border-black z-20`}
-      >
-        <MotionLink
-          linkPath={links.email}
-          linkText="EMAIL"
-          linkStyle={`${type.link} mr-${space.spacing2Xl}`}
-        />
-        <MotionLink
-          linkPath={links.gitHub}
-          linkText="GIBHUB"
-          linkStyle={`${type.link} mr-${space.spacing2Xl}`}
-        />
-        <MotionLink
-          linkPath={links.instagram}
-          linkText="INSTAGRAM"
-          linkStyle={`${type.link} mr-${space.spacing2Xl}`}
-        />
-        <MotionLink
-          linkPath={links.linkedIn}
-          linkText="LINKEDIN"
-          linkStyle={`${type.link}`}
-        />
-      </div>
-    </>
-  );
-};
+export const Footer = () => (
+  <>
+    <div
+      className={`w-screen h-7% flex justify-between md:justify-end items-center px-${space.spacingMd} border-t border-t-2 border-black z-20`}
+    >
+      <MotionHyperlink
+        linkPath={links.email}
+        linkText="EMAIL"
+        linkStyle={`${type.link} mr-${space.spacing2Xl}`}
+      />
+      <MotionHyperlink
+        linkPath={links.gitHub}
+        linkText="GIBHUB"
+        linkStyle={`${type.link} mr-${space.spacing2Xl}`}
+      />
+      <MotionHyperlink
+        linkPath={links.instagram}
+        linkText="INSTAGRAM"
+        linkStyle={`${type.link} mr-${space.spacing2Xl}`}
+      />
+      <MotionHyperlink
+        linkPath={links.linkedIn}
+        linkText="LINKEDIN"
+        linkStyle={`${type.link}`}
+      />
+    </div>
+  </>
+);

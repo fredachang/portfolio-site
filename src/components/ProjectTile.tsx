@@ -1,5 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeRightWithDelay, primaryTransition } from "../motion";
+import {
+  fadeRightWithDelay,
+  moveRightWhileHover,
+  primaryTransition,
+} from "../motion";
 import { Project } from "../types";
 import { Carousel } from "./Carousel";
 import { ProjectIndex } from "./ProjectIndex";
@@ -89,17 +93,30 @@ export const ProjectTile = (props: Props) => {
                   variants={fadeRightWithDelay}
                   className="flex w-full h-20 mt-4 md:mt-0 md:w-1/3 flex-col justify-end md:h-full md:pl-2"
                 >
-                  <p className={`${type.sm} mt-${space.spacingMd}`}>
+                  <p className={`${type.sm} mb-${space.spacingMd}`}>
                     {project.description}
                   </p>
-                  {screenWidth > 1000 && (
-                    <Link
-                      to={`/project/${project.title}`}
-                      className="flex w-1/3 justify-start hover:justify-between"
+
+                  {project.links.map((link, i) => (
+                    <motion.a
+                      key={i}
+                      href={link.path}
+                      whileHover={moveRightWhileHover}
+                      target="_blank"
+                      className={`flex items-center ${type.link} w-full h-6`}
                     >
-                      <span className={type.link}>{`[ `}</span>
-                      <p className={type.link}>More</p>
-                      <span className={type.link}>{` ]`}</span>
+                      {link.text}
+                    </motion.a>
+                  ))}
+
+                  {screenWidth > 1000 && (
+                    <Link to={`/project/${project.title}`} className="w-full">
+                      <motion.p
+                        whileHover={moveRightWhileHover}
+                        className={`flex items-end ${type.link} w-full h-6`}
+                      >
+                        MORE
+                      </motion.p>
                     </Link>
                   )}
                 </motion.div>

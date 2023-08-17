@@ -1,5 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeRight, staggerParentContainer } from "../motion";
+import {
+  fadeRight,
+  moveLeftWhileHover,
+  staggerParentContainer,
+} from "../motion";
 import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./NavButton";
@@ -38,7 +42,7 @@ export const Header = (props: Props) => {
   const currentPath = location.pathname;
 
   const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 justify-between right-0`;
-  const desktopFilter = `w-2/3 flex justify-end mr-10`;
+  const desktopFilter = `w-3/4 flex justify-end mr-10`;
 
   return (
     <>
@@ -105,17 +109,18 @@ export const Header = (props: Props) => {
                   </motion.div>
                 )}
               </AnimatePresence>
-              <button
+              <motion.button
+                whileHover={moveLeftWhileHover}
                 className={`${type.link} mr-10`}
                 onClick={handleExpandFilter}
               >
                 {filtered ? "Show All" : "Filter By"}
-              </button>
+              </motion.button>
             </div>
           )}
 
           <Link className={type.link} to="/about">
-            <div>About</div>
+            <motion.div whileHover={moveLeftWhileHover}>About</motion.div>
           </Link>
         </div>
       </div>

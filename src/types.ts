@@ -6,9 +6,15 @@ export interface Project {
   description: string;
   indexImage: string;
   images: Image[];
+  links: Link[];
 }
 
 export interface Image {
   imagePath: string;
   imageText: string;
+}
+
+export interface Link {
+  text: string;
+  path: string;
 }

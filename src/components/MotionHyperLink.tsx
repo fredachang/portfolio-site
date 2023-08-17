@@ -7,7 +7,7 @@ interface Props {
   linkStyle: string;
 }
 
-export const MotionLink = (props: Props) => {
+export const MotionHyperlink = (props: Props) => {
   const { linkPath, linkText, linkStyle } = props;
   return (
     <>

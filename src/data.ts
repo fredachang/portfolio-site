@@ -25,6 +25,12 @@ export const projects: Project[] = [
         imageText: "this is image text TWO",
       },
     ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
+      },
+    ],
   },
   {
     id: "2",
@@ -39,6 +45,12 @@ export const projects: Project[] = [
         imageText: "this is image text for PROJECT TWO",
       },
     ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://dynamictimesheet.netlify.app/",
+      },
+    ],
   },
   {
     id: "3",
@@ -51,6 +63,12 @@ export const projects: Project[] = [
       {
         imagePath: "/images/cat.png",
         imageText: "this is image text",
+      },
+    ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://3dweather-app.netlify.app/",
       },
     ],
   },
@@ -88,6 +106,12 @@ export const projects: Project[] = [
         imageText: "this is image text",
       },
     ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
+      },
+    ],
   },
   {
     id: "5",
@@ -113,6 +137,12 @@ export const projects: Project[] = [
       {
         imagePath: "/images/MadameWu/05_web.gif",
         imageText: "this is image text",
+      },
+    ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
       },
     ],
   },
@@ -146,6 +176,12 @@ export const projects: Project[] = [
         imageText: "this is image text",
       },
     ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
+      },
+    ],
   },
   {
     id: "7",
@@ -173,6 +209,12 @@ export const projects: Project[] = [
         imageText: "this is image text",
       },
     ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
+      },
+    ],
   },
   {
     id: "8",
@@ -198,6 +240,12 @@ export const projects: Project[] = [
       {
         imagePath: "/images/FuturePerfect/03_Landscape.jpg",
         imageText: "this is image text",
+      },
+    ],
+    links: [
+      {
+        text: "Visit Site",
+        path: "https://freda-arena-clone.onrender.com/login",
       },
     ],
   },
