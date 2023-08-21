@@ -14,14 +14,18 @@ export const projects: Project[] = [
     type: projectTypes.WebDev,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
-    indexImage: "/images/toothpaste.jpeg",
+    indexImage: "/images/Scrapbook/index.jpg",
     images: [
       {
-        imagePath: "/images/Scrapbook/channel.gif",
-        imageText: "this is image text ONE",
+        imagePath: "/images/Scrapbook/dragdrop.mp4",
+        imageText: "this is image text TWO",
       },
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/Scrapbook/Auth.mp4",
+        imageText: "this is image text TWO",
+      },
+      {
+        imagePath: "/images/Scrapbook/Feed.mp4",
         imageText: "this is image text TWO",
       },
     ],
@@ -38,10 +42,18 @@ export const projects: Project[] = [
     title: "Timer App",
     type: projectTypes.WebDev,
     description: "this is the project description",
-    indexImage: "/images/toothpaste.jpeg",
+    indexImage: "/images/Timer/index.jpg",
     images: [
       {
-        imagePath: "/images/sink.jpeg",
+        imagePath: "/images/Timer/main.mp4",
+        imageText: "this is image text for PROJECT TWO",
+      },
+      {
+        imagePath: "/images/Timer/timer.mp4",
+        imageText: "this is image text for PROJECT TWO",
+      },
+      {
+        imagePath: "/images/Timer/theme.mp4",
         imageText: "this is image text for PROJECT TWO",
       },
     ],
@@ -58,10 +70,10 @@ export const projects: Project[] = [
     title: "Weather Window App",
     type: projectTypes.WebDev,
     description: "this is the project description",
-    indexImage: "/images/toothpaste.jpeg",
+    indexImage: "/images/weatherapp/index.jpg",
     images: [
       {
-        imagePath: "/images/cat.png",
+        imagePath: "/images/weatherapp/Main_2.mp4",
         imageText: "this is image text",
       },
     ],
