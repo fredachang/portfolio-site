@@ -121,3 +121,13 @@ export const moveRightWhileHover = {
   x: 8,
   transition: { type: "spring", duration: 0.5 },
 };
+
+export const rotate = {
+  rotate: 180,
+  transition: { ease: "easeInOut", type: "spring", duration: 3 },
+};
+
+export const scaleUp = {
+  scale: 1.15,
+  transition: { ease: "easeInOut", type: "spring", duration: 0.8 },
+};

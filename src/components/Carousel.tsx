@@ -58,9 +58,14 @@ export const Carousel = (props: Props) => {
                   exit="exit"
                   variants={fade(0.8, 0.3)}
                   onClick={handleGoToPrevious}
-                  className="left-0 pl-2 w-24 cursor-pointer"
+                  className="absolute flex items-center left-0 pl-2 w-24 h-24 cursor-pointer"
                 >
-                  &larr;
+                  <div className="w-8 -rotate-180">
+                    <img
+                      className="w-full object-contain"
+                      src="/arrow_white.png"
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -73,9 +78,14 @@ export const Carousel = (props: Props) => {
                   exit="exit"
                   variants={fade(0.8, 0.3)}
                   onClick={handleGoToNext}
-                  className="absolute right-0 h-20 pr-2 w-24 text-4xl text-right cursor-pointer"
+                  className="absolute flex items-center justify-end right-0 w-24 h-24 pr-2 cursor-pointer"
                 >
-                  &rarr;
+                  <div className="w-8">
+                    <img
+                      className="w-full object-contain"
+                      src="/arrow_white.png"
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
