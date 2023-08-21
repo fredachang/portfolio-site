@@ -36,6 +36,10 @@ export const projects: Project[] = [
         text: "Visit Site",
         path: "https://freda-arena-clone.onrender.com/login",
       },
+      {
+        text: "Source Code",
+        path: "https://github.com/fredachang/scrapbook-app",
+      },
     ],
   },
   {
@@ -68,6 +72,10 @@ export const projects: Project[] = [
         text: "Visit Site",
         path: "https://dynamictimesheet.netlify.app/",
       },
+      {
+        text: "Source Code",
+        path: "https://github.com/fredachang/time-tracker-app",
+      },
     ],
   },
   {
@@ -88,6 +96,10 @@ export const projects: Project[] = [
       {
         text: "Visit Site",
         path: "https://3dweather-app.netlify.app/",
+      },
+      {
+        text: "Source Code",
+        path: "https://github.com/fredachang/3d-weather-app",
       },
     ],
   },
@@ -143,6 +155,10 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/MadameWu/01_Packaging.jpg",
+        imageText: "this is image text",
+      },
+      {
+        imagePath: "/images/MadameWu/visual.jpg",
         imageText: "this is image text",
       },
       {
