@@ -13,7 +13,7 @@ export const projects: Project[] = [
     title: "Scrapbook App",
     type: projectTypes.WebDev,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec iaculis eros, sit amet bibendum risus. Nulla dictum non neque ac posuere. Donec non tempus lectus, at pellentesque ipsum. Nullam gravida nunc nec faucibus consectetur. Etiam sit amet vehicula orci. Phasellus non sapien bibendum, egestas erat ac, tincidunt massa. ",
+      "Scrapbook is a text and image visual moodboarding web app inspired by Are.na (https://www.are.na/). The primary aim of the project is to familiarise myself with the full-stack workflow using React Typescript for front-end and a relational database such as PostgresSQL for back-end. The user is able to create channels and upload blocks via drag and drop or copying the image path. The blocks can be easily connected to other channels to create a web of visual inspirations. The UI is kept relatively simple to not detract from the focus on the moodboard and its visual storytelling.",
     indexImage: "/images/Scrapbook/index.jpg",
     images: [
       {
@@ -22,11 +22,13 @@ export const projects: Project[] = [
       },
       {
         imagePath: "/images/Scrapbook/Auth.mp4",
-        imageText: "this is image text TWO",
+        imageText:
+          "To allow for a social aspect like Are.na, user profiles are created and maintained through a manual authentication process using JWT tokens.",
       },
       {
         imagePath: "/images/Scrapbook/Feed.mp4",
-        imageText: "this is image text TWO",
+        imageText:
+          "The user can connect blocks seen on the feed to their own channels. Only public channels will be visible to everyone via the Feed.",
       },
     ],
     links: [
@@ -41,20 +43,24 @@ export const projects: Project[] = [
     year: "2023",
     title: "Timer App",
     type: projectTypes.WebDev,
-    description: "this is the project description",
+    description:
+      "The Time Tracker app is the first app I built using the React Typescript framework. The original idea was conceived at the start of my 3-4 month sabbatical of learning how to code, as a way to manage my time across different projects/goals. I wanted the experience of tracking time to be fun instead of invoking a feeling of obligation/ticking off boxes so I focused heavily on the UI - which became inspired by the cyberpunk/dystopian/video game aesthetic.",
     indexImage: "/images/Timer/index.jpg",
     images: [
       {
         imagePath: "/images/Timer/main.mp4",
-        imageText: "this is image text for PROJECT TWO",
+        imageText:
+          " I didn't want the focus to be on the numbers at the end of the day (or working for the sake of hitting the target rather than being productive), so I abstracted them away into delibrately hard-to-read symbols on the table. ",
       },
       {
         imagePath: "/images/Timer/timer.mp4",
-        imageText: "this is image text for PROJECT TWO",
+        imageText:
+          "I implemented an optional 30 minutes timer with a ring tone inspired by the Pomodoro method that automatically clocks an half-hour slot when time is up. After experimenting with this method, I found that I was able to take consistent breaks while dividing work down into reasonable, easy-to-execute chunks, with full visibility of time spent across various life goals.",
       },
       {
         imagePath: "/images/Timer/theme.mp4",
-        imageText: "this is image text for PROJECT TWO",
+        imageText:
+          "As the choice of colours was deliberately bold, I implemented a dynamic light vs dark scheme via Tailwind CSS classes, to provide a little reprieve on the eye when the excitement of the electric green starts to wear off.",
       },
     ],
     links: [
@@ -69,7 +75,8 @@ export const projects: Project[] = [
     year: "2023",
     title: "Weather Window App",
     type: projectTypes.WebDev,
-    description: "this is the project description",
+    description:
+      "This is a city-based weather app created by using Open Weather API and React Three Fibre + Drei. I wanted to make the experience more tactile by implementing a digital window that can be customised by the user in real time. The room objects/plants are designed and modelled in Blender and converted into React components using GLTFJSX package. Plugging in React Spring and Use Gesture, the user is able to adapt the room layout, saved in local storage, based on individual preferences. Finally, a set of HDR background image is mapped to the weather conditions outputted by Open Weather API, to dynamically change the scene based on weather result.",
     indexImage: "/images/weatherapp/index.jpg",
     images: [
       {

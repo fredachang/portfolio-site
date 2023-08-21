@@ -38,6 +38,7 @@ export const ProjectPage = (props: Props) => {
   const nextIndex = selectedIndex + 1;
 
   const currentImageText = selectedProject.images[currentIndex].imageText;
+  const imagesCount = selectedProject.images.length;
 
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
@@ -110,7 +111,7 @@ export const ProjectPage = (props: Props) => {
             </div>
 
             <div>
-              <p className={`${type.md} mb-${space.spacingMd}`}>
+              <p className={`${type.h3} leading-6 mb-${space.spacingMd}`}>
                 {selectedProject.description}
               </p>
               <motion.div
@@ -119,7 +120,9 @@ export const ProjectPage = (props: Props) => {
                 animate="visible"
                 variants={fadeRight(-10, 1.5)}
               >
-                <p className={type.link}>{`[${currentImageText}]`}</p>
+                <p className="text-sm font-mono leading-4">{`Image[${
+                  currentIndex + 1
+                }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>
             </div>
           </motion.div>

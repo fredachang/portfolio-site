@@ -17,9 +17,10 @@ export const space = {
 
 export const type = {
   logo: "font-bold text-2xl",
-  display: "font-light text-5xl",
+  display: "font-light text-6xl",
   h1: "font-light text-3xl ",
   h2: "text-xl font-light",
+  h3: "text-md font-light",
   md: "text-sm font-light",
   sm: "text-xs font-light",
   link: "text-sm font-mono uppercase",
