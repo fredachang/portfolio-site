@@ -17,7 +17,7 @@ export const projects: Project[] = [
     indexImage: "/images/toothpaste.jpeg",
     images: [
       {
-        imagePath: "/images/toothpaste.jpeg",
+        imagePath: "/images/Scrapbook/channel.gif",
         imageText: "this is image text ONE",
       },
       {
