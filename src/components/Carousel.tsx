@@ -27,14 +27,24 @@ export const Carousel = (props: Props) => {
             <div
               key={i}
               className="w-full h-full flex-shrink-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${img.imagePath})` }}
-            />
-
-            // <img
-            //   key={img.imageId}
-            //   src={img.imagePath}
-            //   className="aspect-[1/1] object-cover"
-            // />
+            >
+              {img.imagePath.toLowerCase().endsWith(".mp4") ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  className="w-full h-full object-cover"
+                >
+                  <source src={img.imagePath} type="video/mp4" />
+                </video>
+              ) : (
+                <div
+                  key={i}
+                  className="w-full h-full flex-shrink-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${img.imagePath})` }}
+                />
+              )}
+            </div>
           ))}
         </motion.div>
 
