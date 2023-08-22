@@ -33,6 +33,8 @@ export const Carousel = (props: Props) => {
                   autoPlay
                   loop
                   muted
+                  webkit-playsinline
+                  playsInline
                   className="w-full h-full object-cover"
                 >
                   <source src={img.imagePath} type="video/mp4" />
