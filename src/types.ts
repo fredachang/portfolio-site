@@ -3,6 +3,7 @@ export interface Project {
   year: string;
   title: string;
   type: string;
+  shortDescription: string;
   description: string;
   indexImage: string;
   images: Image[];

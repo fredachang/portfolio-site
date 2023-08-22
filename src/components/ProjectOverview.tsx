@@ -26,13 +26,13 @@ export const ProjectOverview = (props: Props) => {
 
   return (
     <div
-      className={`w-11/12 h-full flex flex-col items-start md:flex-row md:h-full px-${space.spacingMd} md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
+      className={`w-[300px] md:w-11/12 h-full flex flex-col items-start md:flex-row md:h-full px-${space.spacingMd} md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
     >
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeRightWithDelay}
-        className={`w-full md:w-[700px] h-2/3 md:h-full overflow-hidden cursor-pointer`}
+        className={`w-full md:w-[700px] h-full overflow-hidden cursor-pointer`}
         onClick={handleClickCarousel}
       >
         <Carousel

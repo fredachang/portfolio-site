@@ -12,6 +12,8 @@ export const projects: Project[] = [
     year: "2023",
     title: "Scrapbook App",
     type: projectTypes.WebDev,
+    shortDescription:
+      "Scrapbook is a text and image visual moodboarding web app inspired by Are.na.",
     description:
       "Scrapbook is a text and image visual moodboarding web app inspired by Are.na (https://www.are.na/). The primary aim of the project is to familiarise myself with the full-stack workflow using React Typescript for front-end and a relational database such as PostgresSQL for back-end. The user is able to create channels and upload blocks via drag and drop or copying the image path. The blocks can be easily connected to other channels to create a web of visual inspirations. The UI is kept relatively simple to not detract from the focus on the moodboard and its visual storytelling.",
     indexImage: "/images/Scrapbook/index.jpg",
@@ -47,6 +49,8 @@ export const projects: Project[] = [
     year: "2023",
     title: "Timer App",
     type: projectTypes.WebDev,
+    shortDescription:
+      "A weekly time tracker app with built-in 30 minute timer with UI influenced by nuclear reactor controls",
     description:
       "The Time Tracker app is the first app I built using the React Typescript framework. The original idea was conceived at the start of my 3-4 month sabbatical of learning how to code, as a way to manage my time across different projects/goals. I wanted the experience of tracking time to be fun instead of invoking a feeling of obligation/ticking off boxes so I focused heavily on the UI - which became inspired by the cyberpunk/dystopian/video game aesthetic.",
     indexImage: "/images/Timer/index.jpg",
@@ -83,6 +87,8 @@ export const projects: Project[] = [
     year: "2023",
     title: "Weather Window App",
     type: projectTypes.WebDev,
+    shortDescription:
+      "A 3D weather window for dynamic, real-time city-based weather results built using Three.js.",
     description:
       "This is a city-based weather app created by using Open Weather API and React Three Fibre + Drei. I wanted to make the experience more tactile by implementing a digital window that can be customised by the user in real time. The room objects/plants are designed and modelled in Blender and converted into React components using GLTFJSX package. Plugging in React Spring and Use Gesture, the user is able to adapt the room layout, saved in local storage, based on individual preferences. Finally, a set of HDR background image is mapped to the weather conditions outputted by Open Weather API, to dynamically change the scene based on weather result.",
     indexImage: "/images/weatherapp/index.jpg",
@@ -108,6 +114,8 @@ export const projects: Project[] = [
     year: "2003",
     title: "Podium Coffee",
     type: projectTypes.GraphicDesign,
+    shortDescription:
+      "Nutrient-enriched, biodegradable coffee pods for the outdoor adventure-seekers.",
     description:
       "Nutrient-enriched, biodegradable coffee pods for the outdoor adventure-seekers. Designed for the CEOs and the George Clooneys who buys expensive lycra, this is a coffee that emphasises routine and performance while paying homage to the finer things in life. Available in extra-strength AM brew and decaf PM brew for the wind-down",
     indexImage: "/images/Podium/01_Box.jpg",
@@ -149,6 +157,8 @@ export const projects: Project[] = [
     year: "2021",
     title: "Madame Wu",
     type: projectTypes.GraphicDesign,
+    shortDescription:
+      "A modern, oriental tea brand for young and curious drinkers, a reconciliation of tradition and globalisation",
     description:
       "Exotic and confused, this tea would probably cause severe food poisoning if it were ever sent down the manufacturing line. The brand identity reflects a reconciliation of times past and present. Old teas for new teens, Madame Wu is ultra-materialism hidden behind an anti-capitalistic language.",
     indexImage: "/images/MadameWu/03_Visual.jpg",
@@ -186,6 +196,8 @@ export const projects: Project[] = [
     year: "2021",
     title: "Brunswick St Festival",
     type: projectTypes.GraphicDesign,
+    shortDescription:
+      "A street festival to celebrate the past and the present of Brunswick, Melbourne.",
     description:
       "A street festival to celebrate the past and the present of Brunswick, Melbourne, and its unique heritage and diversity through art, food and music. I experimented with typographic compositions and using graphic devices to display festival program information. A bright and nostalgic colour palette appeals to families and hipsters alike.",
     indexImage: "/images/BrunswickSt/01_OOH.jpg",
@@ -223,6 +235,8 @@ export const projects: Project[] = [
     year: "2022",
     title: "Soma Pharmaceuticals",
     type: projectTypes.GraphicDesign,
+    shortDescription:
+      "Inspired by the dystopian future of Brave New World, this project brings to life a fictional pharmaceutical named Soma designed to keep citizens happy in an autocratic society",
     description:
       "Inspired by the dystopian future of Brave New World, this project brings to life a fictional substance named Soma, which is issued by the central government to keep citizens happy. The brand identity is at once alluring and repulsive, falsifying an illusion of choice over the lack thereof. The brand identity carries the influence of 20th century Communist propaganda while making a case for 2020 and beyond.",
     indexImage: "/images/Soma/05_TicketFlatLay.jpg",
@@ -256,6 +270,7 @@ export const projects: Project[] = [
     year: "2022",
     title: "Future Perfect",
     type: projectTypes.threeD,
+    shortDescription: "Visualising the brand of a 3D design studio.",
     description:
       "I was asked to reimagine the brand identity of a 3D design studio ‘Future Perfect Digital’ using my choice of medium. The idea of 'Future is now' is the inspiration behind the pieces. Taking reference from the studio’s portfolio, it has a strong focus on using 3D technology and AR to stretch the experience of reality.    ",
     indexImage: "/images/FuturePerfect/02_Detail.jpg",
@@ -289,6 +304,7 @@ export const projects: Project[] = [
     year: "2022",
     title: "Personal Works",
     type: projectTypes.threeD,
+    shortDescription: "A collection of my own 3D works done in Blender",
     description: "",
     indexImage: "/images/Personal/Cat.jpg",
     images: [
