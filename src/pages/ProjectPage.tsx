@@ -78,6 +78,7 @@ export const ProjectPage = (props: Props) => {
       >
         {isMobile ? (
           <ProjectPageNavHorizontal
+            projectsCount={projectsCount}
             selectedIndex={selectedIndex}
             navigateToPreviousProject={navigateToPreviousProject}
             navigateToNextProject={navigateToNextProject}
@@ -113,7 +114,7 @@ export const ProjectPage = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={fadeRightWithDelay}
-            className="w-full h-[400px] md:w-3/5 md:h-full overflow-hidden"
+            className="w-full h-[300px] md:w-3/5 md:h-full overflow-hidden"
           >
             <Carousel
               key={selectedProject.title}

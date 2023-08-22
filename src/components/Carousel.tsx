@@ -31,10 +31,7 @@ export const Carousel = (props: Props) => {
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
         >
           {currentImages.map((img, i) => (
-            <div
-              key={i}
-              className="w-full h-full flex-shrink-0 bg-cover bg-center"
-            >
+            <div key={i} className="w-full h-full flex-shrink-0">
               {img.imagePath.toLowerCase().endsWith(".mp4") ? (
                 <video
                   autoPlay

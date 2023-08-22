@@ -5,11 +5,19 @@ interface Props {
   selectedIndex: number;
   navigateToPreviousProject: () => void;
   navigateToNextProject: () => void;
+  projectsCount: number;
 }
 
 export const ProjectPageNavHorizontal = (props: Props) => {
-  const { selectedIndex, navigateToPreviousProject, navigateToNextProject } =
-    props;
+  const {
+    selectedIndex,
+    navigateToPreviousProject,
+    navigateToNextProject,
+    projectsCount,
+  } = props;
+
+  const maxIndex = projectsCount - 1;
+
   return (
     <div className="flex absolute left-0 right-0 px-2 z-20 justify-between items-center w-full h-10">
       {selectedIndex > 0 ? (
@@ -26,7 +34,7 @@ export const ProjectPageNavHorizontal = (props: Props) => {
       ) : (
         <div className="h-8"></div>
       )}
-      {selectedIndex < 7 && (
+      {selectedIndex < maxIndex && (
         <motion.div
           initial="hidden"
           animate="visible"
