@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
 import { Project } from "../types";
-import {
-  fade,
-  fadeDown,
-  fadeRight,
-  fadeRightWithDelay,
-  fadeUp,
-} from "../motion";
+import { fade, fadeRightWithDelay, fadeUp, fadeX } from "../motion";
 import { useNavigate, useParams } from "react-router-dom";
 import { Carousel } from "../components/Carousel";
 import { space, type } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { useNavigateCarousel } from "../hooks/useNavigateIndex";
+import { useRef } from "react";
+import { ProjectPageNavHorizontal } from "../components/ProjectPageNavHorizontal";
+import { ProjectPageTopArrow } from "../components/ProjectPageTopArrow";
+import { ProjectPageBottomArrow } from "../components/ProjectPageBottomArrow";
 
 interface Props {
   projects: Project[];
@@ -27,6 +25,7 @@ export const ProjectPage = (props: Props) => {
 
   const { screenWidth } = useDetectScreenWidth();
   const isMobile = screenWidth < 1000;
+  const scrollToTopRef = useRef<HTMLDivElement | null>(null);
 
   const selectedProject = projects.find((project) => project.title === title);
 
@@ -59,37 +58,42 @@ export const ProjectPage = (props: Props) => {
       const nextProject = projects[nextIndex];
       const targetURL = `/project/${nextProject.title}`;
       navigate(targetURL, { replace: true });
+      if (scrollToTopRef.current) {
+        scrollToTopRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
   };
 
   return (
     <>
       <motion.div
-        className="flex flex-col w-full h-86% px-5 overflow-scroll"
+        className="flex flex-col w-full h-86% px-6 overflow-scroll"
         initial="hidden"
         animate="visible"
         variants={fadeUp(100, 0.8)}
       >
-        <div
-          className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
-          onClick={navigateToPreviousProject}
-        >
-          {selectedIndex > 0 ? (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp(20, 1)}
-            >
-              <p className="-rotate-90 text-3xl">&rsaquo;</p>
-            </motion.div>
-          ) : (
-            <div className="h-8"></div>
-          )}
-        </div>
+        {isMobile ? (
+          <ProjectPageNavHorizontal
+            selectedIndex={selectedIndex}
+            navigateToPreviousProject={navigateToPreviousProject}
+            navigateToNextProject={navigateToNextProject}
+          />
+        ) : (
+          <ProjectPageTopArrow
+            selectedIndex={selectedIndex}
+            navigateToPreviousProject={navigateToPreviousProject}
+          />
+        )}
 
         {isMobile && (
           <div className="mt-2">
-            <div className={`${type.link} flex justify-between mb-2`}>
+            <div
+              ref={scrollToTopRef}
+              className={`${type.link} flex justify-between mb-2 pt-10 md:mt-0`}
+            >
               <p>{selectedProject.id}</p>
               <p>{selectedProject.year}</p>
               <p>{selectedProject.type}</p>
@@ -152,9 +156,9 @@ export const ProjectPage = (props: Props) => {
                 key={currentIndex}
                 initial="hidden"
                 animate="visible"
-                variants={fadeRight(-10, 1.5)}
+                variants={fadeX(-10, 1.5)}
               >
-                <p className="text-xs mt-2 md:mt-0 mb-4 md:mb-0 md:text-xs font-mono leading-5">{`Image[${
+                <p className="text-xs mt-2 md:mt-0 mb-4 md:mb-0 md:text-xs font-mono leading-4 md:leading-5">{`Image[${
                   currentIndex + 1
                 }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>
@@ -162,20 +166,12 @@ export const ProjectPage = (props: Props) => {
           </motion.div>
         </div>
 
-        <div
-          className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
-          onClick={navigateToNextProject}
-        >
-          {selectedIndex < 7 && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeDown(-20, 1)}
-            >
-              <p className="rotate-90 text-3xl">&rsaquo;</p>
-            </motion.div>
-          )}
-        </div>
+        {!isMobile && (
+          <ProjectPageBottomArrow
+            selectedIndex={selectedIndex}
+            navigateToNextProject={navigateToNextProject}
+          />
+        )}
       </motion.div>
     </>
   );

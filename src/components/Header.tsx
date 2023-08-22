@@ -1,9 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  fadeRight,
-  moveLeftWhileHover,
-  staggerParentContainer,
-} from "../motion";
+import { fadeX, moveLeftWhileHover, staggerParentContainer } from "../motion";
 import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./NavButton";
@@ -71,7 +67,7 @@ export const Header = (props: Props) => {
                   >
                     <NavButton
                       buttonText={`Graphic Design (${projectCount.design})`}
-                      motionVariant={fadeRight(10, 0.5)}
+                      motionVariant={fadeX(10, 0.5)}
                       buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
                       onClickFunction={() =>
                         filterProjectsByType(
@@ -83,7 +79,7 @@ export const Header = (props: Props) => {
                     <NavButton
                       buttonText={`3D Design (${projectCount.threeD})`}
                       buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
-                      motionVariant={fadeRight(10, 0.5)}
+                      motionVariant={fadeX(10, 0.5)}
                       onClickFunction={() =>
                         filterProjectsByType(projects, projectTypes.threeD)
                       }
@@ -91,7 +87,7 @@ export const Header = (props: Props) => {
                     <NavButton
                       buttonText={`Web Development (${projectCount.web})`}
                       buttonStyle={`${type.link}`}
-                      motionVariant={fadeRight(10, 0.5)}
+                      motionVariant={fadeX(10, 0.5)}
                       onClickFunction={() =>
                         filterProjectsByType(projects, projectTypes.WebDev)
                       }

@@ -15,7 +15,7 @@ export const staggerParentContainer = {
   },
 };
 
-export const fadeRight = (distance: number, duration: number) => ({
+export const fadeX = (distance: number, duration: number) => ({
   hidden: {
     opacity: 0,
     x: distance,
