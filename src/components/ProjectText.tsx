@@ -36,7 +36,7 @@ export const ProjectText = (props: Props) => {
           {isMobile ? project.shortDescription : project.description}
         </p>
 
-        {isMobile && (
+        {!isMobile && (
           <div className="flex">
             {project.links.map((link, i) => (
               <motion.a
