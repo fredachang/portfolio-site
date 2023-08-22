@@ -22,7 +22,7 @@ export const ProjectPage = (props: Props) => {
   const { projects } = props;
 
   const navigate = useNavigate();
-  const { currentIndex, handleGoToNext, handleGoToPrevious } =
+  const { currentIndex, setCurrentIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateCarousel();
 
   const { screenWidth } = useDetectScreenWidth();
@@ -46,6 +46,7 @@ export const ProjectPage = (props: Props) => {
 
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
+      setCurrentIndex(0);
       const previousProject = projects[previousIndex];
       const targetURL = `/project/${previousProject.title}`;
       navigate(targetURL, { replace: true });
@@ -54,6 +55,7 @@ export const ProjectPage = (props: Props) => {
 
   const navigateToNextProject = () => {
     if (nextIndex >= 0) {
+      setCurrentIndex(0);
       const nextProject = projects[nextIndex];
       const targetURL = `/project/${nextProject.title}`;
       navigate(targetURL, { replace: true });
@@ -109,6 +111,7 @@ export const ProjectPage = (props: Props) => {
             className="w-full h-[400px] md:w-3/5 md:h-full overflow-hidden"
           >
             <Carousel
+              key={selectedProject.title}
               images={selectedProject.images}
               currentIndex={currentIndex}
               handleGoToNext={handleGoToNext}

@@ -1,6 +1,7 @@
 import { Image } from "../types";
 import { AnimatePresence, motion } from "framer-motion";
 import { fade } from "../motion";
+import { useEffect, useState } from "react";
 
 interface Props {
   images: Image[];
@@ -11,6 +12,12 @@ interface Props {
 
 export const Carousel = (props: Props) => {
   const { images, currentIndex, handleGoToPrevious, handleGoToNext } = props;
+
+  const [currentImages, setCurrentImages] = useState(images);
+
+  useEffect(() => {
+    setCurrentImages(images);
+  }, [images]);
 
   const arrowContainer =
     "flex absolute bottom-0 pt-2 w-full h-20 z-10 text-stone-400 text-4xl";
@@ -23,7 +30,7 @@ export const Carousel = (props: Props) => {
           animate={{ x: `-${currentIndex * 100}%` }}
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
         >
-          {images.map((img, i) => (
+          {currentImages.map((img, i) => (
             <div
               key={i}
               className="w-full h-full flex-shrink-0 bg-cover bg-center"

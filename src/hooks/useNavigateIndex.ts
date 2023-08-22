@@ -15,6 +15,7 @@ export const useNavigateCarousel = () => {
 
   return {
     currentIndex,
+    setCurrentIndex,
     handleGoToNext,
     handleGoToPrevious,
   };
