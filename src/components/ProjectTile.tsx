@@ -3,7 +3,6 @@ import { primaryTransition } from "../motion";
 import { Project } from "../types";
 import { ProjectIndex } from "./ProjectIndex";
 import { useState } from "react";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { colour } from "../tailwind-utils";
 import { ProjectOverview } from "./ProjectOverview";
 
@@ -17,8 +16,6 @@ export const ProjectTile = (props: Props) => {
   const { project, isExpanded, handleExpandTile } = props;
   const [showIndexImage, setShowIndexImage] = useState(false);
 
-  const { screenWidth } = useDetectScreenWidth();
-
   const handleShowIndexImage = () => {
     setShowIndexImage(true);
   };
@@ -27,10 +24,8 @@ export const ProjectTile = (props: Props) => {
     setShowIndexImage(false);
   };
 
-  const mobileSettings = screenWidth < 1000 && `absolute h-full top-0`;
-
-  const staticStyle = `min-w-[130px] md:w-full h-full border-l border-l-2 border-black`;
-  const expandedStyle = `${colour.sitePrimaryColour} ${mobileSettings} w-full md:h-full z-20 md:z-0 border-l border-l-2 border-black`;
+  const staticStyle = `min-w-[100px] md:min-w-[130px] md:w-full h-full border-l border-l-2 border-black`;
+  const expandedStyle = `bg-${colour.sitePrimaryColour} w-full h-full z-20 md:z-0 border-l border-l-2 border-black`;
 
   return (
     <>

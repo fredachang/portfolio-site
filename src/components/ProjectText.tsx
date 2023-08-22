@@ -12,6 +12,7 @@ interface Props {
 export const ProjectText = (props: Props) => {
   const { project } = props;
   const { screenWidth } = useDetectScreenWidth();
+  const isMobile = screenWidth < 1000;
 
   return (
     <motion.div
@@ -29,8 +30,10 @@ export const ProjectText = (props: Props) => {
       )}
 
       <div>
-        <p className={`${type.sm} mb-${space.spacingMd}`}>
-          {project.description}
+        <p
+          className={`font-light text-sm md:text-xs mt-4 md:mt-0 mb-${space.spacingMd}`}
+        >
+          {isMobile ? project.shortDescription : project.description}
         </p>
 
         <div className="flex">
