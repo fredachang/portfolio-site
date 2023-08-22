@@ -5,17 +5,20 @@ import { space } from "../tailwind-utils";
 interface Props {
   selectedIndex: number;
   navigateToNextProject: () => void;
+  projectsCount: number;
 }
 
 export const ProjectPageBottomArrow = (props: Props) => {
-  const { selectedIndex, navigateToNextProject } = props;
+  const { projectsCount, selectedIndex, navigateToNextProject } = props;
+
+  const maxIndex = projectsCount - 1;
 
   return (
     <div
       className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
       onClick={navigateToNextProject}
     >
-      {selectedIndex < 7 && (
+      {selectedIndex < maxIndex && (
         <motion.div
           initial="hidden"
           animate="visible"

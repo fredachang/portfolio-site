@@ -18,8 +18,8 @@ export const ProjectIndex = (props: Props) => {
 
   const bgOnMobile = isMobile && colour.sitePrimaryColour;
 
-  const expandedHeader = `${bgOnMobile} flex-col justify-between items-center w-10 md:w-1/12 py-${space.spacingMd} md:py-${space.spacingLg}`;
-  const collapsedHeader = `${bgOnMobile} flex-col justify-between items-center w-full py-${space.spacingMd} md:py-${space.spacingLg}`;
+  const expandedHeader = `${bgOnMobile} flex flex-col justify-between items-center w-10 md:w-24 py-${space.spacingMd} md:py-${space.spacingLg}`;
+  const collapsedHeader = `${bgOnMobile} flex flex-col justify-between items-center w-full py-${space.spacingMd} md:py-${space.spacingLg}`;
 
   return (
     <>
@@ -29,11 +29,12 @@ export const ProjectIndex = (props: Props) => {
       >
         <div className="h-1/2 w-full flex justify-center items-start">
           <span className="barText">
-            <h1 className={`font-light text-xl md:text-3xl`}>
+            <h1 className={`font-light text-xl md:text-5xl`}>
               {project.title}
             </h1>
           </span>
         </div>
+
         <div className={`w-full flex flex-col justify-between h-1/2 md:h-2/5`}>
           <span className="barText">
             <h2 className={isMobile ? type.linkSm : type.link}>

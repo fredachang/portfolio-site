@@ -15,7 +15,7 @@
 
 .barText {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);

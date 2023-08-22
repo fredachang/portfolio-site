@@ -27,6 +27,7 @@ export const ProjectPage = (props: Props) => {
   const isMobile = screenWidth < 1000;
   const scrollToTopRef = useRef<HTMLDivElement | null>(null);
 
+  const projectsCount = projects.length;
   const selectedProject = projects.find((project) => project.title === title);
 
   if (!selectedProject) {
@@ -168,6 +169,7 @@ export const ProjectPage = (props: Props) => {
 
         {!isMobile && (
           <ProjectPageBottomArrow
+            projectsCount={projectsCount}
             selectedIndex={selectedIndex}
             navigateToNextProject={navigateToNextProject}
           />

@@ -20,17 +20,17 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/Scrapbook/dragdrop.mp4",
-        imageText: "this is image text TWO",
+        imageText: "Drag and drop files for direct upload.",
       },
       {
         imagePath: "/images/Scrapbook/Auth.mp4",
         imageText:
-          "To allow for a social aspect like Are.na, user profiles are created and maintained through a manual authentication process using JWT tokens.",
+          "I created the ability to handle user profiles to enable a social feed feature. Once registered and logged in, user sessions are managed through jwt tokens.",
       },
       {
         imagePath: "/images/Scrapbook/Feed.mp4",
         imageText:
-          "The user can connect blocks seen on the feed to their own channels. Only public channels will be visible to everyone via the Feed.",
+          "When browsing the feed, the user can connect blocks uploaded by other users to their own channels",
       },
     ],
     links: [
@@ -58,17 +58,17 @@ export const projects: Project[] = [
       {
         imagePath: "/images/Timer/main.mp4",
         imageText:
-          " I didn't want the focus to be on the numbers at the end of the day (or working for the sake of hitting the target rather than being productive), so I abstracted them away into delibrately hard-to-read symbols on the table. ",
+          "The user is able to create projects and set target hours. The hours are tracked on the table and a real-time summary is displayed in the pie-charts by project.",
       },
       {
         imagePath: "/images/Timer/timer.mp4",
         imageText:
-          "I implemented an optional 30 minutes timer with a ring tone inspired by the Pomodoro method that automatically clocks an half-hour slot when time is up. After experimenting with this method, I found that I was able to take consistent breaks while dividing work down into reasonable, easy-to-execute chunks, with full visibility of time spent across various life goals.",
+          "The user has the option of using a built-in 30 min timer to automatically clock time into the table. This allows work to be divided into easy-to-execute chunks and tracked in the background.",
       },
       {
         imagePath: "/images/Timer/theme.mp4",
         imageText:
-          "As the choice of colours was deliberately bold, I implemented a dynamic light vs dark scheme via Tailwind CSS classes, to provide a little reprieve on the eye when the excitement of the electric green starts to wear off.",
+          "As the choice of colours was deliberately bold (and somewhat anti-user-friendly), I implemented a dynamic light vs dark scheme via Tailwind CSS classes, to provide a little reprieve on the eye when the excitement of the electric green starts to wear off.",
       },
     ],
     links: [
@@ -85,7 +85,7 @@ export const projects: Project[] = [
   {
     id: "3",
     year: "2023",
-    title: "Weather Window App",
+    title: "3D Weather App",
     type: projectTypes.WebDev,
     shortDescription:
       "A 3D weather window for dynamic, real-time city-based weather results built using Three.js.",
@@ -95,7 +95,8 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/weatherapp/Main_2.mp4",
-        imageText: "this is image text",
+        imageText:
+          "The design is inspired by a recent trip to Korea, where they had these old-school sliding doors looking out onto the street and often decorated with plants.",
       },
     ],
     links: [
@@ -122,27 +123,29 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/Podium/06_GIF_2.gif",
-        imageText: "this is image text",
+        imageText:
+          "The identity borrows from the infinity symbol and references the performance-enhancing aspect of the product.",
       },
       {
         imagePath: "/images/Podium/01_Box.jpg",
-        imageText: "this is image text",
+        imageText: "Coffee pod packaging - day-time brew",
       },
       {
         imagePath: "/images/Podium/02_Box.jpg",
-        imageText: "this is image text",
+        imageText: "Coffee pod packaging - night-time brew",
       },
       {
         imagePath: "/images/Podium/03_GroupShot.jpg",
-        imageText: "this is image text",
+        imageText: "Packaging set",
       },
       {
         imagePath: "/images/Podium/04_Merch.jpg",
-        imageText: "this is image text",
+        imageText:
+          "I designed a gym bag as merchandise to further showcase the brand as our target demographic are high-performing, athletic individuals.",
       },
       {
         imagePath: "/images/Podium/05_Merch.jpg",
-        imageText: "this is image text",
+        imageText: "Merch - water bottle.",
       },
     ],
     links: [
@@ -165,23 +168,28 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/MadameWu/01_Packaging.jpg",
-        imageText: "this is image text",
-      },
-      {
-        imagePath: "/images/MadameWu/visual.jpg",
-        imageText: "this is image text",
-      },
-      {
-        imagePath: "/images/MadameWu/02_Mobile.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Industrial tin design inspired by spray-paint cans fused with oriental crest to create an unlikely blend.",
       },
       {
         imagePath: "/images/MadameWu/04_Crest.gif",
-        imageText: "this is image text",
+        imageText: "Custom oriental-inspired crest with nostalgic Tephra font",
       },
       {
+        imagePath: "/images/MadameWu/02_Mobile.jpg",
+        imageText:
+          "Social media assets are designed to draw attention and pop instantly, and the layout breaks through the static form to achieve dynamicism.",
+      },
+
+      {
         imagePath: "/images/MadameWu/05_web.gif",
-        imageText: "this is image text",
+        imageText:
+          "An e-commerce site enriched with tea stories and engaging content.",
+      },
+      {
+        imagePath: "/images/MadameWu/visual.jpg",
+        imageText:
+          "The visual heros the product ingredients to speak to audiences who care about curation and quality-first.",
       },
     ],
     links: [
@@ -194,7 +202,7 @@ export const projects: Project[] = [
   {
     id: "6",
     year: "2021",
-    title: "Brunswick St Festival",
+    title: "Brunswick Fest",
     type: projectTypes.GraphicDesign,
     shortDescription:
       "A street festival to celebrate the past and the present of Brunswick, Melbourne.",
@@ -204,23 +212,27 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/BrunswickSt/01_OOH.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Large out-of-home media in the neighbourhood to draw attention to the festival.",
       },
       {
         imagePath: "/images/BrunswickSt/02_Poster.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Poster detailing the artists and stallholders to be featured.",
       },
       {
         imagePath: "/images/BrunswickSt/03_Wall.jpg",
-        imageText: "this is image text",
+        imageText:
+          "A painted wall mural - a fit medium for a local known for its street art",
       },
       {
         imagePath: "/images/BrunswickSt/04_Mobile.gif",
-        imageText: "this is image text",
+        imageText: "Animated typography to draw out the design concept",
       },
       {
         imagePath: "/images/BrunswickSt/05_Tote.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Fun merch for sale at the festival, with organic lines inspired by the diveristy of, and synergy created by, the local food & art scene.",
       },
     ],
     links: [
@@ -233,7 +245,7 @@ export const projects: Project[] = [
   {
     id: "7",
     year: "2022",
-    title: "Soma Pharmaceuticals",
+    title: "Soma",
     type: projectTypes.GraphicDesign,
     shortDescription:
       "Inspired by the dystopian future of Brave New World, this project brings to life a fictional pharmaceutical named Soma designed to keep citizens happy in an autocratic society",
@@ -243,19 +255,21 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/Soma/01_Packaging.jpg",
-        imageText: "this is image text",
+        imageText: "SOMA 24 daily tablets",
       },
       {
         imagePath: "/images/Soma/02_Bottles.jpg",
-        imageText: "this is image text",
+        imageText: "Liquid SOMA booster bottle",
       },
       {
         imagePath: "/images/Soma/03_Render.gif",
-        imageText: "this is image text",
+        imageText:
+          "3D product rendering to recreate the sci-fi vibe of this fictional brand.",
       },
       {
         imagePath: "/images/Soma/04_Ticket_2.gif",
-        imageText: "this is image text",
+        imageText:
+          "Like in Brave New World where residents receive rations of the substance, a mock design of government-issued ration ticket to redeem SOMA.",
       },
     ],
     links: [
@@ -277,19 +291,22 @@ export const projects: Project[] = [
     images: [
       {
         imagePath: "/images/FuturePerfect/01_Visual.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Key brand symbols rendered next to a what could be 3D-printed shoe.",
       },
       {
         imagePath: "/images/FuturePerfect/04_Logo.jpg",
-        imageText: "this is image text",
+        imageText:
+          "Logo slowly revealed by melting ice to herald in a new era for the brand.",
       },
       {
         imagePath: "/images/FuturePerfect/02_Detail.jpg",
-        imageText: "this is image text",
+        imageText: "Close-up of the render.",
       },
       {
         imagePath: "/images/FuturePerfect/03_Landscape.jpg",
-        imageText: "this is image text",
+        imageText:
+          "A different spin on brand symbols and one of the artworks from a recent project to showcase versatility of the brand.",
       },
     ],
     links: [
@@ -305,40 +322,40 @@ export const projects: Project[] = [
     title: "Personal Works",
     type: projectTypes.threeD,
     shortDescription: "A collection of my own 3D works done in Blender",
-    description: "",
+    description: "This is a collection of my own works done in Blender.",
     indexImage: "/images/Personal/Cat.jpg",
     images: [
       {
         imagePath: "/images/Personal/Bao.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Cat.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Coffee.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Oyster.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Seoul.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Sink.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Stairs.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
       {
         imagePath: "/images/Personal/Swan.jpg",
-        imageText: "this is image text",
+        imageText: "",
       },
     ],
     links: [],
