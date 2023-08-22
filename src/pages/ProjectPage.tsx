@@ -142,7 +142,7 @@ export const ProjectPage = (props: Props) => {
             <div>
               {!isMobile && (
                 <p
-                  className={`font-light text-sm leading-4 md:text-md md:leading-6 mb-${space.spacingMd}`}
+                  className={`font-light text-sm leading-4 md:text-md md:leading-5.5 mb-${space.spacingMd}`}
                 >
                   {selectedProject.description}
                 </p>
@@ -154,7 +154,7 @@ export const ProjectPage = (props: Props) => {
                 animate="visible"
                 variants={fadeRight(-10, 1.5)}
               >
-                <p className="text-xs mt-2 md:mt-0 mb-4 md:mb-0 md:text-sm font-mono leading-4">{`Image[${
+                <p className="text-xs mt-2 md:mt-0 mb-4 md:mb-0 md:text-xs font-mono leading-5">{`Image[${
                   currentIndex + 1
                 }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>

@@ -34,7 +34,6 @@ export const ProjectIndex = (props: Props) => {
             </h1>
           </span>
         </div>
-
         <div className={`w-full flex flex-col justify-between h-1/2 md:h-2/5`}>
           <span className="barText">
             <h2 className={isMobile ? type.linkSm : type.link}>
