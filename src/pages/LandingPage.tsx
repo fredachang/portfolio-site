@@ -1,9 +1,9 @@
-import { Environment, Loader, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
-import { WeatherBalloon } from "../components/WeatherBalloon";
 import { Link } from "react-router-dom";
+import { DigiCard } from "../components/DigiCard";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -27,26 +27,26 @@ function Rig({ children }: { children: ReactNode }) {
   return <group ref={ref}>{children}</group>;
 }
 
-const loaderStyles = {
-  container: {
-    backgroundColor: "black",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inner: {
-    backgroundColor: "white",
-    borderRadius: "10%",
-  },
-  bar: {
-    backgroundColor: "black",
-    height: "50px",
-  },
-  data: {
-    color: "white",
-    fontSize: "20px",
-  },
-};
+// const loaderStyles = {
+//   container: {
+//     backgroundColor: "black",
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   inner: {
+//     backgroundColor: "white",
+//     borderRadius: "10%",
+//   },
+//   bar: {
+//     backgroundColor: "black",
+//     height: "50px",
+//   },
+//   data: {
+//     color: "white",
+//     fontSize: "20px",
+//   },
+// };
 
 const lightColours = {
   warmYellow: "rgb(247, 191, 126)",
@@ -56,16 +56,19 @@ const lightColours = {
 export const LandingPage = () => {
   return (
     <>
-      <div className="bg-red-100 fixed top-0 bottom-0 w-screen h-screen z-50">
-        <Link to="/home" className="flex justify-center">
-          ENTER
+      <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen z-50">
+        <Link
+          to="/home"
+          className="font-bold text-xl p-4 w-full flex justify-center"
+        >
+          <p>ENTER</p>
         </Link>
 
         <Canvas>
           <Environment files="HDR/clear_land.hdr" blur={0.01} />
           {/* <axesHelper args={[5]} /> */}
 
-          <ambientLight color={lightColours.warmYellow} intensity={0.3} />
+          <ambientLight color={lightColours.warmYellow} intensity={1} />
           <hemisphereLight
             color={lightColours.lightBlue}
             groundColor={lightColours.warmYellow}
@@ -76,17 +79,17 @@ export const LandingPage = () => {
           <OrbitControls enableZoom={false} />
           <Suspense fallback={null}>
             <Rig>
-              <WeatherBalloon scale={300} position={[0, 0, 0]} />
+              <DigiCard scale={60} position={[0, 0, 0]} />
             </Rig>
           </Suspense>
         </Canvas>
-        <Loader
+        {/* <Loader
           containerStyles={loaderStyles.container}
           innerStyles={loaderStyles.inner}
           barStyles={loaderStyles.bar}
           dataStyles={loaderStyles.data}
           dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
-        />
+        /> */}
       </div>
     </>
   );
