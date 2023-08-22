@@ -158,7 +158,7 @@ export const ProjectPage = (props: Props) => {
                 animate="visible"
                 variants={fadeX(-10, 1.5)}
               >
-                <p className="text-xs mt-2 md:mt-0 mb-10 md:mb-0 md:text-xs font-mono leading-4 md:leading-5">{`Image[${
+                <p className="text-xs mt-2 md:mt-0 mb-20 md:mb-0 md:text-xs font-mono leading-4 md:leading-4">{`Image[${
                   currentIndex + 1
                 }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>
