@@ -74,7 +74,7 @@ export const projects: Project[] = [
     links: [
       {
         text: "Visit Site",
-        path: "https://dynamictimesheet.netlify.app/",
+        path: "https://freda-time-tracker-app.netlify.app/",
       },
       {
         text: "Source Code",
