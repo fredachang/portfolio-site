@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useNavigateIndex = () => {
+export const useNavigateCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {

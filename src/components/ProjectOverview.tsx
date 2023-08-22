@@ -3,9 +3,9 @@ import { fadeRightWithDelay } from "../motion";
 import { Carousel } from "./Carousel";
 import { space } from "../tailwind-utils";
 import { Project } from "../types";
-import { useNavigateIndex } from "../hooks/useNavigateIndex";
 import { ProjectText } from "./ProjectText";
 import { useNavigate } from "react-router-dom";
+import { useNavigateCarousel } from "../hooks/useNavigateIndex";
 
 interface Props {
   project: Project;
@@ -15,7 +15,7 @@ export const ProjectOverview = (props: Props) => {
   const { project } = props;
 
   const { currentIndex, handleGoToNext, handleGoToPrevious } =
-    useNavigateIndex();
+    useNavigateCarousel();
 
   const navigate = useNavigate();
 
