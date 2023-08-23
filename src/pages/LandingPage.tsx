@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { fadeXWithDelay } from "../motion";
 import { DigiCard2 } from "../components/DigiCard2";
 import { landingPageBg } from "../data";
+import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -65,6 +66,9 @@ export const LandingPage = () => {
   //   navigate("/home");
   // };
 
+  const { screenWidth } = useDetectScreenWidth();
+  const isMobile = screenWidth < 1000;
+
   return (
     <>
       <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen z-50">
@@ -104,7 +108,7 @@ export const LandingPage = () => {
 
             <OrbitControls enableZoom={false} />
             <Rig>
-              <DigiCard2 scale={120} position={[0, 0, 0]} />
+              <DigiCard2 scale={isMobile ? 90 : 120} position={[0, 0, 0]} />
             </Rig>
           </Suspense>
         </Canvas>
