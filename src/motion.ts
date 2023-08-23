@@ -149,6 +149,6 @@ export const rotate = {
 };
 
 export const scaleUp = {
-  scale: 1.15,
-  transition: { ease: "easeInOut", type: "spring", duration: 0.8 },
+  scale: 1.2,
+  transition: { ease: "easeInOut", type: "spring", duration: 0.5 },
 };

@@ -36,8 +36,8 @@ export const ProjectOverview = (props: Props) => {
           to={`/project/${project.title}`}
           className="w-full flex justify-end mb-4"
         >
-          <motion.div whileHover={scaleUp} className="w-6">
-            <img className="w-full" src="/plus_symbol2.png" />
+          <motion.div whileHover={scaleUp} className="w-12">
+            <img className="w-full" src="/starThick.png" />
           </motion.div>
         </Link>
       )}

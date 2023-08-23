@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { fadeRightWithDelay, moveRightWhileHover, scaleUp } from "../motion";
+import { fadeRightWithDelay, moveRightWhileHover } from "../motion";
 import { space } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
-import { Link } from "react-router-dom";
 import { Project } from "../types";
 import Marquee from "react-fast-marquee";
 import { TechStack } from "./TechStack";
+import { MoreButton } from "./MoreButton";
 
 interface Props {
   project: Project;
@@ -23,13 +23,7 @@ export const ProjectText = (props: Props) => {
       variants={fadeRightWithDelay}
       className={`flex flex-col justify-between w-full md:w-1/3 h-1/3 md:h-full md:mx-${space.spacingMd}`}
     >
-      {!isMobile && (
-        <Link to={`/project/${project.title}`} className="flex justify-end">
-          <motion.div whileHover={scaleUp} className="w-10">
-            <img className="w-full" src="/plus_symbol2.png" />
-          </motion.div>
-        </Link>
-      )}
+      {!isMobile && <MoreButton project={project} />}
 
       <div>
         <p

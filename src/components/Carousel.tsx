@@ -65,10 +65,10 @@ export const Carousel = (props: Props) => {
                   onClick={handleGoToPrevious}
                   className="absolute flex items-center left-0 pl-2 w-24 h-24 cursor-pointer"
                 >
-                  <div className="w-8 -rotate-180">
+                  <div className="w-7 md:w-8 -rotate-180">
                     <img
                       className="w-full object-contain"
-                      src="/arrow_white.png"
+                      src="/arrowSharp.png"
                     />
                   </div>
                 </motion.div>
@@ -85,10 +85,10 @@ export const Carousel = (props: Props) => {
                   onClick={handleGoToNext}
                   className="absolute flex items-center justify-end right-0 w-24 h-24 pr-2 cursor-pointer"
                 >
-                  <div className="w-8">
+                  <div className="w-7 md:w-8">
                     <img
                       className="w-full object-contain"
-                      src="/arrow_white.png"
+                      src="/arrowSharp.png"
                     />
                   </div>
                 </motion.div>
