@@ -4,6 +4,8 @@ import { space } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { Link } from "react-router-dom";
 import { Project } from "../types";
+import Marquee from "react-fast-marquee";
+import { TechStack } from "./TechStack";
 
 interface Props {
   project: Project;
@@ -35,6 +37,16 @@ export const ProjectText = (props: Props) => {
         >
           {isMobile ? project.shortDescription : project.description}
         </p>
+
+        <div className="w-60 mb-2">
+          <Marquee speed={8}>
+            {project.techStack.map((techStack, i) => (
+              <div key={i} className="mr-1">
+                <TechStack description={techStack} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
 
         {!isMobile && (
           <div>

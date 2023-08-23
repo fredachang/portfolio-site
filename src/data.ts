@@ -6,6 +6,20 @@ export const projectTypes = {
   threeD: "3D Design",
 };
 
+export const techStack = {
+  typeScript: "TypeScript",
+  react: "React.js",
+  framer: "Framer Motion",
+  postgres: "PostgresSQL",
+  three: "Three.js",
+  tailWind: "Tailwind CSS",
+  rest: "Rest APIs",
+  node: "Node.js",
+  express: "Express",
+  afterEffects: "AfterEffects",
+  Blender: "Blender",
+};
+
 export const projects: Project[] = [
   {
     id: "1",
@@ -16,6 +30,14 @@ export const projects: Project[] = [
       "Scrapbook is a text and image visual moodboarding web app inspired by Are.na.",
     description:
       "Scrapbook is a text and image visual moodboarding web app inspired by Are.na (https://www.are.na/). The primary aim of the project is to familiarise myself with the full-stack workflow using React Typescript for front-end and a relational database such as PostgresSQL for back-end. The user is able to create channels and upload blocks via drag and drop or copying the image path. The blocks can be easily connected to other channels to create a web of visual inspirations. The UI is kept relatively simple to not detract from the focus on the moodboard and its visual storytelling.",
+    techStack: [
+      techStack.typeScript,
+      techStack.react,
+      techStack.postgres,
+      techStack.node,
+      techStack.express,
+      techStack.tailWind,
+    ],
     indexImage: "/images/Scrapbook/index.jpg",
     images: [
       {
@@ -54,6 +76,7 @@ export const projects: Project[] = [
     description:
       "The Time Tracker app is the first app I built using the React Typescript framework. The original idea was conceived at the start of my 3-4 month sabbatical of learning how to code, as a way to manage my time across different projects/goals. I wanted the experience of tracking time to be fun instead of invoking a feeling of obligation/ticking off boxes so I focused heavily on the UI - which became inspired by the cyberpunk/dystopian/video game aesthetic.",
     indexImage: "/images/Timer/index.jpg",
+    techStack: [techStack.typeScript, techStack.react, techStack.tailWind],
     images: [
       {
         imagePath: "/images/Timer/main.mp4",
@@ -92,6 +115,7 @@ export const projects: Project[] = [
     description:
       "This is a city-based weather app created by using Open Weather API and React Three Fibre + Drei. I wanted to make the experience more tactile by implementing a digital window that can be customised by the user in real time. The room objects/plants are designed and modelled in Blender and converted into React components using GLTFJSX package. Plugging in React Spring and Use Gesture, the user is able to adapt the room layout, saved in local storage, based on individual preferences. Finally, a set of HDR background image is mapped to the weather conditions outputted by Open Weather API, to dynamically change the scene based on weather result.",
     indexImage: "/images/weatherapp/index.jpg",
+    techStack: [techStack.three, techStack.typeScript, techStack.react],
     images: [
       {
         imagePath: "/images/weatherapp/Main_2.mp4",
@@ -120,6 +144,7 @@ export const projects: Project[] = [
     description:
       "Nutrient-enriched, biodegradable coffee pods for the outdoor adventure-seekers. Designed for the CEOs and the George Clooneys who buys expensive lycra, this is a coffee that emphasises routine and performance while paying homage to the finer things in life. Available in extra-strength AM brew and decaf PM brew for the wind-down",
     indexImage: "/images/Podium/01_Box.jpg",
+    techStack: [techStack.afterEffects],
     images: [
       {
         imagePath: "/images/Podium/06_GIF_2.gif",
@@ -165,6 +190,7 @@ export const projects: Project[] = [
     description:
       "Exotic and confused, this tea would probably cause severe food poisoning if it were ever sent down the manufacturing line. The brand identity reflects a reconciliation of times past and present. Old teas for new teens, Madame Wu is ultra-materialism hidden behind an anti-capitalistic language.",
     indexImage: "/images/MadameWu/03_Visual.jpg",
+    techStack: [],
     images: [
       {
         imagePath: "/images/MadameWu/01_Packaging.jpg",
@@ -208,6 +234,7 @@ export const projects: Project[] = [
       "A street festival to celebrate the past and the present of Brunswick, Melbourne.",
     description:
       "A street festival to celebrate the past and the present of Brunswick, Melbourne, and its unique heritage and diversity through art, food and music. I experimented with typographic compositions and using graphic devices to display festival program information. A bright and nostalgic colour palette appeals to families and hipsters alike.",
+    techStack: [],
     indexImage: "/images/BrunswickSt/01_OOH.jpg",
     images: [
       {
@@ -251,6 +278,7 @@ export const projects: Project[] = [
       "Inspired by the dystopian future of Brave New World, this project brings to life a fictional pharmaceutical named Soma designed to keep citizens happy in an autocratic society",
     description:
       "Inspired by the dystopian future of Brave New World, this project brings to life a fictional substance named Soma, which is issued by the central government to keep citizens happy. The brand identity is at once alluring and repulsive, falsifying an illusion of choice over the lack thereof. The brand identity carries the influence of 20th century Communist propaganda while making a case for 2020 and beyond.",
+    techStack: [],
     indexImage: "/images/Soma/05_TicketFlatLay.jpg",
     images: [
       {
@@ -287,6 +315,7 @@ export const projects: Project[] = [
     shortDescription: "Visualising the brand of a 3D design studio.",
     description:
       "I was asked to reimagine the brand identity of a 3D design studio ‘Future Perfect Digital’ using my choice of medium. The idea of 'Future is now' is the inspiration behind the pieces. Taking reference from the studio’s portfolio, it has a strong focus on using 3D technology and AR to stretch the experience of reality.    ",
+    techStack: [],
     indexImage: "/images/FuturePerfect/02_Detail.jpg",
     images: [
       {
@@ -323,6 +352,8 @@ export const projects: Project[] = [
     type: projectTypes.threeD,
     shortDescription: "A collection of my own 3D works done in Blender",
     description: "This is a collection of my own works done in Blender.",
+    techStack: [],
+
     indexImage: "/images/Personal/Cat.jpg",
     images: [
       {

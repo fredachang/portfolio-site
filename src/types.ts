@@ -4,6 +4,7 @@ export interface Project {
   title: string;
   type: string;
   shortDescription: string;
+  techStack: string[];
   description: string;
   indexImage: string;
   images: Image[];
