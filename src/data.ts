@@ -20,7 +20,7 @@ export const techStack = {
   Blender: "Blender",
 };
 
-export const landingPageBg = "/LandingPgBg.png";
+export const landingPageBg = "/LandingPgBgBorder.png";
 
 export const projects: Project[] = [
   {

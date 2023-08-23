@@ -86,7 +86,7 @@ export const LandingPage = () => {
         </Link>
 
         <div
-          className="bg-yellow-100 absolute top-0 w-screen h-screen"
+          className="bg-stone-100 absolute top-0 w-screen h-screen"
           style={{
             backgroundImage: `url(${landingPageBg})`,
             backgroundSize: "cover",
