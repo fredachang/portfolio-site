@@ -363,7 +363,7 @@ export const projects: Project[] = [
 ];
 
 export const links = {
-  email: "mailto: f.chang122@gmail.com",
+  email: "mailto: fredachangstudio@gmail.com",
   gitHub: "https://github.com/fredachang",
   instagram: "https://www.instagram.com/notcoolfreda",
   linkedIn: "https://www.linkedin.com/in/fredachang",
