@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeXWithDelay } from "../motion";
 import { DigiCard2 } from "../components/DigiCard2";
+import { landingPageBg } from "../data";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -37,31 +38,39 @@ const loaderStyles = {
     alignItems: "center",
   },
   inner: {
-    backgroundColor: "black",
+    backgroundColor: "transparent",
     borderRadius: "10%",
   },
   bar: {
-    backgroundColor: "white",
-    height: "50px",
+    backgroundColor: "black",
+    height: "5px",
   },
   data: {
     color: "black",
     fontSize: "20px",
+    fontFamily: "Sohne-Regular",
   },
 };
 
 const lightColours = {
-  warmYellow: "rgb(247, 191, 126)",
+  mint: "rgb(194,255,188)",
   lightBlue: "rgb(171, 203, 255)",
 };
 
 export const LandingPage = () => {
+  // const navigate = useNavigate();
+
+  // const handleNavigate = () => {
+  //   console.log("inside");
+  //   navigate("/home");
+  // };
+
   return (
     <>
       <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen z-50">
         <Link
           to="/home"
-          className="font-bold text-xl p-4 w-full flex justify-center"
+          className="font-bold text-xl p-4 absolute w-full flex justify-center z-20"
         >
           <motion.p
             initial="hidden"
@@ -72,20 +81,28 @@ export const LandingPage = () => {
           </motion.p>
         </Link>
 
+        <div
+          className="bg-yellow-100 absolute top-0 w-screen h-screen"
+          style={{
+            backgroundImage: `url(${landingPageBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
+
         <Canvas>
-          <Environment files="HDR/clear_land.hdr" blur={0.01} />
-          {/* <axesHelper args={[5]} /> */}
-
-          <ambientLight color={lightColours.warmYellow} intensity={1} />
-          <hemisphereLight
-            color={lightColours.lightBlue}
-            groundColor={lightColours.warmYellow}
-            intensity={0.6}
-            position={[0, 5, 3]}
-          />
-
-          <OrbitControls enableZoom={false} />
           <Suspense fallback={null}>
+            <Environment files="HDR/clear_land.hdr" blur={0.01} />
+            {/* <axesHelper args={[5]} /> */}
+
+            <hemisphereLight
+              color={lightColours.lightBlue}
+              groundColor={lightColours.mint}
+              intensity={0.6}
+              position={[0, 5, 3]}
+            />
+
+            <OrbitControls enableZoom={false} />
             <Rig>
               <DigiCard2 scale={120} position={[0, 0, 0]} />
             </Rig>

@@ -20,6 +20,8 @@ export const techStack = {
   Blender: "Blender",
 };
 
+export const landingPageBg = "/LandingPgBg.png";
+
 export const projects: Project[] = [
   {
     id: "1",
