@@ -33,7 +33,7 @@ export const ProjectText = (props: Props) => {
 
       <div>
         <p
-          className={`font-light text-sm md:text-xs mt-4 md:mt-0 mb-${space.spacingMd}`}
+          className={`font-light text-sm md:text-xs md:leading-5 mt-4 md:mt-0 mb-${space.spacingMd}`}
         >
           {isMobile ? project.shortDescription : project.description}
         </p>
