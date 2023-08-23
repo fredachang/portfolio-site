@@ -14,7 +14,7 @@ export const Footer = () => (
         </a>
       </div>
 
-      <div>
+      <div className="flex justify-end w-1/3">
         <MotionHyperlink
           linkPath={links.email}
           linkText="EMAIL"

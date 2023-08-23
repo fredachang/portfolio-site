@@ -11,14 +11,11 @@ export const MotionHyperlink = (props: Props) => {
   const { linkPath, linkText, linkStyle } = props;
   return (
     <>
-      <motion.a
-        href={linkPath}
-        whileHover={moveLeftWhileHover}
-        target="_blank"
-        className={linkStyle}
-      >
-        {linkText}
-      </motion.a>
+      <motion.div className="max-w-max" whileHover={moveLeftWhileHover}>
+        <a href={linkPath} target="_blank" className={linkStyle}>
+          {linkText}
+        </a>
+      </motion.div>
     </>
   );
 };
