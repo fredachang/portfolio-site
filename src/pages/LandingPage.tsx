@@ -1,4 +1,4 @@
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
@@ -29,26 +29,26 @@ function Rig({ children }: { children: ReactNode }) {
   return <group ref={ref}>{children}</group>;
 }
 
-// const loaderStyles = {
-//   container: {
-//     backgroundColor: "black",
-//     display: "flex",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-//   inner: {
-//     backgroundColor: "white",
-//     borderRadius: "10%",
-//   },
-//   bar: {
-//     backgroundColor: "black",
-//     height: "50px",
-//   },
-//   data: {
-//     color: "white",
-//     fontSize: "20px",
-//   },
-// };
+const loaderStyles = {
+  container: {
+    backgroundColor: "#fafaf9",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  inner: {
+    backgroundColor: "black",
+    borderRadius: "10%",
+  },
+  bar: {
+    backgroundColor: "white",
+    height: "50px",
+  },
+  data: {
+    color: "black",
+    fontSize: "20px",
+  },
+};
 
 const lightColours = {
   warmYellow: "rgb(247, 191, 126)",
@@ -91,13 +91,13 @@ export const LandingPage = () => {
             </Rig>
           </Suspense>
         </Canvas>
-        {/* <Loader
+        <Loader
           containerStyles={loaderStyles.container}
           innerStyles={loaderStyles.inner}
           barStyles={loaderStyles.bar}
           dataStyles={loaderStyles.data}
           dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
-        /> */}
+        />
       </div>
     </>
   );
