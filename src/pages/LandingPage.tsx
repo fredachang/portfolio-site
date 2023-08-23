@@ -4,6 +4,8 @@ import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
 import { Link } from "react-router-dom";
 import { DigiCard } from "../components/DigiCard";
+import { motion } from "framer-motion";
+import { fadeXWithDelay } from "../motion";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -61,7 +63,13 @@ export const LandingPage = () => {
           to="/home"
           className="font-bold text-xl p-4 w-full flex justify-center"
         >
-          <p>ENTER</p>
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeXWithDelay(-20, 1.5, 2)}
+          >
+            ENTER
+          </motion.p>
         </Link>
 
         <Canvas>

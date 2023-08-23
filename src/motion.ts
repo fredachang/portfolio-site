@@ -31,6 +31,27 @@ export const fadeX = (distance: number, duration: number) => ({
   },
 });
 
+export const fadeXWithDelay = (
+  distance: number,
+  duration: number,
+  delay: number
+) => ({
+  hidden: {
+    opacity: 0,
+    x: distance,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      ease: "easeInOut",
+      duration: duration,
+      delay: delay,
+    },
+  },
+});
+
 export const fadeRightWithDelay = {
   hidden: {
     opacity: 0,
