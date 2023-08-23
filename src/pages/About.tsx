@@ -3,7 +3,7 @@ import { space, type } from "../tailwind-utils";
 import { links } from "../data";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { motion } from "framer-motion";
-import { fadeUp } from "../motion";
+import { fade, fadeUp } from "../motion";
 import { MotionHyperlink } from "../components/MotionHyperLink";
 
 export const About = () => {
@@ -20,7 +20,10 @@ export const About = () => {
           <div
             className={`p-${space.spacingMd} w-screen cursor-default h-full flex flex-col`}
           >
-            <div
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fade(1, 0.5)}
               className={`font-light text-base leading-6 w-full md:text-xl md:w-1/2 leading-8`}
             >
               Freda is a multidiscplinary designer and developer who thrives in
@@ -28,7 +31,7 @@ export const About = () => {
               thinking capabilities from a previous career in consulting, she is
               looking to create impactful digital real estate that pushes the
               status quo of how we experience & interact with the virtual world.{" "}
-            </div>
+            </motion.div>
 
             {screenWidth < 1000 && (
               <div
