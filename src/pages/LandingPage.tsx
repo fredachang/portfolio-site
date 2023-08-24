@@ -71,47 +71,53 @@ export const LandingPage = () => {
 
   return (
     <>
-      <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen z-50">
-        <Link
-          to="/home"
-          className="font-bold text-xl p-4 absolute w-full flex justify-center z-20"
-        >
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fadeXWithDelay(-20, 1.5, 2)}
-          >
-            ENTER
-          </motion.p>
-        </Link>
-
-        <div
+      <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
+        {/* <div
           className="bg-stone-100 absolute top-0 w-screen h-screen"
           style={{
             backgroundImage: `url(${landingPageBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        ></div>
+        ></div> */}
+        <Link
+          to="/home"
+          className="font-bold p-4 absolute w-full flex justify-center z-20"
+        >
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeXWithDelay(-20, 1.5, 2)}
+            className="text-stone-800 text-3xl z-20 tracking-wider mix-blend-color-burn"
+          >
+            <Link to="/home">ENTER</Link>
+          </motion.p>
+          <img
+            src={landingPageBg}
+            className="w-screen h-screen object-cover absolute z-10 top-0 mix-blend-difference"
+          />
+        </Link>
 
-        <Canvas>
-          <Suspense fallback={null}>
-            <Environment files="HDR/clear_land.hdr" blur={0.01} />
-            {/* <axesHelper args={[5]} /> */}
+        <div className="w-full fixed top-20 h-4/5 z-20">
+          <Canvas className="z-20">
+            <Suspense fallback={null}>
+              <Environment files="HDR/clear_land.hdr" blur={0.01} />
+              {/* <axesHelper args={[5]} /> */}
 
-            <hemisphereLight
-              color={lightColours.lightBlue}
-              groundColor={lightColours.mint}
-              intensity={0.6}
-              position={[0, 5, 3]}
-            />
+              <hemisphereLight
+                color={lightColours.lightBlue}
+                groundColor={lightColours.mint}
+                intensity={0.6}
+                position={[0, 5, 3]}
+              />
 
-            <OrbitControls enableZoom={false} />
-            <Rig>
-              <DigiCard2 scale={isMobile ? 90 : 120} position={[0, 0, 0]} />
-            </Rig>
-          </Suspense>
-        </Canvas>
+              <OrbitControls enableZoom={false} />
+              <Rig>
+                <DigiCard2 scale={isMobile ? 90 : 120} position={[0, 0, 0]} />
+              </Rig>
+            </Suspense>
+          </Canvas>
+        </div>
         <Loader
           containerStyles={loaderStyles.container}
           innerStyles={loaderStyles.inner}
