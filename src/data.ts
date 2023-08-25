@@ -400,5 +400,5 @@ export const links = {
   gitHub: "https://github.com/fredachang",
   instagram: "https://www.instagram.com/notcoolfreda",
   linkedIn: "https://www.linkedin.com/in/fredachang",
-  resume: "https://indd.adobe.com/view/d0703b50-a476-434b-9600-488f4d306380",
+  resume: "https://indd.adobe.com/view/89ac1297-516e-4cad-8cad-54128146b38a",
 };
