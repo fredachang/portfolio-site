@@ -47,7 +47,7 @@ export const Header = (props: Props) => {
       >
         <Link to="/home" onClick={handleShowHome}>
           <div className={type.logo}>
-            {screenWidth > 1000 ? "Freda Chang" : "Freda C."}
+            {screenWidth > 1000 ? "Freda Chang Back Up" : "Freda C."}
           </div>
         </Link>
 
