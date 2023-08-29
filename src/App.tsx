@@ -1,21 +1,22 @@
 import "./App.css";
 import { projectTypes, projects } from "./data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
-import { LandingPage } from "./pages/LandingPage";
 import { colour } from "./tailwind-utils";
 import { useDetectScreenWidth } from "./hooks/useDetectScreenWidth";
 import { MasterIndex } from "./components/MasterIndex";
+import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
   const [expandFilter, setExpandFilter] = useState(false);
   const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [showLanding, setShowLanding] = useState(false);
 
   const handleExpandTile = (projectId: string) => {
     if (projectId === expandedProjectId) {
@@ -73,11 +74,24 @@ function App() {
     web: countProjectsByType(projects, projectTypes.WebDev),
   };
 
+  const handleShowLanding = () => {
+    setShowLanding(true);
+  };
+
+  const handleHideLanding = () => {
+    setShowLanding(false);
+  };
+
+  useEffect(() => {
+    handleShowLanding();
+  }, []);
+
   return (
     <>
       <main
         className={`${colour.sitePrimaryColour} flex flex-col w-screen h-screen`}
       >
+        {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
           expandFilter={expandFilter}
           projects={projects}
@@ -89,7 +103,6 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
           <Route
             path="/home"
             element={

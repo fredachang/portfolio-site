@@ -58,7 +58,12 @@ const lightColours = {
   lightBlue: "rgb(171, 203, 255)",
 };
 
-export const LandingPage = () => {
+interface Props {
+  handleHideLanding: () => void;
+}
+
+export const LandingPage = (props: Props) => {
+  const { handleHideLanding } = props;
   // const navigate = useNavigate();
 
   // const handleNavigate = () => {
@@ -71,7 +76,7 @@ export const LandingPage = () => {
 
   return (
     <>
-      <div className="bg-stone-50 fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
+      <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
         {/* <div
           className="bg-stone-100 absolute top-0 w-screen h-screen"
           style={{
@@ -90,7 +95,7 @@ export const LandingPage = () => {
             variants={fadeXWithDelay(-20, 1.5, 2)}
             className="text-stone-800 text-3xl z-20 tracking-wider mix-blend-color-burn"
           >
-            <Link to="/home">ENTER</Link>
+            <div onClick={handleHideLanding}>ENTER</div>
           </motion.p>
           <img
             src={landingPageBg}
