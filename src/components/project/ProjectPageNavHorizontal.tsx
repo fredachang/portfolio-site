@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeX } from "../motion";
+import { fadeX } from "../../motion";
 
 interface Props {
   selectedIndex: number;

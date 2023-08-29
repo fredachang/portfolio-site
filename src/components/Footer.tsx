@@ -1,12 +1,12 @@
 import { links } from "../data";
 import { space, type } from "../tailwind-utils";
-import { MotionHyperlink } from "./MotionHyperLink";
-import { MarqueeComponent } from "./Marquee";
+import { MotionHyperlink } from "./buttons/MotionHyperLink";
+import { MarqueeComponent } from "./other/Marquee";
 
 export const Footer = () => (
   <>
     <div
-      className={`w-screen h-7% flex justify-between items-center px-${space.spacingMd} border-t border-t-2 border-black z-20`}
+      className={`w-screen h-1/5 flex justify-between items-center px-${space.spacingMd} border-t border-t-2 border-black z-20`}
     >
       <div className="w-1/4">
         <a href="https://github.com/fredachang/portfolio-site" target="_blank">

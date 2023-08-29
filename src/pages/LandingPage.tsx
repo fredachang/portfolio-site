@@ -5,9 +5,9 @@ import * as THREE from "three";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeXWithDelay } from "../motion";
-import { DigiCard2 } from "../components/DigiCard2";
 import { landingPageBg } from "../data";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
+import { DigiCard2 } from "../components/three/DigiCard2";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);

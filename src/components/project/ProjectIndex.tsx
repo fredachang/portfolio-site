@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { moveUpWhileHover } from "../motion";
-import { Project } from "../types";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
-import { colour, space, type } from "../tailwind-utils";
+import { Project } from "../../types";
+import { useDetectScreenWidth } from "../../hooks/useDetectScreenWidth";
+import { colour, space, type } from "../../tailwind-utils";
+import { moveUpWhileHover } from "../../motion";
 
 interface Props {
   isExpanded: boolean;

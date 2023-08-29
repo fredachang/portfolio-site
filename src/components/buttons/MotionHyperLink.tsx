@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { moveLeftWhileHover } from "../motion";
+import { moveLeftWhileHover } from "../../motion";
 
 interface Props {
   linkPath: string;

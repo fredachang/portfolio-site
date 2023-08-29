@@ -1,8 +1,8 @@
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { fade } from "../motion";
 import { Project } from "../types";
-import { ProjectTile } from "./ProjectTile";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
+import { ProjectTile } from "./project/ProjectTile";
 
 interface Props {
   showAll: boolean;

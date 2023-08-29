@@ -12,8 +12,6 @@ import { colour } from "./tailwind-utils";
 import { useDetectScreenWidth } from "./hooks/useDetectScreenWidth";
 import { MasterIndex } from "./components/MasterIndex";
 
-const overallBodyContainer = `${colour.sitePrimaryColour} flex flex-col w-screen h-screen`;
-
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
   const [expandFilter, setExpandFilter] = useState(false);
@@ -77,7 +75,9 @@ function App() {
 
   return (
     <>
-      <main className={overallBodyContainer}>
+      <main
+        className={`${colour.sitePrimaryColour} flex flex-col w-screen h-screen`}
+      >
         <Header
           expandFilter={expandFilter}
           projects={projects}

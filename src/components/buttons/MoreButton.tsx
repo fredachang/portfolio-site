@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { fadeUp, primaryTransition } from "../motion";
-import { Project } from "../types";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Project } from "../../types";
+import { fadeUp, primaryTransition } from "../../motion";
 
 interface Props {
   project: Project;

@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { primaryTransition } from "../motion";
-import { Project } from "../types";
 import { ProjectIndex } from "./ProjectIndex";
 import { useState } from "react";
-import { colour } from "../tailwind-utils";
 import { ProjectOverview } from "./ProjectOverview";
+import { Project } from "../../types";
+import { colour } from "../../tailwind-utils";
+import { primaryTransition } from "../../motion";
 
 interface Props {
   project: Project;

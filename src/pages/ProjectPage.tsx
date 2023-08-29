@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Project } from "../types";
 import { fade, fadeRightWithDelay, fadeUp, fadeX } from "../motion";
 import { useNavigate, useParams } from "react-router-dom";
-import { Carousel } from "../components/Carousel";
 import { space, type } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { useNavigateCarousel } from "../hooks/useNavigateIndex";
 import { useRef } from "react";
-import { ProjectPageNavHorizontal } from "../components/ProjectPageNavHorizontal";
-import { ProjectPageTopArrow } from "../components/ProjectPageTopArrow";
-import { ProjectPageBottomArrow } from "../components/ProjectPageBottomArrow";
+import { ProjectPageNavHorizontal } from "../components/project/ProjectPageNavHorizontal";
+import { ProjectPageTopArrow } from "../components/project/ProjectPageTopArrow";
+import { Carousel } from "../components/other/Carousel";
+import { ProjectPageBottomArrow } from "../components/project/ProjectPageBottomArrow";
 
 interface Props {
   projects: Project[];

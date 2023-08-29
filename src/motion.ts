@@ -6,7 +6,7 @@ export const staggerParentContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      staggerDirection: -1,
+      staggerDirection: 1,
       // delayChildren: 0.2,
     },
   },

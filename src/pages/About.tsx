@@ -4,7 +4,7 @@ import { links } from "../data";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { motion } from "framer-motion";
 import { fade, fadeUp } from "../motion";
-import { MotionHyperlink } from "../components/MotionHyperLink";
+import { MotionHyperlink } from "../components/buttons/MotionHyperLink";
 
 export const About = () => {
   const { screenWidth } = useDetectScreenWidth();

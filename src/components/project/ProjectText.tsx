@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { fadeRightWithDelay, moveRightWhileHover } from "../motion";
-import { space } from "../tailwind-utils";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
-import { Project } from "../types";
 import Marquee from "react-fast-marquee";
-import { TechStack } from "./TechStack";
-import { MoreButton } from "./MoreButton";
+import { Project } from "../../types";
+import { useDetectScreenWidth } from "../../hooks/useDetectScreenWidth";
+import { fadeRightWithDelay, moveRightWhileHover } from "../../motion";
+import { MoreButton } from "../buttons/MoreButton";
+import { space } from "../../tailwind-utils";
+import { TechStack } from "../TechStack";
 
 interface Props {
   project: Project;

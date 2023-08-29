@@ -1,7 +1,7 @@
-import { Image } from "../types";
 import { AnimatePresence, motion } from "framer-motion";
-import { fade } from "../motion";
 import { useEffect, useState } from "react";
+import { fade } from "../../motion";
+import { Image } from "../../types";
 
 interface Props {
   images: Image[];

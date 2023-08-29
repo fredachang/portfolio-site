@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { fadeRightWithDelay, scaleUp } from "../motion";
-import { Carousel } from "./Carousel";
-import { space } from "../tailwind-utils";
-import { Project } from "../types";
 import { ProjectText } from "./ProjectText";
 import { Link, useNavigate } from "react-router-dom";
-import { useNavigateCarousel } from "../hooks/useNavigateIndex";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
+import { Project } from "../../types";
+import { useNavigateCarousel } from "../../hooks/useNavigateIndex";
+import { useDetectScreenWidth } from "../../hooks/useDetectScreenWidth";
+import { fadeRightWithDelay, scaleUp } from "../../motion";
+import { Carousel } from "../other/Carousel";
+import { space } from "../../tailwind-utils";
 
 interface Props {
   project: Project;

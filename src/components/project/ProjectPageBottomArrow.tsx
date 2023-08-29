@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { fadeDown } from "../motion";
-import { space } from "../tailwind-utils";
+import { fadeDown } from "../../motion";
+import { space } from "../../tailwind-utils";
 
 interface Props {
   selectedIndex: number;
