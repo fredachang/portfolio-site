@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { fadeX, moveLeftWhileHover, staggerParentContainer } from "../motion";
-import { colour, space, type } from "../tailwind-utils";
+import { colour, type } from "../tailwind-utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { Project } from "../types";
@@ -8,7 +8,7 @@ import { projectTypes } from "../data";
 import { NavButton } from "./buttons/NavButton";
 
 const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 justify-between right-0`;
-const desktopFilter = `bg-purple-100 w-3/4 flex justify-end mr-10`;
+const desktopFilter = `w-full flex flex-col`;
 
 interface Props {
   expandFilter: boolean;
@@ -37,12 +37,12 @@ export const NavMenu = (props: Props) => {
   const { screenWidth } = useDetectScreenWidth();
 
   return (
-    <div className={`bg-red-100 flex`}>
+    <div className={`w-full h-full flex`}>
       {currentPath === "/home" && (
-        <div className="">
+        <div className="w-full h-full">
           <motion.button
             whileHover={moveLeftWhileHover}
-            className={`${type.link} mr-10`}
+            className={`${type.link} mb-2`}
             onClick={handleExpandFilter}
           >
             {filtered ? "Show All" : "Filter By"}
@@ -59,14 +59,14 @@ export const NavMenu = (props: Props) => {
                 <NavButton
                   buttonText={`Graphic Design (${projectCount.design})`}
                   motionVariant={fadeX(10, 0.5)}
-                  buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
+                  buttonStyle={`${type.link} text-start md:pl-20 md:mb-2`}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.GraphicDesign)
                   }
                 />
                 <NavButton
                   buttonText={`3D Design (${projectCount.threeD})`}
-                  buttonStyle={`${type.link} md:mr-${space.spacing4Xl}`}
+                  buttonStyle={`${type.link} text-start md:pl-40 md:mb-2 `}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.threeD)
@@ -74,7 +74,7 @@ export const NavMenu = (props: Props) => {
                 />
                 <NavButton
                   buttonText={`Web Development (${projectCount.web})`}
-                  buttonStyle={`${type.link}`}
+                  buttonStyle={`${type.link} text-start md:pl-60`}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.WebDev)

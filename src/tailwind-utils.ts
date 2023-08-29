@@ -23,6 +23,6 @@ export const type = {
   h3: "text-md font-light",
   md: "text-sm font-light",
   sm: "text-xs font-light",
-  link: "text-sm font-mono uppercase",
+  link: "text-xs font-mono uppercase",
   linkSm: "text-xs font-mono uppercase",
 };

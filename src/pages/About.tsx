@@ -54,9 +54,14 @@ export const About = () => {
           </div>
         </Link>
         <MotionHyperlink
-          linkPath={links.resume}
-          linkText="View CV"
-          linkStyle={`${type.link} flex items-center w-20 h-10 mb-20 ml-4`}
+          linkPath={links.resumeDev}
+          linkText="CV - Developer"
+          linkStyle={`${type.link} bg-red-100 flex max-w-max items-center mb-2`}
+        />
+        <MotionHyperlink
+          linkPath={links.resumeGeneral}
+          linkText="CV - General"
+          linkStyle={`${type.link} bg-red-100 max-w-max flex items-center`}
         />
       </motion.div>
     </>
