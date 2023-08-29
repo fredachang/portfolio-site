@@ -2,9 +2,6 @@ import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { fadeXWithDelay } from "../motion";
 import { landingPageBg } from "../data";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { DigiCard2 } from "../components/three/DigiCard2";
@@ -77,31 +74,10 @@ export const LandingPage = (props: Props) => {
   return (
     <>
       <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
-        {/* <div
-          className="bg-stone-100 absolute top-0 w-screen h-screen"
-          style={{
-            backgroundImage: `url(${landingPageBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div> */}
-        <Link
-          to="/home"
-          className="font-bold p-4 absolute w-full flex justify-center z-20"
-        >
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fadeXWithDelay(-20, 1.5, 2)}
-            className="text-stone-800 text-3xl z-20 tracking-wider mix-blend-color-burn"
-          >
-            <div onClick={handleHideLanding}>ENTER</div>
-          </motion.p>
-          <img
-            src={landingPageBg}
-            className="w-screen h-screen object-cover absolute z-10 top-0 mix-blend-difference"
-          />
-        </Link>
+        <img
+          src={landingPageBg}
+          className="w-screen h-screen object-cover absolute z-10 top-0 mix-blend-difference"
+        />
 
         <div className="w-full fixed top-20 h-4/5 z-20">
           <Canvas className="z-20">
@@ -118,7 +94,11 @@ export const LandingPage = (props: Props) => {
 
               <OrbitControls enableZoom={false} />
               <Rig>
-                <DigiCard2 scale={isMobile ? 90 : 120} position={[0, 0, 0]} />
+                <DigiCard2
+                  scale={isMobile ? 90 : 120}
+                  position={[0, 0, 0]}
+                  onClick={handleHideLanding}
+                />
               </Rig>
             </Suspense>
           </Canvas>

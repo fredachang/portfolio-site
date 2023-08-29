@@ -75,10 +75,12 @@ function App() {
   };
 
   const handleShowLanding = () => {
+    setExpandedProjectId("");
     setShowLanding(true);
   };
 
   const handleHideLanding = () => {
+    setExpandedProjectId("1");
     setShowLanding(false);
   };
 
