@@ -47,6 +47,7 @@ export const NavMenu = (props: Props) => {
           >
             {filtered ? "Show All" : "Filter By"}
           </motion.button>
+
           <AnimatePresence>
             {expandFilter && (
               <motion.div

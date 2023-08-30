@@ -1,17 +1,17 @@
-import { motion } from "framer-motion";
-import { moveLeftWhileHover } from "../motion";
 import { Project } from "../types";
 import { Link } from "react-router-dom";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
-import { type } from "../tailwind-utils";
 import { NavMenu } from "./NavMenu";
 import Marquee from "react-fast-marquee";
+import { ContactMenu } from "./ContactMenu";
 
 interface Props {
-  expandFilter: boolean;
+  expandNavFilter: boolean;
+  expandContact: boolean;
   projects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
-  handleExpandFilter: () => void;
+  handleExpandNavFilter: () => void;
+  handleExpandContact: () => void;
   handleShowHome: () => void;
   filtered: boolean;
   projectCount: {
@@ -24,16 +24,17 @@ interface Props {
 export const Header = (props: Props) => {
   const {
     filtered,
-    expandFilter,
+    expandContact,
+    expandNavFilter,
     projects,
     filterProjectsByType,
-    handleExpandFilter,
+    handleExpandContact,
+    handleExpandNavFilter,
     handleShowHome,
     projectCount,
   } = props;
 
   const { screenWidth } = useDetectScreenWidth();
-  const isMobile = screenWidth < 1000;
 
   return (
     <>
@@ -43,11 +44,11 @@ export const Header = (props: Props) => {
         <div className="w-full h-5/6 flex justify-between items-start px-3 pt-3">
           <div className="w-1/3">
             <NavMenu
-              expandFilter={expandFilter}
+              expandFilter={expandNavFilter}
               projectCount={projectCount}
               filterProjectsByType={filterProjectsByType}
               projects={projects}
-              handleExpandFilter={handleExpandFilter}
+              handleExpandFilter={handleExpandNavFilter}
               filtered={filtered}
             />
           </div>
@@ -60,8 +61,12 @@ export const Header = (props: Props) => {
             </Link>
           </div>
 
-          <div className="w-1/3 flex justify-end">
-            <div className="w-2/3 text-xxs font-mono text-right leading-4">
+          <div className="w-1/3 h-full">
+            <ContactMenu
+              expandContact={expandContact}
+              handleExpandContact={handleExpandContact}
+            />
+            {/* <div className="w-2/3 text-xxs font-mono text-right leading-4">
               Freda is a multidiscplinary designer and developer who thrives in
               the intersection of design and technology. She is looking to
               create impactful digital real estate that pushes the status quo of
@@ -72,7 +77,7 @@ export const Header = (props: Props) => {
               <Link className={`bg-red-100 ${type.link}`} to="/about">
                 <motion.div whileHover={moveLeftWhileHover}>About</motion.div>
               </Link>
-            )}
+            )} */}
           </div>
         </div>
 

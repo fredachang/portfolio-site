@@ -14,7 +14,9 @@ import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState("1");
-  const [expandFilter, setExpandFilter] = useState(false);
+  const [expandNavFilter, setExpandNavFilter] = useState(false);
+  const [expandContact, setExpandContact] = useState(false);
+
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [showLanding, setShowLanding] = useState(false);
 
@@ -24,16 +26,20 @@ function App() {
     } else setExpandedProjectId(projectId);
   };
 
-  const handleExpandFilter = () => {
-    setExpandFilter(!expandFilter);
+  const handleExpandNavFilter = () => {
+    setExpandNavFilter(!expandNavFilter);
     setFilteredProjects(projects);
     setExpandedProjectId("");
+  };
+
+  const handleExpandContact = () => {
+    setExpandContact(!expandContact);
   };
 
   const handleShowHome = () => {
     setExpandedProjectId("1");
     setFilteredProjects(projects);
-    setExpandFilter(false);
+    setExpandNavFilter(false);
   };
 
   const showAll = expandedProjectId === "";
@@ -49,7 +55,7 @@ function App() {
     );
     setFilteredProjects(filteredProjects);
     if (screenWidth < 1000) {
-      setExpandFilter(false);
+      setExpandNavFilter(false);
     }
   };
 
@@ -95,13 +101,15 @@ function App() {
       >
         {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
-          expandFilter={expandFilter}
+          expandNavFilter={expandNavFilter}
           projects={projects}
           filtered={filtered}
           filterProjectsByType={filterProjectsByType}
-          handleExpandFilter={handleExpandFilter}
+          handleExpandNavFilter={handleExpandNavFilter}
           projectCount={projectCount}
           handleShowHome={handleShowHome}
+          expandContact={expandContact}
+          handleExpandContact={handleExpandContact}
         />
 
         <Routes>

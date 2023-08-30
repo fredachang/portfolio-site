@@ -9,6 +9,17 @@ export const Footer = () => (
       className={`w-screen h-1/6 flex justify-between items-end px-${space.spacingMd} pb-2 border-t border-black z-20`}
     >
       <div className="w-1/3 h-full flex flex-col justify-end pt-6">
+        <VerticalMarquee />
+      </div>
+
+      <div className="w-1/3 h-full flex justify-center items-end text-xs font-mono">
+        Freda is a multidiscplinary designer and developer who thrives in the
+        intersection of design and technology. She is looking to create
+        impactful digital real estate that pushes the status quo of how we
+        experience & interact with the virtual world.
+      </div>
+
+      <div className="flex flex-col justify-start items-end w-1/3 h-full pt-6">
         <MotionHyperlink
           linkPath={links.resumeDev}
           linkText="CV - Developer"
@@ -18,33 +29,6 @@ export const Footer = () => (
           linkPath={links.resumeGeneral}
           linkText="CV - General"
           linkStyle={`${type.link} max-w-max flex items-center`}
-        />
-      </div>
-
-      <div className="w-1/3 h-full flex justify-center items-end">
-        <VerticalMarquee />
-      </div>
-
-      <div className="flex flex-col justify-start items-end w-1/3 h-full pt-6">
-        <MotionHyperlink
-          linkPath={links.email}
-          linkText="EMAIL"
-          linkStyle={`${type.link}`}
-        />
-        <MotionHyperlink
-          linkPath={links.gitHub}
-          linkText="GIBHUB"
-          linkStyle={`${type.link}`}
-        />
-        <MotionHyperlink
-          linkPath={links.instagram}
-          linkText="INSTAGRAM"
-          linkStyle={`${type.link}`}
-        />
-        <MotionHyperlink
-          linkPath={links.linkedIn}
-          linkText="LINKEDIN"
-          linkStyle={`${type.link}`}
         />
       </div>
     </div>
