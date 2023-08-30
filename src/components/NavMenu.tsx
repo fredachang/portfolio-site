@@ -40,6 +40,14 @@ export const NavMenu = (props: Props) => {
   const currentPath = location.pathname;
   const { screenWidth } = useDetectScreenWidth();
 
+  const filteredProjectType = (filteredProjects: Project[]) => {
+    if (filteredProjects.length === projects.length) {
+      const returnType = "projects";
+      return returnType;
+    }
+    return filteredProjects[0].type;
+  };
+
   return (
     <div className={`w-full h-full flex`}>
       {currentPath === "/" && (
@@ -64,14 +72,14 @@ export const NavMenu = (props: Props) => {
                 <NavButton
                   buttonText={`Graphic Design (${projectCount.design})`}
                   motionVariant={fadeX(10, 0.5)}
-                  buttonStyle={`${type.link} text-start md:pl-[50px] md:mb-1`}
+                  buttonStyle={`${type.link} text-start md:pl-[30px] md:mb-1`}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.GraphicDesign)
                   }
                 />
                 <NavButton
                   buttonText={`3D Design (${projectCount.threeD})`}
-                  buttonStyle={`${type.link} text-start md:pl-[100px] md:mb-1 `}
+                  buttonStyle={`${type.link} text-start md:pl-[60px] md:mb-1 `}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.threeD)
@@ -79,15 +87,17 @@ export const NavMenu = (props: Props) => {
                 />
                 <NavButton
                   buttonText={`Web Development (${projectCount.web})`}
-                  buttonStyle={`${type.link} text-start md:pl-[150px] md:mb-1`}
+                  buttonStyle={`${type.link} text-start md:pl-[90px] md:mb-1`}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.WebDev)
                   }
                 />
                 <NavButton
-                  buttonText={`Expand All ${filteredProjects[0].type} (${filteredProjects.length})`}
-                  buttonStyle={`${type.link} text-start md:pl-[200px] md:mb-1`}
+                  buttonText={`Expand All ${filteredProjectType(
+                    filteredProjects
+                  )} (${filteredProjects.length})`}
+                  buttonStyle={`${type.link} max-w-max text-start md:pl-[120px] md:mb-1`}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() => handleExpandAll(filteredProjects)}
                 />
