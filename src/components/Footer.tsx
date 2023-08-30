@@ -6,9 +6,9 @@ import { VerticalMarquee } from "./other/VerticalMarquee";
 export const Footer = () => (
   <>
     <div
-      className={`w-screen h-1/6 flex justify-between items-start px-${space.spacingMd} pb-2 border-t border-black z-20`}
+      className={`w-screen h-1/6 flex justify-between items-end px-${space.spacingMd} pb-2 border-t border-black z-20`}
     >
-      <div className="w-1/3 h-full flex flex-col justify-start pt-6">
+      <div className="w-1/3 h-full flex flex-col justify-end pt-6">
         <MotionHyperlink
           linkPath={links.resumeDev}
           linkText="CV - Developer"
@@ -20,7 +20,8 @@ export const Footer = () => (
           linkStyle={`${type.link} max-w-max flex items-center`}
         />
       </div>
-      <div className="w-1/3 h-full flex justify-center items-start pt-6">
+
+      <div className="w-1/3 h-full flex justify-center items-end">
         <VerticalMarquee />
       </div>
 
