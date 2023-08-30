@@ -4,6 +4,8 @@ import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { NavMenu } from "./NavMenu";
 import Marquee from "react-fast-marquee";
 import { ContactMenu } from "./ContactMenu";
+import { motion } from "framer-motion";
+import { fade } from "../motion";
 
 interface Props {
   expandNavFilter: boolean;
@@ -13,6 +15,8 @@ interface Props {
   handleExpandNavFilter: () => void;
   handleExpandContact: () => void;
   handleShowHome: () => void;
+  handleExpandAll: (filteredProjects: Project[]) => void;
+  filteredProjects: Project[];
   filtered: boolean;
   projectCount: {
     design: number;
@@ -30,6 +34,8 @@ export const Header = (props: Props) => {
     filterProjectsByType,
     handleExpandContact,
     handleExpandNavFilter,
+    handleExpandAll,
+    filteredProjects,
     handleShowHome,
     projectCount,
   } = props;
@@ -50,6 +56,8 @@ export const Header = (props: Props) => {
               projects={projects}
               handleExpandFilter={handleExpandNavFilter}
               filtered={filtered}
+              filteredProjects={filteredProjects}
+              handleExpandAll={handleExpandAll}
             />
           </div>
 
@@ -66,27 +74,22 @@ export const Header = (props: Props) => {
               expandContact={expandContact}
               handleExpandContact={handleExpandContact}
             />
-            {/* <div className="w-2/3 text-xxs font-mono text-right leading-4">
-              Freda is a multidiscplinary designer and developer who thrives in
-              the intersection of design and technology. She is looking to
-              create impactful digital real estate that pushes the status quo of
-              how we experience & interact with the virtual world.
-            </div>
-
-            {isMobile && (
-              <Link className={`bg-red-100 ${type.link}`} to="/about">
-                <motion.div whileHover={moveLeftWhileHover}>About</motion.div>
-              </Link>
-            )} */}
           </div>
         </div>
 
         <div className="h-1/6 w-full flex items-center">
-          <Marquee speed={30}>
-            <div className="text-xs font-mono">
-              Designed and Developed in 2023.
-            </div>
-          </Marquee>
+          {!expandContact && !expandNavFilter && (
+            <Marquee speed={30}>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fade(1, 0)}
+                className="text-xs font-mono"
+              >
+                Designed and Developed in 2023.
+              </motion.div>
+            </Marquee>
+          )}
         </div>
       </div>
     </>

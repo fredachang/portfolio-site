@@ -8,7 +8,7 @@ interface Props {
   showAll: boolean;
   onMobile: boolean;
   filteredProjects: Project[];
-  expandedProjectId: string;
+  expandedProjectId: string[];
   handleExpandTile: (projectId: string) => void;
 }
 
@@ -41,7 +41,7 @@ export const MasterIndex = (props: Props) => {
               <ProjectTile
                 key={project.id}
                 project={project}
-                isExpanded={expandedProjectId === project.id}
+                isExpanded={expandedProjectId.includes(project.id)}
                 handleExpandTile={handleExpandTile}
               />
             );

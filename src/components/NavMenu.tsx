@@ -13,6 +13,8 @@ const desktopFilter = `w-full flex flex-col`;
 interface Props {
   expandFilter: boolean;
   projects: Project[];
+  handleExpandAll: (filteredProjects: Project[]) => void;
+  filteredProjects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
   handleExpandFilter: () => void;
   filtered: boolean;
@@ -31,6 +33,8 @@ export const NavMenu = (props: Props) => {
     projects,
     handleExpandFilter,
     filtered,
+    filteredProjects,
+    handleExpandAll,
   } = props;
   const location = useLocation();
   const currentPath = location.pathname;
@@ -42,7 +46,7 @@ export const NavMenu = (props: Props) => {
         <div className="w-full h-full">
           <motion.button
             whileHover={moveLeftWhileHover}
-            className={`${type.link} mb-2`}
+            className={`${type.link} mb-1`}
             onClick={handleExpandFilter}
           >
             {filtered ? "Show All" : "Filter By"}
@@ -60,14 +64,14 @@ export const NavMenu = (props: Props) => {
                 <NavButton
                   buttonText={`Graphic Design (${projectCount.design})`}
                   motionVariant={fadeX(10, 0.5)}
-                  buttonStyle={`${type.link} text-start md:pl-20 md:mb-2`}
+                  buttonStyle={`${type.link} text-start md:pl-[50px] md:mb-1`}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.GraphicDesign)
                   }
                 />
                 <NavButton
                   buttonText={`3D Design (${projectCount.threeD})`}
-                  buttonStyle={`${type.link} text-start md:pl-40 md:mb-2 `}
+                  buttonStyle={`${type.link} text-start md:pl-[100px] md:mb-1 `}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.threeD)
@@ -75,12 +79,19 @@ export const NavMenu = (props: Props) => {
                 />
                 <NavButton
                   buttonText={`Web Development (${projectCount.web})`}
-                  buttonStyle={`${type.link} text-start md:pl-60`}
+                  buttonStyle={`${type.link} text-start md:pl-[150px] md:mb-1`}
                   motionVariant={fadeX(10, 0.5)}
                   onClickFunction={() =>
                     filterProjectsByType(projects, projectTypes.WebDev)
                   }
                 />
+                <NavButton
+                  buttonText={`Expand All ${filteredProjects[0].type} (${filteredProjects.length})`}
+                  buttonStyle={`${type.link} text-start md:pl-[200px] md:mb-1`}
+                  motionVariant={fadeX(10, 0.5)}
+                  onClickFunction={() => handleExpandAll(filteredProjects)}
+                />
+
                 {screenWidth < 1000 && (
                   <button onClick={handleExpandFilter} className={type.link}>
                     <p className="hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">

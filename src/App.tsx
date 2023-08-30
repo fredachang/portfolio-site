@@ -13,36 +13,60 @@ import { MasterIndex } from "./components/MasterIndex";
 import { LandingPage } from "./pages/LandingPage";
 
 function App() {
-  const [expandedProjectId, setExpandedProjectId] = useState("1");
+  const [expandedProjectId, setExpandedProjectId] = useState(["1"]);
   const [expandNavFilter, setExpandNavFilter] = useState(false);
   const [expandContact, setExpandContact] = useState(false);
+  const [expandAll, setExpandAll] = useState(false);
 
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [showLanding, setShowLanding] = useState(false);
 
   const handleExpandTile = (projectId: string) => {
-    if (projectId === expandedProjectId) {
-      setExpandedProjectId("");
-    } else setExpandedProjectId(projectId);
+    if (expandedProjectId.includes(projectId)) {
+      // Project ID is already in the array, so remove it
+      setExpandedProjectId((prevIds) =>
+        prevIds.filter((id) => id !== projectId)
+      );
+    } else {
+      // Project ID is not in the array, so add it
+      setExpandedProjectId((prevIds) => [...prevIds, projectId]);
+    }
   };
 
   const handleExpandNavFilter = () => {
     setExpandNavFilter(!expandNavFilter);
     setFilteredProjects(projects);
-    setExpandedProjectId("");
+    setExpandedProjectId([]);
   };
 
   const handleExpandContact = () => {
     setExpandContact(!expandContact);
   };
 
+  const handleExpandAll = (filteredProjects: Project[]) => {
+    setExpandAll((prevExpandAll) => {
+      const newExpandAll = !prevExpandAll;
+
+      if (newExpandAll) {
+        const filteredProjectIds = filteredProjects.map(
+          (project) => project.id
+        );
+        setExpandedProjectId(filteredProjectIds);
+      } else {
+        setExpandedProjectId([]);
+      }
+
+      return newExpandAll;
+    });
+  };
+
   const handleShowHome = () => {
-    setExpandedProjectId("1");
+    setExpandedProjectId(["1"]);
     setFilteredProjects(projects);
     setExpandNavFilter(false);
   };
 
-  const showAll = expandedProjectId === "";
+  const showAll = expandedProjectId.length === 0;
   const filtered = filteredProjects.length < 8;
 
   const { screenWidth } = useDetectScreenWidth();
@@ -50,6 +74,10 @@ function App() {
   const onMobile = screenWidth < 1000;
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
+    setExpandAll(false);
+    if (!expandAll) {
+      setExpandedProjectId([]);
+    }
     const filteredProjects = projects.filter(
       (project) => project.type === projectType
     );
@@ -81,12 +109,12 @@ function App() {
   };
 
   const handleShowLanding = () => {
-    setExpandedProjectId("");
+    setExpandedProjectId([]);
     setShowLanding(true);
   };
 
   const handleHideLanding = () => {
-    setExpandedProjectId("1");
+    setExpandedProjectId(["1"]);
     setShowLanding(false);
   };
 
@@ -110,6 +138,8 @@ function App() {
           handleShowHome={handleShowHome}
           expandContact={expandContact}
           handleExpandContact={handleExpandContact}
+          filteredProjects={filteredProjects}
+          handleExpandAll={handleExpandAll}
         />
 
         <Routes>

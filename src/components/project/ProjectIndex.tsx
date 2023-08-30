@@ -29,7 +29,7 @@ export const ProjectIndex = (props: Props) => {
       >
         <div className="h-1/2 w-full flex justify-center items-start">
           <span className="barText">
-            <h1 className={`font-light text-xl md:text-5xl`}>
+            <h1 className={`font-light text-xl md:text-3xl`}>
               {project.title}
             </h1>
           </span>

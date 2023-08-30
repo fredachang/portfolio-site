@@ -6,10 +6,10 @@ import { space, type } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { useNavigateCarousel } from "../hooks/useNavigateIndex";
 import { useRef } from "react";
-import { ProjectPageNavHorizontal } from "../components/project/ProjectPageNavHorizontal";
-import { ProjectPageTopArrow } from "../components/project/ProjectPageTopArrow";
 import { Carousel } from "../components/other/Carousel";
-import { ProjectPageBottomArrow } from "../components/project/ProjectPageBottomArrow";
+import { ProjectPageNavHorizontal } from "../components/buttons/ProjectPageNavHorizontal";
+import { ProjectPageTopArrow } from "../components/buttons/ProjectPageTopArrow";
+import { ProjectPageBottomArrow } from "../components/buttons/ProjectPageBottomArrow";
 
 interface Props {
   projects: Project[];

@@ -33,19 +33,19 @@ export const ContactMenu = (props: Props) => {
             <ContactHyperLink
               linkPath={links.email}
               linkText="EMAIL"
-              linkStyle={`${type.link} mb-2 text-end pr-20`}
+              linkStyle={`${type.link} mb-1 text-end pr-[50px]`}
               motionVariant={fadeX(10, 0.5)}
             />
             <ContactHyperLink
               linkPath={links.gitHub}
               linkText="GIBHUB"
-              linkStyle={`${type.link} mb-2 text-end pr-40`}
+              linkStyle={`${type.link} mb-1 text-end pr-[100px]`}
               motionVariant={fadeX(10, 0.5)}
             />
             <ContactHyperLink
               linkPath={links.instagram}
               linkText="INSTAGRAM"
-              linkStyle={`${type.link} mb-2 text-end pr-60`}
+              linkStyle={`${type.link} mb-2 text-end pr-[150px]`}
               motionVariant={fadeX(10, 0.5)}
             />
           </motion.div>
