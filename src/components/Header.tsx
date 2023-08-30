@@ -1,11 +1,11 @@
 import { Project } from "../types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { NavMenu } from "./NavMenu";
 import Marquee from "react-fast-marquee";
 import { ContactMenu } from "./ContactMenu";
 import { motion } from "framer-motion";
-import { fade } from "../motion";
+import { fade, primaryTransition } from "../motion";
 
 interface Props {
   expandNavFilter: boolean;
@@ -42,12 +42,24 @@ export const Header = (props: Props) => {
 
   const { screenWidth } = useDetectScreenWidth();
 
+  const location = useLocation();
+  const filePath = location.pathname;
+  const reducedHeight = filePath !== "/";
+
   return (
     <>
-      <div
-        className={`w-full h-1/5 border-b z-30 border-black z-10 t-0 flex flex-col`}
+      <motion.div
+        layout
+        transition={primaryTransition}
+        className={`w-full ${
+          reducedHeight ? "h-1/6" : "h-1/5"
+        }  border-b z-30 border-black z-10 t-0 flex flex-col`}
       >
-        <div className="w-full h-5/6 flex justify-between items-start px-3 pt-3">
+        <motion.div
+          layout="position"
+          transition={primaryTransition}
+          className="w-full h-5/6 flex justify-between items-start px-3 pt-3"
+        >
           <div className="w-1/3">
             <NavMenu
               expandFilter={expandNavFilter}
@@ -61,7 +73,7 @@ export const Header = (props: Props) => {
             />
           </div>
 
-          <div className="w-1/3">
+          <div className="w-1/3 h-full">
             <Link to="/" onClick={handleShowHome}>
               <div className="font-bold text-2xl text-center">
                 {screenWidth > 1000 ? "Freda Chang" : "Freda C."}
@@ -75,7 +87,7 @@ export const Header = (props: Props) => {
               handleExpandContact={handleExpandContact}
             />
           </div>
-        </div>
+        </motion.div>
 
         <div className="h-1/6 w-full flex items-center">
           {!expandContact && !expandNavFilter && (
@@ -91,7 +103,7 @@ export const Header = (props: Props) => {
             </Marquee>
           )}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

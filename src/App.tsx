@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { colour } from "./tailwind-utils";
@@ -70,6 +70,9 @@ function App() {
   const filtered = filteredProjects.length < 8;
 
   const { screenWidth } = useDetectScreenWidth();
+  const location = useLocation();
+  const filePath = location.pathname;
+  const isHome = filePath === "/";
 
   const onMobile = screenWidth < 1000;
 
@@ -109,8 +112,11 @@ function App() {
   };
 
   const handleShowLanding = () => {
-    setExpandedProjectId([]);
-    setShowLanding(true);
+    if (isHome) {
+      setExpandedProjectId([]);
+      setShowLanding(true);
+    }
+    return;
   };
 
   const handleHideLanding = () => {

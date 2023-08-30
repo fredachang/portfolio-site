@@ -128,6 +128,12 @@ export const primaryTransition = {
   stiffness: 60,
 };
 
+export const headerTransition = {
+  duration: 2,
+  ease: "easeInOut",
+  type: "linear",
+};
+
 export const moveUpWhileHover = {
   y: -6,
   transition: { type: "spring", duration: 0.7 },
