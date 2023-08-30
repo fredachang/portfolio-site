@@ -54,7 +54,7 @@ export const Header = (props: Props) => {
           </div>
 
           <div className="w-1/3">
-            <Link to="/home" onClick={handleShowHome}>
+            <Link to="/" onClick={handleShowHome}>
               <div className="font-bold text-2xl text-center">
                 {screenWidth > 1000 ? "Freda Chang" : "Freda C."}
               </div>

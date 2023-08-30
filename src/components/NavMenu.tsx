@@ -38,7 +38,7 @@ export const NavMenu = (props: Props) => {
 
   return (
     <div className={`w-full h-full flex`}>
-      {currentPath === "/home" && (
+      {currentPath === "/" && (
         <div className="w-full h-full">
           <motion.button
             whileHover={moveLeftWhileHover}
