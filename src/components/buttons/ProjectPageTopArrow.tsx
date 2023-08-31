@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../../motion";
+import { fadeX } from "../../motion";
 
 interface Props {
   selectedIndex: number;
@@ -15,7 +15,7 @@ export const ProjectPageTopArrow = (props: Props) => {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={fadeUp(20, 1)}
+          variants={fadeX(20, 1)}
           className="flex justify-center items-center w-full h-full"
           onClick={navigateToPreviousProject}
         >

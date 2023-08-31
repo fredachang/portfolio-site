@@ -14,37 +14,41 @@ export const Footer = () => {
   return (
     <>
       <motion.div
-        layout="position"
+        layout
         transition={primaryTransition}
-        className={`w-full  ${
-          reducedHeight ? "h-1/6" : "h-1/5"
-        } flex justify-between items-start px-${
-          space.spacingMd
-        } border-t border-black pt-4 z-20`}
+        className={`fixed bottom-0 w-full  ${
+          reducedHeight ? "h-1/8" : "h-1/5"
+        }  px-${space.spacingMd} border-t border-black pt-4 z-20`}
       >
-        <div className="w-1/3 h-full">
-          <VerticalMarquee />
-        </div>
+        <motion.div
+          layout="position"
+          transition={primaryTransition}
+          className="flex justify-between items-start"
+        >
+          <div className="w-1/3 h-full">
+            <VerticalMarquee />
+          </div>
 
-        <div className="w-1/3 h-full flex justify-center items-start text-xs font-mono text-center">
-          Freda is a multidiscplinary designer and developer who thrives in the
-          intersection of design and technology. She is looking to create
-          impactful digital real estate that pushes the status quo of how we
-          experience & interact with the virtual world.
-        </div>
+          <div className="w-1/3 h-full flex justify-center items-start text-xs font-mono text-center">
+            Freda is a multidiscplinary designer and developer who thrives in
+            the intersection of design and technology. She is looking to create
+            impactful digital real estate that pushes the status quo of how we
+            experience & interact with the virtual world.
+          </div>
 
-        <div className="flex flex-col justify-start items-end w-1/3 h-full">
-          <MotionHyperlink
-            linkPath={links.resumeDev}
-            linkText="CV - Developer"
-            linkStyle={`${type.link} flex max-w-max items-center mb-0.5 cursor-fancy`}
-          />
-          <MotionHyperlink
-            linkPath={links.resumeGeneral}
-            linkText="CV - General"
-            linkStyle={`${type.link} max-w-max flex items-center cursor-fancy`}
-          />
-        </div>
+          <div className="flex flex-col justify-start items-end w-1/3 h-full">
+            <MotionHyperlink
+              linkPath={links.resumeDev}
+              linkText="CV - Developer"
+              linkStyle={`${type.link} flex max-w-max items-center mb-0.5 cursor-fancy`}
+            />
+            <MotionHyperlink
+              linkPath={links.resumeGeneral}
+              linkText="CV - General"
+              linkStyle={`${type.link} max-w-max flex items-center cursor-fancy`}
+            />
+          </div>
+        </motion.div>
       </motion.div>
     </>
   );

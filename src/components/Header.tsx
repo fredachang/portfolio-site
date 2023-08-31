@@ -52,7 +52,7 @@ export const Header = (props: Props) => {
         layout
         transition={primaryTransition}
         className={`w-full ${
-          reducedHeight ? "h-1/6" : "h-1/5"
+          reducedHeight ? "h-1/8" : "h-1/5"
         }  border-b z-30 border-black z-10 t-0 flex flex-col`}
       >
         <motion.div
@@ -89,20 +89,24 @@ export const Header = (props: Props) => {
           </div>
         </motion.div>
 
-        <div className="h-1/6 w-full flex items-center">
+        <motion.div
+          layout="position"
+          transition={primaryTransition}
+          className="h-1/6 w-full flex items-center"
+        >
           {!expandContact && !expandNavFilter && (
             <Marquee speed={30}>
               <motion.div
                 initial="hidden"
                 animate="visible"
-                variants={fade(1, 0)}
+                variants={fade(1, 0, 0)}
                 className="text-xs font-mono"
               >
                 Designed and Developed in 2023.
               </motion.div>
             </Marquee>
           )}
-        </div>
+        </motion.div>
       </motion.div>
     </>
   );

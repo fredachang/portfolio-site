@@ -1,21 +1,21 @@
 import { useState } from "react";
 
 export const useNavigateCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
   const handleGoToPrevious = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    setCurrentIndex(currentIndex - 1);
+    setCurrentCarouselIndex(currentCarouselIndex - 1);
   };
 
   const handleGoToNext = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    setCurrentIndex(currentIndex + 1);
+    setCurrentCarouselIndex(currentCarouselIndex + 1);
   };
 
   return {
-    currentIndex,
-    setCurrentIndex,
+    currentCarouselIndex,
+    setCurrentCarouselIndex,
     handleGoToNext,
     handleGoToPrevious,
   };

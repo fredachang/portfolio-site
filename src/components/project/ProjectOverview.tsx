@@ -15,7 +15,7 @@ interface Props {
 export const ProjectOverview = (props: Props) => {
   const { project } = props;
 
-  const { currentIndex, handleGoToNext, handleGoToPrevious } =
+  const { currentCarouselIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateCarousel();
   const { screenWidth } = useDetectScreenWidth();
   const isMobile = screenWidth < 1000;
@@ -51,7 +51,7 @@ export const ProjectOverview = (props: Props) => {
       >
         <Carousel
           images={project.images}
-          currentIndex={currentIndex}
+          currentIndex={currentCarouselIndex}
           handleGoToNext={handleGoToNext}
           handleGoToPrevious={handleGoToPrevious}
         />

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Project } from "../types";
-import { fade, fadeRightWithDelay, fadeUp, fadeX } from "../motion";
+import { fade, fadeRightWithDelay, fadeX } from "../motion";
 import { useNavigate, useParams } from "react-router-dom";
 import { space, type } from "../tailwind-utils";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
@@ -20,8 +20,12 @@ export const ProjectPage = (props: Props) => {
   const { projects } = props;
 
   const navigate = useNavigate();
-  const { currentIndex, setCurrentIndex, handleGoToNext, handleGoToPrevious } =
-    useNavigateCarousel();
+  const {
+    currentCarouselIndex,
+    setCurrentCarouselIndex,
+    handleGoToNext,
+    handleGoToPrevious,
+  } = useNavigateCarousel();
 
   const { screenWidth } = useDetectScreenWidth();
   const isMobile = screenWidth < 1000;
@@ -41,12 +45,13 @@ export const ProjectPage = (props: Props) => {
   const previousIndex = selectedIndex - 1;
   const nextIndex = selectedIndex + 1;
 
-  const currentImageText = selectedProject.images[currentIndex].imageText;
+  const currentImageText =
+    selectedProject.images[currentCarouselIndex].imageText;
   const imagesCount = selectedProject.images.length;
 
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
-      setCurrentIndex(0);
+      setCurrentCarouselIndex(0);
       const previousProject = projects[previousIndex];
       const targetURL = `/project/${previousProject.title}`;
       navigate(targetURL, { replace: true });
@@ -55,10 +60,11 @@ export const ProjectPage = (props: Props) => {
 
   const navigateToNextProject = () => {
     if (nextIndex >= 0) {
-      setCurrentIndex(0);
+      setCurrentCarouselIndex(0);
       const nextProject = projects[nextIndex];
       const targetURL = `/project/${nextProject.title}`;
       navigate(targetURL, { replace: true });
+
       if (scrollToTopRef.current) {
         scrollToTopRef.current.scrollIntoView({
           behavior: "smooth",
@@ -70,11 +76,9 @@ export const ProjectPage = (props: Props) => {
 
   return (
     <>
-      <motion.div
-        className={`flex flex-col md:flex-row w-full h-86% md:h-4/6 md:px-2 md:py-6 overflow-scroll`}
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp(100, 0.8)}
+      <div
+        key={selectedProject.id}
+        className={`flex flex-col md:flex-row w-full h-86% md:h-6/8 md:px-2 md:py-6 overflow-scroll`}
       >
         {isMobile ? (
           <ProjectPageNavHorizontal
@@ -84,7 +88,7 @@ export const ProjectPage = (props: Props) => {
             navigateToNextProject={navigateToNextProject}
           />
         ) : (
-          <div className="w-12">
+          <div className="w-12 cursor-fancy">
             <ProjectPageTopArrow
               selectedIndex={selectedIndex}
               navigateToPreviousProject={navigateToPreviousProject}
@@ -121,7 +125,7 @@ export const ProjectPage = (props: Props) => {
             <Carousel
               key={selectedProject.title}
               images={selectedProject.images}
-              currentIndex={currentIndex}
+              currentIndex={currentCarouselIndex}
               handleGoToNext={handleGoToNext}
               handleGoToPrevious={handleGoToPrevious}
             />
@@ -131,39 +135,51 @@ export const ProjectPage = (props: Props) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={fade(2, 0.5)}
+            variants={fade(2, 0.5, 0)}
             className="flex flex-col justify-between md:px-4 w-full md:w-2/5 md:h-full "
           >
             {!isMobile && (
-              <div>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fade(0.5, 0.5, 0)}
+              >
                 <div className={`${type.link} flex justify-between mb-6`}>
                   <p>{selectedProject.id}</p>
                   <p>{selectedProject.year}</p>
                   <p>{selectedProject.type}</p>
                 </div>
-                <p className="font-light text-3xl md:text-6xl">
+                <motion.p
+                  initial="hidden"
+                  animate="visible"
+                  variants={fade(0.5, 0.5, 0.1)}
+                  className="font-light text-3xl md:text-6xl"
+                >
                   {selectedProject.title}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             )}
 
             <div>
               {!isMobile && (
-                <p
+                <motion.p
+                  initial="hidden"
+                  animate="visible"
+                  variants={fade(0.5, 0.5, 0.2)}
                   className={`font-light text-sm leading-4 md:text-md md:leading-5.5 mb-${space.spacingMd}`}
                 >
                   {selectedProject.description}
-                </p>
+                </motion.p>
               )}
 
               <motion.div
-                key={currentIndex}
+                key={currentCarouselIndex}
                 initial="hidden"
                 animate="visible"
                 variants={fadeX(-10, 1.5)}
               >
                 <p className="text-xs mt-2 md:mt-0 mb-20 md:mb-0 md:text-xs font-mono leading-4 md:leading-4">{`Image[${
-                  currentIndex + 1
+                  currentCarouselIndex + 1
                 }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>
             </div>
@@ -171,7 +187,7 @@ export const ProjectPage = (props: Props) => {
         </div>
 
         {!isMobile && (
-          <div className="w-12">
+          <div className="w-12 cursor-fancy">
             <ProjectPageBottomArrow
               projectsCount={projectsCount}
               selectedIndex={selectedIndex}
@@ -179,7 +195,7 @@ export const ProjectPage = (props: Props) => {
             />
           </div>
         )}
-      </motion.div>
+      </div>
     </>
   );
 };

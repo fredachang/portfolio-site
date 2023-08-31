@@ -62,12 +62,16 @@ export const fadeRightWithDelay = {
     opacity: 1,
     transition: {
       duration: 0.6,
-      delay: 0.4,
+      delay: 0.2,
     },
   },
 };
 
-export const fade = (enterDuration: number, exitDuration: number) => ({
+export const fade = (
+  enterDuration: number,
+  exitDuration: number,
+  delay: number
+) => ({
   hidden: {
     opacity: 0,
   },
@@ -75,7 +79,8 @@ export const fade = (enterDuration: number, exitDuration: number) => ({
     opacity: 1,
     transition: {
       duration: enterDuration,
-      ease: "linear",
+      ease: "easeOut",
+      delay: delay,
     },
   },
   exit: {
