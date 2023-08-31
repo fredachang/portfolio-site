@@ -147,7 +147,9 @@ export const ProjectPage = (props: Props) => {
                 variants={fade(0.5, 0.5, 0)}
               >
                 <div className={`${type.link} flex justify-between mb-6`}>
-                  <p>Project No.{selectedProject.id}</p>
+                  <p>
+                    Project {selectedIndex + 1} / {filteredProjects.length}
+                  </p>
                   <p>{selectedProject.year}</p>
                   <p>{selectedProject.type}</p>
                 </div>
