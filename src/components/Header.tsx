@@ -2,11 +2,10 @@ import { Project } from "../types";
 import { Link, useLocation } from "react-router-dom";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { NavMenu } from "./NavMenu";
-import Marquee from "react-fast-marquee";
 import { ContactMenu } from "./ContactMenu";
 import { motion } from "framer-motion";
-import { fade, primaryTransition } from "../motion";
-import { type } from "../tailwind-utils";
+import { primaryTransition } from "../motion";
+import { NavMarquee } from "./other/NavMarquee";
 
 interface Props {
   expandNavFilter: boolean;
@@ -106,39 +105,15 @@ export const Header = (props: Props) => {
           transition={primaryTransition}
           className="h-1/6 w-full flex items-center"
         >
-          <Marquee speed={15} pauseOnHover>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fade(1, 0, 0)}
-              className="text-xs font-mono"
-            >
-              <div
-                className={`${type.link} max-w-max text-start md:pl-[120px] md:mb-1`}
-              >
-                <span className="mr-10">
-                  {`Currently viewing ${filteredProjectType(
-                    filteredProjects
-                  )} `}
-                </span>
-                {isProjectPage ? (
-                  <span
-                    className="cursor-fancy"
-                    onClick={() => handleShowAllProjects()}
-                  >
-                    {filtered && "Show All"}
-                  </span>
-                ) : (
-                  <span
-                    className="cursor-fancy"
-                    onClick={() => handleExpandAll(filteredProjects)}
-                  >
-                    {expandAll ? "Close All" : "Expand All"}
-                  </span>
-                )}
-              </div>
-            </motion.div>
-          </Marquee>
+          <NavMarquee
+            filteredProjects={filteredProjects}
+            filteredProjectType={filteredProjectType}
+            isProjectPage={isProjectPage}
+            handleShowAllProjects={handleShowAllProjects}
+            filtered={filtered}
+            expandAll={expandAll}
+            handleExpandAll={handleExpandAll}
+          />
         </motion.div>
       </motion.div>
     </>
