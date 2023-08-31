@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { fadeDown } from "../../motion";
-import { space } from "../../tailwind-utils";
 
 interface Props {
   selectedIndex: number;
@@ -14,19 +13,18 @@ export const ProjectPageBottomArrow = (props: Props) => {
   const maxIndex = projectsCount - 1;
 
   return (
-    <div
-      className={`flex justify-center items-center w-full h-${space.spacingXl} cursor-pointer`}
-      onClick={navigateToNextProject}
-    >
+    <>
       {selectedIndex < maxIndex && (
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeDown(-20, 1)}
+          onClick={navigateToNextProject}
+          className="w-full h-full flex justify-center items-center"
         >
-          <p className="rotate-90 text-3xl">&rsaquo;</p>
+          <p className="text-4xl">&rsaquo;</p>
         </motion.div>
       )}
-    </div>
+    </>
   );
 };

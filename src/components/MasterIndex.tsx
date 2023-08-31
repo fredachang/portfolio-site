@@ -3,7 +3,6 @@ import { fade } from "../motion";
 import { Project } from "../types";
 import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { ProjectTile } from "./project/ProjectTile";
-import { useLocation } from "react-router-dom";
 
 interface Props {
   showAll: boolean;
@@ -25,10 +24,6 @@ export const MasterIndex = (props: Props) => {
   const { screenWidth } = useDetectScreenWidth();
   const isMobile = screenWidth < 1000;
 
-  const location = useLocation();
-  const filePath = location.pathname;
-  const reducedHeight = filePath !== "/";
-
   return (
     <LayoutGroup>
       <AnimatePresence>
@@ -37,9 +32,7 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5)}
-          className={`${isMobile && `relative`} flex h-80% md:${
-            reducedHeight ? "h-4/6" : "h-3/5"
-          } ${
+          className={`${isMobile && `relative`} flex h-80% md:h-3/5 ${
             showAll && !onMobile ? `overflow-x-hidden` : `overflow-x-scroll`
           }`}
         >

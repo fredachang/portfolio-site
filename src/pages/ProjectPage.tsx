@@ -71,7 +71,7 @@ export const ProjectPage = (props: Props) => {
   return (
     <>
       <motion.div
-        className="flex flex-col w-full h-86% px-6 overflow-scroll"
+        className={`flex flex-col md:flex-row w-full h-86% md:h-4/6 md:px-2 md:py-6 overflow-scroll`}
         initial="hidden"
         animate="visible"
         variants={fadeUp(100, 0.8)}
@@ -84,10 +84,12 @@ export const ProjectPage = (props: Props) => {
             navigateToNextProject={navigateToNextProject}
           />
         ) : (
-          <ProjectPageTopArrow
-            selectedIndex={selectedIndex}
-            navigateToPreviousProject={navigateToPreviousProject}
-          />
+          <div className="w-12">
+            <ProjectPageTopArrow
+              selectedIndex={selectedIndex}
+              navigateToPreviousProject={navigateToPreviousProject}
+            />
+          </div>
         )}
 
         {isMobile && (
@@ -109,7 +111,7 @@ export const ProjectPage = (props: Props) => {
           </div>
         )}
 
-        <div className="flex h-full flex-col md:flex-row relative">
+        <div className="md:w-full flex h-full flex-col md:flex-row relative">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -130,7 +132,7 @@ export const ProjectPage = (props: Props) => {
             animate="visible"
             exit="exit"
             variants={fade(2, 0.5)}
-            className="flex flex-col justify-between md:px-4 w-full md:h-full md:h-full md:w-2/5"
+            className="flex flex-col justify-between md:px-4 w-full md:w-2/5 md:h-full "
           >
             {!isMobile && (
               <div>
@@ -169,11 +171,13 @@ export const ProjectPage = (props: Props) => {
         </div>
 
         {!isMobile && (
-          <ProjectPageBottomArrow
-            projectsCount={projectsCount}
-            selectedIndex={selectedIndex}
-            navigateToNextProject={navigateToNextProject}
-          />
+          <div className="w-12">
+            <ProjectPageBottomArrow
+              projectsCount={projectsCount}
+              selectedIndex={selectedIndex}
+              navigateToNextProject={navigateToNextProject}
+            />
+          </div>
         )}
       </motion.div>
     </>
