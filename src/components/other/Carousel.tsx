@@ -67,7 +67,7 @@ export const Carousel = (props: Props) => {
                 >
                   <div className="w-7 md:w-8 -rotate-180">
                     <img
-                      className="w-full object-contain"
+                      className="cursor-fancy w-full object-contain"
                       src="/arrowSharp.png"
                     />
                   </div>
@@ -87,7 +87,7 @@ export const Carousel = (props: Props) => {
                 >
                   <div className="w-7 md:w-8">
                     <img
-                      className="w-full object-contain"
+                      className="cursor-fancy w-full object-contain"
                       src="/arrowSharp.png"
                     />
                   </div>

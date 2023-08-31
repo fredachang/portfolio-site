@@ -46,7 +46,7 @@ export const ProjectOverview = (props: Props) => {
         initial="hidden"
         animate="visible"
         variants={fadeRightWithDelay}
-        className={`w-full md:w-[700px] h-full overflow-hidden cursor-pointer`}
+        className={`cursor-fancy w-full md:w-[700px] h-full overflow-hidden cursor-pointer`}
         onClick={handleClickCarousel}
       >
         <Carousel

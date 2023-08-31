@@ -50,7 +50,7 @@ export const ProjectText = (props: Props) => {
                 href={link.path}
                 whileHover={moveRightWhileHover}
                 target="_blank"
-                className={`flex items-center text-xs font-mono uppercase h-6 mr-4`}
+                className={`cursor-fancy flex items-center text-xs font-mono uppercase h-6 mr-4`}
               >
                 {link.text}
               </motion.a>

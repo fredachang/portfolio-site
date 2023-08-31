@@ -37,12 +37,12 @@ export const Footer = () => {
           <MotionHyperlink
             linkPath={links.resumeDev}
             linkText="CV - Developer"
-            linkStyle={`${type.link} flex max-w-max items-center mb-0.5`}
+            linkStyle={`${type.link} flex max-w-max items-center mb-0.5 cursor-fancy`}
           />
           <MotionHyperlink
             linkPath={links.resumeGeneral}
             linkText="CV - General"
-            linkStyle={`${type.link} max-w-max flex items-center`}
+            linkStyle={`${type.link} max-w-max flex items-center cursor-fancy`}
           />
         </div>
       </motion.div>

@@ -42,3 +42,11 @@
   border: 1px solid black;
   background: white;
 }
+
+body {
+  cursor: url("Cursor.png"), auto;
+}
+
+.pointer {
+  cursor: url("CursorPointer.png"), pointer;
+}

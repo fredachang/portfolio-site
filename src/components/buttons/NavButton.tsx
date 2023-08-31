@@ -16,7 +16,7 @@ export const NavButton = (props: Props) => {
         onClick={onClickFunction}
         className={buttonStyle}
       >
-        <p className="hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">
+        <p className="cursor-fancy hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">
           {buttonText}
         </p>
       </motion.button>

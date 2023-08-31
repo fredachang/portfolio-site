@@ -12,7 +12,11 @@ export const ContactHyperLink = (props: Props) => {
   return (
     <>
       <motion.div className={linkStyle} variants={motionVariant}>
-        <a href={linkPath} target="_blank">
+        <a
+          href={linkPath}
+          target="_blank"
+          className="cursor-fancy hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300"
+        >
           {linkText}
         </a>
       </motion.div>

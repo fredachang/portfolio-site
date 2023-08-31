@@ -54,7 +54,7 @@ export const NavMenu = (props: Props) => {
         <div className="w-full h-full">
           <motion.button
             whileHover={moveLeftWhileHover}
-            className={`${type.link} mb-1`}
+            className={`${type.link} mb-1 cursor-fancy`}
             onClick={handleExpandFilter}
           >
             {filtered ? "Show All" : "Filter By"}
