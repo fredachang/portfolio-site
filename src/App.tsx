@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Project } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { colour } from "./tailwind-utils";
@@ -20,6 +20,7 @@ function App() {
 
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [showLanding, setShowLanding] = useState(false);
+  const navigate = useNavigate();
 
   const handleExpandTile = (projectId: string) => {
     if (expandedProjectId.includes(projectId)) {
@@ -37,6 +38,11 @@ function App() {
     setExpandNavFilter(!expandNavFilter);
     setFilteredProjects(projects);
     setExpandedProjectId([]);
+  };
+
+  const handleShowAllProjects = () => {
+    navigate(`/project/${projects[0].title}`);
+    setFilteredProjects(projects);
   };
 
   const handleExpandContact = () => {
@@ -77,6 +83,7 @@ function App() {
   const onMobile = screenWidth < 1000;
 
   const filterProjectsByType = (projects: Project[], projectType: string) => {
+    setExpandNavFilter(false);
     setExpandAll(false);
     if (!expandAll) {
       setExpandedProjectId([]);
@@ -145,7 +152,9 @@ function App() {
           expandContact={expandContact}
           handleExpandContact={handleExpandContact}
           filteredProjects={filteredProjects}
+          expandAll={expandAll}
           handleExpandAll={handleExpandAll}
+          handleShowAllProjects={handleShowAllProjects}
         />
 
         <Routes>
@@ -163,7 +172,7 @@ function App() {
           />
           <Route
             path="/project/:title"
-            element={<ProjectPage projects={projects} />}
+            element={<ProjectPage filteredProjects={filteredProjects} />}
           />
           <Route path="/about" element={<About />} />
         </Routes>

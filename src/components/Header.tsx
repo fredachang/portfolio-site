@@ -6,16 +6,19 @@ import Marquee from "react-fast-marquee";
 import { ContactMenu } from "./ContactMenu";
 import { motion } from "framer-motion";
 import { fade, primaryTransition } from "../motion";
+import { type } from "../tailwind-utils";
 
 interface Props {
   expandNavFilter: boolean;
   expandContact: boolean;
+  expandAll: boolean;
   projects: Project[];
   filterProjectsByType: (projects: Project[], projectType: string) => void;
   handleExpandNavFilter: () => void;
   handleExpandContact: () => void;
   handleShowHome: () => void;
   handleExpandAll: (filteredProjects: Project[]) => void;
+  handleShowAllProjects: () => void;
   filteredProjects: Project[];
   filtered: boolean;
   projectCount: {
@@ -34,6 +37,8 @@ export const Header = (props: Props) => {
     filterProjectsByType,
     handleExpandContact,
     handleExpandNavFilter,
+    handleShowAllProjects,
+    expandAll,
     handleExpandAll,
     filteredProjects,
     handleShowHome,
@@ -44,15 +49,23 @@ export const Header = (props: Props) => {
 
   const location = useLocation();
   const filePath = location.pathname;
-  const reducedHeight = filePath !== "/";
+  const isProjectPage = filePath !== "/";
+
+  const filteredProjectType = (filteredProjects: Project[]) => {
+    if (filteredProjects.length === projects.length) {
+      const returnType = "all projects";
+      return returnType;
+    }
+    return filteredProjects[0].type;
+  };
 
   return (
     <>
       <motion.div
         layout
         transition={primaryTransition}
-        className={`w-full ${
-          reducedHeight ? "h-1/8" : "h-1/5"
+        className={`bg-stone-50 w-full ${
+          isProjectPage ? "h-1/8" : "h-1/5"
         }  border-b z-30 border-black z-10 t-0 flex flex-col`}
       >
         <motion.div
@@ -68,7 +81,6 @@ export const Header = (props: Props) => {
               projects={projects}
               handleExpandFilter={handleExpandNavFilter}
               filtered={filtered}
-              filteredProjects={filteredProjects}
               handleExpandAll={handleExpandAll}
             />
           </div>
@@ -94,18 +106,39 @@ export const Header = (props: Props) => {
           transition={primaryTransition}
           className="h-1/6 w-full flex items-center"
         >
-          {!expandContact && !expandNavFilter && (
-            <Marquee speed={30}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={fade(1, 0, 0)}
-                className="text-xs font-mono"
+          <Marquee speed={15} pauseOnHover>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fade(1, 0, 0)}
+              className="text-xs font-mono"
+            >
+              <div
+                className={`${type.link} max-w-max text-start md:pl-[120px] md:mb-1`}
               >
-                Designed and Developed in 2023.
-              </motion.div>
-            </Marquee>
-          )}
+                <span className="mr-10">
+                  {`Currently viewing ${filteredProjectType(
+                    filteredProjects
+                  )} `}
+                </span>
+                {isProjectPage ? (
+                  <span
+                    className="cursor-fancy"
+                    onClick={() => handleShowAllProjects()}
+                  >
+                    {filtered && "Show All"}
+                  </span>
+                ) : (
+                  <span
+                    className="cursor-fancy"
+                    onClick={() => handleExpandAll(filteredProjects)}
+                  >
+                    {expandAll ? "Close All" : "Expand All"}
+                  </span>
+                )}
+              </div>
+            </motion.div>
+          </Marquee>
         </motion.div>
       </motion.div>
     </>

@@ -16,7 +16,7 @@ export const Footer = () => {
       <motion.div
         layout
         transition={primaryTransition}
-        className={`fixed bottom-0 w-full  ${
+        className={`bg-stone-50 fixed bottom-0 w-full  ${
           reducedHeight ? "h-1/8" : "h-1/5"
         }  px-${space.spacingMd} border-t border-black pt-4 z-20`}
       >

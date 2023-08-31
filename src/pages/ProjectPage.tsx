@@ -12,12 +12,12 @@ import { ProjectPageTopArrow } from "../components/buttons/ProjectPageTopArrow";
 import { ProjectPageBottomArrow } from "../components/buttons/ProjectPageBottomArrow";
 
 interface Props {
-  projects: Project[];
+  filteredProjects: Project[];
 }
 
 export const ProjectPage = (props: Props) => {
   const { title } = useParams();
-  const { projects } = props;
+  const { filteredProjects } = props;
 
   const navigate = useNavigate();
   const {
@@ -31,15 +31,17 @@ export const ProjectPage = (props: Props) => {
   const isMobile = screenWidth < 1000;
   const scrollToTopRef = useRef<HTMLDivElement | null>(null);
 
-  const projectsCount = projects.length;
-  const selectedProject = projects.find((project) => project.title === title);
+  const projectsCount = filteredProjects.length;
+  const selectedProject = filteredProjects.find(
+    (filteredProjects) => filteredProjects.title === title
+  );
 
   if (!selectedProject) {
     return <div>Project not found.</div>;
   }
 
-  const selectedIndex = projects.findIndex(
-    (project) => project.title === title
+  const selectedIndex = filteredProjects.findIndex(
+    (filteredProjects) => filteredProjects.title === title
   );
 
   const previousIndex = selectedIndex - 1;
@@ -52,7 +54,7 @@ export const ProjectPage = (props: Props) => {
   const navigateToPreviousProject = () => {
     if (previousIndex >= 0) {
       setCurrentCarouselIndex(0);
-      const previousProject = projects[previousIndex];
+      const previousProject = filteredProjects[previousIndex];
       const targetURL = `/project/${previousProject.title}`;
       navigate(targetURL, { replace: true });
     }
@@ -61,7 +63,7 @@ export const ProjectPage = (props: Props) => {
   const navigateToNextProject = () => {
     if (nextIndex >= 0) {
       setCurrentCarouselIndex(0);
-      const nextProject = projects[nextIndex];
+      const nextProject = filteredProjects[nextIndex];
       const targetURL = `/project/${nextProject.title}`;
       navigate(targetURL, { replace: true });
 
@@ -145,7 +147,7 @@ export const ProjectPage = (props: Props) => {
                 variants={fade(0.5, 0.5, 0)}
               >
                 <div className={`${type.link} flex justify-between mb-6`}>
-                  <p>{selectedProject.id}</p>
+                  <p>Project No.{selectedProject.id}</p>
                   <p>{selectedProject.year}</p>
                   <p>{selectedProject.type}</p>
                 </div>
