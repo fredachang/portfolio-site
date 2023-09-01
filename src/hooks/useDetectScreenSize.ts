@@ -16,8 +16,8 @@ export const useDetectScreenSize = () => {
     };
   }, []);
 
-  const isSmallScreen = screenWidth < 640;
-  const isMediumScreen = screenWidth >= 641 && screenWidth <= 1007;
+  const isSmallScreen = screenWidth < 680;
+  const isMediumScreen = screenWidth >= 681 && screenWidth <= 1007;
   const isLargeScreen = screenWidth >= 1008;
 
   return {
