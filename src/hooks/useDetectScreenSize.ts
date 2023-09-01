@@ -20,7 +20,12 @@ export const useDetectScreenSize = () => {
   const isMediumScreen = screenWidth >= 681 && screenWidth <= 1007;
   const isLargeScreen = screenWidth >= 1008;
 
+  const isPortrait = screenWidth < screenHeight;
+  const isLandscape = screenWidth > screenHeight;
+
   return {
+    isPortrait,
+    isLandscape,
     isSmallScreen,
     isMediumScreen,
     isLargeScreen,

@@ -26,7 +26,9 @@ export const MasterIndex = (props: Props) => {
     handleClickCarousel,
   } = props;
 
-  const { isSmallScreen } = useDetectScreenSize();
+  const { isSmallScreen, isPortrait } = useDetectScreenSize();
+
+  const mobileHeight = isPortrait ? "h-70%" : "h-80%";
 
   return (
     <LayoutGroup>
@@ -38,7 +40,7 @@ export const MasterIndex = (props: Props) => {
           variants={fade(0.8, 0.5, 0)}
           className={`${isSmallScreen && `relative`} ${
             filtered && `justify-between`
-          } flex h-70% md:h-3/5 overflow-x-scroll border-b border-black md:border-none`}
+          } flex ${mobileHeight} md:h-3/5 overflow-x-scroll border-b border-black md:border-none`}
         >
           {filteredProjects.map((project) => {
             return (
