@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ProjectText } from "./ProjectText";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Project } from "../../types";
 import { useNavigateCarousel } from "../../hooks/useNavigateIndex";
 import { fadeRightWithDelay, scaleUp } from "../../motion";
@@ -10,22 +10,19 @@ import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   project: Project;
+  handleClickCarousel: (
+    project: Project,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
 }
 
 export const ProjectOverview = (props: Props) => {
-  const { project } = props;
+  const { project, handleClickCarousel } = props;
 
   const { currentCarouselIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateCarousel();
   const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
-
-  const navigate = useNavigate();
-
-  const handleClickCarousel = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    navigate(`/project/${project.title}`);
-  };
 
   return (
     <div
@@ -47,7 +44,7 @@ export const ProjectOverview = (props: Props) => {
         animate="visible"
         variants={fadeRightWithDelay}
         className={`cursor-fancy w-full md:w-[700px] h-full overflow-hidden cursor-pointer`}
-        onClick={handleClickCarousel}
+        onClick={(e) => handleClickCarousel(project, e)}
       >
         <Carousel
           images={project.images}

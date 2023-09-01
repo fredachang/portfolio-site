@@ -135,6 +135,15 @@ function App() {
     handleShowLanding();
   }, []);
 
+  const handleClickCarousel = (
+    project: Project,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    e.stopPropagation();
+    setExpandNavFilter(false);
+    navigate(`/project/${project.title}`);
+  };
+
   return (
     <>
       <main
@@ -167,6 +176,7 @@ function App() {
                 filteredProjects={filteredProjects}
                 expandedProjectId={expandedProjectId}
                 handleExpandTile={handleExpandTile}
+                handleClickCarousel={handleClickCarousel}
               />
             }
           />

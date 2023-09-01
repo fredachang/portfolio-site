@@ -1,14 +1,11 @@
 import { fadeX, moveLeftWhileHover, staggerParentContainer } from "../motion";
-import { colour, type } from "../tailwind-utils";
+import { type } from "../tailwind-utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./buttons/NavButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
-
-const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 justify-between right-0`;
-const desktopFilter = `w-full flex flex-col`;
 
 interface Props {
   expandFilter: boolean;
@@ -34,11 +31,11 @@ export const NavMenu = (props: Props) => {
     filtered,
   } = props;
 
-  const { screenWidth } = useDetectScreenSize();
-
   const location = useLocation();
   const filePath = location.pathname;
   const isProjectPage = filePath !== "/";
+
+  const { isSmallScreen } = useDetectScreenSize();
 
   const navigate = useNavigate();
 
@@ -74,40 +71,44 @@ export const NavMenu = (props: Props) => {
               animate="visible"
               exit="exit"
               variants={staggerParentContainer}
-              className={screenWidth > 1000 ? desktopFilter : mobileFilter}
+              className="w-full flex flex-col"
             >
               <NavButton
-                buttonText={`Graphic Design (${projectCount.design})`}
-                motionVariant={fadeX(10, 0.5)}
-                buttonStyle={`${type.link} text-start md:pl-[30px] md:mb-1`}
-                onClickFunction={() =>
-                  filterProjectsByType(projects, projectTypes.GraphicDesign)
+                buttonText={
+                  isSmallScreen
+                    ? `Web Dev (${projectCount.web})`
+                    : `Web Development (${projectCount.web})`
                 }
-              />
-              <NavButton
-                buttonText={`3D Design (${projectCount.threeD})`}
-                buttonStyle={`${type.link} text-start md:pl-[60px] md:mb-1 `}
-                motionVariant={fadeX(10, 0.5)}
-                onClickFunction={() =>
-                  filterProjectsByType(projects, projectTypes.threeD)
-                }
-              />
-              <NavButton
-                buttonText={`Web Development (${projectCount.web})`}
-                buttonStyle={`${type.link} text-start md:pl-[90px] md:mb-1`}
+                buttonStyle={`font-mono uppercase text-start text-xs pl-[20px] md:pl-[30px] mb-1`}
                 motionVariant={fadeX(10, 0.5)}
                 onClickFunction={() =>
                   filterProjectsByType(projects, projectTypes.WebDev)
                 }
               />
-
-              {screenWidth < 1000 && (
-                <button onClick={handleExpandFilter} className={type.link}>
-                  <p className="hover:underline underline-offset-4 decoration-solid decoration-black transition ease-in duration-300">
-                    Close
-                  </p>
-                </button>
-              )}
+              <NavButton
+                buttonText={
+                  isSmallScreen
+                    ? `Design (${projectCount.design})`
+                    : `Graphic Design (${projectCount.design})`
+                }
+                motionVariant={fadeX(10, 0.5)}
+                buttonStyle={`font-mono uppercase text-start text-xs pl-[40px] md:pl-[60px] mb-1`}
+                onClickFunction={() =>
+                  filterProjectsByType(projects, projectTypes.GraphicDesign)
+                }
+              />
+              <NavButton
+                buttonText={
+                  isSmallScreen
+                    ? `3D (${projectCount.threeD})`
+                    : `3D Design (${projectCount.threeD})`
+                }
+                buttonStyle={`font-mono uppercase text-start text-xs pl-[60px] md:pl-[90px] mb-1`}
+                motionVariant={fadeX(10, 0.5)}
+                onClickFunction={() =>
+                  filterProjectsByType(projects, projectTypes.threeD)
+                }
+              />
             </motion.div>
           )}
         </AnimatePresence>

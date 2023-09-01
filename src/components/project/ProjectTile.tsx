@@ -10,10 +10,14 @@ interface Props {
   project: Project;
   isExpanded: boolean;
   handleExpandTile: (projectId: string) => void;
+  handleClickCarousel: (
+    project: Project,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project, isExpanded, handleExpandTile } = props;
+  const { project, isExpanded, handleExpandTile, handleClickCarousel } = props;
   const [showIndexImage, setShowIndexImage] = useState(false);
 
   const handleShowIndexImage = () => {
@@ -52,7 +56,12 @@ export const ProjectTile = (props: Props) => {
           <ProjectIndex isExpanded={isExpanded} project={project} />
 
           <AnimatePresence>
-            {isExpanded && <ProjectOverview project={project} />}
+            {isExpanded && (
+              <ProjectOverview
+                project={project}
+                handleClickCarousel={handleClickCarousel}
+              />
+            )}
           </AnimatePresence>
         </section>
       </motion.div>

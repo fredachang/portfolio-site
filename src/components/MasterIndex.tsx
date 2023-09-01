@@ -10,6 +10,10 @@ interface Props {
   filteredProjects: Project[];
   expandedProjectId: string[];
   handleExpandTile: (projectId: string) => void;
+  handleClickCarousel: (
+    project: Project,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
 }
 
 export const MasterIndex = (props: Props) => {
@@ -19,6 +23,7 @@ export const MasterIndex = (props: Props) => {
     filteredProjects,
     expandedProjectId,
     handleExpandTile,
+    handleClickCarousel,
   } = props;
 
   const { isSmallScreen } = useDetectScreenSize();
@@ -31,7 +36,7 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5, 0)}
-          className={`${isSmallScreen && `relative`} flex h-80% md:h-3/5 ${
+          className={`${isSmallScreen && `relative`} flex h-70% md:h-3/5 ${
             showAll && !onMobile ? `overflow-x-hidden` : `overflow-x-scroll`
           }`}
         >
@@ -42,6 +47,7 @@ export const MasterIndex = (props: Props) => {
                 project={project}
                 isExpanded={expandedProjectId.includes(project.id)}
                 handleExpandTile={handleExpandTile}
+                handleClickCarousel={handleClickCarousel}
               />
             );
           })}

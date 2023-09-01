@@ -9,6 +9,7 @@ interface Props {
 
 export const NavButton = (props: Props) => {
   const { buttonText, onClickFunction, motionVariant, buttonStyle } = props;
+
   return (
     <>
       <motion.button
