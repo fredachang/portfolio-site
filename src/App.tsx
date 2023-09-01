@@ -75,7 +75,7 @@ function App() {
   const showAll = expandedProjectId.length === 0;
   const filtered = filteredProjects.length < 8;
 
-  const { screenWidth } = useDetectScreenSize();
+  const { screenWidth, isSmallScreen } = useDetectScreenSize();
   const location = useLocation();
   const filePath = location.pathname;
   const isHome = filePath === "/";
@@ -188,7 +188,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        {screenWidth > 600 && <Footer />}
+        {!isSmallScreen && <Footer />}
       </main>
     </>
   );
