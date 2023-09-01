@@ -61,7 +61,7 @@ export const Carousel = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  variants={fade(0.8, 0.3)}
+                  variants={fade(0.8, 0.3, 0)}
                   onClick={handleGoToPrevious}
                   className="absolute flex items-center left-0 pl-2 w-24 h-24 cursor-pointer"
                 >
@@ -81,7 +81,7 @@ export const Carousel = (props: Props) => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  variants={fade(0.8, 0.3)}
+                  variants={fade(0.8, 0.3, 0)}
                   onClick={handleGoToNext}
                   className="absolute flex items-center justify-end right-0 w-24 h-24 pr-2 cursor-pointer"
                 >
