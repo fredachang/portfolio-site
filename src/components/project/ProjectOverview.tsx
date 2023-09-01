@@ -26,7 +26,7 @@ export const ProjectOverview = (props: Props) => {
 
   return (
     <div
-      className={`w-[300px] md:w-11/12 h-full flex flex-col items-start md:flex-row md:h-full pr-4 md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
+      className={`w-full md:w-11/12 h-full flex flex-col items-start md:flex-row md:h-full pr-4 md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
     >
       {isMobile && (
         <Link

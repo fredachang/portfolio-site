@@ -45,6 +45,7 @@ export const MasterIndex = (props: Props) => {
           {filteredProjects.map((project) => {
             return (
               <ProjectTile
+                expandedProjectId={expandedProjectId}
                 key={project.id}
                 project={project}
                 isExpanded={expandedProjectId.includes(project.id)}

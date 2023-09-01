@@ -62,12 +62,15 @@ export const Header = (props: Props) => {
   const mobileHeight = isProjectPage ? "h-18%" : "h-20%";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
 
+  const gradientBackground =
+    "bg-gradient-to-b from-customGrey from-10% via-customGrey via-30% to-white to-90%";
+
   return (
     <>
       <motion.div
         layout
         transition={primaryTransition}
-        className={`bg-stone-50 w-full ${height} border-b z-30 border-black z-10 t-0 flex flex-col`}
+        className={`${gradientBackground} w-full ${height} border-b z-30 border-black z-10 t-0 flex flex-col`}
       >
         <motion.div
           layout="position"

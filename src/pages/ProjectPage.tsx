@@ -80,7 +80,7 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`flex flex-col md:flex-row w-full h-full md:h-6/8 md:px-2 md:py-6 overflow-scroll`}
+        className={`bg-white flex flex-col md:flex-row w-full h-full md:h-6/8 md:px-2 md:py-6 overflow-scroll`}
       >
         {isMobile ? (
           <ProjectPageNavHorizontal

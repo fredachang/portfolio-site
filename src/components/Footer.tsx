@@ -11,12 +11,15 @@ export const Footer = () => {
   const filePath = location.pathname;
   const reducedHeight = filePath !== "/";
 
+  const gradientBackground =
+    "bg-gradient-to-t from-customGrey from-10% via-customGrey via-30% to-white to-90%";
+
   return (
     <>
       <motion.div
         layout
         transition={primaryTransition}
-        className={`bg-stone-50 fixed bottom-0 w-full  ${
+        className={`${gradientBackground} fixed bottom-0 w-full  ${
           reducedHeight ? "h-1/8" : "h-1/5"
         }  px-${space.spacingMd} border-t border-black pt-4 z-20`}
       >

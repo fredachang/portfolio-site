@@ -7,7 +7,6 @@ import { Footer } from "./components/Footer";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
-import { colour } from "./tailwind-utils";
 import { MasterIndex } from "./components/MasterIndex";
 import { LandingPage } from "./pages/LandingPage";
 import { useDetectScreenSize } from "./hooks/useDetectScreenSize";
@@ -146,9 +145,7 @@ function App() {
 
   return (
     <>
-      <main
-        className={`${colour.sitePrimaryColour} flex flex-col w-screen h-screen`}
-      >
+      <main className={`flex flex-col w-screen h-screen`}>
         {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
           expandNavFilter={expandNavFilter}

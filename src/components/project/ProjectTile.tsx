@@ -1,12 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ProjectIndex } from "./ProjectIndex";
-import { useState } from "react";
 import { ProjectOverview } from "./ProjectOverview";
 import { Project } from "../../types";
-import { colour } from "../../tailwind-utils";
 import { primaryTransition } from "../../motion";
 
 interface Props {
+  expandedProjectId: string[];
   project: Project;
   isExpanded: boolean;
   handleExpandTile: (projectId: string) => void;
@@ -17,19 +16,20 @@ interface Props {
 }
 
 export const ProjectTile = (props: Props) => {
-  const { project, isExpanded, handleExpandTile, handleClickCarousel } = props;
-  const [showIndexImage, setShowIndexImage] = useState(false);
+  const {
+    expandedProjectId,
+    project,
+    isExpanded,
+    handleExpandTile,
+    handleClickCarousel,
+  } = props;
 
-  const handleShowIndexImage = () => {
-    setShowIndexImage(true);
-  };
+  const allCollapsed = expandedProjectId.length === 0;
 
-  const hideShowIndexImage = () => {
-    setShowIndexImage(false);
-  };
-
-  const staticStyle = `bg-stone-50 min-w-[80px] md:min-w-[90px] md:w-full h-full border-l border-black`;
-  const expandedStyle = `bg-${colour.sitePrimaryColour} w-[800px] h-full z-20 md:z-0 border-l border-black`;
+  const widthWhenOneOrMoreExpanded = isExpanded
+    ? "md:w-7/12"
+    : "min-w-[70px] md:min-w-[90px]";
+  const width = allCollapsed ? "w-full" : widthWhenOneOrMoreExpanded;
 
   return (
     <>
@@ -37,33 +37,18 @@ export const ProjectTile = (props: Props) => {
         onClick={() => handleExpandTile(project.id)}
         layout="position"
         transition={primaryTransition}
-        className={isExpanded ? expandedStyle : staticStyle}
+        className={`bg-white ${width} flex flex-row justify-center h-full border-l border-black`}
       >
-        <section
-          className="flex flex-row justify-between w-full h-full"
-          onMouseOver={handleShowIndexImage}
-          onMouseLeave={hideShowIndexImage}
-          style={
-            !isExpanded && showIndexImage
-              ? {
-                  backgroundImage: `url(${project.indexImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }
-              : { backgroundImage: "none", backgroundColor: "#fafaf9" }
-          }
-        >
-          <ProjectIndex isExpanded={isExpanded} project={project} />
+        <ProjectIndex project={project} />
 
-          <AnimatePresence>
-            {isExpanded && (
-              <ProjectOverview
-                project={project}
-                handleClickCarousel={handleClickCarousel}
-              />
-            )}
-          </AnimatePresence>
-        </section>
+        <AnimatePresence>
+          {isExpanded && (
+            <ProjectOverview
+              project={project}
+              handleClickCarousel={handleClickCarousel}
+            />
+          )}
+        </AnimatePresence>
       </motion.div>
     </>
   );
