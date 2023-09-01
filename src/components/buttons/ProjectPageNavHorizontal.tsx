@@ -19,7 +19,7 @@ export const ProjectPageNavHorizontal = (props: Props) => {
   const maxIndex = projectsCount - 1;
 
   return (
-    <div className="flex absolute left-0 right-0 px-2 z-20 justify-between items-center w-full h-10">
+    <div className="bg-yellow-100 flex absolute left-0 right-0 px-2 z-20 justify-between items-center w-full h-10">
       {selectedIndex > 0 ? (
         <motion.div
           initial="hidden"

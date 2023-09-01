@@ -80,7 +80,7 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`flex flex-col md:flex-row w-full h-86% md:h-6/8 md:px-2 md:py-6 overflow-scroll`}
+        className={`bg-red-100 flex flex-col md:flex-row w-full h-full md:h-6/8 md:px-2 md:py-6 overflow-scroll`}
       >
         {isMobile ? (
           <ProjectPageNavHorizontal
@@ -99,7 +99,7 @@ export const ProjectPage = (props: Props) => {
         )}
 
         {isMobile && (
-          <div className="mt-2">
+          <div className="mt-2 px-10">
             <div
               ref={scrollToTopRef}
               className={`${type.link} flex justify-between mb-2 pt-10 md:mt-0`}
@@ -182,7 +182,7 @@ export const ProjectPage = (props: Props) => {
                 animate="visible"
                 variants={fadeX(-10, 1.5)}
               >
-                <p className="text-xs mt-2 md:mt-0 mb-20 md:mb-0 md:text-xs font-mono leading-4 md:leading-4">{`Image[${
+                <p className="text-xs mt-2 px-10 md:mt-0 mb-20 md:mb-0 md:text-xs font-mono leading-4 md:leading-4">{`Image[${
                   currentCarouselIndex + 1
                 }/${imagesCount}]: ${currentImageText}`}</p>
               </motion.div>
