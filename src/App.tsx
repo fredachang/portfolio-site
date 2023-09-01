@@ -171,6 +171,7 @@ function App() {
             path="/"
             element={
               <MasterIndex
+                filtered={filtered}
                 showAll={showAll}
                 onMobile={onMobile}
                 filteredProjects={filteredProjects}

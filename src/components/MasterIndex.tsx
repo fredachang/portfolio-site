@@ -5,6 +5,7 @@ import { ProjectTile } from "./project/ProjectTile";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
+  filtered: boolean;
   showAll: boolean;
   onMobile: boolean;
   filteredProjects: Project[];
@@ -18,8 +19,7 @@ interface Props {
 
 export const MasterIndex = (props: Props) => {
   const {
-    showAll,
-    onMobile,
+    filtered,
     filteredProjects,
     expandedProjectId,
     handleExpandTile,
@@ -36,9 +36,9 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5, 0)}
-          className={`${isSmallScreen && `relative`} flex h-70% md:h-3/5 ${
-            showAll && !onMobile ? `overflow-x-hidden` : `overflow-x-scroll`
-          }`}
+          className={`${isSmallScreen && `relative`} ${
+            filtered && `justify-between`
+          } flex h-70% md:h-3/5 overflow-x-scroll`}
         >
           {filteredProjects.map((project) => {
             return (
