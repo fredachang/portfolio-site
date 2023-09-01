@@ -28,7 +28,7 @@ export const ProjectTile = (props: Props) => {
     setShowIndexImage(false);
   };
 
-  const staticStyle = `bg-stone-50 min-w-[100px] md:min-w-[90px] md:w-full h-full border-l border-black`;
+  const staticStyle = `min-w-[70px] md:min-w-[90px] md:w-full h-full border-l border-black`;
   const expandedStyle = `bg-${colour.sitePrimaryColour} w-[800px] h-full z-20 md:z-0 border-l border-black`;
 
   return (
