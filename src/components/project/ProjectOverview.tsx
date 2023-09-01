@@ -3,10 +3,10 @@ import { ProjectText } from "./ProjectText";
 import { Link, useNavigate } from "react-router-dom";
 import { Project } from "../../types";
 import { useNavigateCarousel } from "../../hooks/useNavigateIndex";
-import { useDetectScreenWidth } from "../../hooks/useDetectScreenWidth";
 import { fadeRightWithDelay, scaleUp } from "../../motion";
 import { Carousel } from "../other/Carousel";
 import { space } from "../../tailwind-utils";
+import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   project: Project;
@@ -17,7 +17,7 @@ export const ProjectOverview = (props: Props) => {
 
   const { currentCarouselIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateCarousel();
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
 
   const navigate = useNavigate();

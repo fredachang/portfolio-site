@@ -1,11 +1,11 @@
 import { fadeX, moveLeftWhileHover, staggerParentContainer } from "../motion";
 import { colour, type } from "../tailwind-utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { Project } from "../types";
 import { projectTypes } from "../data";
 import { NavButton } from "./buttons/NavButton";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 const mobileFilter = `${colour.sitePrimaryColour} flex flex-col absolute w-full h-full top-0 py-36 justify-between right-0`;
 const desktopFilter = `w-full flex flex-col`;
@@ -34,7 +34,7 @@ export const NavMenu = (props: Props) => {
     filtered,
   } = props;
 
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
 
   const location = useLocation();
   const filePath = location.pathname;

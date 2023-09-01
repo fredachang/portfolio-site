@@ -1,11 +1,11 @@
 import { Project } from "../types";
 import { Link, useLocation } from "react-router-dom";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { NavMenu } from "./NavMenu";
 import { ContactMenu } from "./ContactMenu";
 import { motion } from "framer-motion";
 import { primaryTransition } from "../motion";
 import { NavMarquee } from "./other/NavMarquee";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
   expandNavFilter: boolean;
@@ -44,7 +44,8 @@ export const Header = (props: Props) => {
     projectCount,
   } = props;
 
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
+  const isMobile = screenWidth < 1000;
 
   const location = useLocation();
   const filePath = location.pathname;
@@ -100,21 +101,23 @@ export const Header = (props: Props) => {
           </div>
         </motion.div>
 
-        <motion.div
-          layout="position"
-          transition={primaryTransition}
-          className="h-1/6 w-full flex items-center"
-        >
-          <NavMarquee
-            filteredProjects={filteredProjects}
-            filteredProjectType={filteredProjectType}
-            isProjectPage={isProjectPage}
-            handleShowAllProjects={handleShowAllProjects}
-            filtered={filtered}
-            expandAll={expandAll}
-            handleExpandAll={handleExpandAll}
-          />
-        </motion.div>
+        {!expandContact && isMobile && (
+          <motion.div
+            layout="position"
+            transition={primaryTransition}
+            className="h-1/6 w-full flex items-center"
+          >
+            <NavMarquee
+              filteredProjects={filteredProjects}
+              filteredProjectType={filteredProjectType}
+              isProjectPage={isProjectPage}
+              handleShowAllProjects={handleShowAllProjects}
+              filtered={filtered}
+              expandAll={expandAll}
+              handleExpandAll={handleExpandAll}
+            />
+          </motion.div>
+        )}
       </motion.div>
     </>
   );

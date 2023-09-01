@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { Project } from "../../types";
-import { useDetectScreenWidth } from "../../hooks/useDetectScreenWidth";
 import { fadeRightWithDelay, moveRightWhileHover } from "../../motion";
 import { MoreButton } from "../buttons/MoreButton";
 import { space } from "../../tailwind-utils";
 import { TechStack } from "../TechStack";
+import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   project: Project;
@@ -13,7 +13,7 @@ interface Props {
 
 export const ProjectText = (props: Props) => {
   const { project } = props;
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
 
   return (

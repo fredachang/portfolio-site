@@ -3,8 +3,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
 import { landingPageBg } from "../data";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { DigiCard2 } from "../components/three/DigiCard2";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -68,7 +68,7 @@ export const LandingPage = (props: Props) => {
   //   navigate("/home");
   // };
 
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
 
   return (

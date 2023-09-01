@@ -3,13 +3,13 @@ import { Project } from "../types";
 import { fade, fadeRightWithDelay, fadeX } from "../motion";
 import { useNavigate, useParams } from "react-router-dom";
 import { space, type } from "../tailwind-utils";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { useNavigateCarousel } from "../hooks/useNavigateIndex";
 import { useRef } from "react";
 import { Carousel } from "../components/other/Carousel";
 import { ProjectPageNavHorizontal } from "../components/buttons/ProjectPageNavHorizontal";
 import { ProjectPageTopArrow } from "../components/buttons/ProjectPageTopArrow";
 import { ProjectPageBottomArrow } from "../components/buttons/ProjectPageBottomArrow";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
   filteredProjects: Project[];
@@ -27,7 +27,7 @@ export const ProjectPage = (props: Props) => {
     handleGoToPrevious,
   } = useNavigateCarousel();
 
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
   const scrollToTopRef = useRef<HTMLDivElement | null>(null);
 

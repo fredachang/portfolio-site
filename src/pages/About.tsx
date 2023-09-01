@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { space, type } from "../tailwind-utils";
 import { links } from "../data";
-import { useDetectScreenWidth } from "../hooks/useDetectScreenWidth";
 import { motion } from "framer-motion";
 import { fade, fadeUp } from "../motion";
 import { MotionHyperlink } from "../components/buttons/MotionHyperLink";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 export const About = () => {
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   return (
     <>
       <motion.div
@@ -23,7 +23,7 @@ export const About = () => {
             <motion.div
               initial="hidden"
               animate="visible"
-              variants={fade(1, 0.5)}
+              variants={fade(1, 0.5, 0)}
               className={`font-light text-base leading-6 w-full md:text-xl md:w-1/2 leading-8`}
             >
               Freda is a multidiscplinary designer and developer who thrives in

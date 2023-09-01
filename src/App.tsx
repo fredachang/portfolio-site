@@ -8,9 +8,9 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { colour } from "./tailwind-utils";
-import { useDetectScreenWidth } from "./hooks/useDetectScreenWidth";
 import { MasterIndex } from "./components/MasterIndex";
 import { LandingPage } from "./pages/LandingPage";
+import { useDetectScreenSize } from "./hooks/useDetectScreenSize";
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState(["1"]);
@@ -75,7 +75,7 @@ function App() {
   const showAll = expandedProjectId.length === 0;
   const filtered = filteredProjects.length < 8;
 
-  const { screenWidth } = useDetectScreenWidth();
+  const { screenWidth } = useDetectScreenSize();
   const location = useLocation();
   const filePath = location.pathname;
   const isHome = filePath === "/";
@@ -177,7 +177,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        {screenWidth > 1000 && <Footer />}
+        {screenWidth > 600 && <Footer />}
       </main>
     </>
   );

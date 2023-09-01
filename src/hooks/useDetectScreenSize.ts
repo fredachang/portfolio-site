@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useDetectScreenWidth = () => {
+export const useDetectScreenSize = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
 
@@ -16,7 +16,14 @@ export const useDetectScreenWidth = () => {
     };
   }, []);
 
+  const isSmallScreen = screenWidth < 640;
+  const isMediumScreen = screenWidth >= 641 && screenWidth <= 1007;
+  const isLargeScreen = screenWidth >= 1008;
+
   return {
+    isSmallScreen,
+    isMediumScreen,
+    isLargeScreen,
     screenWidth,
     screenHeight,
   };
