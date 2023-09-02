@@ -7,17 +7,18 @@ import { primaryTransition } from "../motion";
 import { useLocation } from "react-router-dom";
 
 interface Props {
-  parentHex: string;
+  bgHex: string;
   mappedPercentage: string;
+  HighlightHex: string;
 }
 
 export const Footer = (props: Props) => {
-  const { parentHex, mappedPercentage } = props;
+  const { bgHex, mappedPercentage, HighlightHex } = props;
   const location = useLocation();
   const filePath = location.pathname;
   const reducedHeight = filePath !== "/";
 
-  const gradientBackground = `bg-gradient-to-t from-white from-0% via-white via-[${mappedPercentage}] to-[${parentHex}] to-90%`;
+  const gradientBackground = `bg-gradient-to-t from-[${HighlightHex}] from-0% via-[${HighlightHex}] via-[${mappedPercentage}] to-[${bgHex}] to-75%`;
 
   return (
     <>

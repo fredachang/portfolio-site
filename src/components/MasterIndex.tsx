@@ -14,7 +14,11 @@ interface Props {
   filteredProjects: Project[];
   expandedProjectId: string[];
   handleExpandTile: (projectId: string) => void;
-  handleInterpolatedHex: (hexValue: string, mappedPercentage: string) => void;
+  handleThemeChangeOnScroll: (
+    hexValue: string,
+    mappedPercentage: string,
+    highlightHexValue: string
+  ) => void;
   handleClickCarousel: (
     project: Project,
     e: React.MouseEvent<HTMLDivElement>
@@ -28,16 +32,21 @@ export const MasterIndex = (props: Props) => {
     expandedProjectId,
     handleExpandTile,
     handleClickCarousel,
-    handleInterpolatedHex,
+    handleThemeChangeOnScroll,
   } = props;
 
   const { isSmallScreen, isPortrait } = useDetectScreenSize();
   const { scrollSectionRef, scrollPosition } = useDetectScrollX();
-  const { interpolatedHex, mappedPercentage } = useMapColour(scrollPosition);
+  const { interpolatedBgHex, interpolatedHighlightHex, mappedPercentage } =
+    useMapColour(scrollPosition);
 
   useEffect(() => {
-    handleInterpolatedHex(interpolatedHex, mappedPercentage);
-  }, [interpolatedHex, mappedPercentage, handleInterpolatedHex]);
+    handleThemeChangeOnScroll(
+      interpolatedBgHex,
+      interpolatedHighlightHex,
+      mappedPercentage
+    );
+  }, [interpolatedBgHex, mappedPercentage, handleThemeChangeOnScroll]);
 
   const mobileHeight = isPortrait ? "h-70%" : "h-80%";
 
@@ -50,14 +59,16 @@ export const MasterIndex = (props: Props) => {
           animate="visible"
           exit="exit"
           variants={fade(0.8, 0.5, 0)}
-          className={`bg-[${interpolatedHex}] ${isSmallScreen && `relative`} ${
+          className={`bg-[${interpolatedBgHex}] ${
+            isSmallScreen && `relative`
+          } ${
             filtered && `justify-between`
           } flex ${mobileHeight} md:h-3/5 overflow-x-scroll border-b border-black md:border-none`}
         >
           {filteredProjects.map((project) => {
             return (
               <ProjectTile
-                interpolatedHex={interpolatedHex}
+                interpolatedHex={interpolatedBgHex}
                 expandedProjectId={expandedProjectId}
                 key={project.id}
                 project={project}

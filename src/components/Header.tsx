@@ -8,7 +8,8 @@ import { NavMarquee } from "./other/NavMarquee";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
-  parentHex: string;
+  BgHex: string;
+  HighlightHex: string;
   mappedPercentage: string;
   expandNavFilter: boolean;
   expandContact: boolean;
@@ -31,7 +32,8 @@ interface Props {
 
 export const Header = (props: Props) => {
   const {
-    parentHex,
+    BgHex,
+    HighlightHex,
     mappedPercentage,
     filtered,
     expandContact,
@@ -66,7 +68,9 @@ export const Header = (props: Props) => {
   const mobileHeight = isProjectPage ? "h-1/6" : "h-1/5";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
 
-  const gradientBackground = `bg-gradient-to-b from-white from-0% via-white via-[${mappedPercentage}] to-[${parentHex}] to-90%`;
+  console.log({ HighlightHex });
+
+  const gradientBackground = `bg-gradient-to-b from-[${HighlightHex}] from-0% via-[${HighlightHex}] via-[${mappedPercentage}] to-[${BgHex}] to-75%`;
 
   return (
     <>

@@ -1,5 +1,11 @@
 type ScrollPosition = number;
 
+interface Colour {
+  r: number;
+  g: number;
+  b: number;
+}
+
 function rgbToHex(r: number, g: number, b: number): string {
   const toHex = (value: number) => value.toString(16).padStart(2, "0");
 
@@ -10,25 +16,50 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${redHex}${greenHex}${blueHex}`;
 }
 
+export const interpolatedRGB = (
+  startColour: Colour,
+  endColour: Colour,
+  scrollPosition: number
+) => ({
+  r: Math.round(startColour.r + (endColour.r - startColour.r) * scrollPosition),
+  g: Math.round(startColour.g + (endColour.g - startColour.g) * scrollPosition),
+  b: Math.round(startColour.b + (endColour.b - startColour.b) * scrollPosition),
+});
+
 export const useMapColour = (scrollPosition: ScrollPosition) => {
-  const startColor = { r: 255, g: 255, b: 255 };
-  const endColor = { r: 225, g: 225, b: 225 };
+  const startBgColor = { r: 255, g: 255, b: 255 };
+  const endBgColor = { r: 235, g: 235, b: 235 };
 
-  const interpolatedRGB = {
-    r: Math.round(startColor.r + (endColor.r - startColor.r) * scrollPosition),
-    g: Math.round(startColor.g + (endColor.g - startColor.g) * scrollPosition),
-    b: Math.round(startColor.b + (endColor.b - startColor.b) * scrollPosition),
-  };
+  const interpolatedBgRGB = interpolatedRGB(
+    startBgColor,
+    endBgColor,
+    scrollPosition
+  );
 
-  const interpolatedHex = rgbToHex(
-    interpolatedRGB.r,
-    interpolatedRGB.g,
-    interpolatedRGB.b
+  const interpolatedBgHex = rgbToHex(
+    interpolatedBgRGB.r,
+    interpolatedBgRGB.g,
+    interpolatedBgRGB.b
+  );
+
+  const startHighlightColor = { r: 255, g: 255, b: 255 };
+  const endHighlightColor = { r: 223, g: 252, b: 223 };
+
+  const interpolatedHighlightRGB = interpolatedRGB(
+    startHighlightColor,
+    endHighlightColor,
+    scrollPosition
+  );
+
+  const interpolatedHighlightHex = rgbToHex(
+    interpolatedHighlightRGB.r,
+    interpolatedHighlightRGB.g,
+    interpolatedHighlightRGB.b
   );
 
   function mapToCustomPercentage(scrollPosition: ScrollPosition) {
     // Step 1: Map the number to the range [20, 70]
-    const mappedNumber = scrollPosition * (40 - 20) + 20;
+    const mappedNumber = scrollPosition * (30 - 20) + 20;
 
     // Step 2: Round the resulting number to one decimal place
     const roundedNumber = Math.round(mappedNumber * 10) / 10;
@@ -41,5 +72,5 @@ export const useMapColour = (scrollPosition: ScrollPosition) => {
 
   const mappedPercentage = mapToCustomPercentage(scrollPosition);
 
-  return { interpolatedHex, mappedPercentage };
+  return { interpolatedBgHex, interpolatedHighlightHex, mappedPercentage };
 };

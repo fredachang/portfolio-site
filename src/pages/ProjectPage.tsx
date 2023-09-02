@@ -12,11 +12,12 @@ import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
   filteredProjects: Project[];
+  bgHex: string;
 }
 
 export const ProjectPage = (props: Props) => {
   const { title } = useParams();
-  const { filteredProjects } = props;
+  const { filteredProjects, bgHex } = props;
 
   const navigate = useNavigate();
   const {
@@ -78,7 +79,7 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`flex flex-col md:flex-row w-full h-7/8 md:h-6/8 py-2 md:px-2 md:py-4 md:overflow-hidden`}
+        className={`bg-[${bgHex}] flex flex-col md:flex-row w-full h-7/8 md:h-6/8 py-2 md:px-2 md:py-4 md:overflow-hidden`}
       >
         {isSmallScreen && (
           <div className="flex justify-between w-full h-8">

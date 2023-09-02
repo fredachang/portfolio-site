@@ -16,7 +16,8 @@ function App() {
   const [expandNavFilter, setExpandNavFilter] = useState(false);
   const [expandContact, setExpandContact] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
-  const [parentHex, setParentHex] = useState("");
+  const [HighlightHex, setInterpolatedHighlightHex] = useState("");
+  const [bgHex, setBgHex] = useState("");
   const [mappedPercentage, setMappedPercentage] = useState("");
 
   const [filteredProjects, setFilteredProjects] = useState(projects);
@@ -145,11 +146,13 @@ function App() {
     navigate(`/project/${project.title}`);
   };
 
-  const handleInterpolatedHex = (
-    hexValue: string,
+  const handleThemeChangeOnScroll = (
+    bgHexValue: string,
+    highlightHexValue: string,
     mappedPercentage: string
   ) => {
-    setParentHex(hexValue);
+    setBgHex(bgHexValue);
+    setInterpolatedHighlightHex(highlightHexValue);
     setMappedPercentage(mappedPercentage);
   };
 
@@ -159,7 +162,8 @@ function App() {
         {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
           mappedPercentage={mappedPercentage}
-          parentHex={parentHex}
+          BgHex={bgHex}
+          HighlightHex={HighlightHex}
           expandNavFilter={expandNavFilter}
           projects={projects}
           filtered={filtered}
@@ -180,7 +184,7 @@ function App() {
             path="/"
             element={
               <MasterIndex
-                handleInterpolatedHex={handleInterpolatedHex}
+                handleThemeChangeOnScroll={handleThemeChangeOnScroll}
                 filtered={filtered}
                 showAll={showAll}
                 onMobile={onMobile}
@@ -193,13 +197,19 @@ function App() {
           />
           <Route
             path="/project/:title"
-            element={<ProjectPage filteredProjects={filteredProjects} />}
+            element={
+              <ProjectPage filteredProjects={filteredProjects} bgHex={bgHex} />
+            }
           />
           <Route path="/about" element={<About />} />
         </Routes>
 
         {!isSmallScreen && (
-          <Footer parentHex={parentHex} mappedPercentage={mappedPercentage} />
+          <Footer
+            bgHex={bgHex}
+            mappedPercentage={mappedPercentage}
+            HighlightHex={HighlightHex}
+          />
         )}
       </main>
     </>
