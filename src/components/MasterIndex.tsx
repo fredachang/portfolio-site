@@ -61,7 +61,7 @@ export const MasterIndex = (props: Props) => {
             isSmallScreen && `relative`
           } ${
             filtered && `justify-between`
-          } flex h-67.5% md:h-3/5 overflow-x-scroll`}
+          } flex h-67.5% md:h-3/5 overflow-y-hidden overflow-x-scroll`}
         >
           {filteredProjects.map((project) => {
             return (
