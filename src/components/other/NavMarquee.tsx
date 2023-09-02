@@ -35,7 +35,7 @@ export const NavMarquee = (props: Props) => {
         <div
           className={`${type.link} max-w-max flex text-start md:pl-[120px] md:mb-1`}
         >
-          <div className="mr-36">
+          <div className="mr-20 md:mr-36">
             <span className="mr-10">
               {`Currently viewing ${filteredProjectType(filteredProjects)} `}
             </span>
