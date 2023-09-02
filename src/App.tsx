@@ -16,6 +16,8 @@ function App() {
   const [expandNavFilter, setExpandNavFilter] = useState(false);
   const [expandContact, setExpandContact] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
+  const [parentHex, setParentHex] = useState("");
+  const [mappedPercentage, setMappedPercentage] = useState("");
 
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [showLanding, setShowLanding] = useState(false);
@@ -143,11 +145,21 @@ function App() {
     navigate(`/project/${project.title}`);
   };
 
+  const handleInterpolatedHex = (
+    hexValue: string,
+    mappedPercentage: string
+  ) => {
+    setParentHex(hexValue);
+    setMappedPercentage(mappedPercentage);
+  };
+
   return (
     <>
       <main className={`flex flex-col w-screen h-screen`}>
         {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
+          mappedPercentage={mappedPercentage}
+          parentHex={parentHex}
           expandNavFilter={expandNavFilter}
           projects={projects}
           filtered={filtered}
@@ -168,6 +180,7 @@ function App() {
             path="/"
             element={
               <MasterIndex
+                handleInterpolatedHex={handleInterpolatedHex}
                 filtered={filtered}
                 showAll={showAll}
                 onMobile={onMobile}
@@ -185,7 +198,9 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        {!isSmallScreen && <Footer />}
+        {!isSmallScreen && (
+          <Footer parentHex={parentHex} mappedPercentage={mappedPercentage} />
+        )}
       </main>
     </>
   );

@@ -6,13 +6,18 @@ import { VerticalMarquee } from "./other/VerticalMarquee";
 import { primaryTransition } from "../motion";
 import { useLocation } from "react-router-dom";
 
-export const Footer = () => {
+interface Props {
+  parentHex: string;
+  mappedPercentage: string;
+}
+
+export const Footer = (props: Props) => {
+  const { parentHex, mappedPercentage } = props;
   const location = useLocation();
   const filePath = location.pathname;
   const reducedHeight = filePath !== "/";
 
-  const gradientBackground =
-    "bg-gradient-to-t from-white from-10% via-white via-30% to-customGrey to-90%";
+  const gradientBackground = `bg-gradient-to-t from-white from-0% via-white via-[${mappedPercentage}] to-[${parentHex}] to-90%`;
 
   return (
     <>

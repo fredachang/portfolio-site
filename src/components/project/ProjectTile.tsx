@@ -5,6 +5,7 @@ import { Project } from "../../types";
 import { primaryTransition } from "../../motion";
 
 interface Props {
+  interpolatedHex: string;
   expandedProjectId: string[];
   project: Project;
   isExpanded: boolean;
@@ -18,6 +19,7 @@ interface Props {
 export const ProjectTile = (props: Props) => {
   const {
     expandedProjectId,
+    interpolatedHex,
     project,
     isExpanded,
     handleExpandTile,
@@ -37,7 +39,7 @@ export const ProjectTile = (props: Props) => {
         onClick={() => handleExpandTile(project.id)}
         layout="position"
         transition={primaryTransition}
-        className={`bg-customGrey ${width} flex flex-row justify-center h-full border-l border-black`}
+        className={`bg-[${interpolatedHex}] ${width} flex flex-row justify-center h-full border-l border-black`}
       >
         <ProjectIndex project={project} />
 
