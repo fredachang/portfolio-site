@@ -59,7 +59,7 @@ export const Header = (props: Props) => {
   };
 
   const deskTopHeight = isProjectPage ? "h-1/8" : "h-1/5";
-  const mobileHeight = isProjectPage ? "h-18%" : "h-20%";
+  const mobileHeight = isProjectPage ? "h-1/8" : "h-1/5";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
 
   const gradientBackground =

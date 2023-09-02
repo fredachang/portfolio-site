@@ -6,7 +6,7 @@ interface Props {
   navigateToPreviousProject: () => void;
 }
 
-export const ProjectPageTopArrow = (props: Props) => {
+export const ProjectPageLeftArrow = (props: Props) => {
   const { selectedIndex, navigateToPreviousProject } = props;
 
   return (

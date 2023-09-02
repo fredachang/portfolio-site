@@ -7,7 +7,7 @@ interface Props {
   projectsCount: number;
 }
 
-export const ProjectPageBottomArrow = (props: Props) => {
+export const ProjectPageRightArrow = (props: Props) => {
   const { projectsCount, selectedIndex, navigateToNextProject } = props;
 
   const maxIndex = projectsCount - 1;
