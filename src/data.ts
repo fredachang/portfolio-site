@@ -22,6 +22,8 @@ export const techStack = {
 
 export const landingPageBg = "/LandingPgBgStrokeWhiteFill.png";
 
+export const landingPageBgAlt = "/ZipFolderv1.png";
+
 export const projects: Project[] = [
   {
     id: "1",

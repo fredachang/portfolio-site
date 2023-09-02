@@ -2,7 +2,7 @@ import { Environment, Loader, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
-import { landingPageBg } from "../data";
+import { landingPageBgAlt } from "../data";
 import { DigiCard2 } from "../components/three/DigiCard2";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
@@ -59,14 +59,8 @@ interface Props {
   handleHideLanding: () => void;
 }
 
-export const LandingPage = (props: Props) => {
+export const LandingPageAlt = (props: Props) => {
   const { handleHideLanding } = props;
-  // const navigate = useNavigate();
-
-  // const handleNavigate = () => {
-  //   console.log("inside");
-  //   navigate("/home");
-  // };
 
   const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
@@ -75,8 +69,8 @@ export const LandingPage = (props: Props) => {
     <>
       <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
         <img
-          src={landingPageBg}
-          className="w-screen h-screen object-cover absolute z-10 top-0 mix-blend-difference"
+          src={landingPageBgAlt}
+          className="w-screen h-screen object-cover absolute top-0"
         />
 
         <div className="w-full fixed top-20 h-4/5 z-20">

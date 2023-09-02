@@ -8,8 +8,8 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ProjectPage } from "./pages/ProjectPage";
 import { About } from "./pages/About";
 import { MasterIndex } from "./components/MasterIndex";
-import { LandingPage } from "./pages/LandingPage";
 import { useDetectScreenSize } from "./hooks/useDetectScreenSize";
+import { LandingPageAlt } from "./pages/LandingPageAlt";
 
 function App() {
   const [expandedProjectId, setExpandedProjectId] = useState(["1"]);
@@ -164,7 +164,9 @@ function App() {
   return (
     <>
       <main className={appContainerStyle}>
-        {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
+        {showLanding && (
+          <LandingPageAlt handleHideLanding={handleHideLanding} />
+        )}
         <Header
           mappedPercentage={mappedPercentage}
           BgHex={bgHex}
