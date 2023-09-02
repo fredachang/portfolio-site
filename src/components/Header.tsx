@@ -97,7 +97,7 @@ export const Header = (props: Props) => {
           <div className="w-1/3 h-full">
             <Link to="/" onClick={handleShowHome}>
               <div className="cursor-fancy font-bold text-2xl text-center">
-                {screenWidth > 1000 ? "Freda Chang" : "F. C."}
+                {screenWidth > 1000 ? "Freda Chang" : "Freda"}
               </div>
             </Link>
           </div>
