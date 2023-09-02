@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useNavigateCarousel } from "../hooks/useNavigateIndex";
 import { useRef } from "react";
 import { Carousel } from "../components/other/Carousel";
-import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 import { ProjectPageLeftArrow } from "../components/buttons/ProjectPageLeftArrow";
 import { ProjectPageRightArrow } from "../components/buttons/ProjectPageRightArrow";
 import { ProjectPageText } from "../components/project/ProjectPageText";
@@ -26,8 +25,6 @@ export const ProjectPage = (props: Props) => {
     handleGoToPrevious,
   } = useNavigateCarousel();
 
-  const { screenWidth } = useDetectScreenSize();
-  const isMobile = screenWidth < 1000;
   const scrollToTopRef = useRef<HTMLDivElement | null>(null);
 
   const projectsCount = filteredProjects.length;
