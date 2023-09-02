@@ -25,7 +25,7 @@ export const Footer = (props: Props) => {
   const gradientBackground = `bg-gradient-to-t from-[${HighlightHex}] from-0% via-[${HighlightHex}] via-[${mappedPercentage}] to-[${bgHex}] to-75%`;
 
   const deskTopHeight = isProjectPage ? "h-1/8" : "h-1/5";
-  const mobileHeight = isProjectPage ? "h-10%" : "h-15%";
+  const mobileHeight = isProjectPage ? "h-10%" : "h-10%";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
 
   const handleGoToAbout = () => {
