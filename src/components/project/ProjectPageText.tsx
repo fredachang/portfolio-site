@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { fade, fadeX } from "../../motion";
 import { space, type } from "../../tailwind-utils";
 import { Project } from "../../types";
+import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   selectedProject: Project;
@@ -21,34 +22,40 @@ export const ProjectPageText = (props: Props) => {
     imagesCount,
     currentImageText,
   } = props;
+
+  const { isSmallScreen } = useDetectScreenSize();
+
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       exit="exit"
       variants={fade(2, 0.5, 0)}
-      className="bg-green-100 flex flex-col justify-between w-full md:w-2/5 md:h-full md:px-4"
+      className="flex flex-col justify-between w-full md:h-full px-4"
     >
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fade(0.5, 0.5, 0)}
       >
-        <div className={`${type.link} flex justify-between mb-6`}>
+        <div className={`${type.link} flex justify-between mt-4 md:mt-0 mb-6`}>
           <p>
             Project {selectedIndex + 1} / {filteredProjects.length}
           </p>
           <p>{selectedProject.year}</p>
           <p>{selectedProject.type}</p>
         </div>
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          variants={fade(0.5, 0.5, 0.1)}
-          className="font-light text-3xl md:text-6xl"
-        >
-          {selectedProject.title}
-        </motion.p>
+
+        {!isSmallScreen && (
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fade(0.5, 0.5, 0.1)}
+            className="font-light text-3xl mb-6 md:mb-0 md:text-6xl"
+          >
+            {selectedProject.title}
+          </motion.p>
+        )}
       </motion.div>
 
       <div>

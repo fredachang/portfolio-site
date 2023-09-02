@@ -59,7 +59,7 @@ export const Header = (props: Props) => {
   };
 
   const deskTopHeight = isProjectPage ? "h-1/8" : "h-1/5";
-  const mobileHeight = isProjectPage ? "h-1/8" : "h-1/5";
+  const mobileHeight = isProjectPage ? "h-1/6" : "h-1/5";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
 
   const gradientBackground =
@@ -70,7 +70,7 @@ export const Header = (props: Props) => {
       <motion.div
         layout
         transition={primaryTransition}
-        className={`${gradientBackground} w-full ${height} border-b z-30 border-black z-10 t-0 flex flex-col`}
+        className={`${gradientBackground} w-full ${height} border-b z-30 border-black z-10 flex flex-col`}
       >
         <motion.div
           layout="position"
@@ -105,21 +105,41 @@ export const Header = (props: Props) => {
           </div>
         </motion.div>
 
-        <motion.div
-          layout="position"
-          transition={primaryTransition}
-          className="h-1/6 w-full flex items-center"
-        >
-          <NavMarquee
-            filteredProjects={filteredProjects}
-            filteredProjectType={filteredProjectType}
-            isProjectPage={isProjectPage}
-            handleShowAllProjects={handleShowAllProjects}
-            filtered={filtered}
-            expandAll={expandAll}
-            handleExpandAll={handleExpandAll}
-          />
-        </motion.div>
+        {isProjectPage ? (
+          !expandContact && (
+            <motion.div
+              layout="position"
+              transition={primaryTransition}
+              className="h-1/6 w-full flex items-center"
+            >
+              <NavMarquee
+                filteredProjects={filteredProjects}
+                filteredProjectType={filteredProjectType}
+                isProjectPage={isProjectPage}
+                handleShowAllProjects={handleShowAllProjects}
+                filtered={filtered}
+                expandAll={expandAll}
+                handleExpandAll={handleExpandAll}
+              />
+            </motion.div>
+          )
+        ) : (
+          <motion.div
+            layout="position"
+            transition={primaryTransition}
+            className="h-1/6 w-full flex items-center"
+          >
+            <NavMarquee
+              filteredProjects={filteredProjects}
+              filteredProjectType={filteredProjectType}
+              isProjectPage={isProjectPage}
+              handleShowAllProjects={handleShowAllProjects}
+              filtered={filtered}
+              expandAll={expandAll}
+              handleExpandAll={handleExpandAll}
+            />
+          </motion.div>
+        )}
       </motion.div>
     </>
   );

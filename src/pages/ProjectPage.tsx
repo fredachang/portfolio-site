@@ -8,6 +8,7 @@ import { Carousel } from "../components/other/Carousel";
 import { ProjectPageLeftArrow } from "../components/buttons/ProjectPageLeftArrow";
 import { ProjectPageRightArrow } from "../components/buttons/ProjectPageRightArrow";
 import { ProjectPageText } from "../components/project/ProjectPageText";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 interface Props {
   filteredProjects: Project[];
@@ -26,6 +27,7 @@ export const ProjectPage = (props: Props) => {
   } = useNavigateCarousel();
 
   const scrollToTopRef = useRef<HTMLDivElement | null>(null);
+  const { isSmallScreen } = useDetectScreenSize();
 
   const projectsCount = filteredProjects.length;
   const selectedProject = filteredProjects.find(
@@ -76,21 +78,44 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`bg-white flex w-full h-full md:h-6/8 py-2 md:px-2 md:py-4 overflow-scroll md:overflow-hidden`}
+        className={`bg-white flex flex-col md:flex-row w-full h-5/6 md:h-6/8 py-2 md:px-2 md:py-4 overflow-hidden`}
       >
-        <div className="bg-yellow-100 w-10 h-full md:w-12 cursor-fancy">
-          <ProjectPageLeftArrow
-            selectedIndex={selectedIndex}
-            navigateToPreviousProject={navigateToPreviousProject}
-          />
-        </div>
+        {isSmallScreen && (
+          <div className="flex items-center justify-between w-full h-10">
+            <div className="w-10 h-full">
+              <ProjectPageLeftArrow
+                selectedIndex={selectedIndex}
+                navigateToPreviousProject={navigateToPreviousProject}
+              />
+            </div>
 
-        <div className="bg-purple-100 w-full flex flex-col md:flex-row overflow-scroll">
+            <div className="font-light text-xl">{selectedProject.title}</div>
+
+            <div className="w-10 pb-1.5 h-full">
+              <ProjectPageRightArrow
+                projectsCount={projectsCount}
+                selectedIndex={selectedIndex}
+                navigateToNextProject={navigateToNextProject}
+              />
+            </div>
+          </div>
+        )}
+
+        {!isSmallScreen && (
+          <div className="w-10 h-full md:w-12 cursor-fancy z-10">
+            <ProjectPageLeftArrow
+              selectedIndex={selectedIndex}
+              navigateToPreviousProject={navigateToPreviousProject}
+            />
+          </div>
+        )}
+
+        <div className="w-full h-full flex flex-col md:flex-row">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeRightWithDelay}
-            className="w-full h-[300px] md:w-3/5 md:h-full overflow-hidden"
+            className="w-full h-3/5 md:w-3/5 md:h-full overflow-hidden z-20"
           >
             <Carousel
               key={selectedProject.title}
@@ -101,23 +126,27 @@ export const ProjectPage = (props: Props) => {
             />
           </motion.div>
 
-          <ProjectPageText
-            selectedProject={selectedProject}
-            selectedIndex={selectedIndex}
-            filteredProjects={filteredProjects}
-            currentCarouselIndex={currentCarouselIndex}
-            imagesCount={imagesCount}
-            currentImageText={currentImageText}
-          />
+          <div className="w-full h-1/3 md:h-full md:w-2/5 overflow-scroll">
+            <ProjectPageText
+              selectedProject={selectedProject}
+              selectedIndex={selectedIndex}
+              filteredProjects={filteredProjects}
+              currentCarouselIndex={currentCarouselIndex}
+              imagesCount={imagesCount}
+              currentImageText={currentImageText}
+            />
+          </div>
         </div>
 
-        <div className="bg-yellow-100 w-12 h-full cursor-fancy">
-          <ProjectPageRightArrow
-            projectsCount={projectsCount}
-            selectedIndex={selectedIndex}
-            navigateToNextProject={navigateToNextProject}
-          />
-        </div>
+        {!isSmallScreen && (
+          <div className="w-12 h-full cursor-fancy z-10">
+            <ProjectPageRightArrow
+              projectsCount={projectsCount}
+              selectedIndex={selectedIndex}
+              navigateToNextProject={navigateToNextProject}
+            />
+          </div>
+        )}
       </div>
     </>
   );

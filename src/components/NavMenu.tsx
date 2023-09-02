@@ -45,12 +45,12 @@ export const NavMenu = (props: Props) => {
 
   return (
     <div className={`w-full h-full flex`}>
-      <div className="w-full h-full">
+      <div className="w-full h-full flex flex-col items-start">
         {isProjectPage ? (
           <motion.button
             whileHover={moveLeftWhileHover}
             onClick={handleGoBackToHome}
-            className={type.link}
+            className={`${type.link}`}
           >
             Back to Index
           </motion.button>
