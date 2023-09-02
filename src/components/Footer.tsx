@@ -12,7 +12,7 @@ export const Footer = () => {
   const reducedHeight = filePath !== "/";
 
   const gradientBackground =
-    "bg-gradient-to-t from-customGrey from-10% via-customGrey via-30% to-white to-90%";
+    "bg-gradient-to-t from-white from-10% via-white via-30% to-customGrey to-90%";
 
   return (
     <>

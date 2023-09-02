@@ -37,7 +37,7 @@ export const ProjectTile = (props: Props) => {
         onClick={() => handleExpandTile(project.id)}
         layout="position"
         transition={primaryTransition}
-        className={`bg-white ${width} flex flex-row justify-center h-full border-l border-black`}
+        className={`bg-customGrey ${width} flex flex-row justify-center h-full border-l border-black`}
       >
         <ProjectIndex project={project} />
 
