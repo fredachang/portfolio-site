@@ -26,25 +26,44 @@ export function DigiCard2(props: any) {
   ) as GLTFResult;
 
   const rotatingCard = useRef<THREE.Object3D>(null!);
-  const initialPosition = useRef<THREE.Vector3 | null>(null);
+
+  //PREVIOUS CODE WITHOUT ROTATION
+  // const initialPosition = useRef<THREE.Vector3 | null>(null);
+
+  // useFrame(({ clock }) => {
+  //   const elapsedTime = clock.getElapsedTime();
+
+  //   // Floating Animation
+  //   const floatingAmplitude = 0.4; // Adjust the amplitude of the floating animation
+  //   const floatingSpeed = 1; // Adjust the speed of the floating animation
+
+  //   if (!initialPosition.current) {
+  //     // Store the initial position when it's not set
+  //     initialPosition.current = rotatingCard.current!.position.clone();
+  //   }
+
+  //   const yPosition =
+  //     initialPosition.current.y +
+  //     Math.sin(elapsedTime * floatingSpeed) * floatingAmplitude;
+
+  //   rotatingCard.current!.position.setY(yPosition);
+  // });
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
+
+    // Rotation
+    const rotationSpeed = props.rotationSpeed || 0.2; // Default rotation speed
+    const rotation = elapsedTime * rotationSpeed;
+    rotatingCard.current.rotation.y = rotation;
 
     // Floating Animation
     const floatingAmplitude = 0.4; // Adjust the amplitude of the floating animation
     const floatingSpeed = 1; // Adjust the speed of the floating animation
 
-    if (!initialPosition.current) {
-      // Store the initial position when it's not set
-      initialPosition.current = rotatingCard.current!.position.clone();
-    }
+    const yPosition = Math.sin(elapsedTime * floatingSpeed) * floatingAmplitude;
 
-    const yPosition =
-      initialPosition.current.y +
-      Math.sin(elapsedTime * floatingSpeed) * floatingAmplitude;
-
-    rotatingCard.current!.position.setY(yPosition);
+    rotatingCard.current.position.y = yPosition;
   });
 
   return (
