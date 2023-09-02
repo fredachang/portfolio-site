@@ -206,7 +206,7 @@ function App() {
               <ProjectPage filteredProjects={filteredProjects} bgHex={bgHex} />
             }
           />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About bgHex={bgHex} />} />
         </Routes>
 
         <Footer

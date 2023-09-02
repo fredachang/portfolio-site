@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import { space } from "../tailwind-utils";
 import { motion } from "framer-motion";
-import { fade, fadeUp } from "../motion";
+import { fade } from "../motion";
 
-export const About = () => {
+interface Props {
+  bgHex: string;
+}
+
+export const About = (props: Props) => {
+  const { bgHex } = props;
   return (
     <>
       <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp(100, 0.8)}
-        className="flex flex-col justify-between w-full h-75%"
+        className={`bg-[${bgHex}] flex flex-col justify-between w-full h-75%`}
       >
         <Link to="/home">
           <div
