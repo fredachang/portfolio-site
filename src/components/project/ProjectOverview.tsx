@@ -9,6 +9,7 @@ import { space } from "../../tailwind-utils";
 import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
+  HighlightHex: string;
   project: Project;
   handleClickCarousel: (
     project: Project,
@@ -17,7 +18,7 @@ interface Props {
 }
 
 export const ProjectOverview = (props: Props) => {
-  const { project, handleClickCarousel } = props;
+  const { project, handleClickCarousel, HighlightHex } = props;
 
   const { currentCarouselIndex, handleGoToNext, handleGoToPrevious } =
     useNavigateCarousel();
@@ -54,7 +55,7 @@ export const ProjectOverview = (props: Props) => {
         />
       </motion.div>
 
-      <ProjectText project={project} />
+      <ProjectText project={project} HighlightHex={HighlightHex} />
     </div>
   );
 };

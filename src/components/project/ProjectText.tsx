@@ -8,11 +8,12 @@ import { TechStack } from "../TechStack";
 import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
+  HighlightHex: string;
   project: Project;
 }
 
 export const ProjectText = (props: Props) => {
-  const { project } = props;
+  const { project, HighlightHex } = props;
   const { screenWidth } = useDetectScreenSize();
   const isMobile = screenWidth < 1000;
 
@@ -36,7 +37,10 @@ export const ProjectText = (props: Props) => {
           <Marquee speed={8}>
             {project.techStack.map((techStack, i) => (
               <div key={i} className="mr-1">
-                <TechStack description={techStack} />
+                <TechStack
+                  description={techStack}
+                  HighlightHex={HighlightHex}
+                />
               </div>
             ))}
           </Marquee>

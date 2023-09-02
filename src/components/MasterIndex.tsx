@@ -9,6 +9,7 @@ import { useEffect } from "react";
 
 interface Props {
   filtered: boolean;
+  HighlightHex: string;
   showAll: boolean;
   onMobile: boolean;
   filteredProjects: Project[];
@@ -28,6 +29,7 @@ interface Props {
 export const MasterIndex = (props: Props) => {
   const {
     filtered,
+    HighlightHex,
     filteredProjects,
     expandedProjectId,
     handleExpandTile,
@@ -66,6 +68,7 @@ export const MasterIndex = (props: Props) => {
           {filteredProjects.map((project) => {
             return (
               <ProjectTile
+                HighlightHex={HighlightHex}
                 interpolatedHex={interpolatedBgHex}
                 expandedProjectId={expandedProjectId}
                 key={project.id}

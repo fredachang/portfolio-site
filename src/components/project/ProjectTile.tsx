@@ -5,6 +5,7 @@ import { Project } from "../../types";
 import { primaryTransition } from "../../motion";
 
 interface Props {
+  HighlightHex: string;
   interpolatedHex: string;
   expandedProjectId: string[];
   project: Project;
@@ -24,6 +25,7 @@ export const ProjectTile = (props: Props) => {
     isExpanded,
     handleExpandTile,
     handleClickCarousel,
+    HighlightHex,
   } = props;
 
   const allCollapsed = expandedProjectId.length === 0;
@@ -46,6 +48,7 @@ export const ProjectTile = (props: Props) => {
         <AnimatePresence>
           {isExpanded && (
             <ProjectOverview
+              HighlightHex={HighlightHex}
               project={project}
               handleClickCarousel={handleClickCarousel}
             />

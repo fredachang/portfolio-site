@@ -190,6 +190,7 @@ function App() {
             element={
               <MasterIndex
                 handleThemeChangeOnScroll={handleThemeChangeOnScroll}
+                HighlightHex={HighlightHex}
                 filtered={filtered}
                 showAll={showAll}
                 onMobile={onMobile}
