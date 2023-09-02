@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom";
-import { space, type } from "../tailwind-utils";
-import { links } from "../data";
+import { space } from "../tailwind-utils";
 import { motion } from "framer-motion";
 import { fade, fadeUp } from "../motion";
-import { MotionHyperlink } from "../components/buttons/MotionHyperLink";
-import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 export const About = () => {
-  const { screenWidth } = useDetectScreenSize();
   return (
     <>
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeUp(100, 0.8)}
-        className="flex flex-col justify-between w-full h-86%"
+        className="flex flex-col justify-between w-full h-75%"
       >
         <Link to="/home">
           <div
@@ -24,7 +20,7 @@ export const About = () => {
               initial="hidden"
               animate="visible"
               variants={fade(1, 0.5, 0)}
-              className={`font-light text-base leading-6 w-full md:text-xl md:w-1/2 leading-8`}
+              className={`font-light text-sm leading-6 w-full`}
             >
               Freda is a multidiscplinary designer and developer who thrives in
               the intersection of design and technology. Bringing analytical
@@ -32,37 +28,8 @@ export const About = () => {
               looking to create impactful digital real estate that pushes the
               status quo of how we experience & interact with the virtual world.{" "}
             </motion.div>
-
-            {screenWidth < 1000 && (
-              <div
-                className={`flex flex-col h-1/4 justify-between mt-${space.spacing2Xl}`}
-              >
-                <a href={links.email} className={type.link}>
-                  EMAIL
-                </a>
-                <a href={links.gitHub} className={type.link}>
-                  GITHUB
-                </a>
-                <a href={links.instagram} className={type.link}>
-                  INSTAGRAM
-                </a>
-                <a href={links.linkedIn} className={type.link}>
-                  LINKEDIN
-                </a>
-              </div>
-            )}
           </div>
         </Link>
-        <MotionHyperlink
-          linkPath={links.resumeDev}
-          linkText="CV - Developer"
-          linkStyle={`${type.link} bg-red-100 flex max-w-max items-center mb-2`}
-        />
-        <MotionHyperlink
-          linkPath={links.resumeGeneral}
-          linkText="CV - General"
-          linkStyle={`${type.link} bg-red-100 max-w-max flex items-center`}
-        />
       </motion.div>
     </>
   );

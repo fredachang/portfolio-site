@@ -35,7 +35,7 @@ export const MasterIndex = (props: Props) => {
     handleThemeChangeOnScroll,
   } = props;
 
-  const { isSmallScreen, isPortrait } = useDetectScreenSize();
+  const { isSmallScreen } = useDetectScreenSize();
   const { scrollSectionRef, scrollPosition } = useDetectScrollX();
   const { interpolatedBgHex, interpolatedHighlightHex, mappedPercentage } =
     useMapColour(scrollPosition);
@@ -47,8 +47,6 @@ export const MasterIndex = (props: Props) => {
       mappedPercentage
     );
   }, [interpolatedBgHex, mappedPercentage, handleThemeChangeOnScroll]);
-
-  const mobileHeight = isPortrait ? "h-70%" : "h-80%";
 
   return (
     <LayoutGroup>
@@ -63,7 +61,7 @@ export const MasterIndex = (props: Props) => {
             isSmallScreen && `relative`
           } ${
             filtered && `justify-between`
-          } flex ${mobileHeight} md:h-3/5 overflow-x-scroll border-b border-black md:border-none`}
+          } flex h-65% md:h-3/5 overflow-x-scroll border-b border-black md:border-none`}
         >
           {filteredProjects.map((project) => {
             return (

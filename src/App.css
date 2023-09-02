@@ -13,6 +13,13 @@
   src: url("/fonts/TestFoundersGroteskMono-Light.otf") format("opentype");
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100dvh;
+}
+
 .barText {
   display: flex;
   justify-content: flex-start;

@@ -65,10 +65,8 @@ export const Header = (props: Props) => {
   };
 
   const deskTopHeight = isProjectPage ? "h-1/8" : "h-1/5";
-  const mobileHeight = isProjectPage ? "h-1/6" : "h-1/5";
+  const mobileHeight = isProjectPage ? "h-15%" : "h-20%";
   const height = isSmallScreen ? mobileHeight : deskTopHeight;
-
-  console.log({ HighlightHex });
 
   const gradientBackground = `bg-gradient-to-b from-[${HighlightHex}] from-0% via-[${HighlightHex}] via-[${mappedPercentage}] to-[${BgHex}] to-75%`;
 

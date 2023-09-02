@@ -23,6 +23,7 @@ function App() {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [showLanding, setShowLanding] = useState(false);
   const navigate = useNavigate();
+  const { isSmallScreen } = useDetectScreenSize();
 
   const handleExpandTile = (projectId: string) => {
     if (expandedProjectId.includes(projectId)) {
@@ -77,7 +78,7 @@ function App() {
   const showAll = expandedProjectId.length === 0;
   const filtered = filteredProjects.length < 8;
 
-  const { screenWidth, isSmallScreen } = useDetectScreenSize();
+  const { screenWidth } = useDetectScreenSize();
   const location = useLocation();
   const filePath = location.pathname;
   const isHome = filePath === "/";
@@ -156,9 +157,13 @@ function App() {
     setMappedPercentage(mappedPercentage);
   };
 
+  const appContainerStyle = isSmallScreen
+    ? "app-container"
+    : "flex flex-col w-screen h-screen";
+
   return (
     <>
-      <main className={`flex flex-col w-screen h-screen`}>
+      <main className={appContainerStyle}>
         {showLanding && <LandingPage handleHideLanding={handleHideLanding} />}
         <Header
           mappedPercentage={mappedPercentage}
@@ -204,13 +209,11 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        {!isSmallScreen && (
-          <Footer
-            bgHex={bgHex}
-            mappedPercentage={mappedPercentage}
-            HighlightHex={HighlightHex}
-          />
-        )}
+        <Footer
+          bgHex={bgHex}
+          mappedPercentage={mappedPercentage}
+          HighlightHex={HighlightHex}
+        />
       </main>
     </>
   );
