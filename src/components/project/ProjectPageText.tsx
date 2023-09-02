@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { fade, fadeX } from "../../motion";
 import { space, type } from "../../tailwind-utils";
 import { Project } from "../../types";
-import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   selectedProject: Project;
@@ -22,8 +21,6 @@ export const ProjectPageText = (props: Props) => {
     imagesCount,
     currentImageText,
   } = props;
-
-  const { isSmallScreen } = useDetectScreenSize();
 
   return (
     <motion.div
