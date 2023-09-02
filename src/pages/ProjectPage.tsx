@@ -79,7 +79,9 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`bg-[${bgHex}] flex flex-col md:flex-row w-full h-7/8 md:h-6/8 py-2 md:px-2 md:py-4 md:overflow-hidden`}
+        className={`bg-[${bgHex}] flex flex-col md:flex-row w-full h-full ${
+          isSmallScreen && `fixed bottom-0 pt-32`
+        } md:h-6/8 py-2 md:px-2 md:py-4 overflow-scroll md:overflow-hidden`}
       >
         {isSmallScreen && (
           <div className="flex justify-between w-full h-8">
