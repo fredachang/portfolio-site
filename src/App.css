@@ -23,8 +23,9 @@
 
 /* width */
 ::-webkit-scrollbar {
-  height: 0.2rem;
+  height: 0.4rem;
   width: 0px;
+  cursor: pointer;
 }
 
 /* Track */
