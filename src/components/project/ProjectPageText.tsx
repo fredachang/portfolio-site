@@ -46,16 +46,14 @@ export const ProjectPageText = (props: Props) => {
           <p>{selectedProject.type}</p>
         </div>
 
-        {!isSmallScreen && (
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fade(0.5, 0.5, 0.1)}
-            className="font-light text-3xl mb-6 md:mb-0 md:text-6xl"
-          >
-            {selectedProject.title}
-          </motion.p>
-        )}
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={fade(0.5, 0.5, 0.1)}
+          className="font-light text-3xl mb-6 md:mb-0 md:text-6xl"
+        >
+          {selectedProject.title}
+        </motion.p>
       </motion.div>
 
       <div>

@@ -78,18 +78,16 @@ export const ProjectPage = (props: Props) => {
     <>
       <div
         key={selectedProject.id}
-        className={`bg-white flex flex-col md:flex-row w-full h-5/6 md:h-6/8 py-2 md:px-2 md:py-4 overflow-hidden`}
+        className={`bg-white flex flex-col md:flex-row w-full h-7/8 md:h-6/8 py-2 md:px-2 md:py-4 md:overflow-hidden`}
       >
         {isSmallScreen && (
-          <div className="flex items-center justify-between w-full h-10">
+          <div className="flex justify-between w-full h-8">
             <div className="w-10 h-full">
               <ProjectPageLeftArrow
                 selectedIndex={selectedIndex}
                 navigateToPreviousProject={navigateToPreviousProject}
               />
             </div>
-
-            <div className="font-light text-xl">{selectedProject.title}</div>
 
             <div className="w-10 pb-1.5 h-full">
               <ProjectPageRightArrow
@@ -126,7 +124,7 @@ export const ProjectPage = (props: Props) => {
             />
           </motion.div>
 
-          <div className="w-full h-1/3 md:h-full md:w-2/5 overflow-scroll">
+          <div className="w-full h-1/3 md:h-full md:w-2/5">
             <ProjectPageText
               selectedProject={selectedProject}
               selectedIndex={selectedIndex}
