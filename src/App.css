@@ -23,7 +23,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  height: 0.5rem;
+  height: 0.2rem;
   width: 0px;
 }
 
