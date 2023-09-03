@@ -1,8 +1,7 @@
 import { Environment, Loader } from "@react-three/drei";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
-import { landingPageBgAlt } from "../data";
 import { Zip } from "../components/three/Zip";
 import { Case } from "../components/three/Case";
 import { BobbyPin } from "../components/three/BobbyPin";
@@ -66,8 +65,6 @@ interface Props {
 export const LandingPageAlt = (props: Props) => {
   const { handleHideLanding } = props;
 
-  const colorMap = useLoader(THREE.TextureLoader, landingPageBgAlt);
-
   return (
     <>
       <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
@@ -92,9 +89,10 @@ export const LandingPageAlt = (props: Props) => {
               {/* <OrbitControls enableZoom={false} /> */}
               <Rig>
                 <Zip
-                  staticScale={[40, 40, 40]}
+                  staticScale={40}
                   hoverScale={[43, 43, 43]}
-                  initialPosition={[-6, 2, 0.5]}
+                  handleHideLanding={handleHideLanding}
+                  initialPosition={[-5, 3.5, 0.5]}
                 />
                 <BobbyPin
                   scale={60}

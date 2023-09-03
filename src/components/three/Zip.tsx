@@ -30,23 +30,44 @@ type GLTFResult = GLTF & {
 export function Zip(props: any) {
   const { nodes, materials } = useGLTF("/Zipv2-transformed.glb") as GLTFResult;
 
-  const { staticScale, hoverScale, initialPosition } = props;
+  const { staticScale, hoverScale, initialPosition, handleHideLanding } = props;
 
-  const [position1, setPosition1] = useLocalStorage<number[]>(
-    "drapePos1",
+  const [movingPosition, setMovingPosition] = useLocalStorage<number[]>(
+    "movingPosition",
     initialPosition
   );
 
-  const [position2, setPosition2] = useLocalStorage<number[]>("drapePos2");
+  const [startingPosition, setStartingPosition] = useLocalStorage<number[]>(
+    "startingPosition",
+    initialPosition
+  );
 
   useEffect(() => {
-    const position1FromStorage = JSON.parse(
-      localStorage.getItem("drapePos1") ?? ""
-    );
-    setPosition2(
-      position1FromStorage === "" ? initialPosition : position1FromStorage
-    );
+    // Add an event listener for beforeunload
+
+    const handleBeforeUnload = () => {
+      // Clear the local storage when the browser is refreshed
+      localStorage.clear();
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      setMovingPosition(initialPosition);
+      setStartingPosition(initialPosition);
+    };
   }, []);
+
+  // useEffect(() => {
+  //   const position1FromStorage = JSON.parse(
+  //     localStorage.getItem("movingPosition") ?? ""
+  //   );
+  //   setStartingPosition(
+  //     position1FromStorage === "" ? initialPosition : position1FromStorage
+  //   );
+  // }, []);
 
   const { size, viewport } = useThree();
 
@@ -54,22 +75,29 @@ export function Zip(props: any) {
 
   const [spring, set] = useSpring(() => ({
     scale: staticScale,
-    position: position1,
+    position: movingPosition,
     rotation: [0, 0, 0],
-    config: { friction: 10 },
+    config: { friction: 30 },
   }));
 
   const bind = useGesture({
-    onDrag: ({ offset: [x, y] }) => {
-      const defaultPosition = position2 ? position2 : [0, 0, 0];
+    onDrag: ({ offset: [x] }) => {
+      const defaultPosition = startingPosition ? startingPosition : [0, 0, 0];
       const newPosition = [
         defaultPosition[0] + x / aspect,
-        defaultPosition[1] - y / aspect,
+        defaultPosition[1],
         defaultPosition[2],
       ];
 
       set({ position: newPosition });
-      setPosition1(newPosition);
+      setMovingPosition(newPosition);
+
+      if (movingPosition) {
+        if (movingPosition[0] > 3) {
+          handleHideLanding();
+        }
+        return;
+      }
     },
     onHover: ({ hovering }) =>
       set({ scale: hovering ? hoverScale : staticScale }),

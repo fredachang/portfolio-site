@@ -1,12 +1,12 @@
 import * as THREE from "three";
-import { Object3DNode, useFrame, useLoader } from "@react-three/fiber";
-import { animated, useSpring } from "@react-spring/three";
+import { Object3DNode, useLoader } from "@react-three/fiber";
+import { animated } from "@react-spring/three";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { extend } from "@react-three/fiber";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import GTPressura from "../../assets/GTPressura.json";
-import { useEffect, useRef, useState } from "react";
-import { landingPageBg, landingPageBgAlt } from "../../data";
+import { useRef } from "react";
+import { landingPageBgAlt } from "../../data";
 
 extend({ TextGeometry });
 
