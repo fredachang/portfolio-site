@@ -7,9 +7,9 @@ import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { useGesture } from "@use-gesture/react";
-import { useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { animated, useSpring } from "@react-spring/three";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -95,6 +95,35 @@ export function Zipv2(props: any) {
       set({ scale: hovering ? hoverScale : staticScale }),
   });
 
+  const floatingZip = useRef<THREE.Group>(null!);
+
+  const startingFloatPosition = useRef<THREE.Vector3 | null>(null);
+
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+
+    // Floating Animation
+    const floatingAmplitudeX = 0.0005; // Adjust the X-axis amplitude
+    const floatingAmplitudeY = 0.001; // Adjust the Y-axis amplitude
+    const floatingSpeed = 1; // Adjust the speed of the floating animation
+
+    if (!startingFloatPosition.current) {
+      // Store the initial position when it's not set
+      startingFloatPosition.current = floatingZip.current!.position.clone();
+    }
+
+    const xPosition =
+      startingFloatPosition.current.x +
+      Math.sin(elapsedTime * floatingSpeed) * floatingAmplitudeX;
+
+    const yPosition =
+      startingFloatPosition.current.y +
+      Math.sin(elapsedTime * floatingSpeed) * floatingAmplitudeY;
+
+    // Update the position of the object
+    floatingZip.current!.position.set(xPosition, yPosition, 0);
+  });
+
   return (
     <animated.group {...props} dispose={null} {...spring} {...bind()}>
       <mesh
@@ -103,25 +132,27 @@ export function Zipv2(props: any) {
         geometry={nodes.zip_base.geometry}
         material={materials["green metal"]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.zip_hook.geometry}
-        material={materials["green metal.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.zip_string.geometry}
-        material={materials["zip fabric"]}
-      >
+      <group ref={floatingZip}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube.geometry}
-          material={materials["black plastic"]}
+          geometry={nodes.zip_hook.geometry}
+          material={materials["green metal.001"]}
         />
-      </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.zip_string.geometry}
+          material={materials["zip fabric"]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube.geometry}
+            material={materials["black plastic"]}
+          />
+        </mesh>
+      </group>
     </animated.group>
   );
 }
