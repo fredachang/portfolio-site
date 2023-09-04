@@ -13,9 +13,6 @@ export const useCalculateZipPosition = () => {
     includesZip,
   } = useDetectScreenSize();
 
-  console.log({ isPortrait });
-  console.log({ isSmallScreen });
-
   const calculateZipPositions = () => {
     if (isMediumScreen) {
       const xPosition = -4;

@@ -6,7 +6,6 @@ import { Case } from "../components/three/Case";
 import { BobbyPin } from "../components/three/BobbyPin";
 import { Zipv2 } from "../components/three/Zipv2";
 import { useCalculateZipPosition } from "../hooks/useCalculateZipPosition";
-import { ZipTest } from "../components/three/ZipTest";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -98,7 +97,6 @@ export const LandingPageAlt = (props: Props) => {
                   initialPosition={[xPosition, 3, 0.5]}
                   thresholdX={thresholdX}
                 />
-                <ZipTest scale={20} />
                 <BobbyPin
                   scale={60}
                   position={[0, -4, -0.6]}
