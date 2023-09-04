@@ -27,10 +27,18 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Zip(props: any) {
-  const { nodes, materials } = useGLTF("/Zipv2-transformed.glb") as GLTFResult;
+export function Zipv2(props: any) {
+  const { nodes, materials } = useGLTF(
+    "/models/Zipv2-transformed.glb"
+  ) as GLTFResult;
 
-  const { staticScale, hoverScale, initialPosition, handleHideLanding } = props;
+  const {
+    staticScale,
+    hoverScale,
+    initialPosition,
+    handleHideLanding,
+    thresholdX,
+  } = props;
 
   const [movingPosition, setMovingPosition] = useLocalStorage<number[]>(
     "movingPosition",
@@ -77,7 +85,7 @@ export function Zip(props: any) {
     scale: staticScale,
     position: movingPosition,
     rotation: [0, 0, 0],
-    config: { friction: 30 },
+    config: { friction: 15 },
   }));
 
   const bind = useGesture({
@@ -93,7 +101,7 @@ export function Zip(props: any) {
       setMovingPosition(newPosition);
 
       if (movingPosition) {
-        if (movingPosition[0] > 3) {
+        if (movingPosition[0] > thresholdX) {
           handleHideLanding();
         }
         return;
@@ -122,15 +130,16 @@ export function Zip(props: any) {
         receiveShadow
         geometry={nodes.zip_string.geometry}
         material={materials["zip fabric"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube.geometry}
-        material={materials["black plastic"]}
-      />
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube.geometry}
+          material={materials["black plastic"]}
+        />
+      </mesh>
     </animated.group>
   );
 }
 
-useGLTF.preload("/Zipv2-transformed.glb");
+useGLTF.preload("/models/Zipv2-transformed.glb");

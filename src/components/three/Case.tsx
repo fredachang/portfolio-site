@@ -16,26 +16,30 @@ declare module "@react-three/fiber" {
   }
 }
 
-const fontColour = new THREE.Color("rgb(0,255,0)");
+const fontColour = new THREE.Color("rgb(0,0,0)");
 
 export function Case(props: any) {
   const ref = useRef<any | null>(null);
 
+  const { textPosition } = props;
+
   const font = new FontLoader().parse(GTPressura);
   const colorMap = useLoader(THREE.TextureLoader, landingPageBgAlt);
 
-  const fontSize = 0.1;
+  const fontSize = 0.02;
 
   return (
     <animated.group {...props} dispose={null} ref={ref}>
-      <mesh position={[-0.2, 0.3, -0.01]}>
-        <textGeometry args={["Freda", { font, size: fontSize, height: 0 }]} />
+      <mesh position={textPosition}>
+        <textGeometry
+          args={["Unzip To Enter", { font, size: fontSize, height: 0 }]}
+        />
         <meshBasicMaterial attach="material" color={fontColour} />
       </mesh>
       <mesh>
         <planeGeometry args={[2, 1, 1]} />
 
-        <meshBasicMaterial
+        <meshStandardMaterial
           side={THREE.DoubleSide}
           map={colorMap}
           toneMapped={false}

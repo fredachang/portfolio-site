@@ -21,7 +21,7 @@ type GLTFResult = GLTF & {
 
 export function BobbyPin(props: any) {
   const { nodes, materials } = useGLTF(
-    "/BobbyPin-transformed.glb"
+    "/models/BobbyPin-transformed.glb"
   ) as GLTFResult;
 
   const bobbypin = useRef<THREE.Object3D>(null!);
@@ -60,4 +60,4 @@ export function BobbyPin(props: any) {
   );
 }
 
-useGLTF.preload("/BobbyPin-transformed.glb");
+useGLTF.preload("/models/BobbyPin-transformed.glb");

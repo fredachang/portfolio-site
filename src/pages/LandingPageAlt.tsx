@@ -2,9 +2,9 @@ import { Environment, Loader } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ReactNode, Suspense, useRef } from "react";
 import * as THREE from "three";
-import { Zip } from "../components/three/Zip";
 import { Case } from "../components/three/Case";
 import { BobbyPin } from "../components/three/BobbyPin";
+import { Zipv2 } from "../components/three/Zipv2";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -53,10 +53,9 @@ const loaderStyles = {
   },
 };
 
-const lightColours = {
-  mint: "rgb(194,255,188)",
-  lightBlue: "rgb(171, 203, 255)",
-};
+// const lightColours = {
+//   mint: "rgb(194,255,188)",
+// };
 
 interface Props {
   handleHideLanding: () => void;
@@ -79,27 +78,32 @@ export const LandingPageAlt = (props: Props) => {
               <Environment files="HDR/clear_land.hdr" blur={0.01} />
               {/* <axesHelper args={[5]} /> */}
 
-              <hemisphereLight
-                color={lightColours.lightBlue}
+              {/* <hemisphereLight
+                color={lightColours.mint}
                 groundColor={lightColours.mint}
-                intensity={0.6}
-                position={[0, 5, 3]}
-              />
+                intensity={1}
+                position={[0, 0, 0]}
+              /> */}
 
               {/* <OrbitControls enableZoom={false} /> */}
               <Rig>
-                <Zip
+                <Zipv2
                   staticScale={40}
                   hoverScale={[43, 43, 43]}
                   handleHideLanding={handleHideLanding}
-                  initialPosition={[-5, 3.5, 0.5]}
+                  initialPosition={[-6, 3, 0.5]}
+                  thresholdX={5}
                 />
                 <BobbyPin
                   scale={60}
                   position={[0, -4, -0.6]}
                   rotation={[0, 0, Math.PI / 16]}
                 />
-                <Case scale={8.8} position={[0, 0, -0.5]} />
+                <Case
+                  scale={8.8}
+                  position={[0, 0, -0.5]}
+                  textPosition={[0.6, 0.4, 0.01]}
+                />
               </Rig>
             </Suspense>
           </Canvas>

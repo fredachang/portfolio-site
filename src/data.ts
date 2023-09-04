@@ -22,7 +22,7 @@ export const techStack = {
 
 export const landingPageBg = "/LandingPgBgStrokeWhiteFill.png";
 
-export const landingPageBgAlt = "/ZipFolderv1.png";
+export const landingPageBgAlt = "/ZipOneSided.png";
 
 export const projects: Project[] = [
   {
