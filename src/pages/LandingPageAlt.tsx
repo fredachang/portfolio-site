@@ -97,6 +97,7 @@ export const LandingPageAlt = (props: Props) => {
                   initialPosition={[xPosition, 3, 0.5]}
                   thresholdX={thresholdX}
                 />
+                <Zipv2 scale={50} position={[0, -2, 0]} />
                 <BobbyPin
                   scale={60}
                   position={[0, -4, -0.6]}
