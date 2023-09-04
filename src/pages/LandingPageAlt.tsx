@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { Case } from "../components/three/Case";
 import { BobbyPin } from "../components/three/BobbyPin";
 import { Zipv2 } from "../components/three/Zipv2";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -64,6 +65,51 @@ interface Props {
 export const LandingPageAlt = (props: Props) => {
   const { handleHideLanding } = props;
 
+  const {
+    isPortrait,
+    isMediumScreen,
+    isSmallScreen,
+    isLargeScreen,
+    includesZip,
+  } = useDetectScreenSize();
+
+  const calculateZipPositions = () => {
+    if (isMediumScreen) {
+      const xPosition = -4;
+      const thresholdX = 4;
+      return { xPosition, thresholdX };
+    }
+    if (isSmallScreen && isPortrait) {
+      const xPosition = -2;
+      const thresholdX = 2;
+      return { xPosition, thresholdX };
+    }
+    if (isLargeScreen) {
+      const xPosition = -5;
+      const thresholdX = 5;
+      return { xPosition, thresholdX };
+    }
+    if (includesZip) {
+      const xPosition = -6;
+      const thresholdX = 6;
+      return { xPosition, thresholdX };
+    }
+    return { xPosition: -6, thresholdX: 6 };
+  };
+  let { xPosition, thresholdX } = calculateZipPositions();
+
+  const updateInitialXPosition = () => {
+    ({ xPosition, thresholdX } = calculateZipPositions()); // Use parentheses here
+  };
+
+  // Add an event listener for the 'resize' event
+  window.addEventListener("resize", updateInitialXPosition);
+
+  // Initial calculation
+
+  // When the component or script is unmounted or no longer in use, remove the event listener
+  window.removeEventListener("resize", updateInitialXPosition);
+
   return (
     <>
       <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
@@ -91,8 +137,8 @@ export const LandingPageAlt = (props: Props) => {
                   staticScale={37}
                   hoverScale={43}
                   handleHideLanding={handleHideLanding}
-                  initialPosition={[-6, 3, 0.5]}
-                  thresholdX={5}
+                  initialPosition={[xPosition, 3, 0.5]}
+                  thresholdX={thresholdX}
                 />
                 <BobbyPin
                   scale={60}

@@ -16,7 +16,7 @@ declare module "@react-three/fiber" {
   }
 }
 
-const fontColour = new THREE.Color("rgb(0,0,0)");
+const fontColour = new THREE.Color("rgb(0,100,0)");
 
 export function Case(props: any) {
   const ref = useRef<any | null>(null);
@@ -26,7 +26,7 @@ export function Case(props: any) {
   const font = new FontLoader().parse(GTPressura);
   const colorMap = useLoader(THREE.TextureLoader, landingPageBgAlt);
 
-  const fontSize = 0.02;
+  const fontSize = 0.015;
 
   return (
     <animated.group {...props} dispose={null} ref={ref}>
