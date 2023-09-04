@@ -9,8 +9,7 @@ import { GLTF } from "three-stdlib";
 import { useGesture } from "@use-gesture/react";
 import { useThree } from "@react-three/fiber";
 import { animated, useSpring } from "@react-spring/three";
-import { useLocalStorage } from "react-use";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -40,32 +39,17 @@ export function Zipv2(props: any) {
     thresholdX,
   } = props;
 
-  const [movingPosition, setMovingPosition] = useLocalStorage<number[]>(
-    "movingPosition",
-    initialPosition
-  );
+  const [movingPosition, setMovingPosition] =
+    useState<number[]>(initialPosition);
 
-  const [startingPosition, setStartingPosition] = useLocalStorage<number[]>(
-    "startingPosition",
-    initialPosition
-  );
+  const [startingPosition, setStartingPosition] =
+    useState<number[]>(initialPosition);
 
   useEffect(() => {
     // Add an event listener for beforeunload
 
-    const handleBeforeUnload = () => {
-      // Clear the local storage when the browser is refreshed
-      localStorage.clear();
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    // Remove the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      setMovingPosition(initialPosition);
-      setStartingPosition(initialPosition);
-    };
+    setMovingPosition(initialPosition);
+    setStartingPosition(initialPosition);
   }, []);
 
   // useEffect(() => {
