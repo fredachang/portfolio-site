@@ -88,8 +88,8 @@ export const LandingPageAlt = (props: Props) => {
               {/* <OrbitControls enableZoom={false} /> */}
               <Rig>
                 <Zipv2
-                  staticScale={40}
-                  hoverScale={[43, 43, 43]}
+                  staticScale={37}
+                  hoverScale={43}
                   handleHideLanding={handleHideLanding}
                   initialPosition={[-6, 3, 0.5]}
                   thresholdX={5}
