@@ -75,7 +75,7 @@ export const LandingPageAlt = (props: Props) => {
           className="w-screen h-screen object-cover absolute top-0"
         /> */}
 
-        <div className="w-full fixed h-full z-20">
+        <div className="w-full fixed h-full z-20 touch-none">
           <Canvas className="z-20">
             <Suspense fallback={null}>
               <Environment files="HDR/clear_land.hdr" blur={0.01} />
