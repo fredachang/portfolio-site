@@ -20,8 +20,8 @@ export const useCalculateZipPosition = () => {
       return { xPosition, thresholdX };
     }
     if (isSmallScreen && isPortrait) {
-      const xPosition = -1.8;
-      const thresholdX = 1.8;
+      const xPosition = 0;
+      const thresholdX = 0;
       return { xPosition, thresholdX };
     }
     if (isLargeScreen) {
