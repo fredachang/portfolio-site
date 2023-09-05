@@ -17,10 +17,10 @@ export const ProjectIndex = (props: Props) => {
         transition={primaryTransition}
         className={`flex flex-col justify-between items-center w-20 h-full py-4`}
       >
-        <div className="h-3/5 w-full flex justify-center items-start">
+        <div className=" h-3/5 w-full flex justify-center items-start">
           <span className="barText">
             <h1
-              className={`font-book tracking-wider uppercase text-xl md:text-2xl}`}
+              className={`font-book tracking-wider uppercase text-xl md:text-2xl`}
             >
               {project.title}
             </h1>
@@ -30,10 +30,10 @@ export const ProjectIndex = (props: Props) => {
         <div
           className={`w-full flex flex-col justify-between items-center h-1/2 md:h-2/5`}
         >
-          <div className="w-10 h-3/4 flex">
+          <div className="w-max-w h-3/4 flex">
             <div className="barText">
               <h2 className={`${type.smaller}`}>{project.year}</h2>
-              <h2 className={`${type.smaller} mr-1.5`}>{project.type}</h2>
+              <h2 className={`${type.smaller} mr-0 md:mr-1`}>{project.type}</h2>
             </div>
           </div>
 
