@@ -7,6 +7,10 @@ import { BobbyPin } from "../components/three/BobbyPin";
 import { Zipv2 } from "../components/three/Zipv2";
 import { useCalculateZipPosition } from "../hooks/useCalculateZipPosition";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
+import {
+  generateBobbyPinCoordinates,
+  loaderStyles,
+} from "../components/three/three-utils";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -33,28 +37,6 @@ function Rig({ children }: { children: ReactNode }) {
   return <group ref={ref}>{children}</group>;
 }
 
-const loaderStyles = {
-  container: {
-    backgroundColor: "#fafaf9",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inner: {
-    backgroundColor: "transparent",
-    borderRadius: "10%",
-  },
-  bar: {
-    backgroundColor: "black",
-    height: "5px",
-  },
-  data: {
-    color: "black",
-    fontSize: "20px",
-    fontFamily: "Sohne-Regular",
-  },
-};
-
 // const lightColours = {
 //   mint: "rgb(194,255,188)",
 // };
@@ -70,6 +52,8 @@ export const LandingPageAlt = (props: Props) => {
   const { isXlScreen } = useDetectScreenSize();
 
   const yPosition = isXlScreen ? 3.15 : 3;
+
+  const bobbyPins = generateBobbyPinCoordinates(-10, 10, -5, -3.5, -1.4, -3);
 
   return (
     <>
@@ -101,13 +85,21 @@ export const LandingPageAlt = (props: Props) => {
                   initialPosition={[xPosition, yPosition, 0.5]}
                   thresholdX={thresholdX}
                 />
-                <BobbyPin
-                  scale={60}
-                  position={[0, -4, -0.6]}
-                  rotation={[0, 0, Math.PI / 16]}
-                />
+                {bobbyPins.map((bobbyPin, i) => (
+                  <BobbyPin
+                    key={i}
+                    scale={60}
+                    floatingAmplitude={0.1 * (i * 0.1)}
+                    floatingSpeed={1 * (i * 0.12)}
+                    position={bobbyPin.position}
+                    rotation={bobbyPin.rotation}
+                  />
+                ))}
+
+                {/* <BobbyPin scale={60} rotation={[0, Math.PI / 12, 0]} /> */}
+
                 <Case
-                  scale={isXlScreen ? 9.5 : 8.8}
+                  scale={isXlScreen ? 9.5 : 9}
                   position={[0, 0, -0.5]}
                   textPosition={[0.6, 0.4, 0.01]}
                 />

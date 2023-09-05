@@ -103,9 +103,9 @@ export function Zipv2(props: any) {
     const elapsedTime = clock.getElapsedTime();
 
     // Floating Animation
-    const floatingAmplitudeX = 0.0005; // Adjust the X-axis amplitude
+    const floatingAmplitudeX = 0.0008; // Adjust the X-axis amplitude
     const floatingAmplitudeY = 0.001; // Adjust the Y-axis amplitude
-    const floatingSpeed = 1; // Adjust the speed of the floating animation
+    const floatingSpeed = 1.2; // Adjust the speed of the floating animation
 
     if (!startingFloatPosition.current) {
       // Store the initial position when it's not set

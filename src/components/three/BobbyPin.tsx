@@ -24,6 +24,8 @@ export function BobbyPin(props: any) {
     "/models/BobbyPin-transformed.glb"
   ) as GLTFResult;
 
+  const { floatingAmplitude, floatingSpeed } = props;
+
   const bobbypin = useRef<THREE.Object3D>(null!);
 
   const initialPosition = useRef<THREE.Vector3 | null>(null);
@@ -32,8 +34,6 @@ export function BobbyPin(props: any) {
     const elapsedTime = clock.getElapsedTime();
 
     // Floating Animation
-    const floatingAmplitude = 0.1; // Adjust the amplitude of the floating animation
-    const floatingSpeed = 1; // Adjust the speed of the floating animation
 
     if (!initialPosition.current) {
       // Store the initial position when it's not set
