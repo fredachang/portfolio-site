@@ -16,13 +16,11 @@ export const space = {
 };
 
 export const type = {
-  logo: "font-bold text-2xl",
-  display: "font-light text-6xl",
-  h1: "font-light text-3xl ",
-  h2: "text-xl font-light",
-  h3: "text-md font-light",
-  md: "text-sm font-light",
-  sm: "text-xs font-light",
-  link: "text-xs font-mono uppercase",
-  linkSm: "text-xs font-mono uppercase",
+  display: "font-medium tracking-wider uppercase text-6xl",
+  larger: "font-medium tracking-wider uppercase text-2xl",
+  large: "font-book tracking-wider uppercase text-2xl",
+  small: "font-book uppercase text-xs",
+  smaller: "font-book uppercase text-xxs",
+  paragraphLarge: "font-book leading-normal text-xs",
+  paragraph: "font-book leading-snug text-xxs",
 };

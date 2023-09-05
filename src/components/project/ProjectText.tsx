@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 import { Project } from "../../types";
 import { fadeRightWithDelay, moveRightWhileHover } from "../../motion";
 import { MoreButton } from "../buttons/MoreButton";
-import { space } from "../../tailwind-utils";
+import { space, type } from "../../tailwind-utils";
 import { TechStack } from "../TechStack";
 import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
@@ -27,9 +27,7 @@ export const ProjectText = (props: Props) => {
       {!isMobile && <MoreButton project={project} />}
 
       <div>
-        <p
-          className={`font-light text-sm md:text-xs md:leading-5 mt-4 md:mt-0 mb-${space.spacingMd}`}
-        >
+        <p className={`${type.paragraph} mt-4 md:mt-0 mb-${space.spacingMd}`}>
           {isMobile ? project.shortDescription : project.description}
         </p>
 
@@ -54,7 +52,7 @@ export const ProjectText = (props: Props) => {
                 href={link.path}
                 whileHover={moveRightWhileHover}
                 target="_blank"
-                className={`cursor-fancy flex items-center text-xs font-mono uppercase h-6 mr-4`}
+                className={`${type.smaller} cursor-fancy flex items-center h-6 mr-4`}
               >
                 {link.text}
               </motion.a>

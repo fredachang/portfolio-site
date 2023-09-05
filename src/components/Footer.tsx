@@ -51,7 +51,9 @@ export const Footer = (props: Props) => {
           )}
 
           {!isSmallScreen && (
-            <div className="w-1/3 h-full flex justify-center items-start text-xs font-mono text-center">
+            <div
+              className={`${type.smaller} w-1/3 h-full flex justify-center items-start text-center`}
+            >
               Freda is a multidiscplinary designer and developer who thrives in
               the intersection of design and technology. She is looking to
               create impactful digital real estate that pushes the status quo of
@@ -60,7 +62,7 @@ export const Footer = (props: Props) => {
           )}
 
           {isSmallScreen && (
-            <button className={`${type.link}`} onClick={handleGoToAbout}>
+            <button className={`${type.smaller}`} onClick={handleGoToAbout}>
               About
             </button>
           )}
@@ -69,7 +71,7 @@ export const Footer = (props: Props) => {
             <MotionHyperlink
               linkPath={links.resumeGeneral}
               linkText="CV - General"
-              linkStyle={`${type.link} max-w-max flex items-center cursor-fancy`}
+              linkStyle={`${type.smaller} max-w-max flex items-center cursor-fancy`}
             />
           </div>
         </motion.div>

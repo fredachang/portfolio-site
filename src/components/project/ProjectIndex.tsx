@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Project } from "../../types";
 import { type } from "../../tailwind-utils";
 import { primaryTransition } from "../../motion";
-import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
 
 interface Props {
   project: Project;
@@ -11,8 +10,6 @@ interface Props {
 export const ProjectIndex = (props: Props) => {
   const { project } = props;
 
-  const { isSmallScreen } = useDetectScreenSize();
-
   return (
     <>
       <motion.div
@@ -20,31 +17,25 @@ export const ProjectIndex = (props: Props) => {
         transition={primaryTransition}
         className={`flex flex-col justify-between items-center w-20 h-full py-4`}
       >
-        <div className="h-1/2 w-full flex justify-center items-start">
+        <div className="h-3/5 w-full flex justify-center items-start">
           <span className="barText">
-            <h1 className={`font-light text-xl md:text-2xl`}>
-              {project.title}
-            </h1>
+            <h1 className={`${type.large}`}>{project.title}</h1>
           </span>
         </div>
 
         <div className={`w-full flex flex-col justify-between h-1/2 md:h-2/5`}>
-          <span className="barText">
-            <h2 className={isSmallScreen ? type.linkSm : type.link}>
-              {project.year}
-            </h2>
-          </span>
-
-          <span className="barText">
-            <div className="rotate-90 mb-5 flex justify-center items-center">
-              <h2 className={isSmallScreen ? type.linkSm : type.link}>
-                {project.id}
-              </h2>
+          <div className="h-3/4 flex justify-center">
+            <div className="barText">
+              <h2 className={`${type.smaller}`}>{project.year}</h2>
+              <h2 className={`${type.smaller}`}>{project.type}</h2>
             </div>
-            <h2 className={isSmallScreen ? type.linkSm : type.link}>
-              {project.type}
-            </h2>
-          </span>
+          </div>
+
+          <div className="h-1/4 flex justify-center items-end">
+            <div className="barText">
+              <h2 className={type.large}>{project.id}</h2>
+            </div>
+          </div>
         </div>
       </motion.div>
     </>

@@ -15,7 +15,7 @@ export const ContactMenu = (props: Props) => {
     <div className="w-full h-full flex flex-col items-end">
       <motion.button
         whileHover={moveLeftWhileHover}
-        className={`${type.link} mb-1 cursor-fancy`}
+        className={`${type.smaller} mb-1 cursor-fancy`}
         onClick={handleExpandContact}
       >
         Contact
@@ -33,19 +33,19 @@ export const ContactMenu = (props: Props) => {
             <ContactHyperLink
               linkPath={links.email}
               linkText="EMAIL"
-              linkStyle={`${type.link} mb-1 text-end pr-[20px] md:pr-[30px]`}
+              linkStyle={`${type.smaller} mb-1 text-end pr-[20px] md:pr-[30px]`}
               motionVariant={fadeX(10, 0.5)}
             />
             <ContactHyperLink
               linkPath={links.gitHub}
               linkText="GIBHUB"
-              linkStyle={`${type.link} mb-1 text-end pr-[40px] md:pr-[60px]`}
+              linkStyle={`${type.smaller} mb-1 text-end pr-[40px] md:pr-[60px]`}
               motionVariant={fadeX(10, 0.5)}
             />
             <ContactHyperLink
               linkPath={links.instagram}
               linkText="INSTAGRAM"
-              linkStyle={`${type.link} text-end pr-[60px] md:pr-[90px]`}
+              linkStyle={`${type.smaller} text-end pr-[60px] md:pr-[90px]`}
               motionVariant={fadeX(10, 0.5)}
             />
           </motion.div>

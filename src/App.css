@@ -13,6 +13,36 @@
   src: url("/fonts/TestFoundersGroteskMono-Light.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "NeueMontreal-Book";
+  src: url("/fonts/Sohne_Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMontreal-Medium";
+  src: url("/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMontreal-Medium";
+  src: url("/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMontreal-Light";
+  src: url("/fonts/PPNeueMontreal-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NeueMontreal-Thin";
+  src: url("/fonts/PPNeueMontreal-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Panama";
+  src: url("/fonts/PanamaRegular.otf") format("opentype");
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -21,9 +51,6 @@
 }
 
 .barText {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
@@ -51,10 +78,10 @@
   background: white;
 }
 
-body {
+/* body {
   cursor: url("Cursor.png"), auto;
 }
 
 .pointer {
   cursor: url("CursorPointer.png"), pointer;
-}
+} */

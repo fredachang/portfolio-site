@@ -50,14 +50,14 @@ export const NavMenu = (props: Props) => {
           <motion.button
             whileHover={moveLeftWhileHover}
             onClick={handleGoBackToHome}
-            className={`${type.link}`}
+            className={`${type.smaller}`}
           >
             Back to Index
           </motion.button>
         ) : (
           <motion.button
             whileHover={moveLeftWhileHover}
-            className={`${type.link} mb-1 cursor-fancy`}
+            className={`${type.smaller} mb-1 cursor-fancy`}
             onClick={handleExpandFilter}
           >
             {filtered ? "Show All" : "Filter By"}
@@ -79,7 +79,7 @@ export const NavMenu = (props: Props) => {
                     ? `Web Dev (${projectCount.web})`
                     : `Web Development (${projectCount.web})`
                 }
-                buttonStyle={`font-mono uppercase text-start text-xs pl-[20px] md:pl-[30px] mb-1`}
+                buttonStyle={`${type.smaller} text-start pl-[20px] md:pl-[30px] mb-1`}
                 motionVariant={fadeX(10, 0.5)}
                 onClickFunction={() =>
                   filterProjectsByType(projects, projectTypes.WebDev)
@@ -92,7 +92,7 @@ export const NavMenu = (props: Props) => {
                     : `Graphic Design (${projectCount.design})`
                 }
                 motionVariant={fadeX(10, 0.5)}
-                buttonStyle={`font-mono uppercase text-start text-xs pl-[40px] md:pl-[60px] mb-1`}
+                buttonStyle={`${type.smaller} text-start pl-[40px] md:pl-[60px] mb-1`}
                 onClickFunction={() =>
                   filterProjectsByType(projects, projectTypes.GraphicDesign)
                 }
@@ -103,7 +103,7 @@ export const NavMenu = (props: Props) => {
                     ? `3D (${projectCount.threeD})`
                     : `3D Design (${projectCount.threeD})`
                 }
-                buttonStyle={`font-mono uppercase text-start text-xs pl-[60px] md:pl-[90px] mb-1`}
+                buttonStyle={`${type.smaller} text-start pl-[60px] md:pl-[90px] mb-1`}
                 motionVariant={fadeX(10, 0.5)}
                 onClickFunction={() =>
                   filterProjectsByType(projects, projectTypes.threeD)

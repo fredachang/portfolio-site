@@ -35,7 +35,7 @@ export const ProjectPageText = (props: Props) => {
         animate="visible"
         variants={fade(0.5, 0.5, 0)}
       >
-        <div className={`${type.link} flex justify-between mt-4 md:mt-0 mb-6`}>
+        <div className={`${type.small} flex justify-between mt-4 md:mt-0 mb-6`}>
           <p>
             Project {selectedIndex + 1} / {filteredProjects.length}
           </p>
@@ -47,7 +47,7 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.1)}
-          className="font-light text-3xl mb-6 md:mb-0 md:text-6xl"
+          className={`${type.display} mb-6 md:mb-0`}
         >
           {selectedProject.title}
         </motion.p>
@@ -58,7 +58,7 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.2)}
-          className={`font-light text-sm leading-4 md:text-md md:leading-5.5 mb-${space.spacingMd}`}
+          className={`${type.paragraphLarge} mb-${space.spacingMd}`}
         >
           {selectedProject.description}
         </motion.p>
@@ -69,7 +69,9 @@ export const ProjectPageText = (props: Props) => {
           animate="visible"
           variants={fadeX(-10, 1.5)}
         >
-          <p className="text-xs mt-2 md:px-0 md:mt-0 mb-4 md:mb-0 md:text-xs font-mono leading-4 md:leading-4">{`Image[${
+          <p
+            className={`${type.paragraphLarge} mt-2 md:px-0 md:mt-0 mb-4 md:mb-0`}
+          >{`Image[${
             currentCarouselIndex + 1
           }/${imagesCount}]: ${currentImageText}`}</p>
         </motion.div>
