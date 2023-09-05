@@ -39,8 +39,8 @@
 }
 
 @font-face {
-  font-family: "Panama";
-  src: url("/fonts/PanamaRegular.otf") format("opentype");
+  font-family: "Tobias";
+  src: url("/fonts/Tobias-Light.otf") format("opentype");
 }
 
 .app-container {

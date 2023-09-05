@@ -37,12 +37,12 @@ export const Footer = (props: Props) => {
       <motion.div
         layout
         transition={primaryTransition}
-        className={`${gradientBackground} fixed bottom-0 w-full ${height} px-${space.spacingMd} border-t border-black pt-4 z-20`}
+        className={`${gradientBackground} flex items-end pb-4 fixed bottom-0 w-full ${height} px-${space.spacingMd} border-t border-black z-20`}
       >
         <motion.div
           layout="position"
           transition={primaryTransition}
-          className="flex justify-between items-start"
+          className="w-full flex justify-between items-end"
         >
           {!isSmallScreen && (
             <div className="w-1/3 h-full">
@@ -50,22 +50,13 @@ export const Footer = (props: Props) => {
             </div>
           )}
 
-          {!isSmallScreen && (
-            <div
-              className={`${type.smaller} w-1/3 h-full flex justify-center items-start text-center`}
-            >
-              Freda is a multidiscplinary designer and developer who thrives in
-              the intersection of design and technology. She is looking to
-              create impactful digital real estate that pushes the status quo of
-              how we experience & interact with the virtual world.
-            </div>
-          )}
-
-          {isSmallScreen && (
+          <div
+            className={`${type.smaller} w-1/3 h-full flex justify-center items-start text-center`}
+          >
             <button className={`${type.smaller}`} onClick={handleGoToAbout}>
               About
             </button>
-          )}
+          </div>
 
           <div className="flex flex-col justify-start items-end w-full md:w-1/3 h-full">
             <MotionHyperlink

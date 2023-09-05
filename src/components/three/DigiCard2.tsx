@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 
 export function DigiCard2(props: any) {
   const { nodes, materials } = useGLTF(
-    "/DigiCard2-transformed.glb"
+    "/models/DigiCard2-transformed.glb"
   ) as GLTFResult;
 
   const rotatingCard = useRef<THREE.Object3D>(null!);
@@ -84,4 +84,4 @@ export function DigiCard2(props: any) {
   );
 }
 
-useGLTF.preload("/DigiCard2-transformed.glb");
+useGLTF.preload("/models/DigiCard2-transformed.glb");
