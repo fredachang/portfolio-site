@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { links } from "../data";
 import { space, type } from "../tailwind-utils";
 import { MotionHyperlink } from "./buttons/MotionHyperLink";
-import { VerticalMarquee } from "./other/VerticalMarquee";
 import { primaryTransition } from "../motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
+import { TechCycler } from "./other/TechCycler";
 
 interface Props {
   bgHex: string;
@@ -46,7 +46,7 @@ export const Footer = (props: Props) => {
         >
           {!isSmallScreen && (
             <div className="w-1/3 h-full">
-              <VerticalMarquee />
+              <TechCycler />
             </div>
           )}
 

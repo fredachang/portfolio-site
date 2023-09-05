@@ -406,3 +406,18 @@ export const links = {
   resumeGeneral:
     "https://indd.adobe.com/view/bd8dbadb-d746-4b16-9437-ccd439a8a769",
 };
+
+export const techUsed = [
+  "React",
+  "TypeScript",
+  "HTML/CSS/JavaScript",
+  "Node",
+  "Express",
+  "Rest APIs",
+  "React Query",
+  "PostgresSQL",
+  "Three.js",
+  "Framer Motion",
+  "React-Spring",
+  "React-Use-Gesture",
+];

@@ -110,7 +110,7 @@ export const fadeUp = (distance: number, duration: number) => ({
 
 export const fadeDown = (distance: number, duration: number) => ({
   hidden: {
-    opacity: 1,
+    opacity: 0,
     y: distance,
   },
   visible: {
