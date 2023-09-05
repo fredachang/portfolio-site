@@ -58,29 +58,15 @@ export const LandingPageAlt = (props: Props) => {
   return (
     <>
       <div className="fixed top-0 bottom-0 w-screen h-screen flex justify-center z-50">
-        {/* <img
-          src={landingPageBgAlt}
-          className="w-screen h-screen object-cover absolute top-0"
-        /> */}
-
         <div className="w-full fixed h-full z-20 touch-none">
           <Canvas className="z-20">
             <Suspense fallback={null}>
               <Environment files="HDR/clear_land.hdr" blur={0.01} />
-              {/* <axesHelper args={[5]} /> */}
 
-              {/* <hemisphereLight
-                color={lightColours.mint}
-                groundColor={lightColours.mint}
-                intensity={1}
-                position={[0, 0, 0]}
-              /> */}
-
-              {/* <OrbitControls enableZoom={false} /> */}
               <Rig>
                 <Zipv2
                   staticScale={37}
-                  hoverScale={43}
+                  hoverScale={40}
                   handleHideLanding={handleHideLanding}
                   initialPosition={[xPosition, yPosition, 0.5]}
                   thresholdX={thresholdX}
@@ -101,7 +87,7 @@ export const LandingPageAlt = (props: Props) => {
                 <Case
                   scale={isXlScreen ? 9.5 : 9}
                   position={[0, 0, -0.5]}
-                  textPosition={[0.6, 0.4, 0.01]}
+                  textPosition={[0, 0.3, 0.1]}
                 />
               </Rig>
             </Suspense>

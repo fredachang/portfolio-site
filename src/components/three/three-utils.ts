@@ -15,8 +15,8 @@ export const loaderStyles = {
   },
   data: {
     color: "black",
-    fontSize: "20px",
-    fontFamily: "Sohne-Regular",
+    fontSize: "16px",
+    fontFamily: "NeueMontreal-Medium",
   },
 };
 
