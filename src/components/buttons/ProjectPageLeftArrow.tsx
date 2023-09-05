@@ -19,7 +19,11 @@ export const ProjectPageLeftArrow = (props: Props) => {
           className="flex justify-center items-center w-full h-full"
           onClick={navgateToPrevious}
         >
-          <p className="rotate-180 text-4xl">&rsaquo;</p>
+          {/* <p className="rotate-180 text-4xl">&rsaquo;</p> */}
+          <img
+            className="cursor-fancy w-full object-contain"
+            src="/icons/starArrowBlackLeft.png"
+          />
         </motion.div>
       ) : (
         <div className="h-8"></div>

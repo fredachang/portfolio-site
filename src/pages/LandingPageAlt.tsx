@@ -6,6 +6,7 @@ import { Case } from "../components/three/Case";
 import { BobbyPin } from "../components/three/BobbyPin";
 import { Zipv2 } from "../components/three/Zipv2";
 import { useCalculateZipPosition } from "../hooks/useCalculateZipPosition";
+import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
 
 function Rig({ children }: { children: ReactNode }) {
   const ref = useRef<THREE.Group>(null);
@@ -66,6 +67,9 @@ export const LandingPageAlt = (props: Props) => {
   const { handleHideLanding } = props;
 
   const { xPosition, thresholdX } = useCalculateZipPosition();
+  const { isXlScreen } = useDetectScreenSize();
+
+  const yPosition = isXlScreen ? 3.15 : 3;
 
   return (
     <>
@@ -94,7 +98,7 @@ export const LandingPageAlt = (props: Props) => {
                   staticScale={37}
                   hoverScale={43}
                   handleHideLanding={handleHideLanding}
-                  initialPosition={[xPosition, 3, 0.5]}
+                  initialPosition={[xPosition, yPosition, 0.5]}
                   thresholdX={thresholdX}
                 />
                 <BobbyPin
@@ -103,7 +107,7 @@ export const LandingPageAlt = (props: Props) => {
                   rotation={[0, 0, Math.PI / 16]}
                 />
                 <Case
-                  scale={8.8}
+                  scale={isXlScreen ? 9.5 : 8.8}
                   position={[0, 0, -0.5]}
                   textPosition={[0.6, 0.4, 0.01]}
                 />
