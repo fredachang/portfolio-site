@@ -35,7 +35,9 @@ export const ProjectPageText = (props: Props) => {
         animate="visible"
         variants={fade(0.5, 0.5, 0)}
       >
-        <div className={`${type.small} flex justify-between mt-4 md:mt-0 mb-6`}>
+        <div
+          className={`font-book uppercase leading-nromal text-xxs md:text-xs flex justify-between mt-4 md:mt-0 mb-6`}
+        >
           <p>
             Project {selectedIndex + 1} / {filteredProjects.length}
           </p>
@@ -47,7 +49,7 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.1)}
-          className={`${type.display} mb-6 md:mb-3`}
+          className={`font-book tracking-wide uppercase text-4xl md:text-6xl mb-6 md:mb-3`}
         >
           {selectedProject.title}
         </motion.p>
@@ -55,7 +57,7 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.1)}
-          className={`w-full font-serif text-2xl mb-6 md:mb-0`}
+          className={`w-full font-serif text-xl md:text-2xl mb-6 md:mb-0`}
         >
           {selectedProject.shortDescription}
         </motion.p>
@@ -66,7 +68,7 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.2)}
-          className={`${type.paragraphLarge} mb-${space.spacingMd}`}
+          className={`font-serif leading-normal text-xs md:text-base mb-${space.spacingMd}`}
         >
           {selectedProject.description}
         </motion.p>

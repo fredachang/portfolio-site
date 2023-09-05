@@ -44,25 +44,23 @@ export const Footer = (props: Props) => {
           transition={primaryTransition}
           className="w-full flex justify-between items-end"
         >
-          {!isSmallScreen && (
-            <div className="w-1/3 h-full">
-              <TechCycler />
-            </div>
-          )}
+          <div className="w-1/3 h-full">
+            <TechCycler />
+          </div>
 
           <div
-            className={`${type.smaller} w-1/3 h-full flex justify-center items-start text-center`}
+            className={`${type.smaller} w-1/3 h-full flex justify-center items-start text-center cursor-pointer`}
           >
             <button className={`${type.smaller}`} onClick={handleGoToAbout}>
               About
             </button>
           </div>
 
-          <div className="flex flex-col justify-start items-end w-full md:w-1/3 h-full">
+          <div className="flex flex-col justify-start items-end w-1/3 md:w-1/3 h-full">
             <MotionHyperlink
               linkPath={links.resumeGeneral}
               linkText="CV - General"
-              linkStyle={`${type.smaller} max-w-max flex items-center cursor-fancy`}
+              linkStyle={`${type.smaller} max-w-max flex items-center cursor-pointer`}
             />
           </div>
         </motion.div>

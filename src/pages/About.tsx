@@ -1,4 +1,4 @@
-import { space, type } from "../tailwind-utils";
+import { space } from "../tailwind-utils";
 import { motion } from "framer-motion";
 import { fade } from "../motion";
 import { DigiCard2 } from "../components/three/DigiCard2";
@@ -42,7 +42,7 @@ export const About = (props: Props) => {
   return (
     <>
       <motion.div
-        className={`bg-[${bgHex}] flex flex-col justify-between w-full h-75%`}
+        className={`bg-[${bgHex}] flex flex-col justify-between w-full h-75% overflow-scroll md:overflow-hidden`}
       >
         <div
           className={`p-${space.spacingMd} w-screen h-full flex flex-col md:flex-row`}
@@ -51,7 +51,7 @@ export const About = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={fade(1, 0.5, 0)}
-            className={`flex ${type.paragraphXl} w-full h-1/2 md:w-1/2 md:h-full`}
+            className={`flex font-serif leading-normal text-xl md:text-2xl w-full h-max md:w-1/2 md:h-full`}
           >
             Freda is a multidiscplinary designer and developer who thrives in
             the intersection of design and technology. Bringing analytical
@@ -59,14 +59,14 @@ export const About = (props: Props) => {
             looking to create impactful digital real estate that pushes the
             status quo of how we experience & interact with the virtual world.{" "}
           </motion.div>
-          <div className="w-full h-1/2 md:w-1/2 h-full">
-            <Canvas className="z-20 touch-none">
+          <div className="w-full h-[500px] md:w-1/2 h-full">
+            <Canvas className="touch-none">
               <Environment files="HDR/clear_land.hdr" blur={0.01} />
-              <OrbitControls />
+              <OrbitControls enableZoom={false} />
 
               <Rig>
                 <DigiCard2
-                  scale={isSmallScreen ? 130 : 100}
+                  scale={isSmallScreen ? 150 : 100}
                   position={[0, 0, 0]}
                 />
               </Rig>

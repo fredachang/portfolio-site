@@ -82,7 +82,7 @@ export const ProjectPage = (props: Props) => {
         className={`bg-[${bgHex}] flex flex-col md:flex-row w-full h-72% md:h-6/8 py-2 md:px-2 md:py-4 overflow-scroll md:overflow-hidden`}
       >
         {isSmallScreen && (
-          <div className="flex justify-between w-full h-8">
+          <div className="flex justify-between w-full h-8 my-2 px-1.5">
             <div className="w-10 h-full">
               <ProjectPageLeftArrow
                 selectedIndex={selectedIndex}
@@ -114,7 +114,7 @@ export const ProjectPage = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={fadeRightWithDelay}
-            className="w-full h-3/5 md:w-3/5 md:h-full overflow-hidden z-20"
+            className="w-full h-3/5 md:w-3/5 md:h-full overflow-hidden"
           >
             <Carousel
               key={selectedProject.title}

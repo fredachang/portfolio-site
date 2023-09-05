@@ -17,8 +17,10 @@ export const space = {
 
 export const type = {
   display: "font-book tracking-wide uppercase text-6xl",
+  displayMobile: "font-book tracking-wide uppercase text-3xl",
   larger: "font-medium tracking-wider uppercase text-2xl",
   large: "font-book tracking-wider uppercase text-2xl",
+  largeMobile: "font-book tracking-wider uppercase text-xl",
   small: "font-book uppercase leading-nromal text-xs",
   smallThin: "font-thin uppercase leading-4 text-xs",
   smaller: "font-book uppercase text-xxs",

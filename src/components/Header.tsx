@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { primaryTransition } from "../motion";
 import { NavMarquee } from "./other/NavMarquee";
 import { useDetectScreenSize } from "../hooks/useDetectScreenSize";
-import { type } from "../tailwind-utils";
 
 interface Props {
   BgHex: string;
@@ -97,7 +96,9 @@ export const Header = (props: Props) => {
 
           <div className="w-1/3 h-full">
             <Link to="/" onClick={handleShowHome}>
-              <div className={`${type.larger} cursor-fancy text-center`}>
+              <div
+                className={`font-medium tracking-wider uppercase text-xl md:text-2xl cursor-pointer text-center`}
+              >
                 {screenWidth > 1000 ? "Freda Chang" : "Freda"}
               </div>
             </Link>
