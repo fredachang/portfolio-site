@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { ProjectText } from "./ProjectText";
-import { Link } from "react-router-dom";
 import { Project } from "../../types";
 import { useNavigateCarousel } from "../../hooks/useNavigateIndex";
-import { fadeRightWithDelay, scaleUp } from "../../motion";
+import { fadeRightWithDelay } from "../../motion";
 import { Carousel } from "../other/Carousel";
 import { space } from "../../tailwind-utils";
 import { useDetectScreenSize } from "../../hooks/useDetectScreenSize";
+import { MoreButton } from "../buttons/MoreButton";
 
 interface Props {
   HighlightHex: string;
@@ -30,14 +30,9 @@ export const ProjectOverview = (props: Props) => {
       className={`w-full md:w-11/12 h-full flex flex-col items-start md:flex-row md:h-full pr-4 md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
     >
       {isMobile && (
-        <Link
-          to={`/project/${project.title}`}
-          className="w-full flex justify-end mb-4"
-        >
-          <motion.div whileHover={scaleUp} className="w-12">
-            <img className="w-full" src="/starThick.png" />
-          </motion.div>
-        </Link>
+        <div className="w-full mb-1">
+          <MoreButton project={project} />{" "}
+        </div>
       )}
 
       <motion.div

@@ -13,11 +13,22 @@ export const MoreButton = (props: Props) => {
   return (
     <Link to={`/project/${project.title}`} className="flex justify-end">
       <motion.div
-        whileHover={{ scale: 1.2 }}
-        transition={hoverTransition}
+        animate={{
+          scale: [1, 1.2, 1.2, 1, 1],
+          rotate: [0, 0, 180, 180, 0],
+        }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          times: [0, 0.5, 0.8, 1.2, 1],
+          repeat: 1,
+          repeatType: "reverse",
+        }}
         className="w-12"
       >
-        <img className="w-full" src="/starThin.png" />
+        <motion.div whileHover={{ scale: 1.3 }} transition={hoverTransition}>
+          <img className="w-full" src="/starThin.png" />
+        </motion.div>
       </motion.div>
     </Link>
   );
