@@ -30,7 +30,7 @@ export const ProjectOverview = (props: Props) => {
       className={`w-full md:w-11/12 h-full flex flex-col items-start md:flex-row md:h-full pr-4 md:px-0 py-${space.spacingMd} md:py-${space.spacingLg}`}
     >
       {isMobile && (
-        <div className="w-full mb-1">
+        <div className="w-full mb-1.5">
           <MoreButton project={project} />{" "}
         </div>
       )}

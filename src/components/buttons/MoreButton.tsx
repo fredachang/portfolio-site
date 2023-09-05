@@ -24,7 +24,7 @@ export const MoreButton = (props: Props) => {
           repeat: 1,
           repeatType: "reverse",
         }}
-        className="w-12"
+        className="w-9 md:w-12"
       >
         <motion.div whileHover={{ scale: 1.3 }} transition={hoverTransition}>
           <img className="w-full" src="/starThin.png" />
