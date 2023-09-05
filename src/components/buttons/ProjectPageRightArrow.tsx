@@ -20,11 +20,11 @@ export const ProjectPageRightArrow = (props: Props) => {
           animate="visible"
           variants={fadeX(-20, 1)}
           onClick={navigateToNext}
-          className="w-full h-full flex justify-center items-center"
+          className="cursor-pointer w-full h-full flex justify-center items-center"
         >
           {/* <p className="text-4xl">&rsaquo;</p> */}
           <img
-            className="cursor-fancy w-full object-contain"
+            className="w-full object-contain"
             src="/icons/starArrowBlackRight.png"
           />
         </motion.div>

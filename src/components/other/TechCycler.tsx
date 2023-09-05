@@ -26,7 +26,7 @@ export const TechCycler = () => {
       animate="visible"
       variants={fadeDown(3, 1.5)}
     >
-      <p className={`${type.small}`}>{techUsed[currentTechIndex]}</p>
+      <p className={`${type.smaller}`}>{techUsed[currentTechIndex]}</p>
     </motion.div>
   );
 };

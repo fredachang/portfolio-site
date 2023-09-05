@@ -51,7 +51,7 @@ export const About = (props: Props) => {
             initial="hidden"
             animate="visible"
             variants={fade(1, 0.5, 0)}
-            className={`flex ${type.paragraphLarge} w-full h-1/2 md:w-1/2 md:h-full`}
+            className={`flex ${type.paragraphXl} w-full h-1/2 md:w-1/2 md:h-full`}
           >
             Freda is a multidiscplinary designer and developer who thrives in
             the intersection of design and technology. Bringing analytical

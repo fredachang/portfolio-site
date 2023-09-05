@@ -47,9 +47,17 @@ export const ProjectPageText = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fade(0.5, 0.5, 0.1)}
-          className={`${type.display} mb-6 md:mb-0`}
+          className={`${type.display} mb-6 md:mb-3`}
         >
           {selectedProject.title}
+        </motion.p>
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={fade(0.5, 0.5, 0.1)}
+          className={`w-full font-serif text-2xl mb-6 md:mb-0`}
+        >
+          {selectedProject.shortDescription}
         </motion.p>
       </motion.div>
 
@@ -70,7 +78,7 @@ export const ProjectPageText = (props: Props) => {
           variants={fadeX(-10, 1.5)}
         >
           <p
-            className={`${type.paragraphLarge} mt-2 md:px-0 md:mt-0 mb-4 md:mb-0`}
+            className={`${type.small} mt-2 md:px-0 md:mt-0 mb-4 md:mb-0`}
           >{`Image[${
             currentCarouselIndex + 1
           }/${imagesCount}]: ${currentImageText}`}</p>

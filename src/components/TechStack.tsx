@@ -9,7 +9,7 @@ export const TechStack = (props: Props) => {
   const { description } = props;
   return (
     <div
-      className={`${type.smaller} bg-stone-100 rounded-md max-w-max flex justify-center items-center p-1`}
+      className={`${type.smaller} max-w-max flex justify-center items-center p-1`}
     >
       {description}
     </div>

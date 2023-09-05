@@ -31,6 +31,22 @@ export const ProjectText = (props: Props) => {
           {isMobile ? project.shortDescription : project.description}
         </p>
 
+        {!isMobile && (
+          <div className="flex">
+            {project.links.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.path}
+                whileHover={moveRightWhileHover}
+                target="_blank"
+                className={`${type.smaller} cursor-fancy flex items-center h-5 mr-4`}
+              >
+                {link.text}
+              </motion.a>
+            ))}
+          </div>
+        )}
+
         <div className="w-60 mb-2">
           <Marquee speed={8}>
             {project.techStack.map((techStack, i) => (
@@ -43,22 +59,6 @@ export const ProjectText = (props: Props) => {
             ))}
           </Marquee>
         </div>
-
-        {!isMobile && (
-          <div>
-            {project.links.map((link, i) => (
-              <motion.a
-                key={i}
-                href={link.path}
-                whileHover={moveRightWhileHover}
-                target="_blank"
-                className={`${type.smaller} cursor-fancy flex items-center h-6 mr-4`}
-              >
-                {link.text}
-              </motion.a>
-            ))}
-          </div>
-        )}
       </div>
     </motion.div>
   );

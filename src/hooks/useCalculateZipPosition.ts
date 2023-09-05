@@ -25,8 +25,8 @@ export const useCalculateZipPosition = () => {
       return { xPosition, thresholdX };
     }
     if (isLargeScreen) {
-      const xPosition = -5;
-      const thresholdX = 5;
+      const xPosition = -6;
+      const thresholdX = 6;
       return { xPosition, thresholdX };
     }
     if (includesZip) {

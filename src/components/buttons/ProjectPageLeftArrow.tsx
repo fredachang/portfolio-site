@@ -16,12 +16,12 @@ export const ProjectPageLeftArrow = (props: Props) => {
           initial="hidden"
           animate="visible"
           variants={fadeX(20, 1)}
-          className="flex justify-center items-center w-full h-full"
+          className="cursor-pointer flex justify-center items-center w-full h-full"
           onClick={navgateToPrevious}
         >
           {/* <p className="rotate-180 text-4xl">&rsaquo;</p> */}
           <img
-            className="cursor-fancy w-full object-contain"
+            className="w-full object-contain"
             src="/icons/starArrowBlackLeft.png"
           />
         </motion.div>
