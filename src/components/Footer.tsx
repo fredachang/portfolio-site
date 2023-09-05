@@ -59,7 +59,7 @@ export const Footer = (props: Props) => {
           <div className="flex flex-col justify-start items-end w-1/3 md:w-1/3 h-full">
             <MotionHyperlink
               linkPath={links.resumeGeneral}
-              linkText="CV - General"
+              linkText="CV"
               linkStyle={`${type.smaller} max-w-max flex items-center cursor-pointer`}
             />
           </div>
