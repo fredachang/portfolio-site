@@ -3,11 +3,11 @@ import { fadeX } from "../../motion";
 
 interface Props {
   selectedIndex: number;
-  navigateToPreviousProject: () => void;
+  navgateToPrevious: () => void;
 }
 
 export const ProjectPageLeftArrow = (props: Props) => {
-  const { selectedIndex, navigateToPreviousProject } = props;
+  const { selectedIndex, navgateToPrevious } = props;
 
   return (
     <>
@@ -17,7 +17,7 @@ export const ProjectPageLeftArrow = (props: Props) => {
           animate="visible"
           variants={fadeX(20, 1)}
           className="flex justify-center items-center w-full h-full"
-          onClick={navigateToPreviousProject}
+          onClick={navgateToPrevious}
         >
           <p className="rotate-180 text-4xl">&rsaquo;</p>
         </motion.div>

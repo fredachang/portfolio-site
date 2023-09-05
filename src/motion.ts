@@ -133,6 +133,15 @@ export const primaryTransition = {
   stiffness: 60,
 };
 
+export const hoverTransition = {
+  // duration: 0.2,
+  ease: "easeInOut",
+  type: "linear",
+  bounce: 0.05,
+  damping: 10,
+  stiffness: 20,
+};
+
 export const headerTransition = {
   duration: 2,
   ease: "easeInOut",

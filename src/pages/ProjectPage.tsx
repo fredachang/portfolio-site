@@ -86,7 +86,7 @@ export const ProjectPage = (props: Props) => {
             <div className="w-10 h-full">
               <ProjectPageLeftArrow
                 selectedIndex={selectedIndex}
-                navigateToPreviousProject={navigateToPreviousProject}
+                navgateToPrevious={navigateToPreviousProject}
               />
             </div>
 
@@ -94,7 +94,7 @@ export const ProjectPage = (props: Props) => {
               <ProjectPageRightArrow
                 projectsCount={projectsCount}
                 selectedIndex={selectedIndex}
-                navigateToNextProject={navigateToNextProject}
+                navigateToNext={navigateToNextProject}
               />
             </div>
           </div>
@@ -104,7 +104,7 @@ export const ProjectPage = (props: Props) => {
           <div className="w-10 h-full md:w-12 cursor-fancy z-10">
             <ProjectPageLeftArrow
               selectedIndex={selectedIndex}
-              navigateToPreviousProject={navigateToPreviousProject}
+              navgateToPrevious={navigateToPreviousProject}
             />
           </div>
         )}
@@ -142,7 +142,7 @@ export const ProjectPage = (props: Props) => {
             <ProjectPageRightArrow
               projectsCount={projectsCount}
               selectedIndex={selectedIndex}
-              navigateToNextProject={navigateToNextProject}
+              navigateToNext={navigateToNextProject}
             />
           </div>
         )}

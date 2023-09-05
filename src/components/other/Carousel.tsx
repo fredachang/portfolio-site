@@ -1,7 +1,7 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { fade } from "../../motion";
 import { Image } from "../../types";
+import { CarouselArrows } from "../buttons/CarouselArrows";
 
 interface Props {
   images: Image[];
@@ -18,9 +18,6 @@ export const Carousel = (props: Props) => {
   useEffect(() => {
     setCurrentImages(images);
   }, [images]);
-
-  const arrowContainer =
-    "flex absolute bottom-0 pt-2 w-full h-20 z-10 text-stone-400 text-4xl";
 
   return (
     <>
@@ -54,47 +51,12 @@ export const Carousel = (props: Props) => {
         </motion.div>
 
         {images.length > 1 && (
-          <div className={arrowContainer}>
-            <AnimatePresence>
-              {currentIndex > 0 && (
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={fade(0.8, 0.3, 0)}
-                  onClick={handleGoToPrevious}
-                  className="absolute flex items-center left-0 pl-2 w-24 h-24 cursor-pointer"
-                >
-                  <div className="w-7 md:w-8 -rotate-180">
-                    <img
-                      className="cursor-fancy w-full object-contain"
-                      src="/arrowSharp.png"
-                    />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-              {currentIndex < images.length - 1 && (
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={fade(0.8, 0.3, 0)}
-                  onClick={handleGoToNext}
-                  className="absolute flex items-center justify-end right-0 w-24 h-24 pr-2 cursor-pointer"
-                >
-                  <div className="w-7 md:w-8">
-                    <img
-                      className="cursor-fancy w-full object-contain"
-                      src="/arrowSharp.png"
-                    />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <CarouselArrows
+            currentIndex={currentIndex}
+            handleGoToPrevious={handleGoToPrevious}
+            handleGoToNext={handleGoToNext}
+            images={images}
+          />
         )}
       </div>
     </>

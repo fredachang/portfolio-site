@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { type } from "../../tailwind-utils";
 import { techUsed } from "../../data";
 import { motion } from "framer-motion";
-import { fade, fadeDown } from "../../motion";
+import { fadeDown } from "../../motion";
 
 export const TechCycler = () => {
   const [currentTechIndex, setCurrentTechIndex] = useState(0);

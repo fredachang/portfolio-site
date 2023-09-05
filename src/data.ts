@@ -420,4 +420,6 @@ export const techUsed = [
   "Framer Motion",
   "React-Spring",
   "React-Use-Gesture",
+  "Adobe Creative Suite",
+  "Blender 3D",
 ];
