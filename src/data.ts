@@ -404,7 +404,7 @@ export const links = {
   linkedIn: "https://www.linkedin.com/in/fredachang",
   resumeDev: "https://indd.adobe.com/view/28f59754-5111-4e5c-aaca-9b3919559867",
   resumeGeneral:
-    "https://indd.adobe.com/view/bd8dbadb-d746-4b16-9437-ccd439a8a769",
+    "https://indd.adobe.com/view/1f39583e-86b5-41ed-8916-fe7a159ec619",
 };
 
 export const techUsed = [
